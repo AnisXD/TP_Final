@@ -67,10 +67,44 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador\AdministrarCelulares.aspx" />
+    <Content Include="Administrador\AdministrarVendedor.aspx" />
+    <Content Include="Administrador\InicioAdministrador.aspx" />
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
+    <Content Include="Inicio.aspx" />
+    <Content Include="Vendedor\InicioVendedor.aspx" />
+    <Content Include="Vendedor\Venta.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador\AdministrarCelulares.aspx.cs">
+      <DependentUpon>AdministrarCelulares.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\AdministrarCelulares.aspx.designer.cs">
+      <DependentUpon>AdministrarCelulares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\AdministrarVendedor.aspx.cs">
+      <DependentUpon>AdministrarVendedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\AdministrarVendedor.aspx.designer.cs">
+      <DependentUpon>AdministrarVendedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Administrador\InicioAdministrador.aspx.cs">
+      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador\InicioAdministrador.aspx.designer.cs">
+      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio.aspx.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio.aspx.designer.cs">
+      <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PaginaMaestra.Master.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
@@ -78,6 +112,20 @@
     </Compile>
     <Compile Include="PaginaMaestra.Master.designer.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedor\InicioVendedor.aspx.cs">
+      <DependentUpon>InicioVendedor.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendedor\InicioVendedor.aspx.designer.cs">
+      <DependentUpon>InicioVendedor.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vendedor\Venta.aspx.cs">
+      <DependentUpon>Venta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vendedor\Venta.aspx.designer.cs">
+      <DependentUpon>Venta.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -89,6 +137,19 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Usuario\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CapaOperaciones\CapaNegocio.csproj">
+      <Project>{202c6994-064c-4d08-9163-ae71d85bd800}</Project>
+      <Name>CapaNegocio</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\ENTIDADES\ENTIDADES.csproj">
+      <Project>{0b985903-c207-40ad-8f74-24a31317c3b2}</Project>
+      <Name>ENTIDADES</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

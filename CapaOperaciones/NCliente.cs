@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CapaOperaciones
 {
-    public class Class1
+    class NCliente
     {
     }
 }

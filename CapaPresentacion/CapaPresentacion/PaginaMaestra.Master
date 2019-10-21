@@ -10,15 +10,61 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <form id="form1" runat="server">
+    <div>
+        <div id="Cabecera">
+           
+            <div id="ContenidoCabecera">
+
+                <div id="Logo">
+                    <h1 id="MoviCenter"> MC</h1>
+                </div>
+
+                <div  id="Titulo">
+                    <h1>MoviCenter</h1>
+                    <h3>Celulares al mejor precio</h3>
+                    <h3 dir="ltr">Encuentre las mejores ofertas</h3>
+                </div>
                 
-            </asp:ContentPlaceHolder>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
-            
-             </asp:ContentPlaceHolder>
+                <div  id="BarraHorizontal">
+                    <ul>
+                        <li> <a href="/Inicio.aspx">Inicio</a></li>
+                        <li> <a href=" direccion pagina a redireccionar">Celulares</a></li>
+                        <li> <a href="direccion pagina a redireccionarx">Contacto</a></li>
+                        <li> <a href="direccion pagina a redireccionar">LogIn</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
         </div>
+        <div id="Bajo">
+            <div  id="ColumnaIz">
+                <asp:ContentPlaceHolder id="ContenidoColIz" runat="server">
+        
+                 </asp:ContentPlaceHolder>
+            </div>
+            <div  id="ColumnaPpal">
+                <asp:ContentPlaceHolder id="ContenidoColPpal" runat="server">
+        
+                 </asp:ContentPlaceHolder>
+            </div>
+            <div id="ColumnaDer">
+                <asp:ContentPlaceHolder id="ContenidoColDer" runat="server">
+        
+                </asp:ContentPlaceHolder>
+            </div>
+            <div id="Pie">
+                
+                    <p>
+                        &nbsp;Abierto de lunes a sabados de 8 a 20hs&nbsp; -&nbsp; Telefono: 0800-949-0153</p>
+                    <p>
+                        &nbsp;Direccion: Av. Centenario 1483 - San Isidro - Buenos Aires - Argentina</p>
+        
+            </div>
+        </div>
+        
+    </div>
     </form>
 </body>
 </html>
