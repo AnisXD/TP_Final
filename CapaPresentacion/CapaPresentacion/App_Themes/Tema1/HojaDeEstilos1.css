@@ -13,14 +13,15 @@ body {
 }
 
 #Cabecera {
-    height: 210px;
+    height: 120px;
     width: 960px;
     background-color: #ffffff;
     color: #0094ff;
-    border: 1px dashed #09ecb2;
+    border: 2px solid #19009b;
+    border-radius: 0px 0px 10px 10px;
     z-index: 2;
     margin: auto;
-    box-shadow: 0px 0px 10px rgba(1, 59, 44, 0.85);
+    box-shadow: 0px 0px 10px #19009b;
 }
 
 #ContenidoCabecera {
@@ -47,14 +48,14 @@ body {
         padding: 5px;
         cursor: pointer;
         border: 1px outset #19009b;
-        background: linear-gradient(#0094ff,#19009b);
-        opacity: 0.8;
+        background: #0075b2;
+        opacity: 0;
         cursor: pointer;
-        box-shadow: 0px 0px 10px inset #4800ff;
+        box-shadow: 0px 0px 10px inset #0075b2;
     }
 
     #BarraHorizontal > li:hover {
-        opacity: 1;
+        opacity: 0,1;
     }
 
     #BarraHorizontal > li:active {
@@ -126,8 +127,8 @@ body {
     #MenuContextual > li {
         padding: 10px;
         text-align: center;
-        border: 1px outset #1dd1a3;
-        background: linear-gradient(#0094ff,#00ffff);
+        border: 1px outset #19009b;
+        background: linear-gradient(#0094ff,#0075b2);
         opacity: 0.8;
         cursor: pointer;
         box-shadow: 0px 15px 15px inset #000000;
@@ -163,7 +164,7 @@ body {
     #ColumnaPpal > h1 {
         margin: 10px 15px;
         text-align: center;
-        background: linear-gradient(#0094ff,#00ffff);
+        background: linear-gradient(#0094ff,#19009b);
         color: #ffffff;
     }
 
@@ -187,7 +188,7 @@ body {
     margin: auto;
     width: 80%;
     max-width: 500px;
-    background: linear-gradient(#0094ff,#00ffff);
+    background: linear-gradient(#0094ff,#19009b);
     padding: 30px;
     border: 2px solid rgba(0,0,0,0.2);
 }
@@ -215,7 +216,7 @@ body {
     padding: 10px;
     width: 100%;
     font-size: 20px;
-    background: linear-gradient(#19009b,#000000);
+    background: linear-gradient(#00c3ff,#000000);
     border: 0;
     color: #ffffff;
     opacity: 0.8;
@@ -238,14 +239,14 @@ body {
     background-color: #ffffff;
     box-shadow: 0px 0px 5px #000000 inset;
     text-align: left;
-    color: #024130;
+    color: #19009b;
 }
 
     #Productos > img{
         box-shadow: 0px 0px 15px #000000;
         position: center;
         height: 100px;
-        border: 5px solid #09ecb2;
+        border: 5px solid #0094ff;
         image-rendering: optimizeSpeed;
         margin: 5px 5px 5px 5px;
     }

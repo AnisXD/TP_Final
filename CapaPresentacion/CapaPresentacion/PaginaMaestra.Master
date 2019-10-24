@@ -15,22 +15,20 @@
       <div id="Cabecera">
            
         <div id="ContenidoCabecera">
-          
+                
+            <div  id="BarraHorizontal">
+              <asp:ContentPlaceHolder id="ContenidoBarraHorizontal" runat="server">
+               
+              </asp:ContentPlaceHolder>
+            </div>
+
             <div id="Logo">
                <h1 id="MoviCenter"> MC</h1>
             </div>
 
             <div  id="Titulo">
                <h1>MoviCenter</h1>
-               <h3>Celulares al mejor precio</h3>
-               <h3 dir="ltr">Encuentre las mejores ofertas</h3>
             </div>
-                
-            <div  id="BarraHorizontal">
-              <asp:ContentPlaceHolder id="ContenidoBarraHorizontal" runat="server">
-                <%-- Aca van los enlaces a laa otras paginas --%>
-              </asp:ContentPlaceHolder>
-             </div>
 
          </div>
         </div>
@@ -38,17 +36,17 @@
         <div id="Bajo">
          <div  id="ColumnaIz">
            <asp:ContentPlaceHolder id="ContenidoColIz" runat="server">
-            <%-- aqui va el menu abml de las clases --%>
+           
            </asp:ContentPlaceHolder>
          </div>
          <div  id="ColumnaPpal">
            <asp:ContentPlaceHolder id="ContenidoColPpal" runat="server">
-        <%-- aqui va el contenido principal de la pagina --%>
+        
            </asp:ContentPlaceHolder>
          </div>
          <div id="ColumnaDer">
            <asp:ContentPlaceHolder id="ContenidoColDer" runat="server">
-        <%-- aqui van loa datos del usuario que esta logueado --%>
+        
            </asp:ContentPlaceHolder>
          </div> 
          
@@ -57,7 +55,7 @@
             <p>&nbsp;Abierto de lunes a sabados de 8 a 20hs&nbsp; -&nbsp; Telefono: 0800-949-0153</p>
             <p> &nbsp;Direccion: Av. Centenario 1483 - San Isidro - Buenos Aires - Argentina</p>
         
-         </div> <%-- cierre del pie --%>
+         </div>
         </div>
     </div>
     </form>

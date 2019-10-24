@@ -1,0 +1,33 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="PaginaMaestraCliente.master.cs" Inherits="CapaPresentacion.Cliente.PaginaMaestraCliente" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>/Cliente</title>
+    <asp:ContentPlaceHolder id="HeadCliente" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
+    <li> <a href="/InicioCliente.aspx">Inicio</a></li>
+    <li> <a href="direccion pagina a redireccionar">Celulares</a></li>
+    <li> <a href="direccion pagina a redireccionar">Mi Perfil</a></li>
+    <li> <a href="direccion pagina a redireccionar">Mis Compras</a></li>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColIz" runat="server">
+    <asp:ContentPlaceHolder id="ContenidoColIzCliente" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColPpal" runat="server">
+    <asp:ContentPlaceHolder id="ContenidoColPpalCliente" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
+    <asp:ContentPlaceHolder id="ContenidoColDerCliente" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>

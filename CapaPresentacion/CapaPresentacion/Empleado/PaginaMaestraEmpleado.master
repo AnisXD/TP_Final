@@ -1,0 +1,37 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/PaginaMaestra.Master" AutoEventWireup="true" CodeBehind="PaginaMaestraEmpleado.master.cs" Inherits="CapaPresentacion.Empleado.PaginaMaestraEmpleado" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <title>-Empleados</title>
+    <asp:ContentPlaceHolder ID="HeadEmpleado" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
+ <ul>
+    <li> <a href="/InicioEmpleado.aspx">Inicio</a></li>
+    <li> <a href="direccion pagina a redireccionar">Celulares</a></li>
+    <li> <a href="direccion pagina a redireccionar">Clientes</a></li>
+    <li> <a href="direccion pagina a redireccionar">Marca</a></li>
+    <li> <a href="direccion pagina a redireccionar">Proveedor</a></li>
+    <li> <a href="direccion pagina a redireccionar">Ventas</a></li>
+ </ul>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColIz" runat="server">
+    <asp:ContentPlaceHolder ID="ContenidoColIzEmpleado" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColPpal" runat="server">
+    <asp:ContentPlaceHolder ID="ContenidoColPpalEmpleado" runat="server">
+      
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
+    <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">
+
+    </asp:ContentPlaceHolder>
+</asp:Content>

@@ -7,9 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Usuario {
+namespace CapaPresentacion.Cliente {
     
     
-    public partial class PaginaMaesra_anidada {
+    public partial class InicioCliente {
     }
 }

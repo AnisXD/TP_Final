@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CapaPresentacion.Usuario
 {
-    public partial class PaginaMaesra_anidada : System.Web.UI.MasterPage
+    public partial class PaginaMaestraUsuarios : System.Web.UI.MasterPage
     {
         protected void Page_Load(object sender, EventArgs e)
         {
