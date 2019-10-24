@@ -46,11 +46,11 @@ body {
         display: inline-block;
         padding: 5px;
         cursor: pointer;
-        border: 1px outset #1dd1a3;
-        background: linear-gradient(#0075b2,#4800ff);
+        border: 1px outset #19009b;
+        background: linear-gradient(#0094ff,#19009b);
         opacity: 0.8;
         cursor: pointer;
-        box-shadow: 0px 0px 10px inset #19009b;
+        box-shadow: 0px 0px 10px inset #4800ff;
     }
 
     #BarraHorizontal > li:hover {

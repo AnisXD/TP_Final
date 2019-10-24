@@ -7,18 +7,9 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion {
+namespace CapaPresentacion.Usuario {
     
     
-    public partial class Inicio {
-        
-        /// <summary>
-        /// Control TblCelulares.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Table TblCelulares;
+    public partial class InicioUsuario {
     }
 }

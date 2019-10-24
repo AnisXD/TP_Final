@@ -67,44 +67,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Administrador\AdministrarCelulares.aspx" />
-    <Content Include="Administrador\AdministrarVendedor.aspx" />
-    <Content Include="Administrador\InicioAdministrador.aspx" />
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
-    <Content Include="Inicio.aspx" />
-    <Content Include="Vendedor\InicioVendedor.aspx" />
-    <Content Include="Vendedor\Venta.aspx" />
+    <Content Include="Usuario\InicioUsuario.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrador\AdministrarCelulares.aspx.cs">
-      <DependentUpon>AdministrarCelulares.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\AdministrarCelulares.aspx.designer.cs">
-      <DependentUpon>AdministrarCelulares.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\AdministrarVendedor.aspx.cs">
-      <DependentUpon>AdministrarVendedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\AdministrarVendedor.aspx.designer.cs">
-      <DependentUpon>AdministrarVendedor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\InicioAdministrador.aspx.cs">
-      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\InicioAdministrador.aspx.designer.cs">
-      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Inicio.aspx.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Inicio.aspx.designer.cs">
-      <DependentUpon>Inicio.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PaginaMaestra.Master.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
@@ -113,24 +80,25 @@
     <Compile Include="PaginaMaestra.Master.designer.cs">
       <DependentUpon>PaginaMaestra.Master</DependentUpon>
     </Compile>
-    <Compile Include="Vendedor\InicioVendedor.aspx.cs">
-      <DependentUpon>InicioVendedor.aspx</DependentUpon>
+    <Compile Include="Usuario\InicioUsuario.aspx.cs">
+      <DependentUpon>InicioUsuario.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vendedor\InicioVendedor.aspx.designer.cs">
-      <DependentUpon>InicioVendedor.aspx</DependentUpon>
+    <Compile Include="Usuario\InicioUsuario.aspx.designer.cs">
+      <DependentUpon>InicioUsuario.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Vendedor\Venta.aspx.cs">
-      <DependentUpon>Venta.aspx</DependentUpon>
+    <Compile Include="Usuario\PaginaMaesraUsuario anidada.master.cs">
+      <DependentUpon>PaginaMaesraUsuario anidada.master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Vendedor\Venta.aspx.designer.cs">
-      <DependentUpon>Venta.aspx</DependentUpon>
+    <Compile Include="Usuario\PaginaMaesraUsuario anidada.master.designer.cs">
+      <DependentUpon>PaginaMaesraUsuario anidada.master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="PaginaMaestra.Master" />
+    <Content Include="Usuario\PaginaMaesraUsuario anidada.master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -139,7 +107,8 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Usuario\" />
+    <Folder Include="Cliente\" />
+    <Folder Include="Empleado\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\CapaOperaciones\CapaNegocio.csproj">
