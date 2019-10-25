@@ -13,15 +13,16 @@ body {
 }
 
 #Cabecera {
-    height: 120px;
+    height: 100px;
     width: 960px;
-    background-color: #ffffff;
-    color: #0094ff;
-    border: 2px solid #19009b;
+    background: linear-gradient(#ffffff, #00c3ff, #00f5fc);
+    color: #ffffff;
+    text-shadow: #001a9b;
+    border: 1px solid #19009b;
     border-radius: 0px 0px 10px 10px;
     z-index: 2;
     margin: auto;
-    box-shadow: 0px 0px 10px #19009b;
+    box-shadow: 0px 0px 10px #002d9b inset;
 }
 
 #ContenidoCabecera {
@@ -37,46 +38,50 @@ body {
     text-align: center;
 }
 
-    #BarraHorizontal > ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+li {
+    display: inline-block;
+    padding: 5px;
+    cursor: pointer;
+    border: 1px outset #030d62;
+    background: linear-gradient(#00c3ff,#0075b2);
+    border-radius:5px;
+    box-shadow: 0px 0px 2px inset #373737;
+    opacity: 0,9;
+}
+
+    li:hover {
+        opacity: 1;
     }
 
-    #BarraHorizontal li {
-        display: inline-block;
-        padding: 5px;
-        cursor: pointer;
-        border: 1px outset #19009b;
-        background: #0075b2;
-        opacity: 0;
-        cursor: pointer;
-        box-shadow: 0px 0px 10px inset #0075b2;
-    }
-
-    #BarraHorizontal > li:hover {
-        opacity: 0,1;
-    }
-
-    #BarraHorizontal > li:active {
+    li:active {
         transform: scale(0.9);
     }
 
-    #BarraHorizontal li > a {
+    li > a {
         display: block;
         color: #ffffff;
         text-decoration: none;
-        box-shadow: 0px 0px 10px inset #ffffff;
+        box-shadow: 0px 0px 5px inset #1ca0e4;
         font-weight: bold;
         font-size: 20px;
     }
 
 #Logo {
-    width: 20%;
+    width: 10%;
     float: left;
     text-align: center;
     margin-top: 10px;
     margin-bottom: 10px;
+    border: double #00229b;
+    border-radius: 30px;
+    box-shadow: 0px 0px 10px #002d9b inset;
 }
 
     #Logo > img {
@@ -127,8 +132,8 @@ body {
     #MenuContextual > li {
         padding: 10px;
         text-align: center;
-        border: 1px outset #19009b;
-        background: linear-gradient(#0094ff,#0075b2);
+        border: 1px outset #1dd1a3;
+        background: linear-gradient(#0094ff,#6daef9);
         opacity: 0.8;
         cursor: pointer;
         box-shadow: 0px 15px 15px inset #000000;
@@ -164,7 +169,7 @@ body {
     #ColumnaPpal > h1 {
         margin: 10px 15px;
         text-align: center;
-        background: linear-gradient(#0094ff,#19009b);
+        background: linear-gradient(#0094ff,#00ffff);
         color: #ffffff;
     }
 
@@ -188,9 +193,9 @@ body {
     margin: auto;
     width: 80%;
     max-width: 500px;
-    background: linear-gradient(#0094ff,#19009b);
+    background: linear-gradient(#0094ff,#00ffff);
     padding: 30px;
-    border: 2px solid rgba(0,0,0,0.2);
+    border: 2px solid #19009b;
 }
 
     .Form > h2 {
@@ -216,7 +221,7 @@ body {
     padding: 10px;
     width: 100%;
     font-size: 20px;
-    background: linear-gradient(#00c3ff,#000000);
+    background: linear-gradient(#00c3ff,#0075b2);
     border: 0;
     color: #ffffff;
     opacity: 0.8;
@@ -239,14 +244,14 @@ body {
     background-color: #ffffff;
     box-shadow: 0px 0px 5px #000000 inset;
     text-align: left;
-    color: #19009b;
+    color: #ffffff;
 }
 
     #Productos > img{
         box-shadow: 0px 0px 15px #000000;
         position: center;
         height: 100px;
-        border: 5px solid #0094ff;
+        border: 5px solid #09ecb2;
         image-rendering: optimizeSpeed;
         margin: 5px 5px 5px 5px;
     }
@@ -262,6 +267,6 @@ body {
 }
 
 .rule {
-    border-top: 1px solid #373737;
+    border-top: 1px solid #000000;
     margin: 10px 0px;
 }

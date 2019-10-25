@@ -13,5 +13,10 @@ namespace CapaPresentacion.Usuario
         {
 
         }
+
+        protected void btnIngresar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

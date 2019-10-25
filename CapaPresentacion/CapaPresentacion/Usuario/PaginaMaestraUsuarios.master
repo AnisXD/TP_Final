@@ -6,11 +6,11 @@
     </asp:ContentPlaceHolder>
 </asp:Content>
 <asp:Content id="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
-    <ul>
-    <li> <a href="~/Usuario/InicioUsuario.aspx">Inicio</a></li>
-    <li> <a href="~/Usuario/LogIn.aspx">LogIn</a></li>
-    <li> <a href="~/Usuario/RegistrarUsuario.aspx">Registrarse</a></li>
-    <li> <a href="~/Usuario/EditarUsuario.aspx">CambiarClave</a></li>
+    <ul> 
+    <li> <a href="InicioUsuario.aspx">Inicio</a></li>
+    <li> <a href="LogIn.aspx">LogIn</a></li>
+    <li> <a href="RegistrarUsuario.aspx">Registrarse</a></li>
+    <li> <a href="EditarUsuario.aspx">CambiarClave</a></li>
  </ul>
 </asp:Content>
 
@@ -21,7 +21,7 @@
 </asp:Content>
 
 <asp:Content id="Content4" ContentPlaceHolderID="ContenidoColPpal" runat="server">
-    <h1> Administrar Usuario</h1>
+    <h1>Usuario</h1>
      <asp:ContentPlaceHolder ID="ContenidoColPpalUsuarios" runat="server">
         
     </asp:ContentPlaceHolder>

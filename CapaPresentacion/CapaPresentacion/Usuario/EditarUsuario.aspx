@@ -10,11 +10,11 @@
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalUsuarios" runat="server">
     <div id="FormEditarUsuario" class="Form">
-        <h2>Editar Datos del Usuario</h2>
+        <h2>Cambiar Clave de Usuario</h2>
         <asp:Label ID="lblUsuario" runat="server" text="&#128100; Bienvenido Usuario"></asp:Label>
         &nbsp;
         <br />
-        a continuacion podra editar sus datos y establecer una nueva clave:<br />
+        a continuacion podra establecer una nueva clave:<br />
         &nbsp;
         <asp:TextBox ID="txtClaveActual" runat="server" placeholder="&#128273;Clave Actual" MaxLength="8" CssClass="ControlesASP" TextMode="Password"></asp:TextBox>
         <asp:TextBox ID="txtClaveNueva" runat="server" placeholder="&#128273;Clave Nueva" MaxLength="8" CssClass="ControlesASP" TextMode="Password"></asp:TextBox>
