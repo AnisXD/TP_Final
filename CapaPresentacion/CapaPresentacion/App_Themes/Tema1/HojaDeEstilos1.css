@@ -1,5 +1,5 @@
 ﻿* {
-    margin: 0;
+    margin: 0 0 0 0px;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
@@ -9,7 +9,7 @@
 body {
     background: #ffffff;
     display: flex;
-    min-height: 100vh;
+    min-height: 1000vh;
 }
 
 #Cabecera {
@@ -115,12 +115,19 @@ li {
     box-shadow: 0px 0px 10px rgba(1, 59, 44, 0.85);
 }
 
-#ColumnaIz, #ColumnaDer {
+#ColumnaIz {
     float: left;
-    width: 20%;
+    width: 10%;
     min-height: 1000px;
     height: inherit;
     background-color: #00a8ff;
+}
+#ColumnaDer{
+float: left;
+width: 10%;
+min-height: 1000px;
+height: inherit;
+background-color: #00a8ff;
 }
 
 #MenuContextual {

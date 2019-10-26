@@ -69,7 +69,10 @@
   <ItemGroup>
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
     <Content Include="Cliente\InicioCliente.aspx" />
+    <Content Include="Empleado\Celulares.aspx" />
+    <Content Include="Empleado\Clientes.aspx" />
     <Content Include="Empleado\InicioEmpleado.aspx" />
+    <Content Include="Empleado\Proveedores.aspx" />
     <Content Include="Usuario\EditarUsuario.aspx" />
     <Content Include="Usuario\InicioUsuario.aspx" />
     <Content Include="Usuario\LogIn.aspx" />
@@ -91,6 +94,20 @@
     <Compile Include="Cliente\PaginaMaestraCliente.master.designer.cs">
       <DependentUpon>PaginaMaestraCliente.master</DependentUpon>
     </Compile>
+    <Compile Include="Empleado\Celulares.aspx.cs">
+      <DependentUpon>Celulares.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Celulares.aspx.designer.cs">
+      <DependentUpon>Celulares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empleado\InicioEmpleado.aspx.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -104,6 +121,13 @@
     </Compile>
     <Compile Include="Empleado\PaginaMaestraEmpleado.master.designer.cs">
       <DependentUpon>PaginaMaestraEmpleado.master</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PaginaMaestra.Master.cs">
