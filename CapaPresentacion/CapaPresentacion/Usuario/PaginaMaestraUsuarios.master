@@ -10,7 +10,7 @@
     <li> <a href="InicioUsuario.aspx">Inicio</a></li>
     <li> <a href="LogIn.aspx">LogIn</a></li>
     <li> <a href="RegistrarUsuario.aspx">Registrarse</a></li>
-    <li> <a href="EditarUsuario.aspx">CambiarClave</a></li>
+   
  </ul>
 </asp:Content>
 

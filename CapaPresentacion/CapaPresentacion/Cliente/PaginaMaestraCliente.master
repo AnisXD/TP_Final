@@ -27,6 +27,7 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
+     <li> <a href="EditarUsuario.aspx">CambiarClave</a></li>
     <asp:ContentPlaceHolder id="ContenidoColDerCliente" runat="server">
 
     </asp:ContentPlaceHolder>
