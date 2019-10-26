@@ -22,6 +22,7 @@
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="bttnQuitarF" runat="server" Text="Quitar filtro" />
     <br />
+    <br />
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_CLIENTE" DataSourceID="SqlDataSource1" InsertItemPosition="LastItem">
         <AlternatingItemTemplate>
             <tr style="background-color:#FFF8DC;">
