@@ -70,6 +70,7 @@
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
     <Content Include="Cliente\Carrito.aspx" />
     <Content Include="Cliente\InicioCliente.aspx" />
+    <Content Include="Cliente\MisCompras.aspx" />
     <Content Include="Cliente\ModificaciondatosCliente.aspx" />
     <Content Include="Cliente\VerPerfilCli.aspx" />
     <Content Include="Empleado\Celulares.aspx" />
@@ -99,6 +100,13 @@
     </Compile>
     <Compile Include="Cliente\InicioCliente.aspx.designer.cs">
       <DependentUpon>InicioCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\MisCompras.aspx.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\MisCompras.aspx.designer.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\PaginaMaestraCliente.master.cs">
       <DependentUpon>PaginaMaestraCliente.master</DependentUpon>
