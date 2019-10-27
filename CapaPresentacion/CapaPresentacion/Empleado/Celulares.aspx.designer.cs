@@ -148,15 +148,6 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.Button bttnQuitarFiltro;
         
         /// <summary>
-        /// Control bttnComprar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnComprar;
-        
-        /// <summary>
         /// Control ListView1.
         /// </summary>
         /// <remarks>

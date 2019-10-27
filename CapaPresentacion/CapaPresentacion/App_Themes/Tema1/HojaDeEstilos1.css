@@ -115,19 +115,12 @@ li {
     box-shadow: 0px 0px 10px rgba(1, 59, 44, 0.85);
 }
 
-#ColumnaIz {
+#ColumnaIz, #ColumnaDer {
     float: left;
-    width: 10%;
+    width: 20%;
     min-height: 1000px;
     height: inherit;
     background-color: #00a8ff;
-}
-#ColumnaDer{
-float: left;
-width: 10%;
-min-height: 1000px;
-height: inherit;
-background-color: #00a8ff;
 }
 
 #MenuContextual {

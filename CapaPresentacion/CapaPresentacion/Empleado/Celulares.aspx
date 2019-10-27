@@ -30,12 +30,13 @@
         <asp:TextBox ID="TextBox4" runat="server" Height="19px"></asp:TextBox>
     </asp:Panel>
     <br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 &nbsp;&nbsp;
 <asp:Button ID="bttnFiltrar" runat="server" Text="Filtrar" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:Button ID="bttnQuitarFiltro" runat="server" Text="Quitar Filtro" Height="25px" OnClick="bttnQuitarFiltro_Click" />
+<asp:Button ID="bttnQuitarFiltro" runat="server" Text="Quitar Filtro" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-    <asp:Button ID="bttnComprar" runat="server" Text="Comprar" />
+    <br />
     <br />
     <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" GroupItemCount="3" InsertItemPosition="LastItem">
         <AlternatingItemTemplate>
@@ -47,6 +48,9 @@
                 <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
                 <br />PRECIO_UNITARIO_CEL:
                 <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
+                <br />
+                IMAGEN_CEL:
+                <asp:Label ID="IMAGEN_CELLabel" runat="server" Text='<%# Eval("IMAGEN_CEL") %>' />
                 <br />
                 <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Eval("ESTADO_CEL") %>' Enabled="false" Text="ESTADO_CEL" />
                 <br />
@@ -62,6 +66,9 @@
                 <asp:TextBox ID="DESCRIPCION_CELTextBox" runat="server" Text='<%# Bind("DESCRIPCION_CEL") %>' />
                 <br />PRECIO_UNITARIO_CEL:
                 <asp:TextBox ID="PRECIO_UNITARIO_CELTextBox" runat="server" Text='<%# Bind("PRECIO_UNITARIO_CEL") %>' />
+                <br />
+                IMAGEN_CEL:
+                <asp:TextBox ID="IMAGEN_CELTextBox" runat="server" Text='<%# Bind("IMAGEN_CEL") %>' />
                 <br />
                 <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Bind("ESTADO_CEL") %>' Text="ESTADO_CEL" />
                 <br />
@@ -95,6 +102,9 @@
                 <br />PRECIO_UNITARIO_CEL:
                 <asp:TextBox ID="PRECIO_UNITARIO_CELTextBox" runat="server" Text='<%# Bind("PRECIO_UNITARIO_CEL") %>' />
                 <br />
+                IMAGEN_CEL:
+                <asp:TextBox ID="IMAGEN_CELTextBox" runat="server" Text='<%# Bind("IMAGEN_CEL") %>' />
+                <br />
                 <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Bind("ESTADO_CEL") %>' Text="ESTADO_CEL" />
                 <br />
                 <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
@@ -111,6 +121,9 @@
                 <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
                 <br />PRECIO_UNITARIO_CEL:
                 <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
+                <br />
+                IMAGEN_CEL:
+                <asp:Label ID="IMAGEN_CELLabel" runat="server" Text='<%# Eval("IMAGEN_CEL") %>' />
                 <br />
                 <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Eval("ESTADO_CEL") %>' Enabled="false" Text="ESTADO_CEL" />
                 <br />
@@ -148,13 +161,16 @@
                 <br />PRECIO_UNITARIO_CEL:
                 <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
                 <br />
+                IMAGEN_CEL:
+                <asp:Label ID="IMAGEN_CELLabel" runat="server" Text='<%# Eval("IMAGEN_CEL") %>' />
+                <br />
                 <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Eval("ESTADO_CEL") %>' Enabled="false" Text="ESTADO_CEL" />
                 <br />
                 <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
                 <br /></td>
         </SelectedItemTemplate>
     </asp:ListView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString4 %>" DeleteCommand="DELETE FROM [CELULARES] WHERE [ID_MODELO] = @ID_MODELO" InsertCommand="INSERT INTO [CELULARES] ([ID_MODELO], [ID_MARCA_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL], [ESTADO_CEL]) VALUES (@ID_MODELO, @ID_MARCA_CEL, @DESCRIPCION_CEL, @PRECIO_UNITARIO_CEL, @ESTADO_CEL)" SelectCommand="SELECT * FROM [CELULARES]" UpdateCommand="UPDATE [CELULARES] SET [ID_MARCA_CEL] = @ID_MARCA_CEL, [DESCRIPCION_CEL] = @DESCRIPCION_CEL, [PRECIO_UNITARIO_CEL] = @PRECIO_UNITARIO_CEL, [ESTADO_CEL] = @ESTADO_CEL WHERE [ID_MODELO] = @ID_MODELO">
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString5 %>" DeleteCommand="DELETE FROM [CELULARES] WHERE [ID_MODELO] = @ID_MODELO" InsertCommand="INSERT INTO [CELULARES] ([ID_MODELO], [ID_MARCA_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL], [IMAGEN_CEL], [ESTADO_CEL]) VALUES (@ID_MODELO, @ID_MARCA_CEL, @DESCRIPCION_CEL, @PRECIO_UNITARIO_CEL, @IMAGEN_CEL, @ESTADO_CEL)" SelectCommand="SELECT * FROM [CELULARES]" UpdateCommand="UPDATE [CELULARES] SET [ID_MARCA_CEL] = @ID_MARCA_CEL, [DESCRIPCION_CEL] = @DESCRIPCION_CEL, [PRECIO_UNITARIO_CEL] = @PRECIO_UNITARIO_CEL, [IMAGEN_CEL] = @IMAGEN_CEL, [ESTADO_CEL] = @ESTADO_CEL WHERE [ID_MODELO] = @ID_MODELO" ProviderName="System.Data.SqlClient">
     <DeleteParameters>
         <asp:Parameter Name="ID_MODELO" Type="String" />
     </DeleteParameters>
@@ -163,12 +179,14 @@
         <asp:Parameter Name="ID_MARCA_CEL" Type="String" />
         <asp:Parameter Name="DESCRIPCION_CEL" Type="String" />
         <asp:Parameter Name="PRECIO_UNITARIO_CEL" Type="Double" />
+        <asp:Parameter Name="IMAGEN_CEL" Type="String" />
         <asp:Parameter Name="ESTADO_CEL" Type="Boolean" />
     </InsertParameters>
     <UpdateParameters>
         <asp:Parameter Name="ID_MARCA_CEL" Type="String" />
         <asp:Parameter Name="DESCRIPCION_CEL" Type="String" />
         <asp:Parameter Name="PRECIO_UNITARIO_CEL" Type="Double" />
+        <asp:Parameter Name="IMAGEN_CEL" Type="String" />
         <asp:Parameter Name="ESTADO_CEL" Type="Boolean" />
         <asp:Parameter Name="ID_MODELO" Type="String" />
     </UpdateParameters>
