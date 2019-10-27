@@ -1,5 +1,5 @@
 ﻿* {
-    margin: 0;
+    margin: 0 0 0 0px;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
@@ -9,7 +9,7 @@
 body {
     background: #ffffff;
     display: flex;
-    min-height: 100vh;
+    min-height: 1000vh;
 }
 
 #Cabecera {

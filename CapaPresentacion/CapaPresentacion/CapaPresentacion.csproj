@@ -68,9 +68,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
+    <Content Include="Cliente\Carrito.aspx" />
     <Content Include="Cliente\InicioCliente.aspx" />
+    <Content Include="Cliente\MisCompras.aspx" />
+    <Content Include="Cliente\ModificaciondatosCliente.aspx" />
+    <Content Include="Cliente\VerPerfilCli.aspx" />
+    <Content Include="Empleado\Celulares.aspx" />
+    <Content Include="Empleado\Clientes.aspx" />
+    <Content Include="Empleado\DetallesVentas.aspx" />
     <Content Include="Empleado\InicioEmpleado.aspx" />
-    <Content Include="Empleado\Marca.aspx" />
+    <Content Include="Empleado\NuevaVenta.aspx" />
+    <Content Include="Empleado\Proveedores.aspx" />
+    <Content Include="Empleado\Ventas.aspx" />
     <Content Include="Usuario\EditarUsuario.aspx" />
     <Content Include="Usuario\InicioUsuario.aspx" />
     <Content Include="Usuario\LogIn.aspx" />
@@ -78,12 +87,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente\Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\InicioCliente.aspx.cs">
       <DependentUpon>InicioCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cliente\InicioCliente.aspx.designer.cs">
       <DependentUpon>InicioCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\MisCompras.aspx.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\MisCompras.aspx.designer.cs">
+      <DependentUpon>MisCompras.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\PaginaMaestraCliente.master.cs">
       <DependentUpon>PaginaMaestraCliente.master</DependentUpon>
@@ -92,6 +115,41 @@
     <Compile Include="Cliente\PaginaMaestraCliente.master.designer.cs">
       <DependentUpon>PaginaMaestraCliente.master</DependentUpon>
     </Compile>
+    <Compile Include="Cliente\ModificaciondatosCliente.aspx.cs">
+      <DependentUpon>ModificaciondatosCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\ModificaciondatosCliente.aspx.designer.cs">
+      <DependentUpon>ModificaciondatosCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\VerPerfilCli.aspx.cs">
+      <DependentUpon>VerPerfilCli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\VerPerfilCli.aspx.designer.cs">
+      <DependentUpon>VerPerfilCli.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Celulares.aspx.cs">
+      <DependentUpon>Celulares.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Celulares.aspx.designer.cs">
+      <DependentUpon>Celulares.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Clientes.aspx.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Clientes.aspx.designer.cs">
+      <DependentUpon>Clientes.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\DetallesVentas.aspx.cs">
+      <DependentUpon>DetallesVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\DetallesVentas.aspx.designer.cs">
+      <DependentUpon>DetallesVentas.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Empleado\InicioEmpleado.aspx.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,12 +157,12 @@
     <Compile Include="Empleado\InicioEmpleado.aspx.designer.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Empleado\Marca.aspx.cs">
-      <DependentUpon>Marca.aspx</DependentUpon>
+    <Compile Include="Empleado\NuevaVenta.aspx.cs">
+      <DependentUpon>NuevaVenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Empleado\Marca.aspx.designer.cs">
-      <DependentUpon>Marca.aspx</DependentUpon>
+    <Compile Include="Empleado\NuevaVenta.aspx.designer.cs">
+      <DependentUpon>NuevaVenta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleado\PaginaMaestraEmpleado.master.cs">
       <DependentUpon>PaginaMaestraEmpleado.master</DependentUpon>
@@ -112,6 +170,20 @@
     </Compile>
     <Compile Include="Empleado\PaginaMaestraEmpleado.master.designer.cs">
       <DependentUpon>PaginaMaestraEmpleado.master</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Proveedores.aspx.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Proveedores.aspx.designer.cs">
+      <DependentUpon>Proveedores.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Empleado\Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empleado\Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PaginaMaestra.Master.cs">
