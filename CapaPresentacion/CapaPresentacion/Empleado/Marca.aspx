@@ -8,11 +8,20 @@
 
     <div id="FormMarca" class="Form">
        
-        <asp:GridView ID="gdvMarcas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_MARCA" DataSourceID="Marcas" HorizontalAlign="Center">
+        <asp:GridView ID="gdvMarcas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_MARCA" DataSourceID="Marcas" HorizontalAlign="Center" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
             <Columns>
                 <asp:BoundField DataField="ID_MARCA" HeaderText="ID_MARCA" ReadOnly="True" SortExpression="ID_MARCA" />
                 <asp:BoundField DataField="NOMBRE_MARCA" HeaderText="NOMBRE_MARCA" SortExpression="NOMBRE_MARCA" />
             </Columns>
+            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" ForeColor="#003399" />
+            <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+            <SortedAscendingCellStyle BackColor="#EDF6F6" />
+            <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+            <SortedDescendingCellStyle BackColor="#D6DFDF" />
+            <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
         <asp:Label ID="lblTotalRegistros" runat="server" Text="Registros Encontrados: "></asp:Label>
         <asp:SqlDataSource ID="Marcas" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
