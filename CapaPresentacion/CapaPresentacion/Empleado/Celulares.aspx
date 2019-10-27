@@ -7,7 +7,7 @@
     <br />
     <asp:Label ID="lblFiltrarpor_cel" runat="server" Text="Filtrar por: "></asp:Label>
     <br />
-    <br />
+    &nbsp;<br />
     <asp:Label ID="lblMarca_cel" runat="server" Text="Marca: "></asp:Label>
     <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
     &nbsp;&nbsp;&nbsp;
