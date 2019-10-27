@@ -27,6 +27,12 @@
     <br />
     <asp:Label ID="lblImporte" runat="server" Text="Importe:"></asp:Label>
     <asp:TextBox ID="tbimporte" runat="server" ReadOnly="True"></asp:TextBox>
+    <br />
+    <br />
+    <asp:Button ID="bttnAgregarItem" runat="server" Text="Agregar item" />
+    <br />
+    <br />
+    <asp:Button ID="bttnFinalizarcompra" runat="server" Text="Finalizar compra" />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>
