@@ -138,7 +138,7 @@
         </SelectedItemTemplate>
     </asp:ListView>
     <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT * FROM [VENTAS]"></asp:SqlDataSource>
-    <br />
+    &nbsp;<br />
     <asp:ListView ID="ListView2" runat="server" DataKeyNames="ID_DV,ID_VTA_DV" DataSourceID="SqlDataSource2">
         <AlternatingItemTemplate>
             <li style="background-color: #FFF8DC;">ID_DV:
