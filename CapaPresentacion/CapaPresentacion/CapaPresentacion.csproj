@@ -68,7 +68,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
+    <Content Include="Cliente\Carrito.aspx" />
     <Content Include="Cliente\InicioCliente.aspx" />
+    <Content Include="Cliente\ModificaciondatosCliente.aspx" />
+    <Content Include="Cliente\VerPerfilCli.aspx" />
     <Content Include="Empleado\Celulares.aspx" />
     <Content Include="Empleado\Clientes.aspx" />
     <Content Include="Empleado\DetallesVentas.aspx" />
@@ -83,6 +86,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Cliente\Carrito.aspx.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\Carrito.aspx.designer.cs">
+      <DependentUpon>Carrito.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Cliente\InicioCliente.aspx.cs">
       <DependentUpon>InicioCliente.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -96,6 +106,20 @@
     </Compile>
     <Compile Include="Cliente\PaginaMaestraCliente.master.designer.cs">
       <DependentUpon>PaginaMaestraCliente.master</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\ModificaciondatosCliente.aspx.cs">
+      <DependentUpon>ModificaciondatosCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\ModificaciondatosCliente.aspx.designer.cs">
+      <DependentUpon>ModificaciondatosCliente.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cliente\VerPerfilCli.aspx.cs">
+      <DependentUpon>VerPerfilCli.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cliente\VerPerfilCli.aspx.designer.cs">
+      <DependentUpon>VerPerfilCli.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleado\Celulares.aspx.cs">
       <DependentUpon>Celulares.aspx</DependentUpon>

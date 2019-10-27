@@ -6,6 +6,10 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">
 
+    <p>
+        <br />
+    </p>
+
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalCliente" runat="server">
