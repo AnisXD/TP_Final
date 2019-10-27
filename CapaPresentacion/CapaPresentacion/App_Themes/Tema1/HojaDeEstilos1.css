@@ -216,6 +216,14 @@ li {
     font-size: 20px;
 }
 
+.ControlesASP2 {
+    display:inline-flex;
+    padding: 10px;
+    width: auto;
+    margin: 5px 0;
+    font-size: 20px;
+}
+
 .Boton {
     display: block;
     padding: 10px;
