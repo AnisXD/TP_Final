@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
+    <h1>Administracion Celulares</h1>
     <div id="FormCelulares" class="Form">
     <br />
     <asp:Label ID="lblFiltrarpor_cel" runat="server" Text="Filtrar por: "></asp:Label>
@@ -17,7 +18,7 @@
     &nbsp;&nbsp;
     <asp:Label ID="lblProv_cel" runat="server" Text="Proveedor:"></asp:Label>
     &nbsp;&nbsp;
-    <asp:TextBox ID="TextBox3" runat="server" Width="104px"></asp:TextBox>
+    <asp:TextBox ID="TextBox3" runat="server" Width="104px" CssClass="ControlesASP"></asp:TextBox>
     &nbsp;
     <br />
     <asp:Panel ID="Panel1" runat="server" Height="67px" Width="580px">
@@ -39,158 +40,105 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
     <br />
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" GroupItemCount="3" InsertItemPosition="LastItem" OnSelectedIndexChanged="ListView1_SelectedIndexChanged">
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ListView1_SelectedIndexChanged">
         <AlternatingItemTemplate>
-            <td runat="server" style="background-color:#FFF8DC;">ID_MODELO:
+            <td runat="server" style="background-color:#FFFFFF; color: #284775;">ID_MODELO:
                 <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
                 <br />ID_MARCA_CEL:
                 <asp:Label ID="ID_MARCA_CELLabel" runat="server" Text='<%# Eval("ID_MARCA_CEL") %>' />
+                <br />ID_PROVEEDOR_CEL:
+                <asp:Label ID="ID_PROVEEDOR_CELLabel" runat="server" Text='<%# Eval("ID_PROVEEDOR_CEL") %>' />
                 <br />DESCRIPCION_CEL:
                 <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
+                <br />
+                PRECIO_UNITARIO_CEL:
                 <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
                 <br />
-                IMAGEN_CEL:
-                <asp:Label ID="IMAGEN_CELLabel" runat="server" Text='<%# Eval("IMAGEN_CEL") %>' />
-                <br />
-                <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Eval("ESTADO_CEL") %>' Enabled="false" Text="ESTADO_CEL" />
-                <br />
-                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
-                <br /></td>
+                </td>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <td runat="server" style="background-color:#008A8C;color: #FFFFFF;">ID_MODELO:
+            <td runat="server" style="background-color:#999999;">ID_MODELO:
                 <asp:Label ID="ID_MODELOLabel1" runat="server" Text='<%# Eval("ID_MODELO") %>' />
                 <br />ID_MARCA_CEL:
                 <asp:TextBox ID="ID_MARCA_CELTextBox" runat="server" Text='<%# Bind("ID_MARCA_CEL") %>' />
+                <br />ID_PROVEEDOR_CEL:
+                <asp:TextBox ID="ID_PROVEEDOR_CELTextBox" runat="server" Text='<%# Bind("ID_PROVEEDOR_CEL") %>' />
                 <br />DESCRIPCION_CEL:
                 <asp:TextBox ID="DESCRIPCION_CELTextBox" runat="server" Text='<%# Bind("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
+                <br />
+                PRECIO_UNITARIO_CEL:
                 <asp:TextBox ID="PRECIO_UNITARIO_CELTextBox" runat="server" Text='<%# Bind("PRECIO_UNITARIO_CEL") %>' />
                 <br />
-                IMAGEN_CEL:
-                <asp:TextBox ID="IMAGEN_CELTextBox" runat="server" Text='<%# Bind("IMAGEN_CEL") %>' />
-                <br />
-                <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Bind("ESTADO_CEL") %>' Text="ESTADO_CEL" />
-                <br />
                 <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                <br />
                 <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                <br /></td>
+                </td>
         </EditItemTemplate>
         <EmptyDataTemplate>
-            <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+            <table style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
                 <tr>
                     <td>No se han devuelto datos.</td>
                 </tr>
             </table>
         </EmptyDataTemplate>
-        <EmptyItemTemplate>
-            <td runat="server" />
-                 </EmptyItemTemplate>
-                 <GroupTemplate>
-            <tr id="itemPlaceholderContainer" runat="server">
-                <td id="itemPlaceholder" runat="server"></td>
-            </tr>
-        </GroupTemplate>
         <InsertItemTemplate>
             <td runat="server" style="">ID_MODELO:
                 <asp:TextBox ID="ID_MODELOTextBox" runat="server" Text='<%# Bind("ID_MODELO") %>' />
                 <br />ID_MARCA_CEL:
                 <asp:TextBox ID="ID_MARCA_CELTextBox" runat="server" Text='<%# Bind("ID_MARCA_CEL") %>' />
+                <br />ID_PROVEEDOR_CEL:
+                <asp:TextBox ID="ID_PROVEEDOR_CELTextBox" runat="server" Text='<%# Bind("ID_PROVEEDOR_CEL") %>' />
                 <br />DESCRIPCION_CEL:
                 <asp:TextBox ID="DESCRIPCION_CELTextBox" runat="server" Text='<%# Bind("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
+                <br />
+                PRECIO_UNITARIO_CEL:
                 <asp:TextBox ID="PRECIO_UNITARIO_CELTextBox" runat="server" Text='<%# Bind("PRECIO_UNITARIO_CEL") %>' />
                 <br />
-                IMAGEN_CEL:
-                <asp:TextBox ID="IMAGEN_CELTextBox" runat="server" Text='<%# Bind("IMAGEN_CEL") %>' />
-                <br />
-                <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Bind("ESTADO_CEL") %>' Text="ESTADO_CEL" />
-                <br />
                 <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                <br />
                 <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                <br /></td>
+                </td>
         </InsertItemTemplate>
         <ItemTemplate>
-            <td runat="server" style="background-color:#DCDCDC;color: #000000;">ID_MODELO:
+            <td runat="server" style="background-color:#E0FFFF; color: #333333;">ID_MODELO:
                 <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
                 <br />ID_MARCA_CEL:
                 <asp:Label ID="ID_MARCA_CELLabel" runat="server" Text='<%# Eval("ID_MARCA_CEL") %>' />
+                <br />ID_PROVEEDOR_CEL:
+                <asp:Label ID="ID_PROVEEDOR_CELLabel" runat="server" Text='<%# Eval("ID_PROVEEDOR_CEL") %>' />
                 <br />DESCRIPCION_CEL:
                 <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
+                <br />
+                PRECIO_UNITARIO_CEL:
                 <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
                 <br />
-                IMAGEN_CEL:
-                <asp:Label ID="IMAGEN_CELLabel" runat="server" Text='<%# Eval("IMAGEN_CEL") %>' />
-                <br />
-                <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Eval("ESTADO_CEL") %>' Enabled="false" Text="ESTADO_CEL" />
-                <br />
-                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
-                <br /></td>
+                </td>
         </ItemTemplate>
         <LayoutTemplate>
-            <table runat="server">
-                <tr runat="server">
-                    <td runat="server">
-                        <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                            <tr id="groupPlaceholder" runat="server">
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr runat="server">
-                    <td runat="server" style="text-align: center;background-color: #CCCCCC;font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                            </Fields>
-                        </asp:DataPager>
+            <table runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                <tr runat="server" id="itemPlaceholderContainer">
+                    <td runat="server" id="itemPlaceholder">
                     </td>
                 </tr>
             </table>
+            <div style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
+            </div>
         </LayoutTemplate>
         <SelectedItemTemplate>
-            <td runat="server" style="background-color:#008A8C;font-weight: bold;color: #FFFFFF;">ID_MODELO:
+            <td runat="server" style="background-color:#E2DED6; font-weight: bold;color: #333333;">ID_MODELO:
                 <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
                 <br />ID_MARCA_CEL:
                 <asp:Label ID="ID_MARCA_CELLabel" runat="server" Text='<%# Eval("ID_MARCA_CEL") %>' />
+                <br />ID_PROVEEDOR_CEL:
+                <asp:Label ID="ID_PROVEEDOR_CELLabel" runat="server" Text='<%# Eval("ID_PROVEEDOR_CEL") %>' />
                 <br />DESCRIPCION_CEL:
                 <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
+                <br />
+                PRECIO_UNITARIO_CEL:
                 <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
                 <br />
-                IMAGEN_CEL:
-                <asp:Label ID="IMAGEN_CELLabel" runat="server" Text='<%# Eval("IMAGEN_CEL") %>' />
-                <br />
-                <asp:CheckBox ID="ESTADO_CELCheckBox" runat="server" Checked='<%# Eval("ESTADO_CEL") %>' Enabled="false" Text="ESTADO_CEL" />
-                <br />
-                <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
-                <br /></td>
+                </td>
         </SelectedItemTemplate>
     </asp:ListView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString5 %>" DeleteCommand="DELETE FROM [CELULARES] WHERE [ID_MODELO] = @ID_MODELO" InsertCommand="INSERT INTO [CELULARES] ([ID_MODELO], [ID_MARCA_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL], [IMAGEN_CEL], [ESTADO_CEL]) VALUES (@ID_MODELO, @ID_MARCA_CEL, @DESCRIPCION_CEL, @PRECIO_UNITARIO_CEL, @IMAGEN_CEL, @ESTADO_CEL)" SelectCommand="SELECT * FROM [CELULARES]" UpdateCommand="UPDATE [CELULARES] SET [ID_MARCA_CEL] = @ID_MARCA_CEL, [DESCRIPCION_CEL] = @DESCRIPCION_CEL, [PRECIO_UNITARIO_CEL] = @PRECIO_UNITARIO_CEL, [IMAGEN_CEL] = @IMAGEN_CEL, [ESTADO_CEL] = @ESTADO_CEL WHERE [ID_MODELO] = @ID_MODELO" ProviderName="System.Data.SqlClient">
-    <DeleteParameters>
-        <asp:Parameter Name="ID_MODELO" Type="String" />
-    </DeleteParameters>
-    <InsertParameters>
-        <asp:Parameter Name="ID_MODELO" Type="String" />
-        <asp:Parameter Name="ID_MARCA_CEL" Type="String" />
-        <asp:Parameter Name="DESCRIPCION_CEL" Type="String" />
-        <asp:Parameter Name="PRECIO_UNITARIO_CEL" Type="Double" />
-        <asp:Parameter Name="IMAGEN_CEL" Type="String" />
-        <asp:Parameter Name="ESTADO_CEL" Type="Boolean" />
-    </InsertParameters>
-    <UpdateParameters>
-        <asp:Parameter Name="ID_MARCA_CEL" Type="String" />
-        <asp:Parameter Name="DESCRIPCION_CEL" Type="String" />
-        <asp:Parameter Name="PRECIO_UNITARIO_CEL" Type="Double" />
-        <asp:Parameter Name="IMAGEN_CEL" Type="String" />
-        <asp:Parameter Name="ESTADO_CEL" Type="Boolean" />
-        <asp:Parameter Name="ID_MODELO" Type="String" />
-    </UpdateParameters>
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString5 %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL], [ID_PROVEEDOR_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL] FROM [CELULARES]">
 </asp:SqlDataSource>
         </div>
 </asp:Content>

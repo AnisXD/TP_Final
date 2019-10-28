@@ -4,7 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-    <br />
+    <h1>Administrar Proveedores</h1>
+<div id="FormProveedores" class="Form">
+    
     <asp:Label ID="lblFiltrarpor_prov" runat="server" Text="Filtra por:      "></asp:Label>
     <br />
     <br />
@@ -21,12 +23,9 @@
     <asp:Button ID="bttnFiltro" runat="server" Text="Filtrar" />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <asp:Button ID="bttnQuitarF" runat="server" Text="Quitar Filtro" />
-    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="ID_PROV" InsertItemPosition="LastItem">
+    <asp:ListView ID="ListView1" runat="server" DataSourceID="SqlDataSource1" DataKeyNames="ID_PROV">
         <AlternatingItemTemplate>
-            <tr style="background-color: #FFF8DC;">
-                <td>
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
-                </td>
+            <tr style="background-color: #FFFFFF;color: #284775;">
                 <td>
                     <asp:Label ID="ID_PROVLabel" runat="server" Text='<%# Eval("ID_PROV") %>' />
                 </td>
@@ -39,13 +38,10 @@
                 <td>
                     <asp:Label ID="TELEFONO_PROVLabel" runat="server" Text='<%# Eval("TELEFONO_PROV") %>' />
                 </td>
-                <td>
-                    <asp:CheckBox ID="ESTADO_PROVCheckBox" runat="server" Checked='<%# Eval("ESTADO_PROV") %>' Enabled="false" />
-                </td>
             </tr>
         </AlternatingItemTemplate>
         <EditItemTemplate>
-            <tr style="background-color: #008A8C; color: #FFFFFF;">
+            <tr style="background-color: #999999;">
                 <td>
                     <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
@@ -61,9 +57,6 @@
                 </td>
                 <td>
                     <asp:TextBox ID="TELEFONO_PROVTextBox" runat="server" Text='<%# Bind("TELEFONO_PROV") %>' />
-                </td>
-                <td>
-                    <asp:CheckBox ID="ESTADO_PROVCheckBox" runat="server" Checked='<%# Bind("ESTADO_PROV") %>' />
                 </td>
             </tr>
         </EditItemTemplate>
@@ -92,16 +85,10 @@
                 <td>
                     <asp:TextBox ID="TELEFONO_PROVTextBox" runat="server" Text='<%# Bind("TELEFONO_PROV") %>' />
                 </td>
-                <td>
-                    <asp:CheckBox ID="ESTADO_PROVCheckBox" runat="server" Checked='<%# Bind("ESTADO_PROV") %>' />
-                </td>
             </tr>
         </InsertItemTemplate>
         <ItemTemplate>
-            <tr style="background-color: #DCDCDC; color: #000000;">
-                <td>
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
-                </td>
+            <tr style="background-color: #E0FFFF;color: #333333;">
                 <td>
                     <asp:Label ID="ID_PROVLabel" runat="server" Text='<%# Eval("ID_PROV") %>' />
                 </td>
@@ -113,9 +100,6 @@
                 </td>
                 <td>
                     <asp:Label ID="TELEFONO_PROVLabel" runat="server" Text='<%# Eval("TELEFONO_PROV") %>' />
-                </td>
-                <td>
-                    <asp:CheckBox ID="ESTADO_PROVCheckBox" runat="server" Checked='<%# Eval("ESTADO_PROV") %>' Enabled="false" />
                 </td>
             </tr>
         </ItemTemplate>
@@ -124,13 +108,11 @@
                 <tr runat="server">
                     <td runat="server">
                         <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                            <tr runat="server" style="background-color: #DCDCDC; color: #000000;">
-                                <th runat="server"></th>
-                                <th runat="server">Proveedores</th>
-                                <th runat="server">Razon Social</th>
-                                <th runat="server">Direccion</th>
-                                <th runat="server">Telefono</th>
-                                <th runat="server">Estado</th>
+                            <tr runat="server" style="background-color: #E0FFFF;color: #333333;">
+                                <th runat="server">ID_PROV</th>
+                                <th runat="server">RAZON_SOCIAL_PROV</th>
+                                <th runat="server">DIRECCION_PROV</th>
+                                <th runat="server">TELEFONO_PROV</th>
                             </tr>
                             <tr id="itemPlaceholder" runat="server">
                             </tr>
@@ -138,21 +120,12 @@
                     </td>
                 </tr>
                 <tr runat="server">
-                    <td runat="server" style="text-align: center;background-color: #CCCCCC; font-family: Verdana, Arial, Helvetica, sans-serif;color: #000000;">
-                        <asp:DataPager ID="DataPager1" runat="server">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                            </Fields>
-                        </asp:DataPager>
-                    </td>
+                    <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF"></td>
                 </tr>
             </table>
         </LayoutTemplate>
         <SelectedItemTemplate>
-            <tr style="background-color: #008A8C; font-weight: bold;color: #FFFFFF;">
-                <td>
-                    <asp:Button ID="EditButton" runat="server" CommandName="Edit" Text="Editar" />
-                </td>
+            <tr style="background-color: #E2DED6;font-weight: bold;color: #333333;">
                 <td>
                     <asp:Label ID="ID_PROVLabel" runat="server" Text='<%# Eval("ID_PROV") %>' />
                 </td>
@@ -165,31 +138,28 @@
                 <td>
                     <asp:Label ID="TELEFONO_PROVLabel" runat="server" Text='<%# Eval("TELEFONO_PROV") %>' />
                 </td>
-                <td>
-                    <asp:CheckBox ID="ESTADO_PROVCheckBox" runat="server" Checked='<%# Eval("ESTADO_PROV") %>' Enabled="false" />
-                </td>
             </tr>
         </SelectedItemTemplate>
 </asp:ListView>
-<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" DeleteCommand="DELETE FROM [PROVEEDORES] WHERE [ID_PROV] = @ID_PROV" InsertCommand="INSERT INTO [PROVEEDORES] ([ID_PROV], [RAZON_SOCIAL_PROV], [DIRECCION_PROV], [TELEFONO_PROV], [ESTADO_PROV]) VALUES (@ID_PROV, @RAZON_SOCIAL_PROV, @DIRECCION_PROV, @TELEFONO_PROV, @ESTADO_PROV)" SelectCommand="SELECT * FROM [PROVEEDORES]" UpdateCommand="UPDATE [PROVEEDORES] SET [RAZON_SOCIAL_PROV] = @RAZON_SOCIAL_PROV, [DIRECCION_PROV] = @DIRECCION_PROV, [TELEFONO_PROV] = @TELEFONO_PROV, [ESTADO_PROV] = @ESTADO_PROV WHERE [ID_PROV] = @ID_PROV">
+<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" DeleteCommand="DELETE FROM [PROVEEDORES] WHERE [ID_PROV] = @ID_PROV" InsertCommand="INSERT INTO [PROVEEDORES] ([ID_PROV], [RAZON_SOCIAL_PROV], [DIRECCION_PROV], [TELEFONO_PROV]) VALUES (@ID_PROV, @RAZON_SOCIAL_PROV, @DIRECCION_PROV, @TELEFONO_PROV)" SelectCommand="SELECT [ID_PROV], [RAZON_SOCIAL_PROV], [DIRECCION_PROV], [TELEFONO_PROV] FROM [PROVEEDORES]" UpdateCommand="UPDATE [PROVEEDORES] SET [RAZON_SOCIAL_PROV] = @RAZON_SOCIAL_PROV, [DIRECCION_PROV] = @DIRECCION_PROV, [TELEFONO_PROV] = @TELEFONO_PROV WHERE [ID_PROV] = @ID_PROV">
     <DeleteParameters>
-        <asp:Parameter Name="Proveedor" Type="String" />
+        <asp:Parameter Name="ID_PROV" Type="String" />
     </DeleteParameters>
     <InsertParameters>
-        <asp:Parameter Name="Proveedor" Type="String" />
-        <asp:Parameter Name="Razon Social" Type="String" />
-        <asp:Parameter Name="Direccion" Type="String" />
-        <asp:Parameter Name="Telefono" Type="String" />
-        <asp:Parameter Name="Estado" Type="Boolean" />
+        <asp:Parameter Name="ID_PROV" Type="String" />
+        <asp:Parameter Name="RAZON_SOCIAL_PROV" Type="String" />
+        <asp:Parameter Name="DIRECCION_PROV" Type="String" />
+        <asp:Parameter Name="TELEFONO_PROV" Type="String" />
     </InsertParameters>
     <UpdateParameters>
         <asp:Parameter Name="RAZON_SOCIAL_PROV" Type="String" />
         <asp:Parameter Name="DIRECCION_PROV" Type="String" />
         <asp:Parameter Name="TELEFONO_PROV" Type="String" />
-        <asp:Parameter Name="ESTADO_PROV" Type="Boolean" />
         <asp:Parameter Name="ID_PROV" Type="String" />
     </UpdateParameters>
+
 </asp:SqlDataSource>
+      </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>

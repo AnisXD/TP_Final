@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cliente/PaginaMaestraCliente.master" AutoEventWireup="true" CodeBehind="ModificaciondatosCliente.aspx.cs" Inherits="CapaPresentacion.Cliente.PerfilCliente" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cliente/PaginaMaestraCliente.master" AutoEventWireup="true" CodeBehind="EditarPerfilCliente.aspx.cs" Inherits="CapaPresentacion.Cliente.PerfilCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCliente" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">

@@ -14,7 +14,7 @@ body {
 
 #Cabecera {
     height: 100px;
-    width: 960px;
+    width: 1080px;
     background: linear-gradient(#ffffff, #00c3ff, #00f5fc);
     color: #ffffff;
     text-shadow: #001a9b;
@@ -26,7 +26,7 @@ body {
 }
 
 #ContenidoCabecera {
-    width: 960px;
+    width: 1080px;
     margin: auto;
 }
 
@@ -105,7 +105,7 @@ li {
     }
 
 #Bajo {
-    width: 960px;
+    width: 1080px;
     margin: auto;
     background-color: #ffffff;
     border-radius: 0px 0px 20px 20px;
@@ -191,8 +191,8 @@ li {
 
 .Form {
     margin: auto;
-    width: 80%;
-    max-width: 500px;
+    width: 95%;
+    max-width: 1000px;
     background: linear-gradient(#0094ff,#00ffff);
     padding: 30px;
     border: 2px solid #19009b;
@@ -213,14 +213,6 @@ li {
     padding: 10px;
     width: 100%;
     margin: 20px 0;
-    font-size: 20px;
-}
-
-.ControlesASP2 {
-    display:inline-flex;
-    padding: 10px;
-    width: auto;
-    margin: 5px 0;
     font-size: 20px;
 }
 
@@ -247,9 +239,20 @@ li {
         transform: scale(0.95);
     }
 
-    .tabla{
+Form2{
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    grid-gap: 16px;
+}
 
-    }
+label{
+    grid-column: 1 / 2;
+}
+
+input, button{
+    grid-column: 2 / 3;
+
+}
 
 #Productos {
     margin: auto;

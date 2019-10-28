@@ -9,12 +9,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
  <ul>
-    <li> <a href="/InicioEmpleado.aspx">Inicio</a></li>
-    <li> <a href="direccion pagina a redireccionar">Celulares</a></li>
-    <li> <a href="direccion pagina a redireccionar">Clientes</a></li>
-    <li> <a href="direccion pagina a redireccionar">Marca</a></li>
-    <li> <a href="direccion pagina a redireccionar">Proveedor</a></li>
-    <li> <a href="direccion pagina a redireccionar">Ventas</a></li>
+    <li> <a href="./InicioEmpleado.aspx">Inicio</a></li>
+    <li> <a href="./Ventas.aspx">Ventas</a></li>
+    <li> <a href="./Celulares.aspx">Celulares</a></li>
+    <li> <a href="./Marca.aspx">Marca</a></li>
+    <li> <a href="./Proveedores.aspx">Proveedores</a></li>
+    <li> <a href="./Clientes.aspx">Clientes</a></li>
+    <li> <a href="./Empleados.aspx">Empleados</a></li>
+    <li> <a href="./CarritoEmpleado.aspx">Carrito</a></li>    
  </ul>
 </asp:Content>
 
@@ -32,6 +34,7 @@
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
      <li> <a href="../Usuario/EditarUsuario.aspx">CambiarClave</a></li>
+     <li> <a href="./PerfilEmpleado.aspx">Mi Perfil</a></li>
     <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">
 
     </asp:ContentPlaceHolder>
