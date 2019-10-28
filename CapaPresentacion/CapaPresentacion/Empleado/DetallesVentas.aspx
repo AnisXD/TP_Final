@@ -1,10 +1,19 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="DetallesVentas.aspx.cs" Inherits="CapaPresentacion.Empleado.DetallesVentas" %>
+
+<script runat="server">
+
+    protected void ListView1_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
+</script>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_VTA" DataSourceID="SqlDataSource1">
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_VTA" DataSourceID="SqlDataSource1" OnSelectedIndexChanged="ListView1_SelectedIndexChanged">
         <AlternatingItemTemplate>
             <li style="background-color: #FFF8DC;">Venta:
                 <asp:Label ID="ID_VTALabel" runat="server" Text='<%# Eval("ID_VTA") %>' />

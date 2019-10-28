@@ -4,6 +4,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
+    <div id="FormCelulares" class="Form">
     <br />
     <asp:Label ID="lblFiltrarpor_cel" runat="server" Text="Filtrar por: "></asp:Label>
     <br />
@@ -30,15 +31,15 @@
         <asp:TextBox ID="TextBox4" runat="server" Height="19px"></asp:TextBox>
     </asp:Panel>
     <br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-&nbsp;&nbsp;
-<asp:Button ID="bttnFiltrar" runat="server" Text="Filtrar" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-<asp:Button ID="bttnQuitarFiltro" runat="server" Text="Quitar Filtro" />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;
+        <asp:Button ID="bttnFiltrar" runat="server" Text="Filtrar" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <asp:Button ID="bttnQuitarFiltro" runat="server" Text="Quitar Filtro" />
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
     <br />
     <br />
-    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" GroupItemCount="3" InsertItemPosition="LastItem">
+    <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" GroupItemCount="3" InsertItemPosition="LastItem" OnSelectedIndexChanged="ListView1_SelectedIndexChanged">
         <AlternatingItemTemplate>
             <td runat="server" style="background-color:#FFF8DC;">ID_MODELO:
                 <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
@@ -85,9 +86,9 @@
             </table>
         </EmptyDataTemplate>
         <EmptyItemTemplate>
-<td runat="server" />
-        </EmptyItemTemplate>
-        <GroupTemplate>
+            <td runat="server" />
+                 </EmptyItemTemplate>
+                 <GroupTemplate>
             <tr id="itemPlaceholderContainer" runat="server">
                 <td id="itemPlaceholder" runat="server"></td>
             </tr>
@@ -191,6 +192,7 @@
         <asp:Parameter Name="ID_MODELO" Type="String" />
     </UpdateParameters>
 </asp:SqlDataSource>
+        </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>
