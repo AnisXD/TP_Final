@@ -7,135 +7,164 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Usuario {
-    
-    
-    public partial class InicioUsuario {
-        
+namespace CapaPresentacion.Empleado
+{
+
+
+    public partial class NuevaVenta
+    {
+
         /// <summary>
-        /// Control lblFiltrarpor.
+        /// Control Label1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFiltrarpor;
-        
+        protected global::System.Web.UI.WebControls.Label Label1;
+
         /// <summary>
-        /// Control lblMarca.
+        /// Control lblVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMarca;
-        
+        protected global::System.Web.UI.WebControls.Label lblVenta;
+
         /// <summary>
-        /// Control tbMarca.
+        /// Control tbVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbMarca;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbVenta;
+
         /// <summary>
-        /// Control lblModelo.
+        /// Control lblDNICliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModelo;
-        
+        protected global::System.Web.UI.WebControls.Label lblDNICliente;
+
         /// <summary>
-        /// Control tbModelo.
+        /// Control tbdnicliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbModelo;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbdnicliente;
+
         /// <summary>
-        /// Control Panel1.
+        /// Control lblLegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
+        protected global::System.Web.UI.WebControls.Label lblLegajo;
+
         /// <summary>
-        /// Control rbmayor.
+        /// Control tblegajo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbmayor;
-        
+        protected global::System.Web.UI.WebControls.TextBox tblegajo;
+
         /// <summary>
-        /// Control rbmenor.
+        /// Control lblFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbmenor;
-        
+        protected global::System.Web.UI.WebControls.Label lblFecha;
+
         /// <summary>
-        /// Control rbigual.
+        /// Control tbfecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbigual;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbfecha;
+
         /// <summary>
-        /// Control tbdesigualdades.
+        /// Control lblFormaPago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbdesigualdades;
-        
+        protected global::System.Web.UI.WebControls.Label lblFormaPago;
+
         /// <summary>
-        /// Control bttnFiltrar.
+        /// Control tbpago.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnFiltrar;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbpago;
+
         /// <summary>
-        /// Control bttnQuitarFiltro.
+        /// Control lblFormaEnvio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnQuitarFiltro;
-        
+        protected global::System.Web.UI.WebControls.Label lblFormaEnvio;
+
         /// <summary>
-        /// Control ListView1.
+        /// Control tbenvio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbenvio;
+
         /// <summary>
-        /// Control SqlDataSource1.
+        /// Control lblImporte.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblImporte;
+
+        /// <summary>
+        /// Control tbimporte.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox tbimporte;
+
+        /// <summary>
+        /// Control bttnAgregarItem.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bttnAgregarItem;
+
+        /// <summary>
+        /// Control bttnFinalizarcompra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button bttnFinalizarcompra;
     }
 }
