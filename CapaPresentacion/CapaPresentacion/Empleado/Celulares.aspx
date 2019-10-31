@@ -24,11 +24,21 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
     <h1>Celulares</h1>
     <div id="FormCelulares" class="Form">
-   
-        <asp:ListView ID="ListView1" runat="server">
-            
-        </asp:ListView>
-   
+    
+            <asp:GridView ID="GridView1" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" Font-Size="10pt">
+                <Columns>
+                    <asp:BoundField DataField="ID_MODELO" HeaderText="MODELO" ReadOnly="True" SortExpression="ID_MODELO" />
+                    <asp:BoundField DataField="ID_MARCA_CEL" HeaderText="MARCA" SortExpression="ID_MARCA_CEL" />
+                    <asp:BoundField DataField="ID_PROVEEDOR_CEL" HeaderText="PROVEEDOR" SortExpression="ID_PROVEEDOR_CEL" />
+                    <asp:BoundField DataField="DESCRIPCION_CEL" HeaderText="DESCRIPCION" SortExpression="DESCRIPCION_CEL" />
+                    <asp:BoundField DataField="PRECIO_UNITARIO_CEL" HeaderText="PRECIO" SortExpression="PRECIO_UNITARIO_CEL" />
+                    <asp:BoundField DataField="UBICACION_IMAGEN_CEL" HeaderText="IMAGEN" SortExpression="UBICACION_IMAGEN_CEL" />
+                </Columns>
+
+            </asp:GridView>
+
+            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL], [ID_PROVEEDOR_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL], [UBICACION_IMAGEN_CEL] FROM [CELULARES]"></asp:SqlDataSource>
+
         <div id="AdministrarCelulares" title="Administrar">
             
             <asp:Label ID="lblModelo2" runat="server" Text="Modelo: " CssClass="ControlesASP"></asp:Label>
@@ -41,13 +51,14 @@
             </asp:DropDownList>
             <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion: " CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtDescripcion" runat="server" CssClass="ControlesASP"></asp:TextBox>
-            <asp:Label ID="lbl" runat="server" Text="Label" CssClass="ControlesASP"></asp:Label>
-            <asp:TextBox ID="TextBox7" runat="server" CssClass="ControlesASP"></asp:TextBox>
-            <asp:Label ID="Label6" runat="server" Text="Label" CssClass="ControlesASP"></asp:Label>
-            <asp:FileUpload ID="FileUpload1" runat="server" CssClass="ControlesASP" />
-            <asp:Button ID="Button1" runat="server" Text="Button" CssClass="Boton"/>
-            <asp:Button ID="Button2" runat="server" Text="Button" CssClass="Boton"/>
-            <asp:Button ID="Button3" runat="server" Text="Button" CssClass="Boton"/>
+            <asp:Label ID="lblPrecio2" runat="server" Text="Precio:" CssClass="ControlesASP"></asp:Label>
+            <asp:TextBox ID="txtPrecio2" runat="server" CssClass="ControlesASP"></asp:TextBox>
+            <asp:Label ID="lblImagen" runat="server" Text="Imagen:" CssClass="ControlesASP"></asp:Label>
+            <asp:FileUpload ID="fupImagen" runat="server" CssClass="ControlesASP" />
+            <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
+            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
+            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>
+
 
         </div>
 
