@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
+    <p>
+        v</p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
     <br />

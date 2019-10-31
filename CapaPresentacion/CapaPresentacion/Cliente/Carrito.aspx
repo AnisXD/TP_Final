@@ -2,6 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCliente" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">
+    <a href="Carrito.aspx">Carrito.aspx</a><p>
+    </p>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalCliente" runat="server">
     <p>
