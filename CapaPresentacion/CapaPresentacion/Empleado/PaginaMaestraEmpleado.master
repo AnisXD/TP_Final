@@ -18,6 +18,7 @@
     <li> <a href="./Clientes.aspx">Clientes</a></li>
     <li> <a href="./Empleados.aspx">Empleados</a></li>
     <li> <a href="./CarritoEmpleado.aspx">Carrito</a></li>    
+    <li> <a href="./Reportes.aspx">Reportes</a></li>   
  </ul>
 
 </asp:Content>
