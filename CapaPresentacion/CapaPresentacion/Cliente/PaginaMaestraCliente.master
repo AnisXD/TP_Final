@@ -8,10 +8,11 @@
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
-    <li> <a href="/InicioCliente.aspx">Inicio</a></li>
-    <li> <a href="direccion pagina a redireccionar">Celulares</a></li>
-    <li> <a href="direccion pagina a redireccionar">Mi Perfil</a></li>
-    <li> <a href="direccion pagina a redireccionar">Mis Compras</a></li>
+   <ul>
+        <li> <a href="./InicioCliente.aspx">Celulares</a></li>
+        <li> <a href="./CarritoCliente">Carrito</a></li>
+        <li> <a href="./MisCompras">Mis Compras</a></li>
+    </ul> 
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColIz" runat="server">
@@ -27,7 +28,13 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
-     <li> <a href="EditarUsuario.aspx">CambiarClave</a></li>
+    <ul>
+        <li> <a href="./VerPerfilCliente">Mi Perfil</a></li>
+        <li> <a href="./EditarPerfilCliente">Actualizar Datos</a></li>
+        <li> <a href="EditarUsuario.aspx">CambiarClave</a></li>
+
+    </ul>
+    
     <asp:ContentPlaceHolder id="ContenidoColDerCliente" runat="server">
 
     </asp:ContentPlaceHolder>

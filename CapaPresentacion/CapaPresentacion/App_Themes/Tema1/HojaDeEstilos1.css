@@ -50,7 +50,6 @@ li {
     padding: 5px;
     cursor: pointer;
     border: 1px outset #030d62;
-    background: linear-gradient(#00c3ff,#0075b2);
     border-radius:5px;
     box-shadow: 0px 0px 2px inset #373737;
     opacity: 0,9;
@@ -124,9 +123,10 @@ li {
 }
 
 #MenuContextual {
-    list-style-type: none;
+    list-style-type:none;
     padding: 0;
     margin: 0;
+    width:95%;
 }
 
     #MenuContextual > li {
@@ -137,6 +137,7 @@ li {
         opacity: 0.8;
         cursor: pointer;
         box-shadow: 0px 15px 15px inset #000000;
+        width: 100%;
     }
 
         #MenuContextual > li:hover {
@@ -154,6 +155,9 @@ li {
             box-shadow: 0px 0px 10px inset #000000;
             font-weight: bold;
             font-size: 20px;
+            padding: 5px;
+            width: 100%;
+            margin: 5px 0;
         }
 
 #ColumnaPpal {
@@ -194,7 +198,7 @@ li {
     width: 95%;
     max-width: 1000px;
     background: linear-gradient(#0094ff,#00ffff);
-    padding: 30px;
+    padding: 10px;
     border: 2px solid #19009b;
 }
 
@@ -210,15 +214,21 @@ li {
 
 .ControlesASP {
     display: block;
-    padding: 10px;
-    width: 100%;
-    margin: 20px 0;
+    padding: 5px;
+    margin: 5px 15px 5px 0;
     font-size: 20px;
+}
+
+.CarritoControl {
+    padding: 5px;
+    margin: 5px 15px 5px 0;
+    font-size: 20px;
+    display:inline-block;
 }
 
 .Boton {
     display: block;
-    padding: 10px;
+    padding: 5px;
     width: 100%;
     font-size: 20px;
     background: linear-gradient(#00c3ff,#0075b2);
@@ -228,7 +238,7 @@ li {
     cursor: pointer;
     border-radius: 20px;
     margin-bottom: 0;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 
     .Boton:hover {
@@ -239,20 +249,7 @@ li {
         transform: scale(0.95);
     }
 
-Form2{
-    display: grid;
-    grid-template-columns: 200px 1fr;
-    grid-gap: 16px;
-}
 
-label{
-    grid-column: 1 / 2;
-}
-
-input, button{
-    grid-column: 2 / 3;
-
-}
 
 #Productos {
     margin: auto;
@@ -284,4 +281,20 @@ input, button{
 .rule {
     border-top: 1px solid #000000;
     margin: 10px 0px;
+}
+
+#ColIzCarrito {
+    width: 40%;
+    text-align: left;
+    margin-top: 0;
+    float:left;
+    display:inline;
+}
+
+#ColDerCarrito {
+    width: 40%;
+    text-align: left;
+    margin-top: 0;
+    float:right;
+    display:inline;
 }

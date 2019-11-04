@@ -13,13 +13,31 @@ namespace CapaPresentacion.Cliente {
     public partial class InicioCliente {
         
         /// <summary>
-        /// Control lblFiltrar.
+        /// Control lblMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFiltrar;
+        protected global::System.Web.UI.WebControls.Label lblMarca;
+        
+        /// <summary>
+        /// Control ddlMarca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlMarca;
+        
+        /// <summary>
+        /// Control marca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource marca;
         
         /// <summary>
         /// Control lblModelo.
@@ -31,129 +49,138 @@ namespace CapaPresentacion.Cliente {
         protected global::System.Web.UI.WebControls.Label lblModelo;
         
         /// <summary>
-        /// Control tbModelo.
+        /// Control ddlModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbModelo;
+        protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
         
         /// <summary>
-        /// Control lblMarca.
+        /// Control modelos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMarca;
+        protected global::System.Web.UI.WebControls.SqlDataSource modelos;
         
         /// <summary>
-        /// Control tbMarca.
+        /// Control lblProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbMarca;
+        protected global::System.Web.UI.WebControls.Label lblProveedor;
         
         /// <summary>
-        /// Control Panel1.
+        /// Control ddlProveedor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
         
         /// <summary>
-        /// Control Label1.
+        /// Control proveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label1;
+        protected global::System.Web.UI.WebControls.SqlDataSource proveedores;
         
         /// <summary>
-        /// Control rbmayora.
+        /// Control pnlFiltrarPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbmayora;
+        protected global::System.Web.UI.WebControls.Panel pnlFiltrarPrecio;
         
         /// <summary>
-        /// Control rbmenora.
+        /// Control lblPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton rbmenora;
+        protected global::System.Web.UI.WebControls.Label lblPrecio;
         
         /// <summary>
-        /// Control tbigual.
+        /// Control Mayor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton tbigual;
+        protected global::System.Web.UI.WebControls.RadioButton Mayor;
         
         /// <summary>
-        /// Control tbDesigualdades.
+        /// Control Menor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox tbDesigualdades;
+        protected global::System.Web.UI.WebControls.RadioButton Menor;
         
         /// <summary>
-        /// Control bttnFiltrar.
+        /// Control Igual.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnFiltrar;
+        protected global::System.Web.UI.WebControls.RadioButton Igual;
         
         /// <summary>
-        /// Control bttnQuitarFiltro.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnQuitarFiltro;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
         
         /// <summary>
-        /// Control Button1.
+        /// Control btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Button1;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
         
         /// <summary>
-        /// Control ListView1.
+        /// Control btnQuitarFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
+        protected global::System.Web.UI.WebControls.Button btnQuitarFiltro;
         
         /// <summary>
-        /// Control SqlDataSource1.
+        /// Control lvwCelulares.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.ListView lvwCelulares;
+        
+        /// <summary>
+        /// Control celulares.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource celulares;
     }
 }

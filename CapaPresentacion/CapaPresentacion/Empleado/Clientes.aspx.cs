@@ -7,14 +7,9 @@ using System.Web.UI.WebControls;
 
 namespace CapaPresentacion.Empleado
 {
-    public partial class Clientes : System.Web.UI.Page
+    public partial class Clientes1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void bttnFiltrar_Click(object sender, EventArgs e)
         {
 
         }

@@ -31,6 +31,15 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.DropDownList ddlMarca;
         
         /// <summary>
+        /// Control marca.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource marca;
+        
+        /// <summary>
         /// Control lblModelo.
         /// </summary>
         /// <remarks>
@@ -47,6 +56,15 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
+        
+        /// <summary>
+        /// Control modelos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource modelos;
         
         /// <summary>
         /// Control lblProveedor.
@@ -67,13 +85,22 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
         
         /// <summary>
-        /// Control Panel1.
+        /// Control proveedores.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.SqlDataSource proveedores;
+        
+        /// <summary>
+        /// Control pnlFiltrarPrecio.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Panel pnlFiltrarPrecio;
         
         /// <summary>
         /// Control lblPrecio.
@@ -112,13 +139,13 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.RadioButton Igual;
         
         /// <summary>
-        /// Control TextBox4.
+        /// Control txtPrecio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox4;
+        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
         
         /// <summary>
         /// Control btnFiltrar.
@@ -139,13 +166,13 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.Button btnQuitarFiltro;
         
         /// <summary>
-        /// Control GridView1.
+        /// Control gvwCelulares.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
+        protected global::System.Web.UI.WebControls.GridView gvwCelulares;
         
         /// <summary>
         /// Control SqlDataSource1.
@@ -193,6 +220,15 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.DropDownList ddlMarca2;
         
         /// <summary>
+        /// Control marcas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource marcas;
+        
+        /// <summary>
         /// Control lblProveedor2.
         /// </summary>
         /// <remarks>
@@ -209,6 +245,15 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProveedor2;
+        
+        /// <summary>
+        /// Control proveedor.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource proveedor;
         
         /// <summary>
         /// Control lblDescripcion.
