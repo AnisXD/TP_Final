@@ -112,6 +112,15 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.DropDownList ddlId;
         
         /// <summary>
+        /// Control btnActualizarGvw.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnActualizarGvw;
+        
+        /// <summary>
         /// Control gvwReporte.
         /// </summary>
         /// <remarks>
