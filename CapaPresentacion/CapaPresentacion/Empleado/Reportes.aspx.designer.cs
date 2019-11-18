@@ -130,12 +130,12 @@ namespace CapaPresentacion.Empleado {
         protected global::System.Web.UI.WebControls.GridView gvwReporte;
         
         /// <summary>
-        /// Control lblTotal.
+        /// Control lblTotsl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTotal;
+        protected global::System.Web.UI.WebControls.Label lblTotsl;
     }
 }

@@ -14,7 +14,7 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void LinkButton3_Click(object sender, EventArgs e)
+        protected void FechaFin_SelectionChanged(object sender, EventArgs e)
         {
 
         }
