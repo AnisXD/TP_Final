@@ -34,7 +34,7 @@
         <asp:RadioButton ID="rBtnId" runat="server" Text="Id" />
         <asp:Label ID="lblId" runat="server" Text="Selecione el ID"></asp:Label>
         <asp:DropDownList ID="ddlId" runat="server"></asp:DropDownList>
-        <asp:Button ID="btnActualizarGvw" runat="server" Text="Actualizar Reporte" />
+        <asp:Button ID="btnActualizarGvw" runat="server" Text="Actualizar Reporte" CssClass="Boton" />
         <asp:GridView ID="gvwReporte" runat="server">
         </asp:GridView>
         <asp:Label ID="lblTotal" runat="server" Text="Total Recaudado: "></asp:Label>
