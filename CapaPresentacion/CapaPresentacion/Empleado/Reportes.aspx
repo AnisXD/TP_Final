@@ -13,7 +13,7 @@
     <h1>Reportes: </h1>
     <div id="FormReportes" class="Form">
 
-    <asp:RadioButton ID="rBtnFecha" runat="server" Text="Fecha" CssClass="Boton" />
+    <asp:RadioButton ID="rBtnFecha" runat="server" Text="Fecha" CssClass="ControlesASP" />
        
       
         <asp:Panel ID="Panel1" runat="server" dock="left" HorizontalAlign="Center" Width="276px">
