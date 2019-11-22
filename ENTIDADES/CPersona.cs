@@ -5,46 +5,47 @@ using System.Web;
 
 namespace ENTIDADES
 {
-    public class CPersona
+    public class Persona
     {
-        public CPersona(String DNI, String Nombre, String Apellido, String Direccion, String telefono)
+        protected string DNI;
+        protected string Nombre;
+        protected string Apellido;
+        protected Domicilio Direccion;
+        protected string Telefono;
+
+        public Persona (String cDNI, String cNombre, String cApellido, String ctelefono)
         {
-            this.DNI = DNI;
-            this.Nombre = Nombre;
-            this.Apellido = Apellido;
-            this.Direccion = Direccion;
-            this.Telefono = telefono;
+            this.DNI = cDNI;
+            this.Nombre = cNombre;
+            this.Apellido = cApellido;
+            this.Telefono = ctelefono;
+
         }
 
-        public string DNI
+        public string cDNI
         {
             get { return DNI; }
             set { DNI = value; }
         }
 
-        public string Nombre
+        public string cNombre
         {
             get { return Nombre; }
             set { Nombre = value; }
         }
 
-        public string Apellido
+        public string cApellido
         {
             get { return Apellido; }
             set { Apellido = value; }
         }
 
-        public string Direccion
-        {
-            get { return Direccion; }
-            set { Direccion = value; }
-        }
-
-        public string Telefono
+        public string cTelefono
         {
             get { return Telefono; }
             set { Telefono = value; }
         }
     }
 }
+
 
