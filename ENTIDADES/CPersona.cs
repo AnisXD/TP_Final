@@ -5,7 +5,7 @@ using System.Web;
 
 namespace ENTIDADES
 {
-        #region Propiedades
+    #region Propiedades
     public class Persona
     {
         protected string _DNI;
@@ -13,6 +13,7 @@ namespace ENTIDADES
         protected string _Apellido;
         protected Domicilio Direccion;
         protected string _Telefono;
+        protected bool _Estado;
         #endregion
 
         #region Constructor
@@ -24,15 +25,16 @@ namespace ENTIDADES
             this.Apellido = string.Empty;
             this.Direccion = new Domicilio();
             this.Telefono = string.Empty;
+            this.Estado = true;
         }
-        public Persona (string dni, string nombre, string apellido, Domicilio direccion, string telefono)
+        public Persona (string dni, string nombre, string apellido, Domicilio direccion, string telefono, bool estado)
         {
             this.DNI = dni;
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.Direccion = direccion; 
             this.Telefono = telefono;
-
+            this.Estado = estado;
         }
         #endregion
 
@@ -61,7 +63,11 @@ namespace ENTIDADES
             get { return _Telefono; }
             set { _Telefono = value; }
         }
-
+        public bool Estado
+        {
+            get { return _Estado; }
+            set { _Estado = value; }
+        }
 
         #endregion
 
