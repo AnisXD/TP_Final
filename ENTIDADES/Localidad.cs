@@ -8,26 +8,33 @@ namespace ENTIDADES
 {
     class Localidad
     {
-            protected string IdLocalidad;
-            protected string NLocalidad;
+        #region Propiedades
+        protected string _id;
+        protected string _nombre;
 
-            public Localidad (String lIdLocalidad, String lNLocalidad)
-            {
-                this.IdLocalidad = lIdLocalidad;
-                this.NLocalidad = lNLocalidad;
-           
-            }
 
-            public string lIdLocalidad
-            {
-                get { return IdLocalidad; }
-                set { IdLocalidad = value; }
-            }
+        #endregion
 
-            public string lNLocalidad
-            {
-                get { return NLocalidad; }
-                set { NLocalidad = value; }
-            }
+        #region Constructores
+        public Localidad (String Id_Localidad, String Nombre_Localidad)
+        {
+            this.Id = Id_Localidad;
+            this.Nombre = Nombre_Localidad;
+        }
+        #endregion
+
+        #region Sets y Gets
+        public string Id
+        {
+           get { return _id; }
+           set { _id = value; }
+        }
+
+        public string Nombre
+        {
+           get { return _nombre; }
+           set { _nombre = value; }
+        }
+        #endregion
     }
 }

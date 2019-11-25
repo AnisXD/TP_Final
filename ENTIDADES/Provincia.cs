@@ -8,27 +8,39 @@ namespace ENTIDADES
 {
     class Provincia
     {
-            protected string IdProvincia;
-            protected string NProvincia;
+        #region Propiedades
+        protected string _id;
+        protected string _nombre;
+        
+        
+        #endregion
 
-            public Provincia (String pIdProvincia, String pProvincia)
-            {
-                this.IdProvincia = pIdProvincia;
-                this.NProvincia = pProvincia;
+        #region Constructores
+        public Provincia()
+        {
+           this.Id = string.Empty;
+           this.Nombre = string.Empty;
+        }
+        public Provincia (String Id_Provincia, String Nombre_Provincia)
+        {
+           this.Id = Id_Provincia;
+           this.Nombre = Nombre_Provincia;
+        }
+        #endregion
 
-            }
+        #region Sets y Gets
+        public string Id
+        {
+           get { return _id; }
+           set { _id = value; }
+        }
 
-            public string pIdProvincia
-            {
-                get { return IdProvincia; }
-                set { IdProvincia = value; }
-            }
-
-            public string pProvincia
-            {
-                get { return NProvincia; }
-                set { NProvincia = value; }
-            }
+        public string Nombre
+        {
+           get { return _nombre; }
+           set { _nombre = value; }
+        }
+        #endregion
     }
- }
+}
 
