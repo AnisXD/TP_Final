@@ -21,9 +21,9 @@ namespace ENTIDADES
             {
                 this.idmodelo = string.Empty;
                 this.nombremodelo = string.Empty;
-                this.preciounitario = float;
+                this.preciounitario = 0;
                 this.descripcion = string.Empty;
-        }
+            }
             public Celular (string IDMODELO, string NOMBREMODELO, float PRECIOUNITARIO, string DESCRIPCION)
             {
                 this.idmodelo = IDMODELO;
@@ -31,7 +31,7 @@ namespace ENTIDADES
                 this.preciounitario = PRECIOUNITARIO;
                 this.descripcion = DESCRIPCION;
 
-        }
+            }
 
             #endregion
 
@@ -41,22 +41,25 @@ namespace ENTIDADES
                 get => _idmodelo;
                 set => _idmodelo = value;
             }
-        public string nombremodelo
-        {
-            get => _nombremodelo;
-            set => _nombremodelo = value;
+            public string nombremodelo
+            {
+                get => _nombremodelo;
+                set => _nombremodelo = value;
+            }
+            public float preciounitario
+            {
+                get => _preciounitario;
+                set => _preciounitario = value;
+            }
+            public string descripcion
+            {
+                get => _descripcion;
+                set => _descripcion = value;
+            }
+
+
+            #endregion
+
         }
-        public float preciounitario
-        {
-            get => _preciounitario;
-            set => _preciounitario = value;
-        }
-        public string descripcion
-        {
-            get => _descripcion;
-            set => _descripcion = value;
-        }
-        #endregion
-    }
     
 }
