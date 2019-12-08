@@ -6,12 +6,17 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    #region Propiedades
+   
     class FormaPago
     {
+
+            #region Propiedades
+
             protected string _idformapago;
             protected string _formapago;
             protected bool _estado;
+
+
             #endregion
 
             #region Constructor
