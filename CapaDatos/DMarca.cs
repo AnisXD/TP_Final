@@ -10,10 +10,10 @@ using ENTIDADES;
 
 namespace CapaDatos
 {
-    class DMarca
+    public class DMarca
     {
         
-
+       
         public DataTable MostrarTodasLasMarcas()
         {
             Conexion cn = new Conexion();
@@ -24,16 +24,16 @@ namespace CapaDatos
         private void ParametroIdMarca(ref SqlCommand Comando, Marca ObjMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IdMarca", SqlDbType.NVarChar,8);
+            SqlParametros = Comando.Parameters.Add("@IdMarca", SqlDbType.VarChar,15);
             SqlParametros.Value = ObjMarca.idmarca;
         }
 
         private void ParametrosMarcas(ref SqlCommand Comando, Marca ObjMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IdMarca", SqlDbType.NVarChar, 8);
+            SqlParametros = Comando.Parameters.Add("@IdMarca", SqlDbType.VarChar, 15);
             SqlParametros.Value = ObjMarca.idmarca;
-            SqlParametros = Comando.Parameters.Add("@NombreMarca", SqlDbType.NVarChar, 40);
+            SqlParametros = Comando.Parameters.Add("@NombreMarca", SqlDbType.VarChar, 20);
             SqlParametros.Value = ObjMarca.nombremarca;
         }
 
@@ -42,7 +42,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosMarcas(ref Comando, marca);
             Conexion ad = new Conexion();
-            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spAgregarMarca");
+            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "SP_AltaMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
@@ -54,7 +54,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosMarcas(ref Comando, marca);
             Conexion ad = new Conexion();
-           int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spActualizarMarca");
+           int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "SP_ModificacionMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
@@ -67,7 +67,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametroIdMarca(ref Comando, marca);
             Conexion ad = new Conexion();
-            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "spEliminarMarca");
+            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "BajaLogicaMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
