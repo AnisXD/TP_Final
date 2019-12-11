@@ -15,11 +15,6 @@ namespace CapaPresentacion.Empleado
            
         }
 
-        void limpiarTXT()
-        {
-            this.txtIdMarca.text = string.Empty;
-            this.txtNombre.text = string.Empty;
-        }
 
 
 
