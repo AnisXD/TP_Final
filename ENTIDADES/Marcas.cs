@@ -6,9 +6,11 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    #region Propiedades
+    
     public class Marca
     {
+
+        #region Propiedades
         protected string _idmarca;
         protected string _nombremarca;
         protected bool _estado;

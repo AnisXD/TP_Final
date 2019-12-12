@@ -67,6 +67,7 @@ namespace ENTIDADES
                 this.Telefono = telefono;
                 this.TextoBuscar = textobuscar;
             }
+            #endregion
 
         }
     }

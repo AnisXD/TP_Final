@@ -6,12 +6,15 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-        #region Propiedades
+        
         public class FormaEnvio
         {
+            #region Propiedades
             private string _idformaenvio;
             private string _formaenvio;
             private bool _estado;
+
+
             #endregion
 
             #region Constructor
