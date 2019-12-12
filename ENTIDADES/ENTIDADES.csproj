@@ -42,11 +42,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Celulares.cs" />
-    <Compile Include="Cliente.cs" />
     <Compile Include="CPersona.cs" />
     <Compile Include="DetallesVentas.cs" />
     <Compile Include="Domicilio.cs" />
-    <Compile Include="Empleado.cs" />
+    <Compile Include="Rol.cs" />
+    <Compile Include="Usuario.cs" />
     <Compile Include="FormaEnvio.cs" />
     <Compile Include="FormaPago.cs" />
     <Compile Include="Localidad.cs" />
