@@ -19,7 +19,7 @@ namespace ENTIDADES
 
             #endregion
 
-            #region Constructor
+    #region Constructor
 
             public FormaPago()
             {
@@ -36,7 +36,7 @@ namespace ENTIDADES
             #endregion
 
 
-            #region Gets y Sets
+     #region Gets y Sets
             public string idformapago
             {
                 get { return _idformapago; }
