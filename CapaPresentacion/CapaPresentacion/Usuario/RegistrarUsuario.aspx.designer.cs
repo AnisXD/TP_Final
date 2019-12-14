@@ -49,6 +49,42 @@ namespace CapaPresentacion.Usuario {
         protected global::System.Web.UI.WebControls.TextBox txtTelefono;
         
         /// <summary>
+        /// Control lblFProvincia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFProvincia;
+        
+        /// <summary>
+        /// Control ddlFProvincia.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFProvincia;
+        
+        /// <summary>
+        /// Control lblFLocalidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFLocalidad;
+        
+        /// <summary>
+        /// Control ddlFLocalidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList ddlFLocalidad;
+        
+        /// <summary>
         /// Control txtDireccion.
         /// </summary>
         /// <remarks>
@@ -92,5 +128,14 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
+        
+        /// <summary>
+        /// Control lblEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
     }
 }

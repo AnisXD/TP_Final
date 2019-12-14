@@ -29,7 +29,7 @@
         <br />
         <asp:Label ID="lblIdMarca" runat="server" text="Id Marca: " ></asp:Label>
         &nbsp;
-        <asp:TextBox ID="txtIdMarca" runat="server" ></asp:TextBox>
+        <asp:TextBox ID="txtIdMarca" runat="server" OnTextChanged="txtIdMarca_TextChanged" ></asp:TextBox>
         &nbsp;
         <br />
         <asp:Label ID="lblNombreMarca" runat="server" Text="Nombre Marca: " ></asp:Label>
@@ -37,9 +37,9 @@
         <asp:TextBox ID="txtNombreMarca" runat="server" ></asp:TextBox>
         &nbsp;
         <br />
-        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
-        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
-        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>
+        <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton" OnClick="btnAgregar_Click"/>
+        <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton" OnClick="btnEditar_Click"/>
+        <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton" OnClick="btnEliminar_Click"/>
         <br />
         
 
