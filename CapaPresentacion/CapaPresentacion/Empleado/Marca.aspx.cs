@@ -71,7 +71,8 @@ namespace CapaPresentacion.Empleado
 
         protected void txtIdMarca_TextChanged(object sender, EventArgs e)
         {
-            if (txtIdMarca.Text.Trim() == string.Empty)
+            lblEstado.Text = "txtID se modifico";
+            if (txtIdMarca.Text.Length == 0)
             {
                 btnAgregar.Enabled = false;
                 btnEditar.Enabled = false;
@@ -162,15 +163,21 @@ namespace CapaPresentacion.Empleado
             {
                 lblEstado.Text = "Atencion!! Para eliminar un registro de la tabla debe completar todos los campos de datos";
             }
+        
+        
         }
-
+         protected void gdvMarcas_SelectedIndexChanged(object sender, EventArgs e)
+            {
+                this.txtIdMarca.Text = gdvMarcas.SelectedRow.Cells[1].Text;
+                this.txtNombreMarca.Text = gdvMarcas.SelectedRow.Cells[2].Text;
+            btnAgregar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+            lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
+            }
 
         #endregion
 
-        protected void gdvMarcas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            this.txtIdMarca.Text = gdvMarcas.SelectedRow.Cells[1].Text;
-            this.txtNombreMarca.Text = gdvMarcas.SelectedRow.Cells[2].Text;
-        }
+        
     }
 }

@@ -23,7 +23,7 @@
         <br />
         <asp:Label ID="lblIdMarca" runat="server" text="Id Marca: " ></asp:Label>
         &nbsp;
-        <asp:TextBox ID="txtIdMarca" runat="server" OnTextChanged="txtIdMarca_TextChanged" MaxLength="15" ></asp:TextBox>
+        <asp:TextBox ID="txtIdMarca" runat="server" OnTextChanged="txtIdMarca_TextChanged" AutoPostBack="True" CausesValidation="True" MaxLength="15" ></asp:TextBox>
         &nbsp;
         <br />
         <asp:Label ID="lblNombreMarca" runat="server" Text="Nombre Marca: " ></asp:Label>
