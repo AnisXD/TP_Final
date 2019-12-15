@@ -19,7 +19,7 @@ namespace CapaDatos
 
         public Conexion()
         {
-            RutaConexion = "Data Source=localhost\\sqlexpress;Initial Catalog=FINAL_LAB;Integrated Security=True";
+            RutaConexion = "Data Source=localhost\\sqlexpress;Initial Catalog=FINALPROG;Integrated Security=True";
         }
 
         public SqlConnection ObtenerConexion()

@@ -8,11 +8,7 @@
 
     <div id="FormMarca" class="Form">
        
-        <asp:GridView ID="gdvMarcas" runat="server" AllowPaging="True" AllowSorting="True" AutoGenerateColumns="False" DataKeyNames="ID_MARCA" DataSourceID="SqlDataSource1" HorizontalAlign="Center" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
-            <Columns>
-                <asp:BoundField DataField="ID_MARCA" HeaderText="ID_MARCA" ReadOnly="True" SortExpression="ID_MARCA" />
-                <asp:BoundField DataField="NOMBRE_MARCA" HeaderText="NOMBRE_MARCA" SortExpression="NOMBRE_MARCA" />
-            </Columns>
+        <asp:GridView ID="gdvMarcas" runat="server" AllowPaging="True" AllowSorting="True" HorizontalAlign="Center" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="gdvMarcas_SelectedIndexChanged" AutoGenerateSelectButton="True">
             <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
             <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
             <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
@@ -23,20 +19,19 @@
             <SortedDescendingCellStyle BackColor="#D6DFDF" />
             <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
-        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
         <asp:Label ID="lblTotalRegistros" runat="server" Text="Registros Encontrados: "></asp:Label>
-        <asp:SqlDataSource ID="Marcas" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
         <br />
         <asp:Label ID="lblIdMarca" runat="server" text="Id Marca: " ></asp:Label>
         &nbsp;
-        <asp:TextBox ID="txtIdMarca" runat="server" OnTextChanged="txtIdMarca_TextChanged" ></asp:TextBox>
+        <asp:TextBox ID="txtIdMarca" runat="server" OnTextChanged="txtIdMarca_TextChanged" MaxLength="15" ></asp:TextBox>
         &nbsp;
         <br />
         <asp:Label ID="lblNombreMarca" runat="server" Text="Nombre Marca: " ></asp:Label>
         &nbsp;
-        <asp:TextBox ID="txtNombreMarca" runat="server" ></asp:TextBox>
+        <asp:TextBox ID="txtNombreMarca" runat="server" MaxLength="20" ></asp:TextBox>
         &nbsp;
         <br />
+        <asp:Label ID="lblEstado" runat="server" Text=" "></asp:Label>
         <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton" OnClick="btnAgregar_Click"/>
         <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton" OnClick="btnEditar_Click"/>
         <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton" OnClick="btnEliminar_Click"/>

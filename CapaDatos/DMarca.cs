@@ -12,28 +12,32 @@ namespace CapaDatos
 {
     public class DMarca
     {
-        
-       
         public DataTable MostrarTodasLasMarcas()
         {
             Conexion cn = new Conexion();
-            return cn.ObtenerTabla("Marcas", "Select * from Marcas");
+            return cn.ObtenerTabla("Marcas", "SELECT ID_MARCA, NOMBRE_MARCA FROM MARCAS WHERE ESTADO_MARCA=1");
         }
 
+        public DataTable MostrarPorId(string id)
+        {
+            Conexion cn = new Conexion();
+            string consulta = "SELECT * FROM MARCAS WHERE ID_MARCA = '" + id +"'";
+            return cn.ObtenerTabla("Marcas", consulta);
+        }
 
         private void ParametroIdMarca(ref SqlCommand Comando, Marca ObjMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IdMarca", SqlDbType.VarChar,15);
+            SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar,15);
             SqlParametros.Value = ObjMarca.idmarca;
         }
 
         private void ParametrosMarcas(ref SqlCommand Comando, Marca ObjMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IdMarca", SqlDbType.VarChar, 15);
+            SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
             SqlParametros.Value = ObjMarca.idmarca;
-            SqlParametros = Comando.Parameters.Add("@NombreMarca", SqlDbType.VarChar, 20);
+            SqlParametros = Comando.Parameters.Add("@NOMBREMARCA", SqlDbType.VarChar, 20);
             SqlParametros.Value = ObjMarca.nombremarca;
         }
 
@@ -42,7 +46,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosMarcas(ref Comando, marca);
             Conexion ad = new Conexion();
-            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "SP_AltaMarca");
+            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "AltaMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
@@ -54,7 +58,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosMarcas(ref Comando, marca);
             Conexion ad = new Conexion();
-           int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "SP_ModificacionMarca");
+           int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "ModificarMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
