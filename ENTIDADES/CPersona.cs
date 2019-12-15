@@ -11,7 +11,7 @@ namespace ENTIDADES
         protected string _DNI;
         protected string _Nombre;
         protected string _Apellido;
-        protected Domicilio Direccion;
+        protected Domicilio _Direccion;
         protected string _Telefono;
         protected bool _Estado;
         #endregion
@@ -20,21 +20,21 @@ namespace ENTIDADES
 
         public Persona ()
         {
-            this.DNI = string.Empty;
-            this.Nombre = string.Empty;
-            this.Apellido = string.Empty;
-            this.Direccion = new Domicilio();
-            this.Telefono = string.Empty;
-            this.Estado = true;
+            this._DNI = string.Empty;
+            this._Nombre = string.Empty;
+            this._Apellido = string.Empty;
+            this._Direccion = new Domicilio();
+            this._Telefono = string.Empty;
+            this._Estado = true;
         }
         public Persona (string dni, string nombre, string apellido, Domicilio direccion, string telefono, bool estado)
         {
-            this.DNI = dni;
-            this.Nombre = nombre;
-            this.Apellido = apellido;
-            this.Direccion = direccion; 
-            this.Telefono = telefono;
-            this.Estado = estado;
+            this._DNI = dni;
+            this._Nombre = nombre;
+            this._Apellido = apellido;
+            this._Direccion = direccion; 
+            this._Telefono = telefono;
+            this._Estado = estado;
         }
         #endregion
 

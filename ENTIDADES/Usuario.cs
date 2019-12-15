@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    class Usuario : Persona
+    public class Usuario : Persona
     {
         #region Propiedades
         private string _Contraseña;
@@ -16,13 +16,13 @@ namespace ENTIDADES
         #region Constructores
         public Usuario()
         {
-            this.Contraseña = string.Empty;
-            this.Rol = string.Empty;
+            this._Contraseña = string.Empty;
+            this._Rol = string.Empty;
         }
         public Usuario(string contraseñaU, string rolU)
         {
-            this.Contraseña = contraseñaU;
-            this.Rol = rolU;
+            this._Contraseña = contraseñaU;
+            this._Rol = rolU;
         }
 
         #endregion
