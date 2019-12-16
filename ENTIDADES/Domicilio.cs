@@ -10,21 +10,21 @@ namespace ENTIDADES
 
     {
         #region Propiedades
-        protected string _id_provincia;
-        protected string _id_localidad;
+        protected int _id_provincia;
+        protected int _id_localidad;
         protected string _calle_y_altura;
         #endregion
 
         #region Constructores
         public Domicilio()
         {
-            IdProvincia = string.Empty;
-            IdLocalidad = string.Empty;
+            IdProvincia = 0;
+            IdLocalidad = 0;
             Calle_y_Altura = string.Empty;
         }
 
 
-        public Domicilio(string Id_Provincia, string Id_Localidad, string Calle_y_Altura)
+        public Domicilio(int Id_Provincia, int Id_Localidad, string Calle_y_Altura)
         {
             this.IdProvincia = Id_Provincia;
             this.IdLocalidad = Id_Localidad;
@@ -34,12 +34,12 @@ namespace ENTIDADES
 
         #region Sets y Gets
 
-        public string IdProvincia
+        public int IdProvincia
         {
             get { return _id_provincia; }
             set { _id_provincia = value; }
         }
-        public string IdLocalidad
+        public int IdLocalidad
         {
             get { return _id_localidad; }
             set { _id_localidad = value; }

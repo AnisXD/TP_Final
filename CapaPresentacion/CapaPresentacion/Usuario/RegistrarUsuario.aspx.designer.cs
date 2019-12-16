@@ -7,47 +7,49 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Usuario {
-    
-    
-    public partial class RegristrarUsuario {
-        
+namespace CapaPresentacion.Usuario
+{
+
+
+    public partial class RegristrarUsuario
+    {
+
         /// <summary>
-        /// Control txtDNI.
+        /// Control txbDNI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDNI;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbDNI;
+
         /// <summary>
-        /// Control txtNombre.
+        /// Control txbNombre.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbNombre;
+
         /// <summary>
-        /// Control txtApellido.
+        /// Control txbApellido.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApellido;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbApellido;
+
         /// <summary>
-        /// Control txtTelefono.
+        /// Control txbTelefono.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTelefono;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbTelefono;
+
         /// <summary>
         /// Control lblFProvincia.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFProvincia;
-        
+
         /// <summary>
         /// Control ddlFProvincia.
         /// </summary>
@@ -65,7 +67,16 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFProvincia;
-        
+
+        /// <summary>
+        /// Control SqlDataSource1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+
         /// <summary>
         /// Control lblFLocalidad.
         /// </summary>
@@ -74,7 +85,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFLocalidad;
-        
+
         /// <summary>
         /// Control ddlFLocalidad.
         /// </summary>
@@ -83,34 +94,34 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFLocalidad;
-        
+
         /// <summary>
-        /// Control txtDireccion.
+        /// Control txbDireccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDireccion;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbDireccion;
+
         /// <summary>
-        /// Control txtClave.
+        /// Control txbClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtClave;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbClave;
+
         /// <summary>
-        /// Control txtRepitaClave.
+        /// Control txbRepitaClave.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtRepitaClave;
-        
+        protected global::System.Web.UI.WebControls.TextBox txbRepitaClave;
+
         /// <summary>
         /// Control btnAceptar.
         /// </summary>
@@ -119,7 +130,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAceptar;
-        
+
         /// <summary>
         /// Control btnCancelar.
         /// </summary>
@@ -128,7 +139,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnCancelar;
-        
+
         /// <summary>
         /// Control lblEstado.
         /// </summary>

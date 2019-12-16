@@ -11,7 +11,7 @@ namespace ENTIDADES
         protected string _DNI;
         protected string _Nombre;
         protected string _Apellido;
-        protected Domicilio _Direccion;
+        private Domicilio direccion;
         protected string _Telefono;
         protected bool _Estado;
         #endregion
@@ -23,7 +23,7 @@ namespace ENTIDADES
             this._DNI = string.Empty;
             this._Nombre = string.Empty;
             this._Apellido = string.Empty;
-            this._Direccion = new Domicilio();
+            this.Direccion = new Domicilio();
             this._Telefono = string.Empty;
             this._Estado = true;
         }
@@ -32,7 +32,7 @@ namespace ENTIDADES
             this._DNI = dni;
             this._Nombre = nombre;
             this._Apellido = apellido;
-            this._Direccion = direccion; 
+            this.Direccion = direccion; 
             this._Telefono = telefono;
             this._Estado = estado;
         }
@@ -68,6 +68,9 @@ namespace ENTIDADES
             get { return _Estado; }
             set { _Estado = value; }
         }
+
+        public Domicilio Direccion 
+        { get => direccion; set => direccion = value; }
 
         #endregion
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    class Provincia
+    public class Provincia
     {
         #region Propiedades
         protected string _id;
