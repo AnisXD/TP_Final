@@ -11,9 +11,9 @@ namespace ENTIDADES
     {
 
         #region Propiedades
-        protected string _idmarca;
-        protected string _nombremarca;
-        protected bool _estado;
+        private string _idmarca;
+        private string _nombremarca;
+        private bool _estado;
         #endregion
 
         #region Constructor
@@ -24,11 +24,11 @@ namespace ENTIDADES
             this.nombremarca = string.Empty;
             this.estado = true;
         }
-        public Marca(string IDMARCA, string NOMBREMARCA, bool ESTADO)
+        public Marca(string IDMARCA, string NOMBREMARCA)
         {
             this.idmarca = IDMARCA;
             this.nombremarca = NOMBREMARCA;
-            this.estado = ESTADO;
+            this.estado = true;
         }
         #endregion
 

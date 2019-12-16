@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Empleado {
-    
-    
-    public partial class Marca {
-        
+namespace CapaPresentacion.Empleado
+{
+
+
+    public partial class Marca
+    {
+
         /// <summary>
         /// Control gdvMarcas.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gdvMarcas;
-        
+
         /// <summary>
         /// Control lblTotalRegistros.
         /// </summary>
@@ -29,16 +31,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotalRegistros;
-        
-        /// <summary>
-        /// Control Marcas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource Marcas;
-        
+
         /// <summary>
         /// Control lblIdMarca.
         /// </summary>
@@ -47,7 +40,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdMarca;
-        
+
         /// <summary>
         /// Control txtIdMarca.
         /// </summary>
@@ -56,7 +49,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtIdMarca;
-        
+
         /// <summary>
         /// Control lblNombreMarca.
         /// </summary>
@@ -65,7 +58,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblNombreMarca;
-        
+
         /// <summary>
         /// Control txtNombreMarca.
         /// </summary>
@@ -74,7 +67,16 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombreMarca;
-        
+
+        /// <summary>
+        /// Control lblEstado.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblEstado;
+
         /// <summary>
         /// Control btnAgregar.
         /// </summary>
@@ -83,7 +85,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregar;
-        
+
         /// <summary>
         /// Control btnEditar.
         /// </summary>
@@ -92,7 +94,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditar;
-        
+
         /// <summary>
         /// Control btnEliminar.
         /// </summary>
