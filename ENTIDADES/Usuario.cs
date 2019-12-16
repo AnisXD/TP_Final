@@ -6,9 +6,18 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    public class Usuario : Persona
+    class Usuario
     {
         #region Propiedades
+        private string _DNI;
+        private string _Nombre;
+        private string _Apellido;
+        //private Domicilio _Direccion;
+        private int _id_provincia;
+        private int _id_localidad;
+        private string _calle_y_altura;
+        private string _Telefono;
+        private bool _Estado;
         private string _Contraseña;
         private string _Rol;
         #endregion
@@ -16,18 +25,74 @@ namespace ENTIDADES
         #region Constructores
         public Usuario()
         {
-            this._Contraseña = string.Empty;
-            this._Rol = string.Empty;
+            this.DNI = string.Empty;
+            this.Nombre = string.Empty;
+            this.Apellido = string.Empty;
+            //this.Direccion = new Domicilio();
+            IdProvincia = 0;
+            IdLocalidad = 0;
+            Calle_y_Altura = string.Empty;
+            this.Telefono = string.Empty;
+            this.Contraseña = string.Empty;
+            this.Rol = string.Empty;
+            this.Estado = true; 
         }
-        public Usuario(string contraseñaU, string rolU)
+
+        public Usuario(string dni, string nombre, string apellido, string telefono, int Id_Provincia, int Id_Localidad, string Calle_y_Altura, string contraseña, string rol, bool estado)
         {
-            this._Contraseña = contraseñaU;
-            this._Rol = rolU;
+            this.DNI = dni;
+            this.Nombre = nombre;
+            this.Apellido = apellido;
+            this.Telefono = telefono;
+            //this.Direccion = direccion;
+            this.IdProvincia = Id_Provincia;
+            this.IdLocalidad = Id_Localidad;
+            this.Calle_y_Altura = Calle_y_Altura;
+            this.Contraseña = contraseña;
+            this.Rol = rol;
+            this.Estado = estado;
         }
 
         #endregion
 
         #region Sets y Gets
+        public string DNI
+        {
+            get { return _DNI; }
+            set { _DNI = value; }
+        }
+
+        public string Nombre
+        {
+            get { return _Nombre; }
+            set { _Nombre = value; }
+        }
+
+        public string Apellido
+        {
+            get { return _Apellido; }
+            set { _Apellido = value; }
+        }
+        public int IdProvincia
+        {
+            get { return _id_provincia; }
+            set { _id_provincia = value; }
+        }
+        public int IdLocalidad
+        {
+            get { return _id_localidad; }
+            set { _id_localidad = value; }
+        }
+        public string Calle_y_Altura
+        {
+            get { return _calle_y_altura; }
+            set { _calle_y_altura = value; }
+        }
+        public string Telefono
+        {
+            get { return _Telefono; }
+            set { _Telefono = value; }
+        }
         public string Contraseña
         {
             get => _Contraseña;
@@ -39,6 +104,19 @@ namespace ENTIDADES
             get => _Rol;
             set => _Rol = value;
         }
+        public bool Estado
+        {
+            get { return _Estado; }
+            set { _Estado = value; }
+        }
+
+        //public Domicilio Direccion
+        //{ 
+        //    get => _Direccion; 
+        //    set => _Direccion = value; 
+        //}
+
+
         #endregion
     }
 }

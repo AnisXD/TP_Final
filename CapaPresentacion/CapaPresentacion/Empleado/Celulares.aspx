@@ -12,9 +12,6 @@
     <asp:Label ID="lblModelo" runat="server" Text="Modelo: " CssClass="ControlesASP"></asp:Label>
     <asp:DropDownList ID="ddlModelo" runat="server" CssClass="ControlesASP" DataSourceID="modelos" DataTextField="ID_MODELO" DataValueField="ID_MARCA_CEL"></asp:DropDownList>
     <asp:SqlDataSource ID="modelos" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL] FROM [CELULARES]"></asp:SqlDataSource>
-    <asp:Label ID="lblProveedor" runat="server" Text="Proveedor:" CssClass="ControlesASP"></asp:Label>
-    <asp:DropDownList ID="ddlProveedor" runat="server" CssClass="ControlesASP" DataSourceID="proveedores" DataTextField="RAZON_SOCIAL_PROV" DataValueField="ID_PROV"></asp:DropDownList>
-    <asp:SqlDataSource ID="proveedores" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_PROV], [RAZON_SOCIAL_PROV] FROM [PROVEEDORES]"></asp:SqlDataSource>
     <asp:Panel ID="pnlFiltrarPrecio" runat="server">
         <asp:Label ID="lblPrecio" runat="server" Text="Precio: " CssClass="ControlesASP"></asp:Label>
         <asp:RadioButton ID="Mayor" runat="server" Text="Mayor a:" CssClass="ControlesASP"/>
