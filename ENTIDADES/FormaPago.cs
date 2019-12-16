@@ -10,7 +10,7 @@ namespace ENTIDADES
     class FormaPago
     {
 
-            #region Propiedades
+    #region Propiedades
 
             protected string _idformapago;
             protected string _formapago;
@@ -36,7 +36,7 @@ namespace ENTIDADES
             #endregion
 
 
-     #region Gets y Sets
+    #region Gets y Sets
             public string idformapago
             {
                 get { return _idformapago; }
@@ -57,6 +57,6 @@ namespace ENTIDADES
 
             #endregion
 
-        }
+    }
   
 }

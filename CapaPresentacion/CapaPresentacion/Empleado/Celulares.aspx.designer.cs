@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Empleado {
-    
-    
-    public partial class Celulares {
-        
+namespace CapaPresentacion.Empleado
+{
+
+
+    public partial class Celulares
+    {
+
         /// <summary>
         /// Control lblMarca.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMarca;
-        
+
         /// <summary>
         /// Control ddlMarca.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarca;
-        
+
         /// <summary>
         /// Control marca.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource marca;
-        
+
         /// <summary>
         /// Control lblModelo.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblModelo;
-        
+
         /// <summary>
         /// Control ddlModelo.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
-        
+
         /// <summary>
         /// Control modelos.
         /// </summary>
@@ -65,34 +67,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource modelos;
-        
-        /// <summary>
-        /// Control lblProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProveedor;
-        
-        /// <summary>
-        /// Control ddlProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
-        
-        /// <summary>
-        /// Control proveedores.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource proveedores;
-        
+
         /// <summary>
         /// Control pnlFiltrarPrecio.
         /// </summary>
@@ -101,7 +76,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel pnlFiltrarPrecio;
-        
+
         /// <summary>
         /// Control lblPrecio.
         /// </summary>
@@ -110,7 +85,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrecio;
-        
+
         /// <summary>
         /// Control Mayor.
         /// </summary>
@@ -119,7 +94,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton Mayor;
-        
+
         /// <summary>
         /// Control Menor.
         /// </summary>
@@ -128,7 +103,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton Menor;
-        
+
         /// <summary>
         /// Control Igual.
         /// </summary>
@@ -137,7 +112,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.RadioButton Igual;
-        
+
         /// <summary>
         /// Control txtPrecio.
         /// </summary>
@@ -146,7 +121,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecio;
-        
+
         /// <summary>
         /// Control btnFiltrar.
         /// </summary>
@@ -155,7 +130,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFiltrar;
-        
+
         /// <summary>
         /// Control btnQuitarFiltro.
         /// </summary>
@@ -164,7 +139,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnQuitarFiltro;
-        
+
         /// <summary>
         /// Control gvwCelulares.
         /// </summary>
@@ -173,7 +148,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView gvwCelulares;
-        
+
         /// <summary>
         /// Control SqlDataSource1.
         /// </summary>
@@ -182,7 +157,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-        
+
         /// <summary>
         /// Control lblModelo2.
         /// </summary>
@@ -191,7 +166,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblModelo2;
-        
+
         /// <summary>
         /// Control txtModelo2.
         /// </summary>
@@ -200,7 +175,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtModelo2;
-        
+
         /// <summary>
         /// Control lblMarca2.
         /// </summary>
@@ -209,7 +184,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMarca2;
-        
+
         /// <summary>
         /// Control ddlMarca2.
         /// </summary>
@@ -218,7 +193,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarca2;
-        
+
         /// <summary>
         /// Control marcas.
         /// </summary>
@@ -227,7 +202,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource marcas;
-        
+
         /// <summary>
         /// Control lblProveedor2.
         /// </summary>
@@ -236,7 +211,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblProveedor2;
-        
+
         /// <summary>
         /// Control ddlProveedor2.
         /// </summary>
@@ -245,7 +220,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlProveedor2;
-        
+
         /// <summary>
         /// Control proveedor.
         /// </summary>
@@ -254,7 +229,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource proveedor;
-        
+
         /// <summary>
         /// Control lblDescripcion.
         /// </summary>
@@ -263,7 +238,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDescripcion;
-        
+
         /// <summary>
         /// Control txtDescripcion.
         /// </summary>
@@ -272,7 +247,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtDescripcion;
-        
+
         /// <summary>
         /// Control lblPrecio2.
         /// </summary>
@@ -281,7 +256,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrecio2;
-        
+
         /// <summary>
         /// Control txtPrecio2.
         /// </summary>
@@ -290,7 +265,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtPrecio2;
-        
+
         /// <summary>
         /// Control lblImagen.
         /// </summary>
@@ -299,7 +274,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblImagen;
-        
+
         /// <summary>
         /// Control fupImagen.
         /// </summary>
@@ -308,7 +283,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.FileUpload fupImagen;
-        
+
         /// <summary>
         /// Control btnAgregar.
         /// </summary>
@@ -317,7 +292,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnAgregar;
-        
+
         /// <summary>
         /// Control btnEditar.
         /// </summary>
@@ -326,7 +301,7 @@ namespace CapaPresentacion.Empleado {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnEditar;
-        
+
         /// <summary>
         /// Control btnEliminar.
         /// </summary>
