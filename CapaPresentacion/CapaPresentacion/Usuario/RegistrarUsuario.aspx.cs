@@ -19,96 +19,46 @@ namespace CapaPresentacion.Usuario
             this.txbNombre.Text = string.Empty;
             this.txbDireccion.Text = string.Empty;
             this.txbTelefono.Text = string.Empty;
+            this.lblEstado.Text = string.Empty;
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-
-            //limpia los txt, carga ddl provincias y solo deja ingresar dni
-
-            //GestionPizza gpizza = new GestionPizza();
-            //ddlPizzas.DataTextField = "Nombre";
-            //ddlPizzas.DataValueField = "Cod_Pizza";
-            //ddlPizzas.DataSource = gpizza.ObtenerTodosLasPizzas();
-            //ddlPizzas.DataBind();
-
-            //NProvincia ObjProvincia = new NProvincia();
-
-            //ddlFProvincia.DataTextField = "DESC_PROVINCIA";
-            //ddlFProvincia.DataValueField = "ID_PROVINCIA";
-            //ddlFProvincia.DataSource = ObjProvincia.Mostrar();
-            //ddlFProvincia.DataBind();
+            Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
 
             NLocalidad ObjLocalidad = new NLocalidad();
 
-
-            ddlFLocalidad.DataTextField = "DESC_LOCALIDAD";
-            ddlFLocalidad.DataValueField = "ID_LOCALIDAD";
+            ddlFLocalidad.DataTextField = "desc_localidad";
+            ddlFLocalidad.DataValueField = "cod_postal";
             ddlFLocalidad.DataSource = ObjLocalidad.Mostrar();
             ddlFLocalidad.DataBind();
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            //limpia los txt y vuelve a la pagina anterior
+            txbApellido.Text = string.Empty;
+            txbClave.Text = string.Empty;
+            txbNombre.Text = string.Empty;
+            txbDireccion.Text = string.Empty;
+            txbDNI.Text = string.Empty;
+            txbRepitaClave.Text = string.Empty;
+            txbTelefono.Text = string.Empty;
+            Response.Redirect("/Usuario/InicioUsuario.aspx");
         }
-
-        //public bool txtCompletos()
-        //{
-        //    if ((txtIdMarca.Text == string.Empty) || (txtNombreMarca.Text == string.Empty) || txtIdMarca.Text.Trim().Length < 1)
-        //    {
-        //        lblEstado.Text = "Atención!! Hay campos incompletos txt id= " + txtIdMarca.Text.Length + " txt nombre= " + txtNombreMarca.Text.Length;
-        //        return false;
-        //    }
-        //    else
-        //    {
-        //        return true;
-        //    }
-        //}
 
         protected void btnAceptar_Click(object sender, EventArgs e)
         {
-            //if (!txtCompletos())
-            //{
-            //    lblEstado.Text += "Atencion!! Para agregar un registro a la tabla debe completar todos los campos de datos";
-            //}
-            //else
-            //{
-                Domicilio ObjDomicilio = new Domicilio();
 
-                ObjDomicilio.IdProvincia = Convert.ToInt32(ddlFProvincia.SelectedValue);
-                ObjDomicilio.IdLocalidad = Convert.ToInt32(ddlFLocalidad.SelectedValue);
-                ObjDomicilio.Calle_y_Altura = txbDireccion.Text;
+            NUsuario Obj = new NUsuario();
+            if (Obj.Insertar(txbDNI.Text, txbApellido.Text, txbNombre.Text, Convert.ToInt32(ddlFProvincia.SelectedValue), Convert.ToInt32(ddlFLocalidad.SelectedValue), txbDireccion.Text, txbTelefono.Text, txbClave.Text))
+            {
+                limpiarTxt();
+                lblEstado.Text = "El registro se insertó con exito";
+            }
+            else
+            {
+                lblEstado.Text = "El registro no se pudo insertar";
+            }
 
-                NUsuario Obj = new NUsuario();
-                if (Obj.Insertar(txbDNI.Text, txbApellido.Text, txbNombre.Text, ObjDomicilio, txbTelefono.Text))
-                {
-                    lblEstado.Text = "El registro se insertó con exito";
-                }
-                else
-                {
-                    lblEstado.Text = "El registro no se pudo insertar";
-                }
-
-            //}
-            limpiarTxt();
-        }
-
-        protected void txtDNI_TextChanged(object sender, EventArgs e)
-        {
-            //validar que solo se ingresen numeros
-            //buscar si el dni ingresado esta en la base de datos, 
-            //de estar avisar al usuario que ese dni ya esta registrado, 
-            //si no esta habilitar los controles para ingresar los datos del nuevo usuario
-        }
-
-        protected void ddlFProvincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //aca debe cargar el ddl localidades que pertenezcan a la provincia seleccionada
-        }
-
-        protected void btnRegistrar_Click(object sender, EventArgs e)
-        {
-            
         }
     }
 }

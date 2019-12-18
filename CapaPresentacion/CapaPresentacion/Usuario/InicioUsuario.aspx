@@ -35,7 +35,7 @@
 
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalUsuarios" runat="server">
-  <h3>Celulares:</h3>
+    <h3>Celulares:</h3>
     <div id="InicioUsuario" class="Form">
     
         <asp:ListView ID="lvwCelulares" runat="server" DataKeyNames="ID_MODELO" DataSourceID="celulares" GroupItemCount="2">

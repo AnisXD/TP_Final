@@ -6,20 +6,19 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    class Usuario
+    public class Usuario
     {
         #region Propiedades
         private string _DNI;
         private string _Nombre;
         private string _Apellido;
-        //private Domicilio _Direccion;
         private int _id_provincia;
         private int _id_localidad;
         private string _calle_y_altura;
         private string _Telefono;
         private bool _Estado;
         private string _Contraseña;
-        private string _Rol;
+        private char _Rol;
         #endregion
 
         #region Constructores
@@ -34,11 +33,11 @@ namespace ENTIDADES
             Calle_y_Altura = string.Empty;
             this.Telefono = string.Empty;
             this.Contraseña = string.Empty;
-            this.Rol = string.Empty;
+            this.Rol = ' ';
             this.Estado = true; 
         }
 
-        public Usuario(string dni, string nombre, string apellido, string telefono, int Id_Provincia, int Id_Localidad, string Calle_y_Altura, string contraseña, string rol, bool estado)
+        public Usuario(string dni, string nombre, string apellido, string telefono, int Id_Provincia, int Id_Localidad, string Calle_y_Altura, string contraseña, char rol, bool estado)
         {
             this.DNI = dni;
             this.Nombre = nombre;
@@ -99,7 +98,7 @@ namespace ENTIDADES
             set => _Contraseña = value;
         }
 
-        public string Rol
+        public char Rol
         {
             get => _Rol;
             set => _Rol = value;

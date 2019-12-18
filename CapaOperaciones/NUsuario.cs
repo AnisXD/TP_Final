@@ -11,7 +11,7 @@ namespace CapaOperaciones
 {
     public class NUsuario
     {
-        public bool Insertar(string dni, string apellido, string nombre, Domicilio direccion, string telefono)
+        public bool Insertar(string dni, string apellido, string nombre, int idprovincia, int idlocalidad, string direccion, string telefono, string clave)
         {
             //Domicilio obj = new Domicilio();
             //obj.IdProvincia = idprovincia;
@@ -22,8 +22,12 @@ namespace CapaOperaciones
                 DNI = dni,
                 Apellido = apellido,
                 Nombre = nombre,
-                Direccion = direccion,
+                IdLocalidad = idlocalidad,
+                IdProvincia = idprovincia,
                 Telefono = telefono,
+                Contraseña = clave,
+                Calle_y_Altura = direccion,
+                Rol = 'C',
             };
             DUsuario Obj = new DUsuario();
             return Obj.AgregarUsuario(ObjUsuario);

@@ -14,7 +14,7 @@ namespace CapaDatos
         public DataTable MostrarTodasLasLocalidades()
         {
             Conexion cn = new Conexion();
-            return cn.ObtenerTabla("Provincias", "SELECT LOCALIDADES.cod_localidad AS ID_LOCALIDAD, LOCALIDADES.desc_localidad AS DESC_LOCALIDAD FROM LOCALIDADES");
+            return cn.ObtenerTabla("Provincias", "SELECT * FROM LOCALIDADES");
         }
     }
 }
