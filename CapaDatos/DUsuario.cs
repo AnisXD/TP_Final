@@ -14,7 +14,8 @@ namespace CapaDatos
         public DataTable MostrarTodosLosUsuarios()
         {
             Conexion cn = new Conexion();
-            return cn.ObtenerTabla("Usuarios", "SELECT DNI_USU AS DNI, APELLIDO_USU AS Apellido, NOMBRE_USU AS Nombre, TELEFONO_USU AS Telefono, PROVINCIAS.descripcion_provincia AS PROVINCIA, LOCALIDADES.desc_localidad AS LOCALIDAD, DIRECCION_USU AS Direccion, CONTRASEÑA AS Contraseña, CASE ESTADO_USU WHEN '1' THEN 'Activo' WHEN '0' THEN 'Inactivo' END AS Estado, Rol.ROL AS Tipo_Rol From Usuarios INNER JOIN PROVINCIAS ON PROVINCIAS.cod_provincia = USUARIOS.ID_PROVINCIA_USU INNER JOIN LOCALIDADES ON LOCALIDADES.cod_localidad = USUARIOS.ID_LOCALIDAD_USU INNER JOIN ROL ON USUARIOS.ROL = ROL.ID_ROL");
+            SqlCommand cmd = new SqlCommand();
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarUsuarios");
         }
 
         private void ParametrosUsuario(ref SqlCommand Comando, Usuario usuario)
@@ -40,16 +41,32 @@ namespace CapaDatos
             SqlParametros.Value = usuario.Rol;
         }
 
+        private void ParametroIdUsuario(ref SqlCommand Comando, string IdUsuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
+            SqlParametros.Value = IdUsuario;
+        }
+
         public bool AgregarUsuario(Usuario usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosUsuario(ref Comando, usuario);
-            Conexion ad = new Conexion();
-            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "AltaUsuario");
+            Conexion cn = new Conexion();
+            int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaUsuario");
             if (FilasInsertadas == 1)
                 return true;
             else
                 return false;
+        }
+
+        public DataTable MostrarUsuariosPorId(string ID)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametroIdUsuario(ref Comando, ID);  //paso el ID como parametro al comando
+            Conexion cn= new Conexion(); //abro la conexion
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorId");
+            return TablaResultado;
         }
     }
 }

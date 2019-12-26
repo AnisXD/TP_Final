@@ -56,5 +56,10 @@ namespace CapaOperaciones
         {
             return new DMarca().MostrarPorId(id);
         }
+
+        public DataTable BuscarPorNombre(string nombre)
+        {
+            return new DMarca().MostrarPorNombre(nombre);
+        }
     }
 }

@@ -32,7 +32,7 @@
                     DNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" CssClass="ControlesASP"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>

@@ -52,6 +52,18 @@ namespace CapaPresentacion.Empleado
             return existe;
         }
 
+        public bool ExisteNombre(string nombre)
+        {
+            bool existe = false;
+            DataTable dt = new DataTable();
+            dt = new NMarca().BuscarPorNombre(nombre);
+            if (dt.Rows.Count == 1 && nombre.Length > 0)
+            {
+                existe = true;
+            }
+            return existe;
+        }
+
         #endregion
 
 

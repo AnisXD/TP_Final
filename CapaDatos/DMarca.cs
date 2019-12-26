@@ -15,14 +15,32 @@ namespace CapaDatos
         public DataTable MostrarTodasLasMarcas()
         {
             Conexion cn = new Conexion();
-            return cn.ObtenerTabla("Marcas", "SELECT ID_MARCA, NOMBRE_MARCA FROM MARCAS WHERE ESTADO_MARCA=1");
+            SqlCommand cmd = new SqlCommand();
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarMarcas");
         }
 
         public DataTable MostrarPorId(string id)
         {
             Conexion cn = new Conexion();
-            string consulta = "SELECT * FROM MARCAS WHERE ID_MARCA = '" + id +"'";
-            return cn.ObtenerTabla("Marcas", consulta);
+            SqlCommand cmd = new SqlCommand();
+            Marca obj = new Marca
+            {
+                idmarca = id
+            };
+            ParametroIdMarca(ref cmd, obj);
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarMarcaPorId"); ;
+        }
+
+        public DataTable MostrarPorNombre(string nombre)
+        {
+            Conexion cn = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            Marca obj = new Marca
+            {
+                nombremarca = nombre
+            };
+            ParametroIdMarca(ref cmd, obj);
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarMarcaPorNombre"); ;
         }
 
         private void ParametroIdMarca(ref SqlCommand Comando, Marca ObjMarca)
@@ -46,7 +64,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosMarcas(ref Comando, marca);
             Conexion ad = new Conexion();
-            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "AltaMarca");
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "AltaMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
@@ -58,7 +76,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosMarcas(ref Comando, marca);
             Conexion ad = new Conexion();
-           int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "ModificarMarca");
+           int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "ModificarMarca");
             if (FilasInsertadas == 1)
                 return true;
             else
@@ -71,7 +89,7 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametroIdMarca(ref Comando, marca);
             Conexion ad = new Conexion();
-            int FilasInsertadas = ad.EjecutarProcedimientoAlmacenado(Comando, "BajaLogicaMarca");
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "BajaLogicaMarca");
             if (FilasInsertadas == 1)
                 return true;
             else

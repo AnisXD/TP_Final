@@ -37,5 +37,11 @@ namespace CapaOperaciones
         {
             return new DUsuario().MostrarTodosLosUsuarios();
         }
+
+        public DataTable BuscarPorDNI(string id)
+        {
+            return new DUsuario().MostrarUsuariosPorId(id);
+        }
+
     }
 }

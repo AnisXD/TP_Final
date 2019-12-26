@@ -11,10 +11,26 @@ namespace CapaDatos
 {
     public class DLocalidad
     {
-        public DataTable MostrarTodasLasLocalidades()
+        public DataTable MostrarTodas()
         {
             Conexion cn = new Conexion();
-            return cn.ObtenerTabla("Provincias", "SELECT * FROM LOCALIDADES");
+            SqlCommand cmd = new SqlCommand();
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarLocalidades");
+        }
+
+        public DataTable MostrarPorProvincia(int codProv)
+        {
+            Conexion cn = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            ParametroCodProv(ref cmd, codProv);
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarLocalidadesPorProvincia");
+        }
+
+        private void ParametroCodProv(ref SqlCommand Comando, int codProv)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDPROVINCIA", SqlDbType.Int);
+            SqlParametros.Value = codProv;
         }
     }
 }
