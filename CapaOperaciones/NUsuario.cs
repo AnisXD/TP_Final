@@ -35,12 +35,12 @@ namespace CapaOperaciones
 
         public DataTable Mostrar()
         {
-            return new DUsuario().MostrarTodosLosUsuarios();
+            return new DUsuario().MostrarTodos();
         }
 
         public DataTable BuscarPorDNI(string id)
         {
-            return new DUsuario().MostrarUsuariosPorId(id);
+            return new DUsuario().MostrarPorId(id);
         }
 
     }

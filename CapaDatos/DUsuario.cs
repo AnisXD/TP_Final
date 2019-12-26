@@ -11,7 +11,7 @@ namespace CapaDatos
 {
     public class DUsuario
     {
-        public DataTable MostrarTodosLosUsuarios()
+        public DataTable MostrarTodos()
         {
             Conexion cn = new Conexion();
             SqlCommand cmd = new SqlCommand();
@@ -60,7 +60,7 @@ namespace CapaDatos
                 return false;
         }
 
-        public DataTable MostrarUsuariosPorId(string ID)
+        public DataTable MostrarPorId(string ID)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroIdUsuario(ref Comando, ID);  //paso el ID como parametro al comando

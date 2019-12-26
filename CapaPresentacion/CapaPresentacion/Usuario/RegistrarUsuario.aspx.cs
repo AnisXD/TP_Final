@@ -25,7 +25,12 @@ namespace CapaPresentacion.Usuario
         {
             bool existe = false;
             DataTable dt = new DataTable();
-            dt = new NUsuario().BuscarPorDNI(dni);
+            NUsuario obj = new NUsuario();
+            dt = obj.BuscarPorDNI(dni);
+            if(dt == null)
+            {
+                lblEstado.Text = "el dni ingresado no esta en la base de datos";
+            }
             if (dt.Rows.Count == 1 && dni.Length > 0)
             {
                 existe = true;
@@ -35,18 +40,19 @@ namespace CapaPresentacion.Usuario
         public void CargarDDL_Localidad()
         {
             NLocalidad ObjLocalidad = new NLocalidad();
-            ddlFLocalidad.DataTextField = "Localidad";
-            ddlFLocalidad.DataValueField = "IdLocalidad";
+           
             ddlFLocalidad.DataSource = ObjLocalidad.MostrarPorIdProvincia(Convert.ToInt32(ddlFProvincia.SelectedValue));
+            ddlFLocalidad.DataTextField = "Localidad";
+            ddlFLocalidad.DataValueField = "IdLocalidad"; 
             ddlFLocalidad.DataBind();
         }
 
         public void CargarDDL_Provincia()
         {
             NProvincia ObjProvincia = new NProvincia();
+            ddlFProvincia.DataSource = ObjProvincia.Mostrar();
             ddlFProvincia.DataTextField = "Provincia";
             ddlFProvincia.DataValueField = "IdProvincia";
-            ddlFProvincia.DataSource = ObjProvincia.Mostrar();
             ddlFProvincia.DataBind();
         }
 
@@ -54,7 +60,13 @@ namespace CapaPresentacion.Usuario
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
-           
+            if (!IsPostBack)
+            {
+                CargarDDL_Provincia();
+                CargarDDL_Localidad();
+                limpiarTxt();
+            }
+            
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -104,6 +116,11 @@ namespace CapaPresentacion.Usuario
                     lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
                 }
             }
+        }
+
+        protected void ddlFProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            CargarDDL_Localidad();
         }
     }
 }

@@ -13,7 +13,7 @@ namespace CapaOperaciones
     {
         public DataTable Mostrar()
         {
-            return new DProvincia().MostrarTodasLasProvincias();
+            return new DProvincia().MostrarTodas();
         }
     }
 }

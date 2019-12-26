@@ -32,7 +32,7 @@
                     DNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -68,7 +68,7 @@
                     TELEFONO:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128222;Telefono" CssClass="ControlesASP"></asp:TextBox>
+                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128222;Telefono" CssClass="ControlesASP" TextMode="Phone"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un numero de telefono." ControlToValidate="txbTelefono" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -80,7 +80,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP" DataSourceID="SqlDataSource1" DataTextField="descripcion_provincia" DataValueField="cod_provincia" Width="150px" >
+                    <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
