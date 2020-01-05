@@ -26,13 +26,13 @@
         Por favor recuerde completar los datos de registro con valores verdaderos, de otro modo podría resultar inconveniente para nosotros.
     </p>
         <h2>Registro</h2>
-         <table border:solid">
+         <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
                     DNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -44,7 +44,7 @@
                     NOMBRE:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbNombre" runat="server" CssClass="ControlesASP"></asp:TextBox>
+                    <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:RegularExpressionValidator ID="rev2" runat="server" ControlToValidate="txbNombre" ErrorMessage="Ingrese un Nombre." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
@@ -68,7 +68,7 @@
                     TELEFONO:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128222;Telefono" CssClass="ControlesASP" TextMode="Phone"></asp:TextBox>
+                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Phone"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un numero de telefono." ControlToValidate="txbTelefono" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -104,7 +104,7 @@
                     DIRECCION:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#8962;Direccion" CssClass="ControlesASP"></asp:TextBox>
+                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Ingrese una direccion." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>

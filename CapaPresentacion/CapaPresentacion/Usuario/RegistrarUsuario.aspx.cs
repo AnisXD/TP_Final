@@ -29,12 +29,17 @@ namespace CapaPresentacion.Usuario
             dt = obj.BuscarPorDNI(dni);
             if(dt == null)
             {
-                lblEstado.Text = "el dni ingresado no esta en la base de datos";
+                lblEstado.Text = "El DNI ingresado no esta en la base de datos";
             }
-            if (dt.Rows.Count == 1 && dni.Length > 0)
+            else
             {
-                existe = true;
+                if (dt.Rows.Count == 1 && dni.Length > 0)
+                {
+                    existe = true;
+                    lblEstado.Text = "El DNI ingresado ya esta en la base de datos";
+                }
             }
+           
             return existe;
         } 
         public void CargarDDL_Localidad()
@@ -95,7 +100,7 @@ namespace CapaPresentacion.Usuario
         protected void txbDNI_TextChanged(object sender, EventArgs e)
         {
             lblEstado.Text = "txtDNI se modifico";
-            if (txbDNI.Text.Length == 0)
+            if (txbDNI.Text.Trim().Length == 0)
             {
                 btnAceptar.Enabled = false;
                 btnCancelar.Enabled = false;
@@ -103,11 +108,11 @@ namespace CapaPresentacion.Usuario
             }
             else
             {
-                if (ExisteDNI(txbDNI.Text))
+                if (ExisteDNI(txbDNI.Text.ToString()))
                 {
                     btnAceptar.Enabled = false;
                     btnCancelar.Enabled = false;
-                    lblEstado.Text = "El DNI ingresado ya fue registrado";
+                    //lblEstado.Text = "El DNI ingresado ya fue registrado";
                 }
                 else
                 {
