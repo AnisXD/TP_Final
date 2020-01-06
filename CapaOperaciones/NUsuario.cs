@@ -35,50 +35,13 @@ namespace CapaOperaciones
 
         public DataTable Mostrar()
         {
-            return new DUsuario().MostrarTodosLosUsuarios();
+            return new DUsuario().MostrarTodos();
         }
 
-        public bool ExisteUsuario(Usuario usu)
+        public DataTable BuscarPorDNI(string id)
         {
-            AccesoDatos datos = new AccesoDatos();
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlCommand comando = new SqlCommand();
-            int cantFilasAfectadas;
-            bool estado;
-
-            SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar, 9);
-            SqlParametros.Value = usu.DNI;
-            SqlParametros = comando.Parameters.Add("@Clave_Usuario", SqlDbType.VarChar, 15);
-            SqlParametros.Value = usu.Clave_Usuario;
-
-            cantFilasAfectadas = datos.EjecutarProcedimientoAlmacenado2(comando, "spExisteUsuario");
-
-            if (cantFilasAfectadas == 1)
-                estado = true;
-            else
-                estado = false;
-
-            return estado;
+            return new DUsuario().MostrarPorId(id);
         }
-        public bool CuentaActivada(Usuario usu)
-        {
-            AccesoDatos datos = new AccesoDatos();
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlCommand comando = new SqlCommand();
-            int cantFilasAfectadas;
-            bool estado;
 
-            SqlParametros = comando.Parameters.Add("@DNI", SqlDbType.VarChar, 9);
-            SqlParametros.Value = usu.DNI;
-
-            cantFilasAfectadas = datos.EjecutarProcedimientoAlmacenado2(comando, "spCuentaActivada");
-
-            if (cantFilasAfectadas == 1)
-                estado = true;
-            else
-                estado = false;
-
-            return estado;
-        }
     }
 }

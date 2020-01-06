@@ -11,10 +11,11 @@ namespace CapaDatos
 {
     public class DProvincia
     {
-        public DataTable MostrarTodasLasProvincias()
+        public DataTable MostrarTodas()
         {
             Conexion cn = new Conexion();
-            return cn.ObtenerTabla("Provincias", "SELECT PROVINCIAS.cod_provincia AS ID_PROVINCIA, PROVINCIAS.descripcion_provincia AS DESC_PROVINCIA FROM PROVINCIAS");
+            SqlCommand cmd = new SqlCommand();
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarProvincias");
         }
     }
 }

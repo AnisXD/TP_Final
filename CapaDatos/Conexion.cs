@@ -52,26 +52,68 @@ namespace CapaDatos
             }
         }
 
-        public int EjecutarProcedimientoAlmacenado(SqlCommand Comando, String NombreSP) //comando que recibe tiene los parametros incluidos
+        public int EjecutarProcedimientoDeABM(SqlCommand Comando, String NombreSP) 
+        //el comando que recibe tiene los parametros incluidos
         {
             int FilasCambiadas;
-            SqlConnection Conexion = ObtenerConexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd = Comando;
-            cmd.Connection = Conexion;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = NombreSP;
-            FilasCambiadas = cmd.ExecuteNonQuery();
-            Conexion.Close();
+            SqlCommand cmd =  Comando;
+            try
+            {
+                SqlConnection Conexion = ObtenerConexion();
+                cmd.Connection = Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = NombreSP;
+                FilasCambiadas = cmd.ExecuteNonQuery();
+                Conexion.Close(); 
+            }
+            catch (Exception ex)
+            {
+                Error = ex.ToString();
+                FilasCambiadas = 0;
+            }
             return FilasCambiadas;
         }
 
-        public DataTable ObtenerTabla(String Nombre, String Sql)
+        public DataTable ObtenerTablaPorConsultaSQL( String Sql)
         {
-            DataSet ds = new DataSet();
-            SqlDataAdapter adp = ObtenerAdaptador(Sql);
-            adp.Fill(ds, Nombre);
-            return ds.Tables[Nombre];
+            DataTable DTResultado = new DataTable();
+            SqlCommand cmd = new SqlCommand();
+            try
+            {
+                
+                SqlConnection Conexion = ObtenerConexion();
+                cmd.Connection = Conexion;
+                SqlDataAdapter adp = ObtenerAdaptador(Sql);
+                adp.Fill(DTResultado);
+                Conexion.Close();
+            }
+            catch(Exception ex)
+            {
+                Error = ex.ToString();
+                DTResultado = null;
+            }
+            return DTResultado;
+        }
+
+        public DataTable ObtenerTablaPorProcedimiento(ref SqlCommand cmd, String NombreSP)
+        {
+            DataTable DTResultado = new DataTable();
+            try
+            {
+                SqlConnection Conexion = ObtenerConexion();
+                cmd.Connection = Conexion;
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandText = NombreSP;
+                SqlDataAdapter adp = new SqlDataAdapter(cmd);
+                adp.Fill(DTResultado);
+                Conexion.Close();
+            }
+            catch(Exception ex)
+            {
+                Error = ex.ToString();
+                DTResultado = null;
+            }
+            return DTResultado;
         }
     }
 }

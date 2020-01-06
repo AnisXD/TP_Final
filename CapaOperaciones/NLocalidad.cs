@@ -11,9 +11,16 @@ namespace CapaOperaciones
 {
     public class NLocalidad
     {
-        public DataTable Mostrar()
+        public DataTable MostrarTodas()
         {
-            return new DLocalidad().MostrarTodasLasLocalidades();
+            return new DLocalidad().MostrarTodas();
         }
+
+
+        public DataTable MostrarPorIdProvincia(int IdProvincia)
+        {
+            return new DLocalidad().MostrarPorProvincia(IdProvincia);
+        }
+
     }
 }
