@@ -49,8 +49,6 @@
     <Compile Include="NFormaDePago.cs" />
     <Compile Include="NMarca.cs" />
     <Compile Include="NCelular.cs" />
-    <Compile Include="NProveedor.cs" />
-    <Compile Include="NVendedor.cs" />
     <Compile Include="NVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

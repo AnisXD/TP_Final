@@ -7,11 +7,22 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Usuario {
-    
-    
-    public partial class LogIn {
-        
+namespace CapaPresentacion.Usuario
+{
+
+
+    public partial class LogIn
+    {
+
+        /// <summary>
+        /// Control lblusucon.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblusucon;
+
         /// <summary>
         /// Control txtUsuario.
         /// </summary>
@@ -20,7 +31,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtUsuario;
-        
+
         /// <summary>
         /// Control txtClave.
         /// </summary>
@@ -29,7 +40,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtClave;
-        
+
         /// <summary>
         /// Control chkRecordarUsuario.
         /// </summary>
@@ -38,7 +49,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CheckBox chkRecordarUsuario;
-        
+
         /// <summary>
         /// Control btnIngresar.
         /// </summary>
@@ -47,7 +58,7 @@ namespace CapaPresentacion.Usuario {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnIngresar;
-        
+
         /// <summary>
         /// Control lblError.
         /// </summary>
