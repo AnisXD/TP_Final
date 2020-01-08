@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-        class Celular
+       public class Celular
         {
         #region Propiedades
             private string _IdModelo;
@@ -19,7 +19,7 @@ namespace ENTIDADES
             #endregion
 
             #region Constructores
-            public Celular ()
+            public Celular()
             {
                 this.IdModelo = string.Empty;
                 this.IdMarca = string.Empty;
@@ -49,10 +49,7 @@ namespace ENTIDADES
             public int Stock { get => _Stock; set => _Stock = value; }
             public float PrecioUnitario { get => _PrecioUnitario; set => _PrecioUnitario = value; }
             public string UbicacionImagen { get => _UbicacionImagen; set => _UbicacionImagen = value; }
-
-
         #endregion
-
     }
     
 }

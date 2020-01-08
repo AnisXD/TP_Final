@@ -27,7 +27,6 @@ namespace ENTIDADES
             this.DNI = string.Empty;
             this.Nombre = string.Empty;
             this.Apellido = string.Empty;
-            //this.Direccion = new Domicilio();
             IdProvincia = 0;
             IdLocalidad = 0;
             Calle_y_Altura = string.Empty;
@@ -43,7 +42,6 @@ namespace ENTIDADES
             this.Nombre = nombre;
             this.Apellido = apellido;
             this.Telefono = telefono;
-            //this.Direccion = direccion;
             this.IdProvincia = Id_Provincia;
             this.IdLocalidad = Id_Localidad;
             this.Calle_y_Altura = Calle_y_Altura;
@@ -108,14 +106,6 @@ namespace ENTIDADES
             get { return _Estado; }
             set { _Estado = value; }
         }
-
-        //public Domicilio Direccion
-        //{ 
-        //    get => _Direccion; 
-        //    set => _Direccion = value; 
-        //}
-
-
         #endregion
     }
 }

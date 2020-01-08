@@ -21,5 +21,11 @@ namespace CapaPresentacion.Usuario
             
             Response.Redirect("/Usuario/InicioUsuario.aspx");
         }
+
+        protected void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+           
+
+        }
     }
 }
