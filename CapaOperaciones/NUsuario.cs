@@ -13,10 +13,6 @@ namespace CapaOperaciones
     {
         public bool Insertar(string dni, string apellido, string nombre, int idprovincia, int idlocalidad, string direccion, string telefono, string clave)
         {
-            //Domicilio obj = new Domicilio();
-            //obj.IdProvincia = idprovincia;
-            //obj.IdProvincia = idlocalidad;
-            //obj.Calle_y_Altura = direccion;
             Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
@@ -42,6 +38,9 @@ namespace CapaOperaciones
         {
             return new DUsuario().MostrarPorId(id);
         }
-
+        public DataTable BuscarPorRol(string rol)
+        {
+            return new DUsuario().MostrarPorRol(rol);
+        }
     }
 }

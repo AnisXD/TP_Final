@@ -48,6 +48,13 @@ namespace CapaDatos
             SqlParametros.Value = IdUsuario;
         }
 
+        private void ParametroRol(ref SqlCommand Comando, string rol)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDROL", SqlDbType.VarChar, 15);
+            SqlParametros.Value = rol;
+        }
+
         public bool AgregarUsuario(Usuario usuario)
         {
             SqlCommand Comando = new SqlCommand();
@@ -66,6 +73,15 @@ namespace CapaDatos
             ParametroIdUsuario(ref Comando, ID);  //paso el ID como parametro al comando
             Conexion cn= new Conexion(); //abro la conexion
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorId");
+            return TablaResultado;
+        }
+
+        public DataTable MostrarPorRol(string ROL)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametroIdUsuario(ref Comando, ROL);  
+            Conexion cn = new Conexion(); 
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
             return TablaResultado;
         }
     }
