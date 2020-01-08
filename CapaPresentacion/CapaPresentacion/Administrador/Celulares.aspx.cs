@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace CapaPresentacion.Empleado
 {
-	public partial class Proveedores : System.Web.UI.Page
-	{
-		protected void Page_Load(object sender, EventArgs e)
-		{
+    public partial class Celulares : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
 
-		}
-	}
+        }
+    }
 }

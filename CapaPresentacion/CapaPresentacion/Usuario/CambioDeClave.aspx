@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Usuario/PaginaMaestraUsuarios.master" AutoEventWireup="true" CodeBehind="EditarUsuario.aspx.cs" Inherits="CapaPresentacion.Usuario.EditarUsuario" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Usuario/PaginaMaestraUsuarios.master" AutoEventWireup="true" CodeBehind="CambioDeClave.aspx.cs" Inherits="CapaPresentacion.Usuario.EditarUsuario" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContenidoHead" runat="server">
 
