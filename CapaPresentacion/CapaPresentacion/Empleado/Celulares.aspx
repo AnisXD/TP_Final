@@ -35,7 +35,7 @@
                 <Columns>
                     <asp:BoundField DataField="ID_MODELO" HeaderText="MODELO" ReadOnly="True" SortExpression="ID_MODELO" />
                     <asp:BoundField DataField="ID_MARCA_CEL" HeaderText="MARCA" SortExpression="ID_MARCA_CEL" />
-                    <asp:BoundField DataField="ID_PROVEEDOR_CEL" HeaderText="PROVEEDOR" SortExpression="ID_PROVEEDOR_CEL" />
+                    <asp:BoundField DataField="ID_STOCK_CEL" HeaderText="STOCK" SortExpression="ID_STOCK_CEL" />
                     <asp:BoundField DataField="DESCRIPCION_CEL" HeaderText="DESCRIPCION" SortExpression="DESCRIPCION_CEL" />
                     <asp:BoundField DataField="PRECIO_UNITARIO_CEL" HeaderText="PRECIO" SortExpression="PRECIO_UNITARIO_CEL" />
                     <asp:BoundField DataField="UBICACION_IMAGEN_CEL" HeaderText="IMAGEN" SortExpression="UBICACION_IMAGEN_CEL" />
@@ -66,14 +66,12 @@
             <asp:DropDownList ID="ddlMarca2" runat="server" CssClass="ControlesASP" DataSourceID="marcas" DataTextField="NOMBRE_MARCA" DataValueField="ID_MARCA">
             </asp:DropDownList>
             <asp:SqlDataSource ID="marcas" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
-            <asp:Label ID="lblProveedor2" runat="server" Text="Proveedor: " CssClass="ControlesASP"></asp:Label>
-            <asp:DropDownList ID="ddlProveedor2" runat="server" CssClass="ControlesASP" DataSourceID="proveedor" DataTextField="RAZON_SOCIAL_PROV" DataValueField="ID_PROV">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="proveedor" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [RAZON_SOCIAL_PROV], [ID_PROV] FROM [PROVEEDORES]"></asp:SqlDataSource>
             <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion: " CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtDescripcion" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblPrecio2" runat="server" Text="Precio:" CssClass="ControlesASP"></asp:Label>
-            <asp:TextBox ID="txtPrecio2" runat="server" CssClass="ControlesASP"></asp:TextBox>
+            <asp:TextBox ID="txtPrecio2" runat="server" CssClass="ControlesASP" OnTextChanged="txtPrecio2_TextChanged"></asp:TextBox>
+            <asp:Label ID="lblStock" runat="server" Text="Stock:" CssClass="ControlesASP"></asp:Label>
+            <asp:TextBox ID="txtStock" runat="server" CssClass="ControlesASP" OnTextChanged="txtPrecio2_TextChanged"></asp:TextBox>
             <asp:Label ID="lblImagen" runat="server" Text="Imagen:" CssClass="ControlesASP"></asp:Label>
             <asp:FileUpload ID="fupImagen" runat="server" CssClass="ControlesASP" />
             <br />
