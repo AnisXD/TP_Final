@@ -82,7 +82,6 @@
     <Content Include="Empleado\Marca.aspx" />
     <Content Include="Empleado\CarritoEmpleado.aspx" />
     <Content Include="Empleado\PerfilEmpleado.aspx" />
-    <Content Include="Empleado\Proveedores.aspx" />
     <Content Include="Empleado\Reportes.aspx" />
     <Content Include="Empleado\Ventas.aspx" />
     <Content Include="Usuario\EditarUsuario.aspx" />
@@ -203,13 +202,6 @@
     </Compile>
     <Compile Include="Empleado\PerfilEmpleado.aspx.designer.cs">
       <DependentUpon>PerfilEmpleado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado\Proveedores.aspx.cs">
-      <DependentUpon>Proveedores.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empleado\Proveedores.aspx.designer.cs">
-      <DependentUpon>Proveedores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleado\Reportes.aspx.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
