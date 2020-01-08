@@ -58,6 +58,8 @@
 
         <div id="Administrar" title="Administrar">
             
+            <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
+            
             <asp:Label ID="lblModelo2" runat="server" Text="Modelo: " CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtModelo2" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblMarca2" runat="server" Text="Marca: " CssClass="ControlesASP"></asp:Label>
@@ -74,6 +76,8 @@
             <asp:TextBox ID="txtPrecio2" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblImagen" runat="server" Text="Imagen:" CssClass="ControlesASP"></asp:Label>
             <asp:FileUpload ID="fupImagen" runat="server" CssClass="ControlesASP" />
+            <br />
+            <asp:Label ID="lblEstado" runat="server"></asp:Label>
             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
             <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>

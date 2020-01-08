@@ -76,6 +76,28 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdMarca");
             return TablaResultado;
         }
+        public bool ActualizarCelular(Celular celular)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosCelular(ref Comando, celular);
+            Conexion ad = new Conexion();
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "ModificarCelular");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
+        public bool EliminarCelular(Celular celular)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosCelular(ref Comando, celular);
+            Conexion ad = new Conexion();
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "BajaLogicaCelular");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
     }
 }
 

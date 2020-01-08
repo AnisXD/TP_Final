@@ -9,7 +9,7 @@ using ENTIDADES;
 
 namespace CapaOperaciones
 {
-    class NCelular
+    public class NCelular
     {
         public bool Insertar(string idmodelo, string idmarcacel, float preciounitariocel, int stockcel, string descripcioncel, string ubicacionimagen)
         {
@@ -30,6 +30,38 @@ namespace CapaOperaciones
         public DataTable Mostrar()
         {
             return new DCelular().MostrarTodos();
+        }
+
+        public bool Editar(string modelo, string marca, float preciounitario, int stock, string descripcion, string ubicacionimagen )
+        {
+            ;
+            Celular ObjCelular = new Celular
+            {
+                IdModelo = modelo,
+                IdMarca = marca,
+                PrecioUnitario = preciounitario,
+                Stock = stock,
+                Descripcion = descripcion,
+                UbicacionImagen = ubicacionimagen,
+            };
+            DCelular Obj = new DCelular();
+            return Obj.ActualizarCelular(ObjCelular);
+
+        }
+        public bool Eliminar(string modelo, string marca, float preciounitario, int stock, string descripcion, string ubicacionimagen)
+        {
+            Celular ObjCelular = new Celular
+            {
+                IdModelo = modelo,
+                IdMarca = marca,
+                PrecioUnitario = preciounitario,
+                Stock = stock,
+                Descripcion = descripcion,
+                UbicacionImagen = ubicacionimagen,
+            };
+            DCelular Obj = new DCelular();
+            return Obj.EliminarCelular(ObjCelular);
+
         }
 
         public DataTable BuscarPorIdModelo(string idmodelo)
