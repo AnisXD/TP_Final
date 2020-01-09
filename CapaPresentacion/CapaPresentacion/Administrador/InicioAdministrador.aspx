@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="InicioEmpleado.aspx.cs" Inherits="CapaPresentacion.Empleado.InicioEmpleado" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="InicioAdministrador.aspx.cs" Inherits="CapaPresentacion.Empleado.InicioEmpleado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 

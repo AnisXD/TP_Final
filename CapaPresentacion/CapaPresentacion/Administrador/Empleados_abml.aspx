@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="Clientes.aspx.cs" Inherits="CapaPresentacion.Empleado.Clientes1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="Empleados_abml.aspx.cs" Inherits="CapaPresentacion.Empleado.Empleados" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
-    <h2>Filtrar por:</h2>
+     <h2>Filtrar por:</h2>
     <div id="Filtros">
     
         <asp:Label ID="lblDNIF" runat="server" Text="DNI: " CssClass="ControlesASP"></asp:Label>
@@ -21,19 +21,20 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-  <h1>Administrar Clientes</h1>
-   <div id="FormClientes" class="Form">
+     <h1>Administrar Empleados</h1>
+   <div id="FormEmpleado" class="Form">
 
-    <asp:GridView ID="gvwClientes" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_CLIENTE" DataSourceID="clientes" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" PageSize="5" Width="90%">
+    <asp:GridView ID="gvwEmpleado" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="ID_EMPLE" DataSourceID="empleado" ForeColor="#333333" GridLines="None" AllowPaging="True">
         <AlternatingRowStyle BackColor="White" />
         <Columns>
-            <asp:BoundField DataField="ID_CLIENTE" HeaderText="DNI" ReadOnly="True" SortExpression="ID_CLIENTE" />
-            <asp:BoundField DataField="NOMBRE_CLI" HeaderText="NOMBRE" SortExpression="NOMBRE_CLI" />
-            <asp:BoundField DataField="APELLIDO_CLI" HeaderText="APELLIDO" SortExpression="APELLIDO_CLI" />
-            <asp:BoundField DataField="DIRECCION_CLI" HeaderText="DIRECCION" SortExpression="DIRECCION_CLI" />
-            <asp:BoundField DataField="TELÉFONO_CLI" HeaderText="TELÉFONO" SortExpression="TELÉFONO_CLI" />
+            <asp:BoundField DataField="ID_EMPLE" HeaderText="ID" ReadOnly="True" SortExpression="ID_EMPLE" />
+            <asp:BoundField DataField="NOMBRE_EMPLE" HeaderText="NOMBRE" SortExpression="NOMBRE_EMPLE" />
+            <asp:BoundField DataField="APELLIDO_EMPLE" HeaderText="APELLIDO" SortExpression="APELLIDO_EMPLE" />
+            <asp:BoundField DataField="DNI_EMPLE" HeaderText="DNI" SortExpression="DNI_EMPLE" />
+            <asp:BoundField DataField="LEGAJO_EMPLE" HeaderText="LEGAJO" SortExpression="LEGAJO_EMPLE" />
+            <asp:BoundField DataField="TELEFONO_EMPLE" HeaderText="TELEFONO" SortExpression="TELEFONO_EMPLE" />
+            <asp:BoundField DataField="DIRECCION_EMPLE" HeaderText="DIRECCION" SortExpression="DIRECCION_EMPLE" />
         </Columns>
-    
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
         <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -44,13 +45,18 @@
         <SortedAscendingHeaderStyle BackColor="#6D95E1" />
         <SortedDescendingCellStyle BackColor="#E9EBEF" />
         <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    
+      
     </asp:GridView>
-    <asp:SqlDataSource ID="clientes" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_CLIENTE], [NOMBRE_CLI], [APELLIDO_CLI], [DIRECCION_CLI], [TELÉFONO_CLI] FROM [CLIENTES]"></asp:SqlDataSource>
+    
+       <asp:SqlDataSource ID="empleado" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_EMPLE], [NOMBRE_EMPLE], [APELLIDO_EMPLE], [DNI_EMPLE], [LEGAJO_EMPLE], [TELEFONO_EMPLE], [DIRECCION_EMPLE] FROM [EMPLEADOS]"></asp:SqlDataSource>
     
     <div id="Administrar" title="Administrar">
             <asp:Label ID="lblDNI" runat="server" Text="DNI: " CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtDNI" runat="server" CssClass="ControlesASP"></asp:TextBox>
+            <asp:Label ID="lblID" runat="server" Text="ID: " CssClass="ControlesASP"></asp:Label>
+            <asp:TextBox ID="txtID" runat="server" CssClass="ControlesASP"></asp:TextBox>
+            <asp:Label ID="lblLegajo" runat="server" Text="Legajo: " CssClass="ControlesASP"></asp:Label>
+            <asp:TextBox ID="txtLegajo" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtNombre" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblApellido" runat="server" Text="Apellido:" CssClass="ControlesASP"></asp:Label>
@@ -70,7 +76,6 @@
             <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>
     </div>
    </div>
-    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>

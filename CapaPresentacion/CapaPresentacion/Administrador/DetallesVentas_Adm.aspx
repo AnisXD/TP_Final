@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="DetallesVentas.aspx.cs" Inherits="CapaPresentacion.Empleado.DetallesVentas" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="DetallesVentas_Adm.aspx.cs" Inherits="CapaPresentacion.Empleado.DetallesVentas" %>
 
 <script runat="server">
 

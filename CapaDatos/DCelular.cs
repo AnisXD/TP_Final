@@ -29,9 +29,9 @@ namespace CapaDatos
             SqlParametros.Value = celular.PrecioUnitario;
             SqlParametros = Comando.Parameters.Add("@STOCKCEL", SqlDbType.Int);
             SqlParametros.Value = celular.Stock;
-            SqlParametros = Comando.Parameters.Add("@DESCRIPCIONCEL", SqlDbType.VarChar, 15);
+            SqlParametros = Comando.Parameters.Add("@DESCRIPCIONCEL", SqlDbType.VarChar, 100);
             SqlParametros.Value = celular.Descripcion;
-            SqlParametros = Comando.Parameters.Add("@UBICACIONIMAGENCEL", SqlDbType.VarChar, 15);
+            SqlParametros = Comando.Parameters.Add("@UBICACIONIMAGENCEL", SqlDbType.VarChar, 100);
             SqlParametros.Value = celular.UbicacionImagen;
         }
 
