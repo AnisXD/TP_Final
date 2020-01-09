@@ -29,7 +29,32 @@ namespace CapaPresentacion.Empleado
             gvwCelulares.DataBind();
             lblTotalRegistros.Text = "Registros encontrados: " + gvwCelulares.Rows.Count;
         }
+        public void CargarDDL_Marcas()
+        {
+            NMarca Obj = new NMarca();
+            ddlMarca.DataSource = Obj.Mostrar();
+            ddlMarca.DataTextField = "Marca";
+            ddlMarca.DataValueField = "Id";
+            ddlMarca.DataBind();
+        }
 
+        public void CargarDDL_Modelo()
+        {
+            NCelular Obj = new NCelular();
+            ddlModelo.DataSource = Obj.BuscarPorIdMarca(ddlMarca.SelectedValue);
+            ddlModelo.DataTextField = "Modelo";
+            ddlModelo.DataValueField = "Modelo";
+            ddlModelo.DataBind();
+        }
+
+        public void CargarDDL_Marcas2()
+        {
+            NMarca Obj = new NMarca();
+            ddlMarca2.DataSource = Obj.Mostrar();
+            ddlMarca2.DataTextField = "Marca";
+            ddlMarca2.DataValueField = "Id";
+            ddlMarca2.DataBind();
+        }
         public bool txtCompletos()
         {
             if ((txtModelo2.Text == string.Empty) || (ddlMarca2.Text == string.Empty) || (txtDescripcion.Text == string.Empty) || (txtPrecio2.Text == string.Empty) || txtPrecio2.Text.Trim().Length < 1 || (txtStock.Text == string.Empty)) 
@@ -76,6 +101,9 @@ namespace CapaPresentacion.Empleado
             if (!IsPostBack)
             {
                 cargarDgv();
+                CargarDDL_Marcas2();
+                CargarDDL_Modelo();
+                CargarDDL_Marcas();
                 limpiarTxt();
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = false;
@@ -84,7 +112,13 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void txtIdModelo_TextChanged(object sender, EventArgs e)
+        
+        protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void txtModelo2_TextChanged(object sender, EventArgs e)
         {
             //lblEstado.Text = "El Modelo se modifico";
             if (txtModelo2.Text.Length == 0)
@@ -114,7 +148,7 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click1(object sender, EventArgs e)
         {
             if (!txtCompletos())
             {
@@ -123,7 +157,7 @@ namespace CapaPresentacion.Empleado
             else
             {
                 NCelular Obj = new NCelular();
-                if (Obj.Insertar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.Text, txtDescripcion.Text ))
+                if (Obj.Insertar(txtModelo2.Text, ddlMarca.Text, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, UbicacionImagen.FileName.ToString()))
                 {
                     lblEstado.Text = "El registro se insertó con exito";
                 }
@@ -137,12 +171,12 @@ namespace CapaPresentacion.Empleado
             limpiarTxt();
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
+        protected void btnEditar_Click1(object sender, EventArgs e)
         {
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Editar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.Text, txtDescripcion.Text))
+                if (obj.Editar(txtModelo2.Text, ddlMarca.Text, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, UbicacionImagen.FileName.ToString()))
                 {
                     lblEstado.Text = "El registro se editó con exito";
                 }
@@ -159,12 +193,12 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
+        protected void btnEliminar_Click1(object sender, EventArgs e)
         {
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Eliminar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.Text, txtDescripcion.Text))
+                if (obj.Eliminar(txtModelo2.Text))
                 {
                     lblEstado.Text = "El registro se eliminó con exito";
                 }
@@ -179,23 +213,22 @@ namespace CapaPresentacion.Empleado
             {
                 lblEstado.Text = "Atencion! Para eliminar un registro de la tabla debe completar todos los campos de datos";
             }
-
-
         }
-        protected void gdvCelulares_SelectedIndexChanged(object sender, EventArgs e)
+
+        protected void gvwCelulares_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtModelo2.Text = gvwCelulares.SelectedRow.Cells[1].Text;
             this.ddlMarca2.Text = gvwCelulares.SelectedRow.Cells[2].Text;
             this.txtDescripcion.Text = gvwCelulares.SelectedRow.Cells[3].Text;
             this.txtStock.Text = gvwCelulares.SelectedRow.Cells[4].Text;
             this.txtPrecio2.Text = gvwCelulares.SelectedRow.Cells[5].Text;
-           // this.txt.Text = gvwCelulares.SelectedRow.Cells[5].Text;
+            // this.txt.Text = gvwCelulares.SelectedRow.Cells[5].Text;
             btnAgregar.Enabled = false;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
         }
-
-        #endregion
     }
+
+    #endregion
 }

@@ -68,7 +68,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Empleado\DetallesVentas.aspx" />
-    <Content Include="Empleado\Empleados.aspx" />
     <Content Include="Empleado\Reportes.aspx" />
     <Content Include="Empleado\Ventas.aspx" />
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
@@ -97,13 +96,6 @@
     </Compile>
     <Compile Include="Empleado\DetallesVentas.aspx.designer.cs">
       <DependentUpon>DetallesVentas.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado\Empleados.aspx.cs">
-      <DependentUpon>Empleados.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empleado\Empleados.aspx.designer.cs">
-      <DependentUpon>Empleados.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleado\Reportes.aspx.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>

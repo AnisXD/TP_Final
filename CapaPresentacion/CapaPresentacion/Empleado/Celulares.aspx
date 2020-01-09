@@ -7,11 +7,9 @@
     
     <h2>Filtrar por:</h2>
     <asp:Label ID="lblMarca" runat="server" Text="Marca: " CssClass="ControlesASP"></asp:Label>
-    <asp:DropDownList ID="ddlMarca" runat="server"  CssClass="ControlesASP" DataSourceID="marca" DataTextField="NOMBRE_MARCA" DataValueField="ID_MARCA"></asp:DropDownList>
-    <asp:SqlDataSource ID="marca" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
+    <asp:DropDownList ID="ddlMarca" runat="server"  CssClass="ControlesASP"></asp:DropDownList>
     <asp:Label ID="lblModelo" runat="server" Text="Modelo: " CssClass="ControlesASP"></asp:Label>
-    <asp:DropDownList ID="ddlModelo" runat="server" CssClass="ControlesASP" DataSourceID="modelos" DataTextField="ID_MODELO" DataValueField="ID_MARCA_CEL"></asp:DropDownList>
-    <asp:SqlDataSource ID="modelos" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL] FROM [CELULARES]"></asp:SqlDataSource>
+    <asp:DropDownList ID="ddlModelo" runat="server" CssClass="ControlesASP"></asp:DropDownList>
     <asp:Panel ID="pnlFiltrarPrecio" runat="server">
         <asp:Label ID="lblPrecio" runat="server" Text="Precio: " CssClass="ControlesASP"></asp:Label>
         <asp:RadioButton ID="Mayor" runat="server" Text="Mayor a:" CssClass="ControlesASP"/>
@@ -30,16 +28,8 @@
     <h1>Celulares</h1>
     <div id="FormCelulares" class="Form">
     
-            <asp:GridView ID="gvwCelulares" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" Font-Size="10pt" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvwCelulares" runat="server" AllowPaging="True" AutoGenerateColumns="False" Font-Size="10pt" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvwCelulares_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
-                <Columns>
-                    <asp:BoundField DataField="ID_MODELO" HeaderText="MODELO" ReadOnly="True" SortExpression="ID_MODELO" />
-                    <asp:BoundField DataField="ID_MARCA_CEL" HeaderText="MARCA" SortExpression="ID_MARCA_CEL" />
-                    <asp:BoundField DataField="ID_STOCK_CEL" HeaderText="STOCK" SortExpression="ID_STOCK_CEL" />
-                    <asp:BoundField DataField="DESCRIPCION_CEL" HeaderText="DESCRIPCION" SortExpression="DESCRIPCION_CEL" />
-                    <asp:BoundField DataField="PRECIO_UNITARIO_CEL" HeaderText="PRECIO" SortExpression="PRECIO_UNITARIO_CEL" />
-                    <asp:BoundField DataField="UBICACION_IMAGEN_CEL" HeaderText="IMAGEN" SortExpression="UBICACION_IMAGEN_CEL" />
-                </Columns>
 
                 <EditRowStyle BackColor="#2461BF" />
                 <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -53,8 +43,6 @@
                 <SortedDescendingHeaderStyle BackColor="#4870BE" />
 
             </asp:GridView>
-
-            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL], [ID_PROVEEDOR_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL], [UBICACION_IMAGEN_CEL] FROM [CELULARES]"></asp:SqlDataSource>
 
         <div id="Administrar" title="Administrar">
              <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>   
@@ -79,8 +67,7 @@
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
-            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="text-align:center; " class="auto-style1">
@@ -124,7 +111,7 @@
                     IMAGEN:
                 </td>
                 <td class="auto-style2">
-                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                    <asp:FileUpload ID="UbicacionImagen" runat="server" />
                 </td>
                 <td class="auto-style3">
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese una Imagen" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
@@ -139,14 +126,14 @@
                </tr>
                 <tr>
                 <td class="auto-style2">
-                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
+                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton" OnClick="btnAgregar_Click1"/>
                 </td>
              <td class="auto-style3">
 
-            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
+            <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton" OnClick="btnEditar_Click1"/>
         
                <td>
-            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>
+            <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton" OnClick="btnEliminar_Click1"/>
                      </td>
                 </tr>
         </table>
