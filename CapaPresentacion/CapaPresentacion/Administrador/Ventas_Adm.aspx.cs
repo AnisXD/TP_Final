@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace CapaPresentacion.Empleado
 {
-    public partial class Empleados : System.Web.UI.Page
+    public partial class Ventas : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

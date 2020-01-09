@@ -10,13 +10,13 @@ using ENTIDADES;
 
 namespace CapaPresentacion.Empleado
 {
-    public partial class CelularesEmpleadp : System.Web.UI.Page
+    public partial class Celulares : System.Web.UI.Page
     {
 
         #region Funciones
         public void limpiarTxt()
         {
-            this.txtModeloEditar.Text = string.Empty;
+            this.txtModelo2.Text = string.Empty;
             this.ddlMarca2.Text = string.Empty;
             this.txtDescripcion.Text = string.Empty;
             this.txtPrecio2.Text = string.Empty;
