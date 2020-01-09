@@ -20,6 +20,7 @@ namespace CapaPresentacion.Empleado
             this.ddlMarca2.Text = string.Empty;
             this.txtDescripcion.Text = string.Empty;
             this.txtPrecio2.Text = string.Empty;
+            this.txtStock.Text = string.Empty;
         }
 
         public void cargarDgv()
@@ -31,7 +32,7 @@ namespace CapaPresentacion.Empleado
 
         public bool txtCompletos()
         {
-            if ((txtModelo2.Text == string.Empty) || (ddlMarca2.Text == string.Empty) || (txtDescripcion.Text == string.Empty) || (txtPrecio2.Text == string.Empty) || txtPrecio2.Text.Trim().Length < 1 ||) 
+            if ((txtModelo2.Text == string.Empty) || (ddlMarca2.Text == string.Empty) || (txtDescripcion.Text == string.Empty) || (txtPrecio2.Text == string.Empty) || txtPrecio2.Text.Trim().Length < 1 || (txtStock.Text == string.Empty)) 
             {
                // lblEstado.Text = "Atención!! Hay campos incompletos txt id= " + txtIdMarca.Text.Length + " txt nombre= " + txtNombreMarca.Text.Length;
                 return false;
@@ -83,9 +84,9 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void txtIdMarca_TextChanged(object sender, EventArgs e)
+        protected void txtIdModelo_TextChanged(object sender, EventArgs e)
         {
-            lblEstado.Text = "txtID se modifico";
+            //lblEstado.Text = "El Modelo se modifico";
             if (txtModelo2.Text.Length == 0)
             {
                 btnAgregar.Enabled = false;
@@ -93,6 +94,7 @@ namespace CapaPresentacion.Empleado
                 btnEliminar.Enabled = false;
                 lblEstado.Text = "El Modelo esta vacio";
             }
+
             else
             {
                 if (ExisteModelo(txtModelo2.Text))
@@ -107,7 +109,7 @@ namespace CapaPresentacion.Empleado
                     btnAgregar.Enabled = true;
                     btnEditar.Enabled = false;
                     btnEliminar.Enabled = false;
-                    lblEstado.Text = "El Modelo ingresado ya fue registrado";
+                    lblEstado.Text = "El Modelo ingresado fue registrado";
                 }
             }
         }
@@ -116,12 +118,12 @@ namespace CapaPresentacion.Empleado
         {
             if (!txtCompletos())
             {
-                lblEstado.Text += "Atencion! Para agregar un registro a la tabla debe completar todos los campos de datos";
+                lblEstado.Text = "Atencion! Para agregar un registro a la tabla debe completar todos los datos";
             }
             else
             {
                 NCelular Obj = new NCelular();
-                if (Obj.Insertar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.text, txtDescripcion.Text ))
+                if (Obj.Insertar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.Text, txtDescripcion.Text ))
                 {
                     lblEstado.Text = "El registro se insertó con exito";
                 }
@@ -140,7 +142,7 @@ namespace CapaPresentacion.Empleado
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Editar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.text, txtDescripcion.Text))
+                if (obj.Editar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.Text, txtDescripcion.Text))
                 {
                     lblEstado.Text = "El registro se editó con exito";
                 }
@@ -162,7 +164,7 @@ namespace CapaPresentacion.Empleado
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Eliminar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.text, txtDescripcion.Text))
+                if (obj.Eliminar(txtModelo2.Text, ddlMarca.Text, txtPrecio2.Text, txtStock.Text, txtDescripcion.Text))
                 {
                     lblEstado.Text = "El registro se eliminó con exito";
                 }
@@ -195,7 +197,5 @@ namespace CapaPresentacion.Empleado
         }
 
         #endregion
-
-
     }
 }

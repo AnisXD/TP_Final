@@ -35,7 +35,7 @@
                 <Columns>
                     <asp:BoundField DataField="ID_MODELO" HeaderText="MODELO" ReadOnly="True" SortExpression="ID_MODELO" />
                     <asp:BoundField DataField="ID_MARCA_CEL" HeaderText="MARCA" SortExpression="ID_MARCA_CEL" />
-                    <asp:BoundField DataField="ID_PROVEEDOR_CEL" HeaderText="PROVEEDOR" SortExpression="ID_PROVEEDOR_CEL" />
+                    <asp:BoundField DataField="ID_STOCK_CEL" HeaderText="STOCK" SortExpression="ID_STOCK_CEL" />
                     <asp:BoundField DataField="DESCRIPCION_CEL" HeaderText="DESCRIPCION" SortExpression="DESCRIPCION_CEL" />
                     <asp:BoundField DataField="PRECIO_UNITARIO_CEL" HeaderText="PRECIO" SortExpression="PRECIO_UNITARIO_CEL" />
                     <asp:BoundField DataField="UBICACION_IMAGEN_CEL" HeaderText="IMAGEN" SortExpression="UBICACION_IMAGEN_CEL" />
@@ -57,30 +57,99 @@
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL], [ID_PROVEEDOR_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL], [UBICACION_IMAGEN_CEL] FROM [CELULARES]"></asp:SqlDataSource>
 
         <div id="Administrar" title="Administrar">
-            
-            <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
-            
-            <asp:Label ID="lblModelo2" runat="server" Text="Modelo: " CssClass="ControlesASP"></asp:Label>
-            <asp:TextBox ID="txtModelo2" runat="server" CssClass="ControlesASP"></asp:TextBox>
-            <asp:Label ID="lblMarca2" runat="server" Text="Marca: " CssClass="ControlesASP"></asp:Label>
-            <asp:DropDownList ID="ddlMarca2" runat="server" CssClass="ControlesASP" DataSourceID="marcas" DataTextField="NOMBRE_MARCA" DataValueField="ID_MARCA">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="marcas" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
-            <asp:Label ID="lblProveedor2" runat="server" Text="Proveedor: " CssClass="ControlesASP"></asp:Label>
-            <asp:DropDownList ID="ddlProveedor2" runat="server" CssClass="ControlesASP" DataSourceID="proveedor" DataTextField="RAZON_SOCIAL_PROV" DataValueField="ID_PROV">
-            </asp:DropDownList>
-            <asp:SqlDataSource ID="proveedor" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [RAZON_SOCIAL_PROV], [ID_PROV] FROM [PROVEEDORES]"></asp:SqlDataSource>
-            <asp:Label ID="lblDescripcion" runat="server" Text="Descripcion: " CssClass="ControlesASP"></asp:Label>
-            <asp:TextBox ID="txtDescripcion" runat="server" CssClass="ControlesASP"></asp:TextBox>
-            <asp:Label ID="lblPrecio2" runat="server" Text="Precio:" CssClass="ControlesASP"></asp:Label>
-            <asp:TextBox ID="txtPrecio2" runat="server" CssClass="ControlesASP"></asp:TextBox>
-            <asp:Label ID="lblImagen" runat="server" Text="Imagen:" CssClass="ControlesASP"></asp:Label>
-            <asp:FileUpload ID="fupImagen" runat="server" CssClass="ControlesASP" />
-            <br />
-            <asp:Label ID="lblEstado" runat="server"></asp:Label>
-            <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
+             <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>   
+            <table >
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    MODELO:
+                </td>
+                <td class="auto-style2">
+                  <asp:TextBox ID="txtModelo2" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txtModelo2_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtModelo2" ErrorMessage="Ingrese un Modelo" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    MARCA:
+                </td>
+                <td class="auto-style2">
+                    <asp:DropDownList ID="ddlMarca2" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" >
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style3">
+            <asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString2 %>" SelectCommand="SELECT [ID_MARCA], [NOMBRE_MARCA] FROM [MARCAS]"></asp:SqlDataSource>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    DESCRIPCION:
+                </td>
+                <td class="auto-style2">
+                     <asp:TextBox ID="txtDescripcion" runat="server" placeholder="&#128100;Apellido" CssClass="ControlesASP"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:RegularExpressionValidator ID="rev3" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Ingrese una Descripcion." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txrDescripcion" ErrorMessage="Ingrese una Descripcion" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    PRECIO:
+                </td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txtPrecio2" runat="server" placeholder="&#128241;" CssClass="ControlesASP"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un Precio" ControlToValidate="txtPrecio" Operator="DataTypeCheck" ValidationGroup="1" Type="Currency"></asp:CompareValidator>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrecio2" ErrorMessage="Ingrese un Precio" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    STOCK:
+                </td>
+                  <td class="auto-style2">
+                    <asp:TextBox ID="txtStock" runat="server" placeholder="&#128241;" CssClass="ControlesASP"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:CompareValidator ID="CompareValidator1" Runat="server" ErrorMessage="Ingrese Stock" ControlToValidate="txtStock" Operator="DataTypeCheck" ValidationGroup="1" Type="Integer"></asp:CompareValidator>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese Stock" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+              
+            </tr>
+                <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    IMAGEN:
+                </td>
+                <td class="auto-style2">
+                    <asp:FileUpload ID="FileUpload1" runat="server" />
+                </td>
+                <td class="auto-style3">
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese una Imagen" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+             </tr>
+             <tr>
+                <td style="text-align:center; " class="auto-style1">
+                </td>
+                <td class="auto-style2">
+                    <asp:Label ID="lblEstado" runat="server"></asp:Label>
+                   </td>
+               </tr>
+                <tr>
+                <td class="auto-style2">
+                 <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
+                </td>
+             <td class="auto-style3">
+
             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
+        
+               <td>
             <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>
+                     </td>
+                </tr>
+        </table>
 
         </div>
 
@@ -90,3 +159,4 @@
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>
+            
