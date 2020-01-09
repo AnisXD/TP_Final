@@ -84,9 +84,9 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void txtIdMarca_TextChanged(object sender, EventArgs e)
+        protected void txtIdModelo_TextChanged(object sender, EventArgs e)
         {
-            lblEstado.Text = "txtID se modifico";
+            //lblEstado.Text = "El Modelo se modifico";
             if (txtModelo2.Text.Length == 0)
             {
                 btnAgregar.Enabled = false;
@@ -94,6 +94,7 @@ namespace CapaPresentacion.Empleado
                 btnEliminar.Enabled = false;
                 lblEstado.Text = "El Modelo esta vacio";
             }
+
             else
             {
                 if (ExisteModelo(txtModelo2.Text))
@@ -108,7 +109,7 @@ namespace CapaPresentacion.Empleado
                     btnAgregar.Enabled = true;
                     btnEditar.Enabled = false;
                     btnEliminar.Enabled = false;
-                    lblEstado.Text = "El Modelo ingresado ya fue registrado";
+                    lblEstado.Text = "El Modelo ingresado fue registrado";
                 }
             }
         }
@@ -117,7 +118,7 @@ namespace CapaPresentacion.Empleado
         {
             if (!txtCompletos())
             {
-                lblEstado.Text += "Atencion! Para agregar un registro a la tabla debe completar todos los campos de datos";
+                lblEstado.Text = "Atencion! Para agregar un registro a la tabla debe completar todos los datos";
             }
             else
             {
@@ -196,7 +197,5 @@ namespace CapaPresentacion.Empleado
         }
 
         #endregion
-
-
     }
 }
