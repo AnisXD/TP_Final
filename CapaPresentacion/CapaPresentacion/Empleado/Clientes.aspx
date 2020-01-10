@@ -49,6 +49,7 @@
     <asp:SqlDataSource ID="clientes" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_CLIENTE], [NOMBRE_CLI], [APELLIDO_CLI], [DIRECCION_CLI], [TELÉFONO_CLI] FROM [CLIENTES]"></asp:SqlDataSource>
     
     <div id="Administrar" title="Administrar">
+            <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
             <asp:Label ID="lblDNI" runat="server" Text="DNI: " CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtDNI" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblNombre" runat="server" Text="Nombre:" CssClass="ControlesASP"></asp:Label>
@@ -65,6 +66,7 @@
             <asp:TextBox ID="txtDireccion" runat="server" CssClass="ControlesASP"></asp:TextBox>
             <asp:Label ID="lblTelefono" runat="server" Text="Telefono:" CssClass="ControlesASP"></asp:Label>
             <asp:TextBox ID="txtTelefono" runat="server" CssClass="ControlesASP"></asp:TextBox>
+            <asp:Label ID="lblEstado" runat="server"></asp:Label>
             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
             <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>

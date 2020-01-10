@@ -76,6 +76,7 @@ namespace CapaPresentacion.Empleado
             if (!IsPostBack)
             {
                 cargarDgv();
+                CargarDDL_Marca();
                 limpiarTxt();
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = false;
@@ -194,6 +195,15 @@ namespace CapaPresentacion.Empleado
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
+        }
+
+        public void CargarDDL_Marca()
+        {
+            NMarca ObjMarca = new NMarca();
+            ddlMarca.DataSource = ObjMarca.Mostrar();
+            ddlMarca.DataTextField = "Provincia";
+            ddlMarca.DataValueField = "Id";
+            ddlMarca.DataBind();
         }
 
         #endregion

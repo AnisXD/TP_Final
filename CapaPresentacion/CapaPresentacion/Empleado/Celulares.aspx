@@ -30,7 +30,7 @@
     <h1>Celulares</h1>
     <div id="FormCelulares" class="Form">
     
-            <asp:GridView ID="gvwCelulares" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" Font-Size="10pt" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvwCelulares" runat="server" AllowPaging="True" AutoGenerateColumns="False" DataKeyNames="ID_MODELO" DataSourceID="SqlDataSource1" Font-Size="10pt" CellPadding="4" ForeColor="#333333" GridLines="None" OnSelectedIndexChanged="gvwCelulares_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" />
                 <Columns>
                     <asp:BoundField DataField="ID_MODELO" HeaderText="MODELO" ReadOnly="True" SortExpression="ID_MODELO" />
