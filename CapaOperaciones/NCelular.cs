@@ -48,19 +48,10 @@ namespace CapaOperaciones
             return Obj.ActualizarCelular(ObjCelular);
 
         }
-        public bool Eliminar(string modelo, string marca, float preciounitario, int stock, string descripcion, string ubicacionimagen)
+        public bool Eliminar(string modelo)
         {
-            Celular ObjCelular = new Celular
-            {
-                IdModelo = modelo,
-                IdMarca = marca,
-                PrecioUnitario = preciounitario,
-                Stock = stock,
-                Descripcion = descripcion,
-                UbicacionImagen = ubicacionimagen,
-            };
             DCelular Obj = new DCelular();
-            return Obj.EliminarCelular(ObjCelular);
+            return Obj.EliminarCelular(modelo);
 
         }
 

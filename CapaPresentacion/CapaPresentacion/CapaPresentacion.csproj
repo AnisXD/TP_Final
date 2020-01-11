@@ -67,14 +67,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Administrador\Celulares_abml.aspx" />
-    <Content Include="Administrador\Clientes_abml.aspx" />
-    <Content Include="Administrador\DetallesVentas_Adm.aspx" />
-    <Content Include="Administrador\Empleados_abml.aspx" />
-    <Content Include="Administrador\InicioAdministrador.aspx" />
-    <Content Include="Administrador\Marca_abml.aspx" />
-    <Content Include="Administrador\Reportes.aspx" />
-    <Content Include="Administrador\Ventas_Adm.aspx" />
+    <Content Include="Empleado\DetallesVentas.aspx" />
+    <Content Include="Empleado\Reportes.aspx" />
+    <Content Include="Empleado\Ventas.aspx" />
     <Content Include="App_Themes\Tema1\HojaDeEstilos1.css" />
     <Content Include="Cliente\CarritoCliente.aspx" />
     <Content Include="Cliente\InicioCliente.aspx" />
@@ -83,13 +78,11 @@
     <Content Include="Cliente\VerPerfilCli.aspx" />
     <Content Include="Empleado\Celulares.aspx" />
     <Content Include="Empleado\Clientes.aspx" />
-    <Content Include="Empleado\DetallesVentas.aspx" />
     <Content Include="Empleado\EditarPerfilEmpleado.aspx" />
     <Content Include="Empleado\InicioEmpleado.aspx" />
     <Content Include="Empleado\Marca.aspx" />
     <Content Include="Empleado\CarritoEmpleado.aspx" />
     <Content Include="Empleado\PerfilEmpleado.aspx" />
-    <Content Include="Empleado\Ventas.aspx" />
     <Content Include="Usuario\CambioDeClave.aspx" />
     <Content Include="Usuario\InicioUsuario.aspx" />
     <Content Include="Usuario\LogIn.aspx" />
@@ -97,68 +90,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Administrador\Celulares_abml.aspx.cs">
-      <DependentUpon>Celulares_abml.aspx</DependentUpon>
+    <Compile Include="Empleado\DetallesVentas.aspx.cs">
+      <DependentUpon>DetallesVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrador\Celulares_abml.aspx.designer.cs">
-      <DependentUpon>Celulares_abml.aspx</DependentUpon>
+    <Compile Include="Empleado\DetallesVentas.aspx.designer.cs">
+      <DependentUpon>DetallesVentas.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\Clientes_abml.aspx.cs">
-      <DependentUpon>Clientes_abml.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\Clientes_abml.aspx.designer.cs">
-      <DependentUpon>Clientes_abml.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\DetallesVentas_Adm.aspx.cs">
-      <DependentUpon>DetallesVentas_Adm.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\DetallesVentas_Adm.aspx.designer.cs">
-      <DependentUpon>DetallesVentas_Adm.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\Empleados_abml.aspx.cs">
-      <DependentUpon>Empleados_abml.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\Empleados_abml.aspx.designer.cs">
-      <DependentUpon>Empleados_abml.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\InicioAdministrador.aspx.cs">
-      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\InicioAdministrador.aspx.designer.cs">
-      <DependentUpon>InicioAdministrador.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\Marca_abml.aspx.cs">
-      <DependentUpon>Marca_abml.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\Marca_abml.aspx.designer.cs">
-      <DependentUpon>Marca_abml.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\PaginaMaestraAdministrador.master.cs">
-      <DependentUpon>PaginaMaestraAdministrador.master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Administrador\PaginaMaestraAdministrador.master.designer.cs">
-      <DependentUpon>PaginaMaestraAdministrador.master</DependentUpon>
-    </Compile>
-    <Compile Include="Administrador\Reportes.aspx.cs">
+    <Compile Include="Empleado\Reportes.aspx.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrador\Reportes.aspx.designer.cs">
+    <Compile Include="Empleado\Reportes.aspx.designer.cs">
       <DependentUpon>Reportes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Administrador\Ventas_Adm.aspx.cs">
-      <DependentUpon>Ventas_Adm.aspx</DependentUpon>
+    <Compile Include="Empleado\Ventas.aspx.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Administrador\Ventas_Adm.aspx.designer.cs">
-      <DependentUpon>Ventas_Adm.aspx</DependentUpon>
+    <Compile Include="Empleado\Ventas.aspx.designer.cs">
+      <DependentUpon>Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Cliente\CarritoCliente.aspx.cs">
       <DependentUpon>CarritoCliente.aspx</DependentUpon>
@@ -216,13 +167,6 @@
     <Compile Include="Empleado\Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Empleado\DetallesVentas.aspx.cs">
-      <DependentUpon>DetallesVentas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empleado\DetallesVentas.aspx.designer.cs">
-      <DependentUpon>DetallesVentas.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Empleado\EditarPerfilEmpleado.aspx.cs">
       <DependentUpon>EditarPerfilEmpleado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -264,13 +208,6 @@
     </Compile>
     <Compile Include="Empleado\PerfilEmpleado.aspx.designer.cs">
       <DependentUpon>PerfilEmpleado.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado\Ventas.aspx.cs">
-      <DependentUpon>Ventas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empleado\Ventas.aspx.designer.cs">
-      <DependentUpon>Ventas.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PaginaMaestra.Master.cs">
@@ -319,7 +256,6 @@
   <ItemGroup>
     <Content Include="Empleado\PaginaMaestraEmpleado.master" />
     <Content Include="Cliente\PaginaMaestraCliente.master" />
-    <Content Include="Administrador\PaginaMaestraAdministrador.master" />
     <None Include="packages.config" />
     <Content Include="PaginaMaestra.Master" />
     <Content Include="Usuario\PaginaMaestraUsuarios.master" />

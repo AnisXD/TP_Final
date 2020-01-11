@@ -87,10 +87,10 @@ namespace CapaDatos
             else
                 return false;
         }
-        public bool EliminarCelular(Celular celular)
+        public bool EliminarCelular(string modelocelular)
         {
             SqlCommand Comando = new SqlCommand();
-            ParametrosCelular(ref Comando, celular);
+            ParametroIdModelo(ref Comando, modelocelular);
             Conexion ad = new Conexion();
             int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "BajaLogicaCelular");
             if (FilasInsertadas == 1)
