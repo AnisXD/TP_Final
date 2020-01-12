@@ -34,7 +34,6 @@ namespace CapaOperaciones
 
         public bool Editar(string modelo, string marca, float preciounitario, int stock, string descripcion, string ubicacionimagen )
         {
-            ;
             Celular ObjCelular = new Celular
             {
                 IdModelo = modelo,
@@ -55,16 +54,26 @@ namespace CapaOperaciones
 
         }
 
-        public DataTable BuscarPorIdModelo(string idmodelo)
+        public DataTable BuscarPorModelo(string idmodelo)
         {
-            return new DCelular().MostrarPorIdModelo(idmodelo);
+            Celular objCelular = new Celular
+            {
+                IdModelo = idmodelo
+            };
+
+            DCelular Obj = new DCelular();
+            return Obj.MostrarPorModelo(objCelular);
         }
 
-        public DataTable BuscarPorIdMarca(string idmarca)
+        public DataTable BuscarPorMarca(string idmarca)
         {
-            return new DCelular().MostrarPorIdMarca(idmarca);
+            return new DCelular().MostrarPorMarca(idmarca);
         }
 
+        public DataTable FiltroPrecio(float Condicion)
+        {
+            return new DCelular().MostrarPorPrecio(Condicion);
+        }
     }
 }
 

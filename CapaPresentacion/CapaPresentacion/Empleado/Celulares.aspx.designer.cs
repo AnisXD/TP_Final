@@ -51,6 +51,24 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
 
         /// <summary>
+        /// Control SI.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton SI;
+
+        /// <summary>
+        /// Control No.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton No;
+
+        /// <summary>
         /// Control pnlFiltrarPrecio.
         /// </summary>
         /// <remarks>

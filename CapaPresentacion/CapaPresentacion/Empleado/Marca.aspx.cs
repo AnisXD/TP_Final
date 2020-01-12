@@ -44,11 +44,20 @@ namespace CapaPresentacion.Empleado
         {
             bool existe = false;
             DataTable dt = new DataTable();
-            dt= new NMarca().BuscarPorId(id);
-            if (dt.Rows.Count == 1 && id.Length > 0)
+            dt = new NMarca().BuscarPorId(id);
+           
+            if (dt == null)
             {
-                existe = true;
+                //lblEstado.Text = "La marca ingresada no esta en la base de datos";
             }
+            else
+            {
+                if (dt.Rows.Count == 1 && id.Length > 0)
+                {
+                    existe = true;
+                }
+            }
+
             return existe;
         }
 

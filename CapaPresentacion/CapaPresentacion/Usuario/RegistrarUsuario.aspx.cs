@@ -41,14 +41,14 @@ namespace CapaPresentacion.Usuario
             }
            
             return existe;
-        } 
+        }
         public void CargarDDL_Localidad()
         {
             NLocalidad ObjLocalidad = new NLocalidad();
-           
+
             ddlFLocalidad.DataSource = ObjLocalidad.MostrarPorIdProvincia(Convert.ToInt32(ddlFProvincia.SelectedValue));
-            ddlFLocalidad.DataTextField= "desc_localidad";
-            ddlFLocalidad.DataValueField = "cod_postal"; 
+            ddlFLocalidad.DataTextField = "Localidad";
+            ddlFLocalidad.DataValueField = "IdLocalidad";
             ddlFLocalidad.DataBind();
         }
 
@@ -57,7 +57,7 @@ namespace CapaPresentacion.Usuario
             NProvincia ObjProvincia = new NProvincia();
             ddlFProvincia.DataSource = ObjProvincia.Mostrar();
             ddlFProvincia.DataTextField = "Provincia";
-            ddlFProvincia.DataValueField = "Id";
+            ddlFProvincia.DataValueField = "IdProvincia";
             ddlFProvincia.DataBind();
         }
 
