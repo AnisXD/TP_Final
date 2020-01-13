@@ -11,13 +11,6 @@ namespace CapaDatos
 {
     public class DCelular
     {
-        public DataTable MostrarTodos()
-        {
-            Conexion cn = new Conexion();
-            SqlCommand cmd = new SqlCommand();
-            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarCelulares");
-        }
-
         private void ParametrosCelular(ref SqlCommand Comando, Celular celular)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -37,8 +30,56 @@ namespace CapaDatos
         private void ParametroIdMarca(ref SqlCommand Comando, string IdMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDMARCACEL", SqlDbType.VarChar, 15);
+            SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
             SqlParametros.Value = IdMarca;
+        }
+        private void ParametroIdModeloCel(ref SqlCommand Comando, string IdModelo)//Editar Eliminar y agregar usan IDMODELOCEL
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDMODELOCEL", SqlDbType.VarChar, 15);
+            SqlParametros.Value = IdModelo;
+        }
+        private void ParametroIdModelo(ref SqlCommand Comando, string IdModelo)// Mostrar por modelo usa IDMODELO
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDMODELO", SqlDbType.VarChar, 15);
+            SqlParametros.Value = IdModelo;
+        }
+        public DataTable MostrarTodos()
+        {
+            Conexion cn = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarCelulares");
+        }
+        public DataTable MostrarPorMarca(string idmarca)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametroIdMarca(ref Comando, idmarca);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdMarca");
+            return TablaResultado;
+        }
+        public DataTable MostrarPorModelo(string idmodelo)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametroIdModelo(ref Comando, idmodelo);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdModelo");
+            return TablaResultado;
+        }
+        public DataTable MostrarPorFiltro(string Filtro)
+        {
+            Conexion cn = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            string Consulta = "SELECT ID_MODELO as Modelo, " +
+                                     "NOMBRE_MARCA as Marca, " +
+                                     "DESCRIPCION_CEL as Descripcion, " +
+                                     "STOCK_CEL as Stock, " +
+                                     "PRECIO_UNITARIO_CEL as Precio," +
+                                     "UBICACION_IMAGEN_CEL as Imagen " +
+                                     "FROM CELULARES inner join MARCAS on(ID_MARCA_CEL= ID_MARCA)"+
+                                     Filtro;
+            return cn.ObtenerTablaPorConsultaSQL(Consulta);
         }
         public bool AgregarCelular(Celular celular)
         {
@@ -51,49 +92,6 @@ namespace CapaDatos
             else
                 return false;
         }
-        private void ParametroIdModelo(ref SqlCommand Comando, string IdModelo)
-        {
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDMODELO", SqlDbType.VarChar, 15);
-            SqlParametros.Value = IdModelo;
-        }
-        //public DataTable MostrarPorIdModelo(string Idmodelo)
-        //{
-        //    SqlCommand Comando = new SqlCommand();
-        //    ParametroIdModelo(ref Comando, Idmodelo);  //paso el ID como parametro al comando
-        //    Conexion cn = new Conexion(); //abro la conexion
-        //    DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdModelo");
-        //    return TablaResultado;  
-        //}
-        private void ParametroPrecio(ref SqlCommand Comando, float Precio)
-        {
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@PRECIO", SqlDbType.VarChar, 15);
-            SqlParametros.Value = Precio;
-        }
-
-        public DataTable MostrarPorMarca(string idmarca)
-        {
-            SqlCommand Comando = new SqlCommand();
-            ParametroIdMarca(ref Comando, idmarca);
-            Conexion cn = new Conexion();
-            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdMarca");
-            return TablaResultado;
-        }
-        private void ParametroIdModelo(ref SqlCommand Comando, Celular ObjCelular)
-        {
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDMODELO", SqlDbType.VarChar, 15);
-            SqlParametros.Value = ObjCelular.IdModelo;
-        }
-        public DataTable MostrarPorModelo(Celular celular)
-        {
-            Conexion cn = new Conexion();
-            SqlCommand cmd = new SqlCommand();
-            ParametroIdModelo(ref cmd, celular);
-            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarCelularPorIdModelo"); ;
-        }
-
         public bool ActualizarCelular(Celular celular)
         {
             SqlCommand Comando = new SqlCommand();
@@ -108,7 +106,7 @@ namespace CapaDatos
         public bool EliminarCelular(string modelocelular)
         {
             SqlCommand Comando = new SqlCommand();
-            ParametroIdModelo(ref Comando, modelocelular);
+            ParametroIdModeloCel(ref Comando, modelocelular);
             Conexion ad = new Conexion();
             int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "BajaLogicaCelular");
             if (FilasInsertadas == 1)
@@ -116,44 +114,37 @@ namespace CapaDatos
             else
                 return false;
         }
-        public static void ArmarClausula(string NombreCampo, string Operador, string Valor, ref string Clausula)
-        {
-            string d1 = "";
-            string d2 = "";
-            // bool bar = false;
 
+        public void FiltroAvanzado(string NombreCampo, string Operador, string Valor, ref string Clausula)
+        {
+            string d1 = "";  //Delimitador 1
+            string d2 = ""; //Delimitador 2
             if (Clausula == "")
-            {
                 Clausula = Clausula + " WHERE ";
-            }
             else
                 Clausula = Clausula + " AND ";
-
             switch (Operador)
             {
-                case "Igual a:":
-                    d1 = " = '";
+                case "Igual a:"://para comparar precio
+                    d1 = " = ";
+                    d2 = "";
+                    break;
+                case "Mayor a:"://para comparar precio
+                    d1 = " > ";
+                    d2 = "";
+                    break;
+                case "Menor a:"://para comparar precio
+                    d1 = " < ";
+                    d2 = "";
+                    break;
+                case "Es igual a:"://para comparar Marca y Modelo
+                    d1 = " ='";
                     d2 = "'";
                     break;
-                case "Mayor a:":
-                    d1 = " >= ";
-                    d2 = "";
-                    break;
-                case "Menor a:":
-                    d1 = " <= ";
-                    d2 = "";
-                    break;
+
             }
-
-            Clausula = Clausula + NombreCampo + d1 + Valor + d2;
-
-        }
-        public DataTable MostrarPorPrecio (float precio)
-        {
-            Conexion cn = new Conexion();
-            SqlCommand cmd = new SqlCommand();
-            ParametroPrecio(ref cmd, precio);
-            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarCelularPorIdModelo");
+            Clausula =
+                Clausula + NombreCampo + d1 + Valor + d2;
         }
 
     }

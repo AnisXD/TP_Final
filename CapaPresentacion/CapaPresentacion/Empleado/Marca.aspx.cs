@@ -93,7 +93,7 @@ namespace CapaPresentacion.Empleado
         protected void txtIdMarca_TextChanged(object sender, EventArgs e)
         {
             lblEstado.Text = "txtID se modifico";
-            if (txtIdMarca.Text.Length == 0)
+            if (txtIdMarca.Text.Trim().Length == 0)
             {
                 btnAgregar.Enabled = false;
                 btnEditar.Enabled = false;

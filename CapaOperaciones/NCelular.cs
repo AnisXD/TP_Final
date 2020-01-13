@@ -27,11 +27,6 @@ namespace CapaOperaciones
             return Obj.AgregarCelular(ObjCelular);
         }
 
-        public DataTable Mostrar()
-        {
-            return new DCelular().MostrarTodos();
-        }
-
         public bool Editar(string modelo, string marca, float preciounitario, int stock, string descripcion, string ubicacionimagen )
         {
             Celular ObjCelular = new Celular
@@ -47,6 +42,7 @@ namespace CapaOperaciones
             return Obj.ActualizarCelular(ObjCelular);
 
         }
+
         public bool Eliminar(string modelo)
         {
             DCelular Obj = new DCelular();
@@ -54,25 +50,27 @@ namespace CapaOperaciones
 
         }
 
+        public DataTable Mostrar()
+        {
+            return new DCelular().MostrarTodos();
+        }
+
         public DataTable BuscarPorModelo(string idmodelo)
         {
-            Celular objCelular = new Celular
-            {
-                IdModelo = idmodelo
-            };
-
-            DCelular Obj = new DCelular();
-            return Obj.MostrarPorModelo(objCelular);
+            return new DCelular().MostrarPorModelo(idmodelo);
         }
 
         public DataTable BuscarPorMarca(string idmarca)
         {
             return new DCelular().MostrarPorMarca(idmarca);
         }
-
-        public DataTable FiltroPrecio(float Condicion)
+        public DataTable BuscarPorFiltro(string filtro)
         {
-            return new DCelular().MostrarPorPrecio(Condicion);
+            return new DCelular().MostrarPorFiltro(filtro);
+        }
+        public void AgregarFiltro(string NombreCampo, string Operador, string Valor, ref string Clausula)
+        {
+            new DCelular().FiltroAvanzado( NombreCampo,  Operador,  Valor, ref Clausula);
         }
     }
 }
