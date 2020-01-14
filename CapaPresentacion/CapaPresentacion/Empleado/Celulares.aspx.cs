@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.IO;
 using System.Data;
 using CapaOperaciones;
 using ENTIDADES;
@@ -14,21 +15,22 @@ namespace CapaPresentacion.Empleado
     {
 
         #region Funciones
-        public void limpiarTxt()
+        private void limpiarTxt()
         {
             this.txtModelo2.Text = string.Empty;
             this.txtDescripcion.Text = string.Empty;
             this.txtPrecio2.Text = string.Empty;
             this.txtStock.Text = string.Empty;
+            this.txtUbicacion.Text = string.Empty;
         }
 
-        public void cargarDgv()
+        private void cargarDgv(DataTable Celulares)
         {
-            gvwCelulares.DataSource = new NCelular().Mostrar();
+            gvwCelulares.DataSource = Celulares;
             gvwCelulares.DataBind();
             lblTotalRegistros.Text = "Registros encontrados: " + gvwCelulares.Rows.Count;
         }
-        public void CargarDDL_Marcas()
+        private void CargarDDL_Marcas()
         {
             NMarca Obj = new NMarca();
             ddlMarca.DataSource = Obj.Mostrar();
@@ -37,16 +39,24 @@ namespace CapaPresentacion.Empleado
             ddlMarca.DataBind();
         }
 
-        public void CargarDDL_Modelo()
+        private void CargarDDL_Modelo()
         {
             NCelular Obj = new NCelular();
-            ddlModelo.DataSource = Obj.BuscarPorMarca(ddlMarca.SelectedValue);
+            ddlModelo.DataSource = Obj.Mostrar();
+            ddlModelo.DataTextField = "Modelo";
+            ddlModelo.DataValueField = "Modelo";
+            ddlModelo.DataBind();
+        }
+        private void CargarDDL_ModeloPorMarca()
+        {
+            NCelular Obj = new NCelular();
+            ddlModelo.DataSource = Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value);
             ddlModelo.DataTextField = "Modelo";
             ddlModelo.DataValueField = "Modelo";
             ddlModelo.DataBind();
         }
 
-        public void CargarDDL_Marcas2()
+        private void CargarDDL_Marcas2()
         {
             NMarca Obj = new NMarca();
             ddlMarca2.DataSource = Obj.Mostrar();
@@ -54,11 +64,16 @@ namespace CapaPresentacion.Empleado
             ddlMarca2.DataValueField = "Id";
             ddlMarca2.DataBind();
         }
+        private void CargarComboNumerico(ref DropDownList NombreCombo)
+        {
+            NombreCombo.Items.Add("Igual a:");
+            NombreCombo.Items.Add("Mayor a:");
+            NombreCombo.Items.Add("Menor a:");
+        }
         public bool txtCompletos()
         {
-            if ((txtModelo2.Text == string.Empty) || (ddlMarca2.Text == string.Empty) || (txtDescripcion.Text == string.Empty) || (txtPrecio2.Text == string.Empty) || txtPrecio2.Text.Trim().Length < 1 || (txtStock.Text == string.Empty))
+            if ((txtModelo2.Text == string.Empty) || (txtDescripcion.Text == string.Empty) || (txtPrecio2.Text == string.Empty) || (txtStock.Text == string.Empty)||(txtUbicacion.Text==string.Empty))
             {
-                // lblEstado.Text = "Atención!! Hay campos incompletos txt id= " + txtIdMarca.Text.Length + " txt nombre= " + txtNombreMarca.Text.Length;
                 return false;
             }
             else
@@ -73,47 +88,32 @@ namespace CapaPresentacion.Empleado
             DataTable dt = new DataTable();
             dt = new NCelular().BuscarPorModelo(id);
 
-            if (dt == null)
+            if (dt == null) //si dt es null es por que el id ingresado no se encontro en la base de datos
             {
-                //lblEstado.Text = "El modelo ingresado no esta en la base de datos";
+                lblEstado.Text = "El modelo ingresado no esta en la base de datos";
             }
-            else
-            {
-                if (dt.Rows.Count == 1 && id.Length > 0)
-                {
-                    existe = true;
-                }
-            }
-
-            return existe;
-        }
-
-        public bool ExisteporMarca(string marca)
-        {
-            bool existe = false;
-            DataTable dt = new DataTable();
-            dt = new NCelular().BuscarPorMarca(marca);
-            if (dt.Rows.Count == 1 && marca.Length > 0)
+            else //si dt vuelve con algun registro es por que el modelo ingresado ya esta en la base de datos
             {
                 existe = true;
+                lblEstado.Text = "El modelo ingresado ya existe en la base de datos";
             }
             return existe;
         }
 
         #endregion
 
-
-        #region Eventos
+     #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
-                cargarDgv();
-                CargarDDL_Marcas2();
-                CargarDDL_Modelo();
+                cargarDgv(new NCelular().Mostrar());
                 CargarDDL_Marcas();
+                CargarDDL_Modelo();
+                CargarDDL_Marcas2();
                 limpiarTxt();
+                CargarComboNumerico(ref ddlPrecio);
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
@@ -121,59 +121,65 @@ namespace CapaPresentacion.Empleado
 
         }
 
-
         protected void txtModelo2_TextChanged(object sender, EventArgs e)
         {
-            //lblEstado.Text = "El Modelo se modifico";
-        }
-
-        protected void btnAgregar_Click1(object sender, EventArgs e)
-        {
-            if (!txtCompletos())
+            lblEstado.Text = "txtID se modifico";
+            if (txtModelo2.Text.Trim().Length == 0)
             {
-                lblEstado.Text = "Atencion! Para agregar un registro a la tabla debe completar todos los datos";
+                btnAgregar.Enabled = false;
+                btnEditar.Enabled = false;
+                btnEliminar.Enabled = false;
+                lblEstado.Text = "Falta ingresar modelo";
             }
             else
             {
-                if (txtModelo2.Text.Length == 0)
+                if (ExisteModelo(txtModelo2.Text))
                 {
                     btnAgregar.Enabled = false;
-                    btnEditar.Enabled = false;
-                    btnEliminar.Enabled = false;
-                    lblEstado.Text = "El Modelo esta vacio";
+                    btnEditar.Enabled = true;
+                    btnEliminar.Enabled = true;
+                    lblEstado.Text = "El modelo ingresado ya fue registrado";
                 }
-
                 else
                 {
-                    if (ExisteModelo(txtModelo2.Text))
+                    btnAgregar.Enabled = true;
+                    btnEditar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    lblEstado.Text = "El modelo ingresado es nuevo";
+                }
+            }
+        }
+
+
+        protected void btnAgregar_Click(object sender, EventArgs e)
+        {
+           if (UbicacionImagen.HasFile)
+            {
+                txtUbicacion.Text = Convert.ToString(UbicacionImagen.PostedFile.FileName);
+                if (txtCompletos())
+                {
+                    NCelular Obj = new NCelular();
+                    if (Obj.Insertar(txtModelo2.Text, ddlMarca.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
                     {
-                        btnAgregar.Enabled = false;
-                        btnEditar.Enabled = true;
-                        btnEliminar.Enabled = true;
-                        lblEstado.Text = "El Modelo ya existe";
+                        lblEstado.Text = "El registro se insertó con exito";
                     }
                     else
                     {
-                        btnAgregar.Enabled = true;
-                        btnEditar.Enabled = false;
-                        btnEliminar.Enabled = false;
-
-                        NCelular Obj = new NCelular();
-                        if (Obj.Insertar(txtModelo2.Text, ddlMarca.Text, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, UbicacionImagen.FileName.ToString()))
-                        {
-                            lblEstado.Text = "El registro se insertó con exito";
-                        }
-                        else
-                        {
-                            lblEstado.Text = "El registro no se pudo insertar";
-                        }
-                        //lblEstado.Text = "El Modelo ingresado fue registrado";
+                        lblEstado.Text = "El registro no se pudo insertar";
                     }
+                    cargarDgv(new NCelular().Mostrar());
+                    limpiarTxt();
                 }
-
+                else //si los txt no estan completos aviso al usuario
+                {
+                    lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
+                }
             }
-            cargarDgv();
-            limpiarTxt();
+            else 
+            {
+                lblEstado.Text = "Error con la ubicacion de la imagen cargada";
+            }          
+           
         }
 
         protected void btnEditar_Click1(object sender, EventArgs e)
@@ -181,7 +187,7 @@ namespace CapaPresentacion.Empleado
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Editar(txtModelo2.Text, ddlMarca.Text, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, UbicacionImagen.FileName.ToString()))
+                if (obj.Editar(txtModelo2.Text, ddlMarca.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
                 {
                     lblEstado.Text = "El registro se editó con exito";
                 }
@@ -189,18 +195,18 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "El registro no se pudo editar";
                 }
-                cargarDgv();
+                cargarDgv(new NCelular().Mostrar());
                 limpiarTxt();
             }
             else
             {
-                lblEstado.Text = "Atencion! Para editar un registro de la tabla debe completar todos los campos de datos";
+                lblEstado.Text = "Atencion! Para editar un registro debe completar todos los campos de datos";
             }
         }
 
         protected void btnEliminar_Click1(object sender, EventArgs e)
         {
-            if (txtCompletos())
+            if (txtModelo2.Text!=string.Empty)
             {
                 NCelular obj = new NCelular();
                 if (obj.Eliminar(txtModelo2.Text))
@@ -211,69 +217,127 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "El registro no se pudo eliminar";
                 }
-                cargarDgv();
+                cargarDgv(new NCelular().Mostrar());
                 limpiarTxt();
             }
             else
             {
-                lblEstado.Text = "Atencion! Para eliminar un registro de la tabla debe completar todos los campos de datos";
+                lblEstado.Text = "Atencion! Para eliminar un registro debe ingresar el modelo de celular o seleccionarlo de la tabla";
             }
         }
 
         protected void gvwCelulares_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtModelo2.Text = gvwCelulares.SelectedRow.Cells[1].Text;
-            this.ddlMarca2.Text = gvwCelulares.SelectedRow.Cells[2].Text;
+            this.ddlMarca2.SelectedItem.Text= gvwCelulares.SelectedRow.Cells[2].Text;
             this.txtDescripcion.Text = gvwCelulares.SelectedRow.Cells[3].Text;
             this.txtStock.Text = gvwCelulares.SelectedRow.Cells[4].Text;
             this.txtPrecio2.Text = gvwCelulares.SelectedRow.Cells[5].Text;
-            // this.txt.Text = gvwCelulares.SelectedRow.Cells[5].Text;
+            this.txtUbicacion.Text=gvwCelulares.SelectedRow.Cells[6].Text;
             btnAgregar.Enabled = false;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
         }
-
-
-        protected void btnFiltrar_Click(object sender, EventArgs e)
-        {
-            //NCelular ObjCelular = new NCelular();
-            //ObjCelular.BuscarPorModelo
-
-
-            //    string ClausulaSQL = "";
-
-            //if (Mayor.Checked)
-            //    ObjCelular.ArmarClausula("Precio", rbmenorigual.Text, textBox1.Text, ref ClausulaSQL);
-
-            //if (rbmayorigual.Checked && textBox1.Text != "")
-            //    ArmarClausulaSQL("IdPedido", rbmayorigual.Text, textBox1.Text, ref ClausulaSQL);
-
-            //if (rbigual.Checked && textBox1.Text != "")
-            //    ArmarClausulaSQL("IdPedido", rbigual.Text, textBox1.Text, ref ClausulaSQL);
-
-            //if (rb1.Checked)
-            //    dtPedidosFiltrados = gp.ObtenerPedidosEnvio(1, ref ClausulaSQL);
-
-            //if (rb2.Checked)
-            //    dtPedidosFiltrados = gp.ObtenerPedidosEnvio(2, ref ClausulaSQL);
-
-            //if (rb3.Checked)
-            //    dtPedidosFiltrados = gp.ObtenerPedidosEnvio(3, ref ClausulaSQL);
-
-            //textBox1.Text = "";
-
-            //dataGridView1.DataSource = dtPedidosFiltrados;
-
-
-        }
-    
-
-        #endregion
-
         protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarDDL_Modelo();
+            CargarDDL_ModeloPorMarca();
         }
+
+        protected void RbtnModelo_CheckedChanged(object sender, EventArgs e)
+        {
+
+            if (CbxModelo.Checked)
+            {
+                CbxPrecio.Visible = false;
+                ddlPrecio.Visible = false;
+                txtPrecio.Visible = false;
+                CbxPrecio.Checked = false;
+            }
+            else
+            {
+                CbxPrecio.Visible = true;
+                ddlPrecio.Visible = true;
+                txtPrecio.Visible = true;
+            }
+            
+           
+        }
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string Filtro = "";
+            NCelular Obj = new NCelular();
+            if (CbxModelo.Checked)//si modelo esta seleccionado solo busca por modelo
+            {
+                cargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedItem.Text));
+            }
+            else //si modelo no esta seleccionado se fija si esta seleccionado marca Y precio
+            {
+                if (CbxMarca.Checked && CbxPrecio.Checked)
+                {//como marca Y precio estan seleccionados arma un filtro
+                    Obj.AgregarFiltro("ID_MARCA_CEL",
+                                      "Es igual a:",
+                                      ddlMarca.SelectedItem.Value,
+                                      ref Filtro);
+                    Obj.AgregarFiltro("PRECIO_UNITARIO_CEL",
+                                      ddlPrecio.SelectedItem.Text,
+                                      txtPrecio.Text,
+                                      ref Filtro);
+                    //Ahora carga el gridview segun el filtro armado
+                    cargarDgv(Obj.BuscarPorFiltro(Filtro));
+                }
+                else// Ahora tengo que buscar si marca O precio estan seleccionados
+                {
+                    if(CbxMarca.Checked)//En este punto solo el Rbtn Marca esta seleccionado
+                    {
+                        cargarDgv(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
+                    }
+                    else 
+                    {
+                        if(CbxPrecio.Checked)//En este punto solo el Rbtn Precio esta seleccionado
+                        {
+                            Obj.AgregarFiltro("PRECIO_UNITARIO_CEL",
+                                      ddlPrecio.SelectedItem.Text,
+                                      txtPrecio.Text,
+                                      ref Filtro);
+                            //Ahora carga el gridview segun el filtro armado
+                            cargarDgv(Obj.BuscarPorFiltro(Filtro));
+                        }
+                        else//si llega hasta aca ninguno de los Rbtn esta seleccionado
+                        {
+                            lblEstado.Text = "Para filtrar los celulares debe seleccionar algun criterio";
+                        }
+                    }
+                }
+            }
+        }
+
+       
+
+        protected void btnQuitarFiltro_Click(object sender, EventArgs e)
+        {
+            cargarDgv(new NCelular().Mostrar());
+            CargarDDL_Marcas();
+            CargarDDL_Modelo();
+            txtPrecio.Text = string.Empty;
+            CbxMarca.Checked = false;
+            CbxModelo.Checked = false;
+            CbxPrecio.Checked = false;
+            limpiarTxt();
+
+        }
+
+        protected void btnVerUbicacion_Click(object sender, EventArgs e)
+        {
+            if (UbicacionImagen.HasFile)
+            {
+                txtUbicacion.Text = "../Imagenes/" + Convert.ToString(Path.GetFullPath(UbicacionImagen.PostedFile.FileName));
+            }
+        }
+
+
+        #endregion
+      
+
     }
 }

@@ -248,7 +248,12 @@ li {
     .Boton:active {
         transform: scale(0.95);
     }
-
+    .Boton:disabled {
+        background: linear-gradient(#96e5fe,#6496b0)
+    }
+    .Boton:enabled {
+        background: linear-gradient(#00c3ff,#0075b2);
+    }
 
 
 #Productos {
