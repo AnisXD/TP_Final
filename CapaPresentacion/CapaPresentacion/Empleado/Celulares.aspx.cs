@@ -187,7 +187,7 @@ namespace CapaPresentacion.Empleado
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Editar(txtModelo2.Text, ddlMarca.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
+                if (obj.Editar(txtModelo2.Text, ddlMarca.SelectedItem.Value, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
                 {
                     lblEstado.Text = "El registro se editó con exito";
                 }
@@ -331,7 +331,7 @@ namespace CapaPresentacion.Empleado
         {
             if (UbicacionImagen.HasFile)
             {
-                txtUbicacion.Text = "../Imagenes/" + Convert.ToString(Path.GetFullPath(UbicacionImagen.PostedFile.FileName));
+                txtUbicacion.Text =Convert.ToString(Path.GetFullPath(UbicacionImagen.PostedFile.FileName));
             }
         }
 
