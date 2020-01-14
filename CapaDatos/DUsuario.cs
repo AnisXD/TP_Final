@@ -84,5 +84,41 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
             return TablaResultado;
         }
+        private void ParametrosValidarExisteUsuario(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.DNI;
+            SqlParametros = Comando.Parameters.Add("@CONTRASEÑA", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.Contraseña;
+        }
+
+        public bool ValidarExisteUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosValidarExisteUsuario(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "ValidarExisteUsuario");
+           
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
+
+        private void ParametrosObtenerRolUsuario(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.DNI;
+        }
+        public DataTable ObtenerRolUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerRolUsuario(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "ObtenerRolUsuario");
+            return TablaResultado;
+        }
     }
 }

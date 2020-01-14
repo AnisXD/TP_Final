@@ -42,5 +42,28 @@ namespace CapaOperaciones
         {
             return new DUsuario().MostrarPorRol(rol);
         }
+
+        public bool ExisteUsuario(string Usuario, string Contraseña)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = Usuario,
+                Contraseña = Contraseña,
+            };
+
+            DUsuario ObjDUsuario = new DUsuario();
+            return ObjDUsuario.ValidarExisteUsuario(ObjUsuario);
+        }
+
+        public DataTable RolUsuario(string Usuario)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = Usuario
+            };
+
+            DUsuario ObjDUsuario = new DUsuario();
+            return ObjDUsuario.ObtenerRolUsuario(ObjUsuario);
+        }
     }
 }

@@ -237,33 +237,33 @@ namespace CapaPresentacion.Empleado
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            NCelular ObjCelular = new NCelular();
-            ObjCelular.BuscarPorModelo
+            //NCelular ObjCelular = new NCelular();
+            //ObjCelular.BuscarPorModelo
 
 
-                string ClausulaSQL = "";
+            //    string ClausulaSQL = "";
 
-            if (Mayor.Checked)
-                ObjCelular.ArmarClausula("Precio", rbmenorigual.Text, textBox1.Text, ref ClausulaSQL);
+            //if (Mayor.Checked)
+            //    ObjCelular.ArmarClausula("Precio", rbmenorigual.Text, textBox1.Text, ref ClausulaSQL);
 
-            if (rbmayorigual.Checked && textBox1.Text != "")
-                ArmarClausulaSQL("IdPedido", rbmayorigual.Text, textBox1.Text, ref ClausulaSQL);
+            //if (rbmayorigual.Checked && textBox1.Text != "")
+            //    ArmarClausulaSQL("IdPedido", rbmayorigual.Text, textBox1.Text, ref ClausulaSQL);
 
-            if (rbigual.Checked && textBox1.Text != "")
-                ArmarClausulaSQL("IdPedido", rbigual.Text, textBox1.Text, ref ClausulaSQL);
+            //if (rbigual.Checked && textBox1.Text != "")
+            //    ArmarClausulaSQL("IdPedido", rbigual.Text, textBox1.Text, ref ClausulaSQL);
 
-            if (rb1.Checked)
-                dtPedidosFiltrados = gp.ObtenerPedidosEnvio(1, ref ClausulaSQL);
+            //if (rb1.Checked)
+            //    dtPedidosFiltrados = gp.ObtenerPedidosEnvio(1, ref ClausulaSQL);
 
-            if (rb2.Checked)
-                dtPedidosFiltrados = gp.ObtenerPedidosEnvio(2, ref ClausulaSQL);
+            //if (rb2.Checked)
+            //    dtPedidosFiltrados = gp.ObtenerPedidosEnvio(2, ref ClausulaSQL);
 
-            if (rb3.Checked)
-                dtPedidosFiltrados = gp.ObtenerPedidosEnvio(3, ref ClausulaSQL);
+            //if (rb3.Checked)
+            //    dtPedidosFiltrados = gp.ObtenerPedidosEnvio(3, ref ClausulaSQL);
 
-            textBox1.Text = "";
+            //textBox1.Text = "";
 
-            dataGridView1.DataSource = dtPedidosFiltrados;
+            //dataGridView1.DataSource = dtPedidosFiltrados;
 
 
         }
