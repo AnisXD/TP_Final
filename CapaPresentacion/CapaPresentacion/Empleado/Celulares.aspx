@@ -50,7 +50,7 @@
                     MODELO:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txtModelo2" runat="server" placeholder="&#128241;Modelo" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txtModelo2_TextChanged" CausesValidation="True" ReadOnly="True"></asp:TextBox>
+                  <asp:TextBox ID="txtModelo2" runat="server" placeholder="&#128241;Modelo" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txtModelo2_TextChanged" CausesValidation="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtModelo2" ErrorMessage="Ingrese un Modelo" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
