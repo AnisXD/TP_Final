@@ -10,7 +10,7 @@
         <asp:CheckBox ID="CbxMarca" runat="server" Text="Marca" CssClass="ControlesASP"/>
         <asp:DropDownList ID="ddlMarca" runat="server"  CssClass="ControlesASP" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True"></asp:DropDownList>
     
-        <asp:CheckBox ID="CbxModelo" runat="server" Text="Modelo" CssClass="ControlesASP" AutoPostBack="True" />
+        <asp:CheckBox ID="CbxModelo" runat="server" Text="Modelo" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="CbxModelo_CheckedChanged" />
         <asp:DropDownList ID="ddlModelo" runat="server" CssClass="ControlesASP"></asp:DropDownList>
       
         <asp:CheckBox ID="CbxPrecio" runat="server" Text="Precio" CssClass="ControlesASP" />
@@ -19,7 +19,7 @@
     
     <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click"/>
     <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtro" CssClass="Boton" OnClick="btnQuitarFiltro_Click"/>
-    
+        <asp:Label ID="lblFiltro" runat="server" Text="Estado Filtro"></asp:Label>
         </div>
 </asp:Content>
 
@@ -53,7 +53,7 @@
                   <asp:TextBox ID="txtModelo2" runat="server" placeholder="&#128241;Modelo" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txtModelo2_TextChanged" CausesValidation="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtModelo2" ErrorMessage="Ingrese un Modelo" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txtModelo2" ErrorMessage="Ingrese un Modelo" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
                 </td>
             </tr>
 
@@ -77,8 +77,8 @@
                      <asp:TextBox ID="txtDescripcion" runat="server" placeholder="Descripcion" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                   <asp:RegularExpressionValidator ID="rev3" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Ingrese una Descripcion." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
-                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Ingrese una Descripcion" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                   <%--<asp:RegularExpressionValidator ID="rev3" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Ingrese una Descripcion." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>--%>
+                   <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txtDescripcion" ErrorMessage="Ingrese una Descripcion" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
                 </td>
             </tr>
 
@@ -90,8 +90,8 @@
                     <asp:TextBox ID="txtPrecio2" runat="server" placeholder="Precio" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                   <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un Precio" ControlToValidate="txtPrecio2" Operator="DataTypeCheck" ValidationGroup="1" Type="Currency"></asp:CompareValidator>
-                   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrecio2" ErrorMessage="Ingrese un Precio" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                   <%--<asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un Precio" ControlToValidate="txtPrecio2" Operator="DataTypeCheck" ValidationGroup="1" Type="Currency"></asp:CompareValidator>--%>
+                  <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txtPrecio2" ErrorMessage="Ingrese un Precio" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
                 </td>
             </tr>
 
@@ -103,8 +103,8 @@
                     <asp:TextBox ID="txtStock" runat="server" placeholder="Stock" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                   <asp:CompareValidator ID="CompareValidator1" Runat="server" ErrorMessage="Ingrese Stock" ControlToValidate="txtStock" Operator="DataTypeCheck" ValidationGroup="1" Type="Integer"></asp:CompareValidator>
-                   <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese Stock" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                   <%--<asp:CompareValidator ID="CompareValidator1" Runat="server" ErrorMessage="Ingrese Stock" ControlToValidate="txtStock" Operator="DataTypeCheck" ValidationGroup="1" Type="Integer"></asp:CompareValidator>--%>
+                   <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txtStock" ErrorMessage="Ingrese Stock" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>--%>
                 </td>
             </tr>
 
@@ -114,9 +114,6 @@
                 </td>
                 <td class="auto-style2">
                     <asp:FileUpload ID="UbicacionImagen" runat="server" />
-                </td>
-                <td class="auto-style3">
-                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese una Imagen" SetFocusOnError="true" ValidationGroup="1" ControlToValidate="UbicacionImagen"></asp:RequiredFieldValidator>
                 </td>
              </tr>
 
@@ -129,7 +126,7 @@
                     <asp:Button ID="btnVerUbicacion" runat="server" OnClick="btnVerUbicacion_Click" Text="Ver Ubicacion" />
                 </td>
                 <td class="auto-style3">
-                   
+                    <%--<asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ErrorMessage="Ingrese una Imagen" SetFocusOnError="true" ValidationGroup="1" ControlToValidate="txtUbicacion"></asp:RequiredFieldValidator>--%>
                 </td>
              </tr>
 

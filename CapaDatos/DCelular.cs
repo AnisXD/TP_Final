@@ -33,18 +33,13 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
             SqlParametros.Value = IdMarca;
         }
-        private void ParametroIdModeloCel(ref SqlCommand Comando, string IdModelo)//Editar Eliminar y agregar usan IDMODELOCEL
+        private void ParametroIdModeloCel(ref SqlCommand Comando, string IdModelo)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@IDMODELOCEL", SqlDbType.VarChar, 15);
             SqlParametros.Value = IdModelo;
         }
-        private void ParametroIdModelo(ref SqlCommand Comando, string IdModelo)// Mostrar por modelo usa IDMODELO
-        {
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDMODELO", SqlDbType.VarChar, 15);
-            SqlParametros.Value = IdModelo;
-        }
+        
         public DataTable MostrarTodos()
         {
             Conexion cn = new Conexion();
@@ -56,15 +51,15 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametroIdMarca(ref Comando, idmarca);
             Conexion cn = new Conexion();
-            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdMarca");
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularesPorIdMarca");
             return TablaResultado;
         }
         public DataTable MostrarPorModelo(string idmodelo)
         {
             SqlCommand Comando = new SqlCommand();
-            ParametroIdModelo(ref Comando, idmodelo);
+            ParametroIdModeloCel(ref Comando, idmodelo);
             Conexion cn = new Conexion();
-            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularPorIdModelo");
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarCelularesPorIdModelo");
             return TablaResultado;
         }
         public DataTable MostrarPorFiltro(string Filtro)
