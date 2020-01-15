@@ -48,7 +48,7 @@ namespace CapaPresentacion.Usuario
 
             ddlFLocalidad.DataSource = ObjLocalidad.MostrarPorIdProvincia(Convert.ToInt32(ddlFProvincia.SelectedValue));
             ddlFLocalidad.DataTextField = "Localidad";
-            ddlFLocalidad.DataValueField = "IdLocalidad";
+            ddlFLocalidad.DataValueField = "Id";
             ddlFLocalidad.DataBind();
         }
 
@@ -57,7 +57,7 @@ namespace CapaPresentacion.Usuario
             NProvincia ObjProvincia = new NProvincia();
             ddlFProvincia.DataSource = ObjProvincia.Mostrar();
             ddlFProvincia.DataTextField = "Provincia";
-            ddlFProvincia.DataValueField = "IdProvincia";
+            ddlFProvincia.DataValueField = "Id";
             ddlFProvincia.DataBind();
         }
 

@@ -32,7 +32,8 @@ namespace CapaPresentacion.Empleado
         }
         private void CargarDDL_Marcas()
         {
-            NMarca Obj = new NMarca();
+            NMarca Obj = new NMarca(); 
+            ddlMarca.Items.Clear();
             ddlMarca.DataSource = Obj.Mostrar();
             ddlMarca.DataTextField = "Marca";
             ddlMarca.DataValueField = "Id";
@@ -42,6 +43,7 @@ namespace CapaPresentacion.Empleado
         private void CargarDDL_Modelo()
         {
             NCelular Obj = new NCelular();
+            ddlModelo.Items.Clear();
             ddlModelo.DataSource = Obj.Mostrar();
             ddlModelo.DataTextField = "Modelo";
             ddlModelo.DataValueField = "Modelo";
@@ -50,15 +52,26 @@ namespace CapaPresentacion.Empleado
         private void CargarDDL_ModeloPorMarca()
         {
             NCelular Obj = new NCelular();
+            ddlModelo.Items.Clear();
             ddlModelo.DataSource = Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value);
             ddlModelo.DataTextField = "Modelo";
             ddlModelo.DataValueField = "Modelo";
             ddlModelo.DataBind();
         }
+        //funcion que busca en el ddl la marca del regitro seleccionado en el gridview y la selecciona
+        private void BuscarMarcaEnDdl(string marca)
+        {
+            foreach (ListItem Item in ddlMarca2.Items)
+            {
+                if (Item.Text == marca)
+                    ddlMarca2.SelectedIndex = ddlMarca2.Items.IndexOf(Item);
+            }
 
+        }
         private void CargarDDL_Marcas2()
         {
             NMarca Obj = new NMarca();
+            ddlMarca2.Items.Clear();
             ddlMarca2.DataSource = Obj.Mostrar();
             ddlMarca2.DataTextField = "Marca";
             ddlMarca2.DataValueField = "Id";
@@ -153,13 +166,14 @@ namespace CapaPresentacion.Empleado
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-           if (UbicacionImagen.HasFile)
-            {
-                txtUbicacion.Text = Convert.ToString(UbicacionImagen.PostedFile.FileName);
-                if (txtCompletos())
+            //if (UbicacionImagen.HasFile)
+            //{
+            //txtUbicacion.Text = Convert.ToString(UbicacionImagen.PostedFile.FileName);
+            //hacer funcion que guarde el archivo seleccionado en la carpeta del programa y le asigne nueva ubicacion
+            if (txtCompletos())
                 {
                     NCelular Obj = new NCelular();
-                    if (Obj.Insertar(txtModelo2.Text, ddlMarca.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
+                    if (Obj.Insertar(txtModelo2.Text, ddlMarca2.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
                     {
                         lblEstado.Text = "El registro se insertó con exito";
                     }
@@ -174,12 +188,12 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
                 }
-            }
-            else 
-            {
-                lblEstado.Text = "Error con la ubicacion de la imagen cargada";
-            }          
-           
+            //}
+            //else
+            //{//no habia imagen cargada o tiene error
+            //lblEstado.Text = "Error con la ubicacion de la imagen cargada";
+            //}
+
         }
 
         protected void btnEditar_Click1(object sender, EventArgs e)
@@ -187,9 +201,10 @@ namespace CapaPresentacion.Empleado
             if (txtCompletos())
             {
                 NCelular obj = new NCelular();
-                if (obj.Editar(txtModelo2.Text, ddlMarca.SelectedItem.Value, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
+                
+                if (obj.Editar(txtModelo2.Text, ddlMarca2.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
                 {
-                    lblEstado.Text = "El registro se editó con exito";
+                    lblEstado.Text = "El registro se editó con exito -";
                 }
                 else
                 {
@@ -229,7 +244,7 @@ namespace CapaPresentacion.Empleado
         protected void gvwCelulares_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtModelo2.Text = gvwCelulares.SelectedRow.Cells[1].Text;
-            this.ddlMarca2.SelectedItem.Text= gvwCelulares.SelectedRow.Cells[2].Text;
+            BuscarMarcaEnDdl(gvwCelulares.SelectedRow.Cells[2].Text);
             this.txtDescripcion.Text = gvwCelulares.SelectedRow.Cells[3].Text;
             this.txtStock.Text = gvwCelulares.SelectedRow.Cells[4].Text;
             this.txtPrecio2.Text = gvwCelulares.SelectedRow.Cells[5].Text;
@@ -244,9 +259,8 @@ namespace CapaPresentacion.Empleado
             CargarDDL_ModeloPorMarca();
         }
 
-        protected void RbtnModelo_CheckedChanged(object sender, EventArgs e)
+        protected void CbxModelo_CheckedChanged(object sender, EventArgs e)
         {
-
             if (CbxModelo.Checked)
             {
                 CbxPrecio.Visible = false;
@@ -269,7 +283,8 @@ namespace CapaPresentacion.Empleado
             NCelular Obj = new NCelular();
             if (CbxModelo.Checked)//si modelo esta seleccionado solo busca por modelo
             {
-                cargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedItem.Text));
+                lblFiltro.Text = "Filtrar por Modelo: " + ddlModelo.SelectedItem.Text + " - value: " + ddlModelo.SelectedValue;
+                cargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedValue));
             }
             else //si modelo no esta seleccionado se fija si esta seleccionado marca Y precio
             {
@@ -283,6 +298,7 @@ namespace CapaPresentacion.Empleado
                                       ddlPrecio.SelectedItem.Text,
                                       txtPrecio.Text,
                                       ref Filtro);
+                    lblFiltro.Text = "Filtrar por marca: " + ddlMarca.SelectedItem.Text + " - value: " + ddlMarca.SelectedValue + " y por Precio: " + ddlPrecio.SelectedItem.Text + txtPrecio.Text;
                     //Ahora carga el gridview segun el filtro armado
                     cargarDgv(Obj.BuscarPorFiltro(Filtro));
                 }
@@ -290,6 +306,7 @@ namespace CapaPresentacion.Empleado
                 {
                     if(CbxMarca.Checked)//En este punto solo el Rbtn Marca esta seleccionado
                     {
+                        lblFiltro.Text = "Filtrar por marca: " + ddlMarca.SelectedItem.Text + " - value: " + ddlMarca.SelectedValue ;
                         cargarDgv(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
                     }
                     else 
@@ -300,12 +317,13 @@ namespace CapaPresentacion.Empleado
                                       ddlPrecio.SelectedItem.Text,
                                       txtPrecio.Text,
                                       ref Filtro);
+                            lblFiltro.Text = "Filtrar por Precio: " + ddlPrecio.SelectedItem.Text + txtPrecio.Text;
                             //Ahora carga el gridview segun el filtro armado
                             cargarDgv(Obj.BuscarPorFiltro(Filtro));
                         }
                         else//si llega hasta aca ninguno de los Rbtn esta seleccionado
                         {
-                            lblEstado.Text = "Para filtrar los celulares debe seleccionar algun criterio";
+                            lblFiltro.Text = "Para filtrar los celulares debe seleccionar algun criterio";
                         }
                     }
                 }
@@ -331,13 +349,15 @@ namespace CapaPresentacion.Empleado
         {
             if (UbicacionImagen.HasFile)
             {
+                //guardar archivo y cargar la ubicacion en el txt
                 txtUbicacion.Text =Convert.ToString(Path.GetFullPath(UbicacionImagen.PostedFile.FileName));
             }
         }
 
 
-        #endregion
-      
 
+        #endregion
+
+        
     }
 }
