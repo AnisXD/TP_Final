@@ -98,8 +98,8 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametrosValidarExisteUsuario(ref Comando, usuario);
             Conexion cn = new Conexion();
-            int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "ValidarExisteUsuario");
-           
+            int FilasInsertadas = cn.EjecutarProcedimientoValidar(Comando, "ValidarExisteUsuario");
+
             if (FilasInsertadas == 1)
                 return true;
             else

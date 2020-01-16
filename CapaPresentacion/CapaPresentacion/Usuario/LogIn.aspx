@@ -8,7 +8,7 @@
      <h2>Log In</h2>
         
         <asp:Label ID="lblusucon" runat="server" Text="Ingrese Usuario y Contraseña"></asp:Label>
-     <asp:TextBox ID="txtUsuario" runat="server" placeholder="&#128100;Usuario" MaxLength="8" CssClass="ControlesASP" OnTextChanged="txtUsuario_TextChanged"></asp:TextBox>
+     <asp:TextBox ID="txtUsuario" runat="server" placeholder="&#128100;Usuario" MaxLength="8" CssClass="ControlesASP" OnTextChanged="txtUsuario_TextChanged" AutoCompleteType="Search"></asp:TextBox>
      
      <asp:TextBox ID="txtClave" runat="server" placeholder="&#128273;Clave" TextMode="Password" MaxLength="8" CssClass="ControlesASP"></asp:TextBox>
         <asp:Label ID="lblRespuesta" runat="server"></asp:Label>

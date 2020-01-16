@@ -90,10 +90,16 @@ namespace ENTIDADES
             get { return _Telefono; }
             set { _Telefono = value; }
         }
+        //public string Contraseña
+        //{
+        //    get => _Contraseña;
+        //    set => _Contraseña = value;
+        //}
+
         public string Contraseña
         {
-            get => _Contraseña;
-            set => _Contraseña = value;
+            get { return _Contraseña; }
+            set { _Contraseña = value; }
         }
 
         public char Rol

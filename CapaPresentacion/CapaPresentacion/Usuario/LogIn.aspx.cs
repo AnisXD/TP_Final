@@ -21,20 +21,21 @@ namespace CapaPresentacion.Usuario
         {
             NUsuario ObjNUsuario = new NUsuario();
 
-            bool Ingreso = false;
+            bool Ingreso;
             string PermisoUsuario;
-            //bool CuentaActiva = false;
+            bool CuentaActiva = false;
 
             string Usuario = txtUsuario.Text.ToString();
             string Contraseña = txtClave.Text.ToString();
 
-            Ingreso = ObjNUsuario.ExisteUsuario(Usuario,Contraseña);
+            Ingreso = ObjNUsuario.ExisteUsuario(Usuario, Contraseña);
+
             //CuentaActiva = ObjNUsuario.CuentaActivada(Usuario);
 
             if (Ingreso == true /*&& CuentaActiva == true*/)
             {
                 DataTable dt = ObjNUsuario.RolUsuario(Usuario);
-                DataRow dr = dt.Rows[1];
+                DataRow dr = dt.Rows[0];
                 PermisoUsuario = dr["ID_ROL"].ToString();
 
                 //if (PermisoUsuario == false)
@@ -54,9 +55,9 @@ namespace CapaPresentacion.Usuario
 
                 //    this.Session["Usuario"] = usu.DNI;
                 //    Response.Redirect("/Administrador.aspx");
-                //}
+                //}4
 
-                switch(PermisoUsuario)
+                switch (PermisoUsuario)
                 {
                     case "C":
                         txtUsuario.Text = ""; txtClave.Text = "";
@@ -75,8 +76,7 @@ namespace CapaPresentacion.Usuario
             else
             {
                 txtUsuario.Text = ""; txtClave.Text = "";
-                //lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta.";
-                //lblRespuesta.Text = Ingreso.ToString();
+                lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta.";
             }
 
             /*ORIGINALMENTE ESTABA ESTO SOLO*/

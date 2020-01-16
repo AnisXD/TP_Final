@@ -170,8 +170,8 @@ namespace CapaPresentacion.Empleado
             //{
             //txtUbicacion.Text = Convert.ToString(UbicacionImagen.PostedFile.FileName);
             //hacer funcion que guarde el archivo seleccionado en la carpeta del programa y le asigne nueva ubicacion
-            if (txtCompletos())
-                {
+            //if (txtCompletos())
+            //    {
                     NCelular Obj = new NCelular();
                     if (Obj.Insertar(txtModelo2.Text, ddlMarca2.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
                     {
@@ -183,11 +183,11 @@ namespace CapaPresentacion.Empleado
                     }
                     cargarDgv(new NCelular().Mostrar());
                     limpiarTxt();
-                }
-                else //si los txt no estan completos aviso al usuario
-                {
-                    lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
-                }
+                //}
+                //else //si los txt no estan completos aviso al usuario
+                //{
+                //    lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
+                //}
             //}
             //else
             //{//no habia imagen cargada o tiene error
