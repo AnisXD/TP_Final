@@ -13,5 +13,15 @@ namespace CapaPresentacion.Cliente
         {
 
         }
+
+        protected void btCerrarSesion_Click(object sender, EventArgs e)
+        {
+            this.Session["Usuario"] = null;
+
+            if (Request.RawUrl != "/InicioUsuario.aspx")
+            {
+                Response.Redirect("/InicioUsuario.aspx");
+            }
+        }
     }
 }

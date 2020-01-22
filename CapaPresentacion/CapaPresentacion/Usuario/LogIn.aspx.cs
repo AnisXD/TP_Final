@@ -23,7 +23,7 @@ namespace CapaPresentacion.Usuario
 
             bool Ingreso;
             string PermisoUsuario;
-            bool CuentaActiva = false;
+            //bool CuentaActiva = false;
 
             string Usuario = txtUsuario.Text.ToString();
             string Contraseña = txtClave.Text.ToString();
@@ -38,39 +38,22 @@ namespace CapaPresentacion.Usuario
                 DataRow dr = dt.Rows[0];
                 PermisoUsuario = dr["ID_ROL"].ToString();
 
-                //if (PermisoUsuario == false)
-                //{
-                //    DataTable dt = gusuario.ObtenerNombreUsuario(usu);
-                //    DataRow dr = dt.Rows[0];
-                //    txbDNI.Text = dr["Nombre"].ToString();
-
-                //    this.Session["Usuario"] = usu.DNI;
-                //    Response.Redirect(Request.RawUrl);
-                //}
-                //else
-                //{
-                //    DataTable dt = gusuario.ObtenerNombreUsuario(usu);
-                //    DataRow dr = dt.Rows[0];
-                //    txbDNI.Text = dr["Nombre"].ToString();
-
-                //    this.Session["Usuario"] = usu.DNI;
-                //    Response.Redirect("/Administrador.aspx");
-                //}4
-
                 switch (PermisoUsuario)
                 {
                     case "C":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        lblRespuesta.Text = dr["ROL"].ToString();
-                        break;
+                        //lblRespuesta.Text = dr["ROL"].ToString();
+                        this.Session["Usuario"] = Usuario;
+                        Response.Redirect("~/Cliente/InicioCliente.aspx");
+                    break;
                     case "E":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        lblRespuesta.Text = dr["ROL"].ToString();
-                        break;
+                        //lblRespuesta.Text = dr["ROL"].ToString();
+                    break;
                     case "A":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        lblRespuesta.Text = dr["ROL"].ToString();
-                        break;
+                        //lblRespuesta.Text = dr["ROL"].ToString();
+                    break;
                 }
             }
             else

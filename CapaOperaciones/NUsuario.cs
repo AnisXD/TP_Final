@@ -65,5 +65,16 @@ namespace CapaOperaciones
             DUsuario ObjDUsuario = new DUsuario();
             return ObjDUsuario.ObtenerRolUsuario(ObjUsuario);
         }
+
+        public DataTable NombreUsuario(string Usuario)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = Usuario
+            };
+
+            DUsuario ObjDUsuario = new DUsuario();
+            return ObjDUsuario.ObtenerNombreUsuario(ObjUsuario);
+        }
     }
 }

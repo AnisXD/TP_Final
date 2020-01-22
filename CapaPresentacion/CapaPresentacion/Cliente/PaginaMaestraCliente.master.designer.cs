@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Cliente {
-    
-    
-    public partial class PaginaMaestraCliente {
-        
+namespace CapaPresentacion.Cliente
+{
+
+
+    public partial class PaginaMaestraCliente
+    {
+
         /// <summary>
         /// Control HeadCliente.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder HeadCliente;
-        
+
         /// <summary>
         /// Control ContenidoColIzCliente.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContenidoColIzCliente;
-        
+
         /// <summary>
         /// Control ContenidoColPpalCliente.
         /// </summary>
@@ -38,7 +40,16 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ContentPlaceHolder ContenidoColPpalCliente;
-        
+
+        /// <summary>
+        /// Control btCerrarSesion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btCerrarSesion;
+
         /// <summary>
         /// Control ContenidoColDerCliente.
         /// </summary>

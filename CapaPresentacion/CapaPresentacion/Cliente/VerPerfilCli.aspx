@@ -7,9 +7,9 @@
     <asp:Label ID="lblperfil" runat="server" Text="Perfil"></asp:Label>
     <br />
 &nbsp;<br />
-    <asp:LinkButton ID="lbVerdatos" runat="server">Ver/Modificar datos</asp:LinkButton>
+    <asp:LinkButton ID="lbVerdatos" runat="server" OnClick="lbVerdatos_Click">Ver/Modificar datos</asp:LinkButton>
     <br />
-    <asp:LinkButton ID="lbCambiarcontra" runat="server">Cambiar contraseña</asp:LinkButton>
+    <asp:LinkButton ID="lbCambiarcontra" runat="server" OnClick="lbCambiarcontra_Click">Cambiar contraseña</asp:LinkButton>
     <br />
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerCliente" runat="server">
