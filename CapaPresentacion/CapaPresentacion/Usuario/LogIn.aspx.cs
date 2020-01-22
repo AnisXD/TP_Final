@@ -49,11 +49,15 @@ namespace CapaPresentacion.Usuario
                     case "E":
                         txtUsuario.Text = ""; txtClave.Text = "";
                         //lblRespuesta.Text = dr["ROL"].ToString();
-                    break;
+                        this.Session["Usuario"] = Usuario;
+                        Response.Redirect("~/Empleado/InicioEmpleado.aspx");
+                        break;
                     case "A":
                         txtUsuario.Text = ""; txtClave.Text = "";
                         //lblRespuesta.Text = dr["ROL"].ToString();
-                    break;
+                        this.Session["Usuario"] = Usuario;
+                        Response.Redirect("~/Empleado/InicioEmpleado.aspx");
+                        break;
                 }
             }
             else
