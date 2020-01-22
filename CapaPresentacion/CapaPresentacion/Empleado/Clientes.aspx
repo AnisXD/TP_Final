@@ -102,7 +102,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="DropDownList1" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -114,11 +114,11 @@
                     LOCALIDAD:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="DropDownList2" runat="server" CssClass="ControlesASP">
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="ControlesASP">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
-                   <%--NADA--%>
+                    <%--NADA--%>
                 </td>
             </tr>
             <tr>
@@ -126,7 +126,7 @@
                     DIRECCION:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP"></asp:TextBox>
+                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP" OnTextChanged="txbDireccion_TextChanged"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Ingrese una direccion." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>

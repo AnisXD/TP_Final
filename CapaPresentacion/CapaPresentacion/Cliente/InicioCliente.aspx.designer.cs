@@ -7,20 +7,22 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Cliente {
-    
-    
-    public partial class InicioCliente {
-        
+namespace CapaPresentacion.Cliente
+{
+
+
+    public partial class InicioCliente
+    {
+
         /// <summary>
-        /// Control lblMarca.
+        /// Control CbxMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMarca;
-        
+        protected global::System.Web.UI.WebControls.CheckBox CbxMarca;
+
         /// <summary>
         /// Control ddlMarca.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlMarca;
-        
+
         /// <summary>
         /// Control marca.
         /// </summary>
@@ -38,16 +40,16 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource marca;
-        
+
         /// <summary>
-        /// Control lblModelo.
+        /// Control CbxModelo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblModelo;
-        
+        protected global::System.Web.UI.WebControls.CheckBox CbxModelo;
+
         /// <summary>
         /// Control ddlModelo.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
-        
+
         /// <summary>
         /// Control modelos.
         /// </summary>
@@ -65,88 +67,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource modelos;
-        
-        /// <summary>
-        /// Control lblProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblProveedor;
-        
-        /// <summary>
-        /// Control ddlProveedor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProveedor;
-        
-        /// <summary>
-        /// Control proveedores.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource proveedores;
-        
-        /// <summary>
-        /// Control pnlFiltrarPrecio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel pnlFiltrarPrecio;
-        
-        /// <summary>
-        /// Control lblPrecio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecio;
-        
-        /// <summary>
-        /// Control Mayor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Mayor;
-        
-        /// <summary>
-        /// Control Menor.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Menor;
-        
-        /// <summary>
-        /// Control Igual.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton Igual;
-        
-        /// <summary>
-        /// Control txtPrecio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
-        
+
         /// <summary>
         /// Control btnFiltrar.
         /// </summary>
@@ -155,7 +76,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnFiltrar;
-        
+
         /// <summary>
         /// Control btnQuitarFiltro.
         /// </summary>
@@ -164,7 +85,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnQuitarFiltro;
-        
+
         /// <summary>
         /// Control lvwCelulares.
         /// </summary>
@@ -173,7 +94,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvwCelulares;
-        
+
         /// <summary>
         /// Control celulares.
         /// </summary>
