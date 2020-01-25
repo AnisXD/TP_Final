@@ -51,7 +51,7 @@ namespace CapaDatos
         private void ParametroRol(ref SqlCommand Comando, string rol)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDROL", SqlDbType.VarChar, 15);
+            SqlParametros = Comando.Parameters.Add("@IDROL", SqlDbType.VarChar, 1);
             SqlParametros.Value = rol;
         }
 

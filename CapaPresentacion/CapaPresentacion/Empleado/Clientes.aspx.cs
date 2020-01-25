@@ -63,7 +63,7 @@ namespace CapaPresentacion.Empleado
 
         public void cargarDgv()
         {
-            gvwClientes.DataSource = new NUsuario().BuscarPorRol("U");
+            gvwClientes.DataSource = new NUsuario().BuscarPorRol("C");
             gvwClientes.DataBind();
             lblTotalRegistros.Text = "Registros encontrados: " + gvwClientes.Rows.Count;
         }
