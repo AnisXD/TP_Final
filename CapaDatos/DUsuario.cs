@@ -79,7 +79,7 @@ namespace CapaDatos
         public DataTable MostrarPorRol(string ROL)
         {
             SqlCommand Comando = new SqlCommand();
-            ParametroIdUsuario(ref Comando, ROL);  
+            ParametroRol(ref Comando, ROL);  
             Conexion cn = new Conexion(); 
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
             return TablaResultado;

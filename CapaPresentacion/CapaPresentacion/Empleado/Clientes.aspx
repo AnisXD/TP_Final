@@ -10,7 +10,7 @@
         <asp:Label ID="lblApellidos" runat="server" Text="Apellido: " CssClass="ControlesASP"></asp:Label>
         <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP"></asp:TextBox>
         <asp:Label ID="lblFProvincia" runat="server" Text="Provincia: " CssClass="ControlesASP"></asp:Label>
-        <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP" >
+        <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged1" >
         </asp:DropDownList>
         <asp:Label ID="lblFLocalidad" runat="server" Text="Localidad: " CssClass="ControlesASP"></asp:Label>
         <asp:DropDownList ID="ddlFLocalidad" runat="server" CssClass="ControlesASP">
@@ -24,15 +24,8 @@
   <h1>Administrar Clientes</h1>
    <div id="FormClientes" class="Form">
 
-    <asp:GridView ID="gvwClientes" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_CLIENTE" DataSourceID="clientes" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" PageSize="5" Width="90%">
+    <asp:GridView ID="gvwClientes" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" PageSize="5" Width="90%">
         <AlternatingRowStyle BackColor="White" />
-        <Columns>
-            <asp:BoundField DataField="ID_CLIENTE" HeaderText="DNI" ReadOnly="True" SortExpression="ID_CLIENTE" />
-            <asp:BoundField DataField="NOMBRE_CLI" HeaderText="NOMBRE" SortExpression="NOMBRE_CLI" />
-            <asp:BoundField DataField="APELLIDO_CLI" HeaderText="APELLIDO" SortExpression="APELLIDO_CLI" />
-            <asp:BoundField DataField="DIRECCION_CLI" HeaderText="DIRECCION" SortExpression="DIRECCION_CLI" />
-            <asp:BoundField DataField="TELÉFONO_CLI" HeaderText="TELÉFONO" SortExpression="TELÉFONO_CLI" />
-        </Columns>
     
         <EditRowStyle BackColor="#2461BF" />
         <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
@@ -102,7 +95,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -126,7 +119,7 @@
                     DIRECCION:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP" OnTextChanged="txbDireccion_TextChanged"></asp:TextBox>
+                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Ingrese una direccion." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
