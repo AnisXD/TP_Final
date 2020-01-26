@@ -21,33 +21,29 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-  <h1>Administrar Clientes</h1>
+    <h1>Administrar Clientes</h1>
    <div id="FormClientes" class="Form">
 
-    <asp:GridView ID="gvwClientes" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" PageSize="5" Width="90%">
-        <AlternatingRowStyle BackColor="White" />
-    
-        <EditRowStyle BackColor="#2461BF" />
-        <FooterStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <HeaderStyle BackColor="#507CD1" Font-Bold="True" ForeColor="White" />
-        <PagerStyle BackColor="#2461BF" ForeColor="White" HorizontalAlign="Center" />
-        <RowStyle BackColor="#EFF3FB" />
-        <SelectedRowStyle BackColor="#D1DDF1" Font-Bold="True" ForeColor="#333333" />
-        <SortedAscendingCellStyle BackColor="#F5F7FB" />
-        <SortedAscendingHeaderStyle BackColor="#6D95E1" />
-        <SortedDescendingCellStyle BackColor="#E9EBEF" />
-        <SortedDescendingHeaderStyle BackColor="#4870BE" />
-    
-    </asp:GridView>
+       <asp:GridView ID="gvwClientes" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+           <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+           <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+           <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+           <RowStyle BackColor="White" ForeColor="#003399" />
+           <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+           <SortedAscendingCellStyle BackColor="#EDF6F6" />
+           <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+           <SortedDescendingCellStyle BackColor="#D6DFDF" />
+           <SortedDescendingHeaderStyle BackColor="#002876" />
+       </asp:GridView>
             <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
             <br />
        <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
-                    DNDNI:
+                    DNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged1" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -56,8 +52,7 @@
             </tr>
             <tr>
                 <td style="text-align:center; " class="auto-style1">
-                    NOMBRE:
-                td>
+                    NOMBRE:&nbsp;
                 <td class="auto-style2">
                     <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP"></asp:TextBox>
                 </td>
@@ -99,8 +94,7 @@
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="SELECT [cod_provincia], [descripcion_provincia] FROM [PROVINCIAS]"></asp:SqlDataSource>
-                </td>
+                    &nbsp;</td>
             </tr>
             <tr>
                 <td style="text-align:center; " class="auto-style1">
@@ -152,7 +146,7 @@
                 <td style="text-align:center; " class="auto-style1">
                 </td>
                 <td class="auto-style2">
-                    <asp:Label ID="Label1" runat="server"></asp:Label>
+            <asp:Label ID="lblEstado" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style3">
                 </td>
@@ -169,10 +163,7 @@
              </tr>
         </table>
 
-    <asp:SqlDataSource ID="clientes" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_CLIENTE], [NOMBRE_CLI], [APELLIDO_CLI], [DIRECCION_CLI], [TELÉFONO_CLI] FROM [CLIENTES]"></asp:SqlDataSource>
-    
     <div id="Administrar" title="Administrar">
-            <asp:Label ID="lblEstado" runat="server"></asp:Label>
             <asp:Button ID="btnAgregar" runat="server" Text="Agregar" CssClass="Boton"/>
             <asp:Button ID="btnEditar" runat="server" Text="Editar" CssClass="Boton"/>
             <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" CssClass="Boton"/>
