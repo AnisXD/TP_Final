@@ -14,7 +14,6 @@
     <li> <a href="./Ventas.aspx">Ventas</a></li>
     <li> <a href="./Celulares.aspx">Celulares</a></li>
     <li> <a href="./Marca.aspx">Marca</a></li>
-    <li> <a href="./Proveedores.aspx">Proveedores</a></li>
     <li> <a href="./Clientes.aspx">Clientes</a></li>
     <li> <a href="./Empleados.aspx">Empleados</a></li>
     <li> <a href="./CarritoEmpleado.aspx">Carrito</a></li>    

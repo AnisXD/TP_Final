@@ -51,10 +51,10 @@
        <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
-                    DNI:
+                    DNDNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged1" TextMode="Number" CausesValidation="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -64,7 +64,7 @@
             <tr>
                 <td style="text-align:center; " class="auto-style1">
                     NOMBRE:
-                </td>
+                td>
                 <td class="auto-style2">
                     <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP"></asp:TextBox>
                 </td>
