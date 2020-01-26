@@ -51,7 +51,7 @@ namespace CapaDatos
         private void ParametroRol(ref SqlCommand Comando, string rol)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDROL", SqlDbType.VarChar, 15);
+            SqlParametros = Comando.Parameters.Add("@IDROL", SqlDbType.VarChar, 1);
             SqlParametros.Value = rol;
         }
 
@@ -79,7 +79,7 @@ namespace CapaDatos
         public DataTable MostrarPorRol(string ROL)
         {
             SqlCommand Comando = new SqlCommand();
-            ParametroIdUsuario(ref Comando, ROL);  
+            ParametroRol(ref Comando, ROL);  
             Conexion cn = new Conexion(); 
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
             return TablaResultado;

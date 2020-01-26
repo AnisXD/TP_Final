@@ -42,28 +42,28 @@ namespace CapaPresentacion.Empleado
 
             return existe;
         }
-        public void CargarDDL_Localidad()
+        public void CargarDDL_Localidad(DropDownList lista, int id_prov)
         {
             NLocalidad ObjLocalidad = new NLocalidad();
 
-            ddlFLocalidad.DataSource = ObjLocalidad.MostrarPorIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
-            ddlFLocalidad.DataTextField = "desc_localidad";
-            ddlFLocalidad.DataValueField = "cod_postal";
-            ddlFLocalidad.DataBind();
+            lista.DataSource = ObjLocalidad.MostrarPorIdProvincia(id_prov);
+            lista.DataTextField = "Localidad";
+            lista.DataValueField = "Id";
+            lista.DataBind();
         }
 
-        public void CargarDDL_Provincia()
+        public void CargarDDL_Provincia(DropDownList lista)
         {
             NProvincia ObjProvincia = new NProvincia();
-            ddlFProvincia.DataSource = ObjProvincia.Mostrar();
-            ddlFProvincia.DataTextField = "Provincia";
-            ddlFProvincia.DataValueField = "Id";
-            ddlFProvincia.DataBind();
+            lista.DataSource = ObjProvincia.Mostrar();
+            lista.DataTextField = "Provincia";
+            lista.DataValueField = "Id";
+            lista.DataBind();
         }
 
         public void cargarDgv()
         {
-            gvwClientes.DataSource = new NCelular().Mostrar();
+            gvwClientes.DataSource = new NUsuario().BuscarPorRol("c");
             gvwClientes.DataBind();
             lblTotalRegistros.Text = "Registros encontrados: " + gvwClientes.Rows.Count;
         }
@@ -74,8 +74,10 @@ namespace CapaPresentacion.Empleado
             if (!IsPostBack)
             {
                 cargarDgv();
-                CargarDDL_Provincia();
-                CargarDDL_Localidad();
+                CargarDDL_Provincia(ddlProvincia);
+                CargarDDL_Provincia(ddlFProvincia);
+                CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
+                CargarDDL_Localidad(ddlFLocalidad, Convert.ToInt32(ddlFProvincia.SelectedValue));
                 limpiarTxt();
             }
 
@@ -130,9 +132,14 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void ddlFProvincia_SelectedIndexChanged(object sender, EventArgs e)
+        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
         {
-            CargarDDL_Localidad();
+            CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
+        }
+
+        protected void ddlFProvincia_SelectedIndexChanged1(object sender, EventArgs e)
+        {
+            CargarDDL_Localidad(ddlFLocalidad, Convert.ToInt32(ddlFProvincia.SelectedValue));
         }
     }
 }
