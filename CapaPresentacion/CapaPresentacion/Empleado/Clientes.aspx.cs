@@ -106,7 +106,7 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void txbDNI_TextChanged(object sender, EventArgs e)
+        protected void txbDNI_TextChanged1(object sender, EventArgs e)
         {
             lblEstado.Text = "txtDNI se modifico";
             if (txbDNI.Text.Trim().Length == 0)

@@ -24,7 +24,7 @@
   <h1>Administrar Clientes</h1>
    <div id="FormClientes" class="Form">
 
-    <asp:GridView ID="gvwClientes" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" PageSize="5" Width="90%">
+    <asp:GridView ID="gvwClientes" runat="server" AutoGenerateColumns="False" AllowPaging="True" CellPadding="4" ForeColor="#333333" GridLines="None" HorizontalAlign="Center" PageSize="5" Width="90%" OnSelectedIndexChanged="gvwClientes_SelectedIndexChanged">
         <AlternatingRowStyle BackColor="White" />
     
         <EditRowStyle BackColor="#2461BF" />
@@ -44,7 +44,7 @@
        <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
-                    DNDNI:
+                    DNI:
                 </td>
                 <td class="auto-style2">
                   <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged1" TextMode="Number" CausesValidation="True"></asp:TextBox>
@@ -57,8 +57,7 @@
             <tr>
                 <td style="text-align:center; " class="auto-style1">
                     NOMBRE:
-                td>
-                <td class="auto-style2">
+                  <td class="auto-style2">
                     <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
@@ -133,7 +132,6 @@
                    <asp:TextBox ID="txbClave" runat="server" placeholder="&#128273;Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                   <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txbClave" ErrorMessage="Ingrese una Contraseña." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbClave" ErrorMessage="Ingrese una Contraseña" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
              </tr>
