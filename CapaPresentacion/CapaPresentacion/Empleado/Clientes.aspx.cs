@@ -61,9 +61,11 @@ namespace CapaPresentacion.Empleado
             lista.DataBind();
         }
 
-        public void cargarDgv()
+        public void CargarDgv()
         {
-            gvwClientes.DataSource = new NUsuario().BuscarPorRol("c");
+            string IdRol = "C";// C = Cliente , A = Administrador, E = Empleado, V = Vendedor
+            NUsuario Obj = new NUsuario();
+            gvwClientes.DataSource = Obj.BuscarPorRol(IdRol);
             gvwClientes.DataBind();
             lblTotalRegistros.Text = "Registros encontrados: " + gvwClientes.Rows.Count;
         }
@@ -73,7 +75,7 @@ namespace CapaPresentacion.Empleado
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
-                cargarDgv();
+                CargarDgv();
                 CargarDDL_Provincia(ddlProvincia);
                 CargarDDL_Provincia(ddlFProvincia);
                 CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));

@@ -81,8 +81,8 @@ namespace CapaDatos
             SqlCommand Comando = new SqlCommand();
             ParametroRol(ref Comando, ROL);  
             Conexion cn = new Conexion(); 
-            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
-            return TablaResultado;
+            return cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
+            
         }
         private void ParametrosValidarExisteUsuario(ref SqlCommand Comando, Usuario usuario)
         {

@@ -74,12 +74,10 @@ namespace CapaDatos
             return FilasCambiadas;
         }
 
-        public int EjecutarProcedimientoValidar(SqlCommand Comando, String NombreSP)
+        public int EjecutarProcedimientoValidar(SqlCommand cmd, String NombreSP)
         {
             int FilasCambiadas = 1;
             SqlConnection Conexion = ObtenerConexion();
-            SqlCommand cmd = new SqlCommand();
-            cmd = Comando;
             cmd.Connection = Conexion;
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = NombreSP;
