@@ -77,9 +77,9 @@ namespace CapaPresentacion.Empleado
             {
                 CargarDgv();
                 CargarDDL_Provincia(ddlProvincia);
-                CargarDDL_Provincia(ddlFProvincia);
+                CargarDDL_Provincia(ddlProvincia);
                 CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
-                CargarDDL_Localidad(ddlFLocalidad, Convert.ToInt32(ddlFProvincia.SelectedValue));
+                CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
                 limpiarTxt();
             }
 
@@ -95,7 +95,7 @@ namespace CapaPresentacion.Empleado
         {
 
             NUsuario Obj = new NUsuario();
-            if (Obj.Insertar(txbDNI.Text, txbApellido.Text, txbNombre.Text, Convert.ToInt32(ddlFProvincia.SelectedValue), Convert.ToInt32(ddlFLocalidad.SelectedValue), txbDireccion.Text, txbTelefono.Text, txbClave.Text))
+            if (Obj.Insertar(txbDNI.Text, txbApellido.Text, txbNombre.Text, Convert.ToInt32(ddlProvincia.SelectedValue), Convert.ToInt32(ddlLocalidad.SelectedValue), txbDireccion.Text, txbTelefono.Text, txbClave.Text))
             {
                 limpiarTxt();
                 lblEstado.Text = "El registro se insertó con exito";
@@ -141,7 +141,12 @@ namespace CapaPresentacion.Empleado
 
         protected void ddlFProvincia_SelectedIndexChanged1(object sender, EventArgs e)
         {
-            CargarDDL_Localidad(ddlFLocalidad, Convert.ToInt32(ddlFProvincia.SelectedValue));
+            CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

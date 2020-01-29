@@ -28,7 +28,7 @@
         <br />
         <asp:Label ID="lblNombreMarca" runat="server" Text="Nombre Marca: " ></asp:Label>
         &nbsp;
-        <asp:TextBox ID="txtNombreMarca" runat="server" MaxLength="20" ></asp:TextBox>
+        <asp:TextBox ID="txtNombreMarca" runat="server" MaxLength="20" Style="text-transform: uppercase"></asp:TextBox>
         &nbsp;
         <br />
         <asp:Label ID="lblEstado" runat="server" Text=" "></asp:Label>

@@ -6,23 +6,19 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalCliente" runat="server">
     <asp:Label ID="lblUsuario" runat="server" Text="Nombre"></asp:Label>
 &nbsp;
-    <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBox6" runat="server" Style="text-transform: uppercase"></asp:TextBox>
 &nbsp;<br />
     <asp:Label ID="Label3" runat="server" Text="Apellido"></asp:Label>
 &nbsp;
-    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBox2" runat="server" Style="text-transform: uppercase"></asp:TextBox>
     <br />
     <asp:Label ID="Label4" runat="server" Text="Direccion"></asp:Label>
 &nbsp;
-    <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+    <asp:TextBox ID="TextBox3" runat="server" Style="text-transform: uppercase"></asp:TextBox>
     <br />
     <asp:Label ID="Label5" runat="server" Text="Telefono"></asp:Label>
 &nbsp;
     <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label2" runat="server" Text="Mail"></asp:Label>
-&nbsp;
-    <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
     <br />
     <br />
     <asp:Label ID="Label6" runat="server" Text="Ingrese la contraseña para la modificacion de los datos"></asp:Label>

@@ -15,13 +15,13 @@ namespace CapaPresentacion.Empleado
     {
 
         /// <summary>
-        /// Control lblDNIF.
+        /// Control cbDNI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDNIF;
+        protected global::System.Web.UI.WebControls.CheckBox cbDNI;
 
         /// <summary>
         /// Control txtDNIF.
@@ -33,13 +33,13 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.TextBox txtDNIF;
 
         /// <summary>
-        /// Control lblApellidos.
+        /// Control CheckBox1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellidos;
+        protected global::System.Web.UI.WebControls.CheckBox CheckBox1;
 
         /// <summary>
         /// Control txtApellidos.
@@ -49,42 +49,6 @@ namespace CapaPresentacion.Empleado
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtApellidos;
-
-        /// <summary>
-        /// Control lblFProvincia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFProvincia;
-
-        /// <summary>
-        /// Control ddlFProvincia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFProvincia;
-
-        /// <summary>
-        /// Control lblFLocalidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFLocalidad;
-
-        /// <summary>
-        /// Control ddlFLocalidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlFLocalidad;
 
         /// <summary>
         /// Control btnFiltrar.
@@ -274,6 +238,15 @@ namespace CapaPresentacion.Empleado
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbClave;
+
+        /// <summary>
+        /// Control rfv4.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfv4;
 
         /// <summary>
         /// Control RequiredFieldValidator5.

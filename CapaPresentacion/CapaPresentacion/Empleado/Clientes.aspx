@@ -5,17 +5,11 @@
     <h2>Filtrar por:</h2>
     <div id="Filtros">
     
-        <asp:Label ID="lblDNIF" runat="server" Text="DNI: " CssClass="ControlesASP"></asp:Label>
+        <asp:CheckBox ID="cbDNI" runat="server" Text="DNI" />
         <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP"></asp:TextBox>
-        <asp:Label ID="lblApellidos" runat="server" Text="Apellido: " CssClass="ControlesASP"></asp:Label>
-        <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP"></asp:TextBox>
-        <asp:Label ID="lblFProvincia" runat="server" Text="Provincia: " CssClass="ControlesASP"></asp:Label>
-        <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged1" >
-        </asp:DropDownList>
-        <asp:Label ID="lblFLocalidad" runat="server" Text="Localidad: " CssClass="ControlesASP"></asp:Label>
-        <asp:DropDownList ID="ddlFLocalidad" runat="server" CssClass="ControlesASP">
-        </asp:DropDownList>
-        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" />
+        <asp:CheckBox ID="CheckBox1" runat="server" Text="Apellido" />
+        <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtros" CssClass="Boton" />
     
     </div>
@@ -43,7 +37,7 @@
                     DNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged1" TextMode="Number" CausesValidation="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -54,7 +48,7 @@
                 <td style="text-align:center; " class="auto-style1">
                     NOMBRE:&nbsp;
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP"></asp:TextBox>
+                    <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:RegularExpressionValidator ID="rev2" runat="server" ControlToValidate="txbNombre" ErrorMessage="Ingrese un Nombre." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
@@ -66,7 +60,7 @@
                     APELLIDO:
                 </td>
                 <td class="auto-style2">
-                     <asp:TextBox ID="txbApellido" runat="server" placeholder="&#128100;Apellido" CssClass="ControlesASP"></asp:TextBox>
+                     <asp:TextBox ID="txbApellido" runat="server" placeholder="&#128100;Apellido" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:RegularExpressionValidator ID="rev3" runat="server" ControlToValidate="txbApellido" ErrorMessage="Ingrese un Apellido." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
@@ -113,7 +107,7 @@
                     DIRECCION:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP"></asp:TextBox>
+                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Ingrese una direccion." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
