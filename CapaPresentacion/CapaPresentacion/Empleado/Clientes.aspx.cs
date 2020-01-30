@@ -73,7 +73,7 @@ namespace CapaPresentacion.Empleado
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
-            
+
             if (!IsPostBack)
             {
                 CargarDgv();
@@ -156,7 +156,7 @@ namespace CapaPresentacion.Empleado
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            char IdRol = 'C'; // C = Cliente , A = Administrador, E = Empleado, V = Vendedor
+            char IdRol = 'C'; // C = Cliente , A = Administrador, E = Empleado
             string DNI;
             string APELLIDO;
 
@@ -169,15 +169,57 @@ namespace CapaPresentacion.Empleado
                 gvwClientes.DataBind();
                 lblTotalRegistros.Text = "Registros encontrados: " + gvwClientes.Rows.Count;
             }
-            else if (CheckBox1.Checked == true)
+
+            if (CheckBox1.Checked == true)
             {
                 APELLIDO = txtApellidos.Text;
+                NUsuario Obj = new NUsuario();
+                gvwClientes.DataSource = Obj.BuscarUsuarioPorApellido(APELLIDO, IdRol);
+                gvwClientes.DataBind();
+                lblTotalRegistros.Text = "Registros encontrados: " + gvwClientes.Rows.Count;
             }
         }
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
             CargarDgv();
+            txtDNIF.Text = " ";
+            txtApellidos.Text = " ";
+            txtDNIF.Visible = true;
+            txtApellidos.Visible = true;
+            txtDNIF.Visible = true;
+            CheckBox1.Visible = true;
+            CheckBox1.Checked = false;
+            cbDNI.Checked = false;
+            cbDNI.Visible = true;
+        }
+
+        protected void cbDNI_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbDNI.Checked)
+            {
+                CheckBox1.Visible = false;
+                txtApellidos.Visible = false;
+            }
+            else
+            {
+                CheckBox1.Visible = true;
+                txtApellidos.Visible = true;
+            }
+        }
+
+        protected void CheckBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CheckBox1.Checked)
+            {
+                cbDNI.Visible = false;
+                txtDNIF.Visible = false;
+            }
+            else
+            {
+                cbDNI.Visible = true;
+                txtDNIF.Visible = true;
+            }
         }
     }
 }

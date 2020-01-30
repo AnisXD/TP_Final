@@ -5,9 +5,9 @@
     <h2>Filtrar por:</h2>
     <div id="Filtros">
     
-        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="DNI" />
+        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="DNI" OnCheckedChanged="cbDNI_CheckedChanged" />
         <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP"></asp:TextBox>
-        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" />
+        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" OnCheckedChanged="CheckBox1_CheckedChanged" />
         <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtros" CssClass="Boton" OnClick="btnQuitarFiltro_Click" />

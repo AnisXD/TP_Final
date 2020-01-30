@@ -143,12 +143,28 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@ROLUSU", SqlDbType.VarChar, 1);
             SqlParametros.Value = usuario.Rol;
         }
+        private void ParametrosObtenerUsuariosPorApellido (ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@APELLIDO", SqlDbType.VarChar, 30);
+            SqlParametros.Value = usuario.Apellido;
+            SqlParametros = Comando.Parameters.Add("@ROLUSU", SqlDbType.VarChar, 1);
+            SqlParametros.Value = usuario.Rol;
+        }
         public DataTable ObtenerUsuariosPorDNI(Usuario usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerUsuariosPorDNI(ref Comando, usuario);
             Conexion cn = new Conexion();
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorDNIRol");
+            return TablaResultado;
+        }
+        public DataTable ObtenerUsuariosPorApellido(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerUsuariosPorApellido(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorApellido");
             return TablaResultado;
         }
     }

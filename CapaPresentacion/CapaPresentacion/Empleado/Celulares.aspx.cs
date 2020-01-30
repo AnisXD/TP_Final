@@ -273,9 +273,7 @@ namespace CapaPresentacion.Empleado
                 CbxPrecio.Visible = true;
                 ddlPrecio.Visible = true;
                 txtPrecio.Visible = true;
-            }
-            
-           
+            }         
         }
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
