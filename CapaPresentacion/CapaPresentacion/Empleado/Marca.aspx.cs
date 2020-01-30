@@ -197,8 +197,66 @@ namespace CapaPresentacion.Empleado
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
             }
 
+
         #endregion
 
-        
+        protected void cbMarca_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbMarca.Checked)
+            {
+                cbIdMarca.Visible = false;
+                txtIdMarca2.Visible = false;
+            }
+            else
+            {
+                cbIdMarca.Visible = true;
+                txtIdMarca2.Visible = true;
+            }
+        }
+
+        protected void cbIdMarca_CheckedChanged(object sender, EventArgs e)
+        {
+            if (cbIdMarca.Checked)
+            {
+                cbMarca.Visible = false;
+                txtMarca2.Visible = false;
+            }
+            else
+            {
+                cbMarca.Visible = true;
+                txtMarca2.Visible = true;
+            }
+        }
+
+        protected void btnFiltrar_Click(object sender, EventArgs e)
+        {
+            string MARCA;
+            string IDMARCA;
+
+            if (cbMarca.Checked == true)
+            {
+                MARCA = txtMarca2.Text;
+                 
+                NMarca Obj = new NMarca();
+                gdvMarcas.DataSource = Obj.BuscarMarcaPorNombre(MARCA);
+                gdvMarcas.DataBind();
+                lblTotalRegistros.Text = "Registros encontrados: " + gdvMarcas.Rows.Count;
+            }
+
+            if (cbIdMarca.Checked == true)
+            {
+                IDMARCA = txtIdMarca2.Text;
+
+                NMarca Obj = new NMarca();
+                gdvMarcas.DataSource = Obj.BuscarMarcaPorId(IDMARCA);
+                gdvMarcas.DataBind();
+                lblTotalRegistros.Text = "Registros encontrados: " + gdvMarcas.Rows.Count;
+            }
+        }
+
+        protected void btnQuitarFiltro_Click(object sender, EventArgs e)
+        {
+           Response.Redirect("/Empleado/Marca.aspx");
+        }
     }
 }

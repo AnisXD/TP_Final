@@ -2,6 +2,16 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
+    <h2>Filtrar por:</h2>
+    <div id="Filtros">
+    
+        <asp:CheckBox ID="cbMarca" runat="server" AutoPostBack="True" Text="Marca" OnCheckedChanged="cbMarca_CheckedChanged" />
+        <asp:TextBox ID="txtMarca2" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+        <asp:CheckBox ID="cbIdMarca" runat="server" AutoPostBack="True" Text="Id Marca" OnCheckedChanged="cbIdMarca_CheckedChanged" />
+        <asp:TextBox ID="txtIdMarca2" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+        <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
+        <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtros" CssClass="Boton" OnClick="btnQuitarFiltro_Click" />
+     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
     <h1>Administrar Marcas</h1>

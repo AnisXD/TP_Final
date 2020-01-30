@@ -354,8 +354,8 @@ namespace CapaPresentacion.Empleado
 
 
 
+
         #endregion
 
-        
     }
 }
