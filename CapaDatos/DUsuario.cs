@@ -135,5 +135,21 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "ObtenerNombreUsuario");
             return TablaResultado;
         }
+        private void ParametrosObtenerUsuariosPorDNI(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.DNI;
+            SqlParametros = Comando.Parameters.Add("@ROLUSU", SqlDbType.VarChar, 1);
+            SqlParametros.Value = usuario.Rol;
+        }
+        public DataTable ObtenerUsuariosPorDNI(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerUsuariosPorDNI(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorDNIRol");
+            return TablaResultado;
+        }
     }
 }

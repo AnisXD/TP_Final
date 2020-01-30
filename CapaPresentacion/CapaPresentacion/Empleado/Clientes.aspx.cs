@@ -73,6 +73,7 @@ namespace CapaPresentacion.Empleado
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
+            
             if (!IsPostBack)
             {
                 CargarDgv();
@@ -82,6 +83,15 @@ namespace CapaPresentacion.Empleado
                 CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
                 limpiarTxt();
             }
+
+            //if(cbDNI.Checked == true)
+            //{
+            //    CheckBox1.Checked = false;
+            //}
+            //else if (CheckBox1.Checked == true)
+            //{
+            //    cbDNI.Checked = false;
+            //}
 
         }
 
@@ -146,7 +156,28 @@ namespace CapaPresentacion.Empleado
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
+            char IdRol = 'C'; // C = Cliente , A = Administrador, E = Empleado, V = Vendedor
+            string DNI;
+            string APELLIDO;
 
+            if (cbDNI.Checked == true)
+            {
+                DNI = txtDNIF.Text;
+
+                NUsuario Obj = new NUsuario();
+                gvwClientes.DataSource = Obj.BuscarUsuarioPorDNI(DNI, IdRol);
+                gvwClientes.DataBind();
+                lblTotalRegistros.Text = "Registros encontrados: " + gvwClientes.Rows.Count;
+            }
+            else if (CheckBox1.Checked == true)
+            {
+                APELLIDO = txtApellidos.Text;
+            }
+        }
+
+        protected void btnQuitarFiltro_Click(object sender, EventArgs e)
+        {
+            CargarDgv();
         }
     }
 }
