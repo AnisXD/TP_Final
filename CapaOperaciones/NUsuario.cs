@@ -99,5 +99,17 @@ namespace CapaOperaciones
             DUsuario ObjDUsuario = new DUsuario();
             return ObjDUsuario.ObtenerUsuariosPorApellido(ObjUsuario);
         }
+        public bool Eliminar(string dni, char ROL)
+        {
+            DUsuario Obj = new DUsuario();
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = dni,
+                Rol = ROL
+            };
+
+            DUsuario ObjDUsuario = new DUsuario();
+            return Obj.EliminarCliente(ObjUsuario);
+        }
     }
 }

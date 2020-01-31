@@ -167,5 +167,18 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorApellido");
             return TablaResultado;
         }
+
+
+        public bool EliminarCliente(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerUsuariosPorDNI(ref Comando, usuario);
+            Conexion ad = new Conexion();
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "BajaLogicaUsuario");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
     }
 }
