@@ -49,7 +49,35 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar,15);
             SqlParametros.Value = ObjMarca.idmarca;
         }
+        private void ParametrosObtenerMarcaPorNombre(ref SqlCommand Comando, Marca marca)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@NOMBREMARCA", SqlDbType.VarChar, 20);
+            SqlParametros.Value = marca.nombremarca;
+        }
+        private void ParametrosObtenerMarcaPorId(ref SqlCommand Comando, Marca idmarca)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
+            SqlParametros.Value = idmarca.idmarca;
+        }
 
+        public DataTable ObtenerMarcaPorNombre(Marca MARCA)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerMarcaPorNombre(ref Comando, MARCA);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarMarcasPorNombre");
+            return TablaResultado;
+        }
+        public DataTable ObtenerMarcaPorId(Marca IDMARCA)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerMarcaPorId(ref Comando, IDMARCA);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarMarcasPorId");
+            return TablaResultado;
+        }
         private void ParametrosMarcas(ref SqlCommand Comando, Marca ObjMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();

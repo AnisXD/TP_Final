@@ -182,16 +182,17 @@ namespace CapaPresentacion.Empleado
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
-            CargarDgv();
-            txtDNIF.Text = " ";
-            txtApellidos.Text = " ";
-            txtDNIF.Visible = true;
-            txtApellidos.Visible = true;
-            txtDNIF.Visible = true;
-            CheckBox1.Visible = true;
-            CheckBox1.Checked = false;
-            cbDNI.Checked = false;
-            cbDNI.Visible = true;
+            //CargarDgv();
+            //txtDNIF.Text = " ";
+            //txtApellidos.Text = " ";
+            //txtDNIF.Visible = true;
+            //txtApellidos.Visible = true;
+            //txtDNIF.Visible = true;
+            //CheckBox1.Visible = true;
+            //CheckBox1.Checked = false;
+            //cbDNI.Checked = false;
+            //cbDNI.Visible = true;
+            Response.Redirect("/Empleado/Clientes.aspx");
         }
 
         protected void cbDNI_CheckedChanged(object sender, EventArgs e)

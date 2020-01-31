@@ -61,5 +61,26 @@ namespace CapaOperaciones
         {
             return new DMarca().MostrarPorNombre(nombre);
         }
+
+        public DataTable BuscarMarcaPorNombre(string MARCA)
+        {
+            Marca ObjMarca = new Marca
+            {
+                nombremarca = MARCA,
+            };
+
+            DMarca ObjDMarca = new DMarca();
+            return ObjDMarca.ObtenerMarcaPorNombre(ObjMarca);
+        }
+        public DataTable BuscarMarcaPorId(string IDMARCA)
+        {
+            Marca ObjMarca = new Marca
+            {
+                idmarca = IDMARCA,
+            };
+
+            DMarca ObjDMarca = new DMarca();
+            return ObjDMarca.ObtenerMarcaPorId(ObjMarca);
+        }
     }
 }
