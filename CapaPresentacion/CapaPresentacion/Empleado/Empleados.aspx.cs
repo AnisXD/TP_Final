@@ -54,16 +54,6 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void btnEliminar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void ddlProvincia_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
 

@@ -124,7 +124,7 @@ namespace CapaPresentacion.Empleado
             if (txbDNI.Text.Trim().Length == 0)
             {
                 btnAceptar.Enabled = false;
-                btnCancelar.Enabled = false;
+                btnEliminar.Enabled = false;
                 lblEstado.Text = "txtID esta vacio";
             }
             else
@@ -132,13 +132,13 @@ namespace CapaPresentacion.Empleado
                 if (ExisteDNI(txbDNI.Text.ToString()))
                 {
                     btnAceptar.Enabled = false;
-                    btnCancelar.Enabled = false;
+                    btnEliminar.Enabled = false;
                     //lblEstado.Text = "El DNI ingresado ya fue registrado";
                 }
                 else
                 {
                     btnAceptar.Enabled = true;
-                    btnCancelar.Enabled = true;
+                    btnEliminar.Enabled = true;
                     lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
                 }
             }
@@ -221,6 +221,32 @@ namespace CapaPresentacion.Empleado
                 cbDNI.Visible = true;
                 txtDNIF.Visible = true;
             }
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (txbDNI.Text != string.Empty)
+            {
+                NUsuario obj = new NUsuario();
+                if (obj.Eliminar(txbDNI.Text, 'C'))
+                {
+                    lblEstado.Text = "El registro se eliminó con exito";
+                }
+                else
+                {
+                    lblEstado.Text = "El registro no se pudo eliminar";
+                }
+                Response.Redirect("/Empleado/Clientes.aspx");
+            }
+            else
+            {
+                lblEstado.Text = "Atencion! Para eliminar un registro debe ingresar el dni o seleccionarlo de la tabla";
+            }
+        }
+
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
