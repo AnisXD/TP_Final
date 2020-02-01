@@ -16,10 +16,6 @@ namespace CapaPresentacion.Usuario
         private void limpiarTxt()
         {
             this.txtPrecio.Text = string.Empty;
-            //this.txtDescripcion.Text = string.Empty;
-            //this.txtPrecio2.Text = string.Empty;
-            //this.txtStock.Text = string.Empty;
-            //this.txtUbicacion.Text = string.Empty;
         }
 
         private void cargarListView(DataTable Celulares)
@@ -27,7 +23,7 @@ namespace CapaPresentacion.Usuario
             lvwCelulares.DataSource = Celulares;
             lvwCelulares.DataMember = "Modelo";
             lvwCelulares.DataBind();
-            //lblTotalRegistros.Text = "Registros encontrados: " + gvwCelulares.Rows.Count;
+            lblTotalRegistros.Text = "Celulares disponibles: " + lvwCelulares.Items.Count;
         }
         private void CargarDDL_Marcas()
         {
@@ -153,7 +149,18 @@ namespace CapaPresentacion.Usuario
             }
         }
 
+        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
+        {
+            //Label1.Text = "Hola: ";
+        }
 
+        protected void ImageButton1_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "eventoClick")
+            {
+                lblFiltro.Text = "Click en imagen: " + e.CommandArgument;
+            }
+        }
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
@@ -166,6 +173,12 @@ namespace CapaPresentacion.Usuario
             CbxPrecio.Checked = false;
             limpiarTxt();
 
+        }
+        protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
+        {
+            lblFiltro.Text = "Primero debe ingresar como usuario para poder agregar al carrito el celular: " + e.CommandArgument;
+            
+            Response.Redirect("/Usuario/LogIn.aspx");
         }
     }
 }

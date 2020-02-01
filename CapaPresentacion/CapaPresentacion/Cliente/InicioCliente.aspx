@@ -28,111 +28,95 @@
     <h3>Celulares:</h3>
     <div id="InicioCliente" class="Form">
     
-        <asp:ListView ID="lvwCelulares" runat="server" DataKeyNames="ID_MODELO" DataSourceID="celulares" GroupItemCount="2">
-        <AlternatingItemTemplate>
-            <td runat="server" style="background-color: #FFFFFF;color: #284775;">ID_MODELO:
-                <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
-                <br />ID_MARCA_CEL:
-                <asp:Label ID="ID_MARCA_CELLabel" runat="server" Text='<%# Eval("ID_MARCA_CEL") %>' />
-                <br />DESCRIPCION_CEL:
-                <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
-                <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
-                <br /></td>
-        </AlternatingItemTemplate>
-        <EditItemTemplate>
-            <td runat="server" style="background-color: #999999;">ID_MODELO:
-                <asp:Label ID="ID_MODELOLabel1" runat="server" Text='<%# Eval("ID_MODELO") %>' />
-                <br />ID_MARCA_CEL:
-                <asp:TextBox ID="ID_MARCA_CELTextBox" runat="server" Text='<%# Bind("ID_MARCA_CEL") %>' />
-                <br />DESCRIPCION_CEL:
-                <asp:TextBox ID="DESCRIPCION_CELTextBox" runat="server" Text='<%# Bind("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
-                <asp:TextBox ID="PRECIO_UNITARIO_CELTextBox" runat="server" Text='<%# Bind("PRECIO_UNITARIO_CEL") %>' />
-                <br />
-                <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                <br />
-                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                <br />
-                </td>
-        </EditItemTemplate>
-        <EmptyDataTemplate>
-            <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                <tr>
-                    <td>No se han devuelto datos.</td>
-                </tr>
-            </table>
-        </EmptyDataTemplate>
-        <EmptyItemTemplate>
-<td runat="server" />
-        </EmptyItemTemplate>
-        <GroupTemplate>
-            <tr id="itemPlaceholderContainer" runat="server">
-                <td id="itemPlaceholder" runat="server"></td>
-            </tr>
-        </GroupTemplate>
-        <InsertItemTemplate>
-            <td runat="server" style="">ID_MODELO:
-                <asp:TextBox ID="ID_MODELOTextBox" runat="server" Text='<%# Bind("ID_MODELO") %>' />
-                <br />ID_MARCA_CEL:
-                <asp:TextBox ID="ID_MARCA_CELTextBox" runat="server" Text='<%# Bind("ID_MARCA_CEL") %>' />
-                <br />DESCRIPCION_CEL:
-                <asp:TextBox ID="DESCRIPCION_CELTextBox" runat="server" Text='<%# Bind("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
-                <asp:TextBox ID="PRECIO_UNITARIO_CELTextBox" runat="server" Text='<%# Bind("PRECIO_UNITARIO_CEL") %>' />
-                <br />
-                <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                <br />
-                <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                <br />
-                </td>
-        </InsertItemTemplate>
-        <ItemTemplate>
-            <td runat="server" style="background-color: #E0FFFF;color: #333333;">ID_MODELO:
-                <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
-                <br />ID_MARCA_CEL:
-                <asp:Label ID="ID_MARCA_CELLabel" runat="server" Text='<%# Eval("ID_MARCA_CEL") %>' />
-                <br />DESCRIPCION_CEL:
-                <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
-                <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
-                <br /></td>
-        </ItemTemplate>
-        <LayoutTemplate>
-            <table runat="server">
-                <tr runat="server">
-                    <td runat="server">
-                        <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                            <tr id="groupPlaceholder" runat="server">
-                            </tr>
-                        </table>
-                    </td>
-                </tr>
-                <tr runat="server">
-                    <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
-                        <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
-                            <Fields>
-                                <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                            </Fields>
-                        </asp:DataPager>
-                    </td>
-                </tr>
-            </table>
-        </LayoutTemplate>
-        <SelectedItemTemplate>
-            <td runat="server" style="background-color: #E2DED6;font-weight: bold;color: #333333;">ID_MODELO:
-                <asp:Label ID="ID_MODELOLabel" runat="server" Text='<%# Eval("ID_MODELO") %>' />
-                <br />ID_MARCA_CEL:
-                <asp:Label ID="ID_MARCA_CELLabel" runat="server" Text='<%# Eval("ID_MARCA_CEL") %>' />
-                <br />DESCRIPCION_CEL:
-                <asp:Label ID="DESCRIPCION_CELLabel" runat="server" Text='<%# Eval("DESCRIPCION_CEL") %>' />
-                <br />PRECIO_UNITARIO_CEL:
-                <asp:Label ID="PRECIO_UNITARIO_CELLabel" runat="server" Text='<%# Eval("PRECIO_UNITARIO_CEL") %>' />
-                <br /></td>
-        </SelectedItemTemplate>
-        </asp:ListView>
-        <asp:SqlDataSource ID="celulares" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_MODELO], [ID_MARCA_CEL], [DESCRIPCION_CEL], [PRECIO_UNITARIO_CEL] FROM [CELULARES]"></asp:SqlDataSource>
-        
+       <asp:ListView ID="ListView1" runat="server" DataKeyNames="Modelo" DataSourceID="SqlDataSource1" GroupItemCount="2">
+          
+           <EmptyDataTemplate>
+               <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
+                   <tr>
+                       <td>No se han devuelto datos.</td>
+                   </tr>
+               </table>
+           </EmptyDataTemplate>
+           
+           <EmptyItemTemplate>
+                <td runat="server" />
+           </EmptyItemTemplate>
+           
+           <GroupTemplate>
+               <tr id="itemPlaceholderContainer" runat="server">
+                   <td id="itemPlaceholder" runat="server"></td>
+               </tr>
+           </GroupTemplate>
+          
+           <ItemTemplate>
+               <td runat="server" style="background-color: #E0FFFF;color: #333333;">
+                   <asp:Label ID="MarcaLabel" runat="server" Text='<%# Eval("Marca") %>' />
+                   <br />
+                   <asp:Label ID="ModeloLabel" runat="server" Text='<%# Eval("Modelo") %>'></asp:Label>
+                   <br />
+                   <asp:ImageButton ID="ImgBtnCelular" runat="server" Height="200px" ImageUrl='<%# Eval("Imagen") %>' />
+                   <br />
+                   Descripcion:
+                   <asp:Label ID="DescripcionLabel" runat="server" Text='<%# Eval("Descripcion") %>'></asp:Label>
+                   <br />
+                   Stock:
+                   <asp:Label ID="StockLabel" runat="server" Text='<%# Eval("Stock") %>'></asp:Label>
+                   <br />
+                   Precio: $
+                   <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>'></asp:Label>
+                   <br />
+                   <asp:Button ID="BtnAgregarAlCarrito" runat="server" Text="Agregar al carrito" CommandArgument='<%# Eval("Modelo") %>' CommandName="EventoAgregarAlCarrito" OnCommand="BtnAgregarAlCarrito_Command" />
+                   <br /></td>
+           </ItemTemplate>
+
+           <LayoutTemplate>
+               <table runat="server">
+                   <tr runat="server">
+                       <td runat="server">
+                           <table id="groupPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
+                               <tr id="groupPlaceholder" runat="server">
+                               </tr>
+                           </table>
+                       </td>
+                   </tr>
+                   <tr runat="server">
+                       <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
+                           <asp:DataPager ID="DataPager1" runat="server" PageSize="12">
+                               <Fields>
+                                   <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                                   <asp:NumericPagerField />
+                                   <asp:NextPreviousPagerField ButtonType="Button" ShowLastPageButton="True" ShowNextPageButton="False" ShowPreviousPageButton="False" />
+                               </Fields>
+                           </asp:DataPager>
+                       </td>
+                   </tr>
+               </table>
+           </LayoutTemplate>
+
+           <SelectedItemTemplate>
+               <td runat="server" style="background-color: #E2DED6;font-weight: bold;color: #333333;">Modelo:
+                   <asp:Label ID="ModeloLabel" runat="server" Text='<%# Eval("Modelo") %>' />
+                   <br />Marca:
+                   <asp:Label ID="MarcaLabel" runat="server" Text='<%# Eval("Marca") %>' />
+                   <br />Descripcion:
+                   <asp:Label ID="DescripcionLabel" runat="server" Text='<%# Eval("Descripcion") %>' />
+                   <br />Stock:
+                   <asp:Label ID="StockLabel" runat="server" Text='<%# Eval("Stock") %>' />
+                   <br />Precio: $
+                   <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>' />
+                   <br />Imagen:
+                   <asp:Label ID="ImagenLabel" runat="server" Text='<%# Eval("Imagen") %>' />
+                   <br /></td>
+           </SelectedItemTemplate>
+
+       </asp:ListView>
+
+       <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="MostrarCelulares" SelectCommandType="StoredProcedure" UpdateCommand="MostrarCelularesPorIdMarca" UpdateCommandType="StoredProcedure">
+           <UpdateParameters>
+               <asp:Parameter Name="IDMARCA" Type="String" />
+           </UpdateParameters>
+       </asp:SqlDataSource>
+
     </div></asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerCliente" runat="server">
