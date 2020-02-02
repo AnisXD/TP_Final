@@ -50,22 +50,40 @@
           
            <ItemTemplate>
                <td runat="server" style="background-color: #E0FFFF;color: #333333;">
-                   <asp:Label ID="MarcaLabel" runat="server" Text='<%# Eval("Marca") %>' />
+                   <asp:Label 
+                       ID="MarcaLabel" runat="server" 
+                       Text='<%# Eval("Marca") %>' />
                    <br />
-                   <asp:Label ID="ModeloLabel" runat="server" Text='<%# Eval("Modelo") %>'></asp:Label>
+                   <asp:Label 
+                       ID="ModeloLabel" runat="server" 
+                       Text='<%# Eval("Modelo") %>'></asp:Label>
                    <br />
-                   <asp:ImageButton ID="ImgBtnCelular" runat="server" Height="200px" ImageUrl='<%# Eval("Imagen") %>' />
+                   <asp:ImageButton 
+                       ID="ImgBtnCelular" runat="server" 
+                       Height="200px" 
+                       ImageUrl='<%# Eval("Imagen") %>' />
                    <br />
                    Descripcion:
-                   <asp:Label ID="DescripcionLabel" runat="server" Text='<%# Eval("Descripcion") %>'></asp:Label>
+                   <asp:Label 
+                       ID="DescripcionLabel" runat="server" 
+                       Text='<%# Eval("Descripcion") %>'></asp:Label>
                    <br />
                    Stock:
-                   <asp:Label ID="StockLabel" runat="server" Text='<%# Eval("Stock") %>'></asp:Label>
+                   <asp:Label 
+                       ID="StockLabel" runat="server" 
+                       Text='<%# Eval("Stock") %>'></asp:Label>
                    <br />
                    Precio: $
-                   <asp:Label ID="PrecioLabel" runat="server" Text='<%# Eval("Precio") %>'></asp:Label>
+                   <asp:Label 
+                       ID="PrecioLabel" runat="server" 
+                       Text='<%# Eval("Precio") %>'></asp:Label>
                    <br />
-                   <asp:Button ID="BtnAgregarAlCarrito" runat="server" Text="Agregar al carrito" CommandArgument='<%# Eval("Modelo") %>' CommandName="EventoAgregarAlCarrito" OnCommand="BtnAgregarAlCarrito_Command" />
+                   <asp:Button 
+                       ID="BtnAgregarAlCarrito" runat="server" 
+                       Text="Agregar al carrito" 
+                       CommandArgument='<%# Eval("Modelo") %>' 
+                       CommandName="AgregarAlCarrito" 
+                       OnCommand="BtnAgregarAlCarrito_Command" />
                    <br /></td>
            </ItemTemplate>
 

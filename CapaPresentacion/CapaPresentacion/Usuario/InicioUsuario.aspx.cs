@@ -149,19 +149,6 @@ namespace CapaPresentacion.Usuario
             }
         }
 
-        protected void ImageButton1_Click(object sender, ImageClickEventArgs e)
-        {
-            //Label1.Text = "Hola: ";
-        }
-
-        protected void ImageButton1_Command(object sender, CommandEventArgs e)
-        {
-            if (e.CommandName == "eventoClick")
-            {
-                lblFiltro.Text = "Click en imagen: " + e.CommandArgument;
-            }
-        }
-
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
             cargarListView(new NCelular().Mostrar());
