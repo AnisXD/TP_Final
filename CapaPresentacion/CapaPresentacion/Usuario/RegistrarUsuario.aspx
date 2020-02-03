@@ -52,7 +52,7 @@
                 </td>
             </tr>
             <tr>
-                <td style="text-align:center; " class="auto-style1">
+                <td style="text-align:center;" class="auto-style1">
                     APELLIDO:
                 </td>
                 <td class="auto-style2">
@@ -68,12 +68,13 @@
                     TELEFONO:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Phone"></asp:TextBox>
+                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Number"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un numero de telefono." ControlToValidate="txbTelefono" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbTelefono" ErrorMessage="Ingrese un Telefono" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
-                </td>
+               
+                    </td>
             </tr>
             <tr>
                 <td style="text-align:center; " class="auto-style1">

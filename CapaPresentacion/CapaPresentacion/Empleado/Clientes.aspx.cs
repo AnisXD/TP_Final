@@ -119,7 +119,7 @@ namespace CapaPresentacion.Empleado
 
         protected void txbDNI_TextChanged(object sender, EventArgs e)
         {
-            lblEstado.Text = "txtDNI se modifico";
+            //lblEstado.Text = "txtDNI se modifico";
             if (txbDNI.Text.Trim().Length == 0)
             {
                 btnAgregar.Enabled = false;
@@ -134,14 +134,18 @@ namespace CapaPresentacion.Empleado
                     btnAgregar.Enabled = false;
                     btnEliminar.Enabled = true;
                     btnEditar.Enabled = true;
-                    txbClave.Visible = false;
-                    txbRepitaClave.Visible = false;
-                    //lblEstado.Text = "El DNI ingresado ya fue registrado";
+                    txbClave.Enabled = false;
+                    txbRepitaClave.Enabled = false;
+
+                    // lblEstado.Text = "El DNI ingresado ya existe";
                 }
                 else
                 {
                     btnAgregar.Enabled = true;
                     btnEliminar.Enabled = false;
+                    btnEditar.Enabled = false;
+                    txbClave.Enabled = true;
+                    txbRepitaClave.Enabled = true;
                     lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
                 }
             }
@@ -263,9 +267,13 @@ namespace CapaPresentacion.Empleado
         {
             if ((txbDNI.Text == string.Empty) || (txbNombre.Text == string.Empty) || (txbTelefono.Text == string.Empty) || (txbApellido.Text == string.Empty) || (txbDireccion.Text == string.Empty))
             {
+                lblEstado.Text = "Atencion! Para editar un registro debe completar todos los campos de datos";
+            }
+            else
+            {
                 NUsuario obj = new NUsuario();
 
-                if (obj.Editar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, 'C')) 
+                if (obj.Editar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, 'C'))
                 {
                     Response.Redirect("/Empleado/Clientes.aspx");
                     lblEstado.Text = "El registro se editó con exito";
@@ -274,10 +282,7 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "El registro no se pudo editar";
                 }
-            }
-            else
-            {
-                lblEstado.Text = "Atencion! Para editar un registro debe completar todos los campos de datos";
+                
             }
         }
         private void BuscarProvincia(string provincia)
@@ -313,32 +318,6 @@ namespace CapaPresentacion.Empleado
             txbClave.Enabled = false;
             txbRepitaClave.Enabled = false;
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
-        }
-
-        protected void txbDNI_TextChanged2(object sender, EventArgs e)
-        {
-            lblEstado.Text = "txtDNI se modifico";
-            if (txbDNI.Text.Trim().Length == 0)
-            {
-                btnAgregar.Enabled = false;
-                btnEliminar.Enabled = false;
-                lblEstado.Text = "txtID esta vacio";
-            }
-            else
-            {
-                if (ExisteDNI(txbDNI.Text.ToString()))
-                {
-                    btnAgregar.Enabled = false;
-                    btnEliminar.Enabled = false;
-                    //lblEstado.Text = "El DNI ingresado ya fue registrado";
-                }
-                else
-                {
-                    btnAgregar.Enabled = true;
-                    btnEliminar.Enabled = true;
-                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
-                }
-            }
         }
     }
 }
