@@ -46,19 +46,19 @@ namespace CapaPresentacion.Usuario
         {
             NLocalidad ObjLocalidad = new NLocalidad();
 
-            ddlFLocalidad.DataSource = ObjLocalidad.MostrarPorIdProvincia(Convert.ToInt32(ddlFProvincia.SelectedValue));
-            ddlFLocalidad.DataTextField = "Localidad";
-            ddlFLocalidad.DataValueField = "Id";
-            ddlFLocalidad.DataBind();
+            ddlLocalidad.DataSource = ObjLocalidad.MostrarPorIdProvincia(Convert.ToInt32(ddlProvincia.SelectedValue));
+            ddlLocalidad.DataTextField = "Localidad";
+            ddlLocalidad.DataValueField = "Id";
+            ddlLocalidad.DataBind();
         }
 
         public void CargarDDL_Provincia()
         {
             NProvincia ObjProvincia = new NProvincia();
-            ddlFProvincia.DataSource = ObjProvincia.Mostrar();
-            ddlFProvincia.DataTextField = "Provincia";
-            ddlFProvincia.DataValueField = "Id";
-            ddlFProvincia.DataBind();
+            ddlProvincia.DataSource = ObjProvincia.Mostrar();
+            ddlProvincia.DataTextField = "Provincia";
+            ddlProvincia.DataValueField = "Id";
+            ddlProvincia.DataBind();
         }
 
 
@@ -84,7 +84,7 @@ namespace CapaPresentacion.Usuario
         {
 
             NUsuario Obj = new NUsuario();
-            if (Obj.Insertar(txbDNI.Text, txbApellido.Text, txbNombre.Text, Convert.ToInt32(ddlFProvincia.SelectedValue), Convert.ToInt32(ddlFLocalidad.SelectedValue), txbDireccion.Text, txbTelefono.Text, txbClave.Text))
+            if (Obj.Insertar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, txbClave.Text, 'C'))
             {
                 limpiarTxt();
                 lblEstado.Text = "El registro se insertó con exito";
@@ -96,7 +96,6 @@ namespace CapaPresentacion.Usuario
             }
 
         }
-
         protected void txbDNI_TextChanged(object sender, EventArgs e)
         {
             lblEstado.Text = "txtDNI se modifico";

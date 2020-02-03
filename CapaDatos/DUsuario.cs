@@ -40,7 +40,17 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@ROL", SqlDbType.VarChar, 1);
             SqlParametros.Value = usuario.Rol;
         }
-
+        public bool AgregarUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosUsuario(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaUsuario");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
         private void ParametroIdUsuario(ref SqlCommand Comando, string IdUsuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -54,19 +64,6 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@IDROL", SqlDbType.VarChar, 1);
             SqlParametros.Value = rol;
         }
-
-        public bool AgregarUsuario(Usuario usuario)
-        {
-            SqlCommand Comando = new SqlCommand();
-            ParametrosUsuario(ref Comando, usuario);
-            Conexion cn = new Conexion();
-            int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaUsuario");
-            if (FilasInsertadas == 1)
-                return true;
-            else
-                return false;
-        }
-
         public DataTable MostrarPorId(string ID)
         {
             SqlCommand Comando = new SqlCommand();
@@ -167,7 +164,37 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorApellido");
             return TablaResultado;
         }
-
+        private void ParametrosActualizarUsuario(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.DNI;
+            SqlParametros = Comando.Parameters.Add("@APELLIDOUSU", SqlDbType.VarChar, 30);
+            SqlParametros.Value = usuario.Apellido;
+            SqlParametros = Comando.Parameters.Add("@NOMBREUSU", SqlDbType.VarChar, 30);
+            SqlParametros.Value = usuario.Nombre;
+            SqlParametros = Comando.Parameters.Add("@TELEFONOUSU", SqlDbType.VarChar, 20);
+            SqlParametros.Value = usuario.Telefono;
+            SqlParametros = Comando.Parameters.Add("@PROVINCIAUSU", SqlDbType.Int);
+            SqlParametros.Value = Convert.ToInt32(usuario.IdProvincia);
+            SqlParametros = Comando.Parameters.Add("@LOCALIDADUSU", SqlDbType.Int);
+            SqlParametros.Value = Convert.ToInt32(usuario.IdLocalidad);
+            SqlParametros = Comando.Parameters.Add("@DIRRECIONUSU", SqlDbType.VarChar, 30);
+            SqlParametros.Value = usuario.Calle_y_Altura;
+            SqlParametros = Comando.Parameters.Add("@ROL", SqlDbType.VarChar, 1);
+            SqlParametros.Value = usuario.Rol;
+        }
+        public bool ActualizarUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosActualizarUsuario(ref Comando, usuario);
+            Conexion ad = new Conexion();
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "ModificarUsuarioEmpleados");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public bool EliminarCliente(Usuario usuario)
         {

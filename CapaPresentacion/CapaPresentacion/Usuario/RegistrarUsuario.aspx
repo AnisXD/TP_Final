@@ -32,7 +32,7 @@
                     DNI:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True" MaxLength="9"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
@@ -80,7 +80,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -92,11 +92,11 @@
                     LOCALIDAD:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlFLocalidad" runat="server" CssClass="ControlesASP">
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="ControlesASP">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
-                   <%--NADA--%>
+                    <%--NADA--%>
                 </td>
             </tr>
             <tr>

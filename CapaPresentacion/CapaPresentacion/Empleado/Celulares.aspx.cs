@@ -66,7 +66,6 @@ namespace CapaPresentacion.Empleado
                 if (Item.Text == marca)
                     ddlMarca2.SelectedIndex = ddlMarca2.Items.IndexOf(Item);
             }
-
         }
         private void CargarDDL_Marcas2()
         {

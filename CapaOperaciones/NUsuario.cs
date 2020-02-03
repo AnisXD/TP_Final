@@ -11,19 +11,19 @@ namespace CapaOperaciones
 {
     public class NUsuario
     {
-        public bool Insertar(string dni, string apellido, string nombre, int idprovincia, int idlocalidad, string direccion, string telefono, string clave)
+        public bool Insertar(string dni, string nombre, string apellido, string telefono, int provincia, int localidad, string direccion, string clave, char rol)
         {
             Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
-                Apellido = apellido,
                 Nombre = nombre,
-                IdLocalidad = idlocalidad,
-                IdProvincia = idprovincia,
+                Apellido = apellido,
                 Telefono = telefono,
-                Contraseña = clave,
+                IdProvincia = provincia,
+                IdLocalidad = localidad,
                 Calle_y_Altura = direccion,
-                Rol = 'C',
+                Contraseña = clave,
+                Rol = rol,
             };
             DUsuario Obj = new DUsuario();
             return Obj.AgregarUsuario(ObjUsuario);
@@ -110,6 +110,22 @@ namespace CapaOperaciones
 
             DUsuario ObjDUsuario = new DUsuario();
             return Obj.EliminarCliente(ObjUsuario);
+        }
+        public bool Editar(string dni, string nombre, string apellido, string telefono, int provincia, int localidad, string direccion, char rol)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = dni,
+                Nombre = nombre,
+                Apellido = apellido,
+                Telefono = telefono,
+                IdProvincia = provincia,
+                IdLocalidad = localidad,
+                Calle_y_Altura = direccion,
+                Rol = rol,
+            };
+            DUsuario Obj = new DUsuario();
+            return Obj.ActualizarUsuario(ObjUsuario);
         }
     }
 }

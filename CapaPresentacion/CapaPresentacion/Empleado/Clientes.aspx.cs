@@ -78,9 +78,9 @@ namespace CapaPresentacion.Empleado
             {
                 CargarDgv();
                 CargarDDL_Provincia(ddlProvincia);
-                CargarDDL_Provincia(ddlProvincia);
+                //CargarDDL_Provincia(ddlProvincia);
                 CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
-                CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
+                //CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
                 limpiarTxt();
             }
 
@@ -95,19 +95,19 @@ namespace CapaPresentacion.Empleado
 
         }
 
-        protected void btnCancelar_Click(object sender, EventArgs e)
-        {
-            limpiarTxt();
-            Response.Redirect("/Usuario/InicioUsuario.aspx");
-        }
+        //protected void btnCancelar_Click(object sender, EventArgs e)
+        //{
+        //    limpiarTxt();
+        //    Response.Redirect("/Usuario/InicioUsuario.aspx");
+        //}
 
-        protected void btnAceptar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
 
             NUsuario Obj = new NUsuario();
-            if (Obj.Insertar(txbDNI.Text, txbApellido.Text, txbNombre.Text, Convert.ToInt32(ddlProvincia.SelectedValue), Convert.ToInt32(ddlLocalidad.SelectedValue), txbDireccion.Text, txbTelefono.Text, txbClave.Text))
+            if (Obj.Insertar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, txbClave.Text, 'C'))
             {
-                limpiarTxt();
+                Response.Redirect("/Empleado/Clientes.aspx");
                 lblEstado.Text = "El registro se insertó con exito";
             }
 
@@ -115,30 +115,33 @@ namespace CapaPresentacion.Empleado
             {
                 lblEstado.Text = "El registro no se pudo insertar";
             }
-
         }
 
-        protected void txbDNI_TextChanged1(object sender, EventArgs e)
+        protected void txbDNI_TextChanged(object sender, EventArgs e)
         {
             lblEstado.Text = "txtDNI se modifico";
             if (txbDNI.Text.Trim().Length == 0)
             {
-                btnAceptar.Enabled = false;
+                btnAgregar.Enabled = false;
                 btnEliminar.Enabled = false;
+                btnEditar.Enabled = false;
                 lblEstado.Text = "txtID esta vacio";
             }
             else
             {
                 if (ExisteDNI(txbDNI.Text.ToString()))
                 {
-                    btnAceptar.Enabled = false;
-                    btnEliminar.Enabled = false;
+                    btnAgregar.Enabled = false;
+                    btnEliminar.Enabled = true;
+                    btnEditar.Enabled = true;
+                    txbClave.Visible = false;
+                    txbRepitaClave.Visible = false;
                     //lblEstado.Text = "El DNI ingresado ya fue registrado";
                 }
                 else
                 {
-                    btnAceptar.Enabled = true;
-                    btnEliminar.Enabled = true;
+                    btnAgregar.Enabled = true;
+                    btnEliminar.Enabled = false;
                     lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
                 }
             }
@@ -230,23 +233,112 @@ namespace CapaPresentacion.Empleado
                 NUsuario obj = new NUsuario();
                 if (obj.Eliminar(txbDNI.Text, 'C'))
                 {
+                    Response.Redirect("/Empleado/Clientes.aspx");
                     lblEstado.Text = "El registro se eliminó con exito";
                 }
                 else
                 {
                     lblEstado.Text = "El registro no se pudo eliminar";
                 }
-                Response.Redirect("/Empleado/Clientes.aspx");
+                
             }
             else
             {
                 lblEstado.Text = "Atencion! Para eliminar un registro debe ingresar el dni o seleccionarlo de la tabla";
             }
         }
+        public bool txtCompletos()
+        {
+            if ((txbDNI.Text == string.Empty) || (txbNombre.Text == string.Empty) || (txbTelefono.Text == string.Empty) || (txbRepitaClave.Text == string.Empty) ||  (txbApellido.Text == string.Empty) || (txbDireccion.Text == string.Empty) || (txbClave.Text == string.Empty))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
+            if ((txbDNI.Text == string.Empty) || (txbNombre.Text == string.Empty) || (txbTelefono.Text == string.Empty) || (txbApellido.Text == string.Empty) || (txbDireccion.Text == string.Empty))
+            {
+                NUsuario obj = new NUsuario();
 
+                if (obj.Editar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, 'C')) 
+                {
+                    Response.Redirect("/Empleado/Clientes.aspx");
+                    lblEstado.Text = "El registro se editó con exito";
+                }
+                else
+                {
+                    lblEstado.Text = "El registro no se pudo editar";
+                }
+            }
+            else
+            {
+                lblEstado.Text = "Atencion! Para editar un registro debe completar todos los campos de datos";
+            }
+        }
+        private void BuscarProvincia(string provincia)
+        {
+            foreach (ListItem Item in ddlProvincia.Items)
+            {
+                if (Item.Text == provincia)
+                    ddlProvincia.SelectedIndex = ddlProvincia.Items.IndexOf(Item);
+            }
+        }
+        private void BuscarLocalidad(string localidad)
+        {
+            foreach (ListItem Item in ddlLocalidad.Items)
+            {
+                if (Item.Text == localidad)
+                    ddlLocalidad.SelectedIndex = ddlLocalidad.Items.IndexOf(Item);
+            }
+        }
+
+        protected void gvwClientes_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            this.txbDNI.Text = gvwClientes.SelectedRow.Cells[1].Text;
+            this.txbNombre.Text = gvwClientes.SelectedRow.Cells[2].Text;
+            this.txbApellido.Text = gvwClientes.SelectedRow.Cells[3].Text;
+            this.txbTelefono.Text = gvwClientes.SelectedRow.Cells[4].Text;
+            BuscarProvincia(gvwClientes.SelectedRow.Cells[5].Text);
+            CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
+            BuscarLocalidad(gvwClientes.SelectedRow.Cells[6].Text);
+            this.txbDireccion.Text = gvwClientes.SelectedRow.Cells[7].Text;
+            btnAgregar.Enabled = false;
+            btnEditar.Enabled = true;
+            btnEliminar.Enabled = true;
+            txbClave.Enabled = false;
+            txbRepitaClave.Enabled = false;
+            lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
+        }
+
+        protected void txbDNI_TextChanged2(object sender, EventArgs e)
+        {
+            lblEstado.Text = "txtDNI se modifico";
+            if (txbDNI.Text.Trim().Length == 0)
+            {
+                btnAgregar.Enabled = false;
+                btnEliminar.Enabled = false;
+                lblEstado.Text = "txtID esta vacio";
+            }
+            else
+            {
+                if (ExisteDNI(txbDNI.Text.ToString()))
+                {
+                    btnAgregar.Enabled = false;
+                    btnEliminar.Enabled = false;
+                    //lblEstado.Text = "El DNI ingresado ya fue registrado";
+                }
+                else
+                {
+                    btnAgregar.Enabled = true;
+                    btnEliminar.Enabled = true;
+                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
+                }
+            }
         }
     }
 }
