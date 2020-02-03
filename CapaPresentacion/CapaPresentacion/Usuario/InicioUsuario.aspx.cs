@@ -13,13 +13,10 @@ namespace CapaPresentacion.Usuario
 {
     public partial class InicioUsuario : System.Web.UI.Page
     {
+        #region Funciones auxiliares
         private void limpiarTxt()
         {
             this.txtPrecio.Text = string.Empty;
-            //this.txtDescripcion.Text = string.Empty;
-            //this.txtPrecio2.Text = string.Empty;
-            //this.txtStock.Text = string.Empty;
-            //this.txtUbicacion.Text = string.Empty;
         }
 
         private void cargarListView(DataTable Celulares)
@@ -27,7 +24,7 @@ namespace CapaPresentacion.Usuario
             lvwCelulares.DataSource = Celulares;
             lvwCelulares.DataMember = "Modelo";
             lvwCelulares.DataBind();
-            //lblTotalRegistros.Text = "Registros encontrados: " + gvwCelulares.Rows.Count;
+            lblTotalRegistros.Text = "Celulares disponibles: " + lvwCelulares.Items.Count;
         }
         private void CargarDDL_Marcas()
         {
@@ -63,6 +60,9 @@ namespace CapaPresentacion.Usuario
             NombreCombo.Items.Add("Mayor a:");
             NombreCombo.Items.Add("Menor a:");
         }
+        #endregion
+
+        #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -97,8 +97,6 @@ namespace CapaPresentacion.Usuario
                 ddlPrecio.Visible = true;
                 txtPrecio.Visible = true;
             }
-
-
         }
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
@@ -153,8 +151,6 @@ namespace CapaPresentacion.Usuario
             }
         }
 
-
-
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
             cargarListView(new NCelular().Mostrar());
@@ -167,5 +163,13 @@ namespace CapaPresentacion.Usuario
             limpiarTxt();
 
         }
+        protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
+        {
+            lblFiltro.Text = "Primero debe ingresar como usuario para poder agregar al carrito el celular: " + e.CommandArgument;
+            
+            Response.Redirect("/Usuario/LogIn.aspx");
+        }
+        #endregion
     }
+
 }
