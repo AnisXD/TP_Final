@@ -5,9 +5,9 @@
     <h2>Filtrar por:</h2>
     <div id="Filtros">
     
-        <asp:CheckBox ID="cbxDNI" runat="server" AutoPostBack="True" Text="DNI" OnCheckedChanged="cbxDNI_CheckedChanged" />
-        <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP" OnTextChanged="txtDNIF_TextChanged"></asp:TextBox>
-        <asp:CheckBox ID="cbxApellido" runat="server" AutoPostBack="True" Text="Apellido" OnCheckedChanged="cbxApellido_CheckedChanged" />
+        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="DNI" OnCheckedChanged="cbDNI_CheckedChanged" />
+        <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP"></asp:TextBox>
+        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" OnCheckedChanged="CheckBox1_CheckedChanged" />
         <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtros" CssClass="Boton" OnClick="btnQuitarFiltro_Click" />
@@ -18,7 +18,7 @@
  <h1>Administrar Empleados</h1>
    <div id="FormClientes" class="Form">
 
-       <asp:GridView ID="gvwEmpleados" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4">
+       <asp:GridView ID="gvwEmpleados" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvwEmpleados_SelectedIndexChanged">
            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />

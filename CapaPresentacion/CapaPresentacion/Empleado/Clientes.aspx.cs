@@ -78,28 +78,10 @@ namespace CapaPresentacion.Empleado
             {
                 CargarDgv();
                 CargarDDL_Provincia(ddlProvincia);
-                //CargarDDL_Provincia(ddlProvincia);
                 CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
-                //CargarDDL_Localidad(ddlLocalidad, Convert.ToInt32(ddlProvincia.SelectedValue));
                 limpiarTxt();
             }
-
-            //if(cbDNI.Checked == true)
-            //{
-            //    CheckBox1.Checked = false;
-            //}
-            //else if (CheckBox1.Checked == true)
-            //{
-            //    cbDNI.Checked = false;
-            //}
-
         }
-
-        //protected void btnCancelar_Click(object sender, EventArgs e)
-        //{
-        //    limpiarTxt();
-        //    Response.Redirect("/Usuario/InicioUsuario.aspx");
-        //}
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
@@ -189,17 +171,7 @@ namespace CapaPresentacion.Empleado
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
-            //CargarDgv();
-            //txtDNIF.Text = " ";
-            //txtApellidos.Text = " ";
-            //txtDNIF.Visible = true;
-            //txtApellidos.Visible = true;
-            //txtDNIF.Visible = true;
-            //CheckBox1.Visible = true;
-            //CheckBox1.Checked = false;
-            //cbDNI.Checked = false;
-            //cbDNI.Visible = true;
-            Response.Redirect("/Empleado/Clientes.aspx");
+             Response.Redirect("/Empleado/Clientes.aspx");
         }
 
         protected void cbDNI_CheckedChanged(object sender, EventArgs e)
