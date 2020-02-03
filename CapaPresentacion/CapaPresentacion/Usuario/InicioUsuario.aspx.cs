@@ -13,6 +13,7 @@ namespace CapaPresentacion.Usuario
 {
     public partial class InicioUsuario : System.Web.UI.Page
     {
+        #region Funciones auxiliares
         private void limpiarTxt()
         {
             this.txtPrecio.Text = string.Empty;
@@ -59,6 +60,9 @@ namespace CapaPresentacion.Usuario
             NombreCombo.Items.Add("Mayor a:");
             NombreCombo.Items.Add("Menor a:");
         }
+        #endregion
+
+        #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -93,8 +97,6 @@ namespace CapaPresentacion.Usuario
                 ddlPrecio.Visible = true;
                 txtPrecio.Visible = true;
             }
-
-
         }
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
@@ -167,5 +169,7 @@ namespace CapaPresentacion.Usuario
             
             Response.Redirect("/Usuario/LogIn.aspx");
         }
+        #endregion
     }
+
 }

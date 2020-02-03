@@ -150,6 +150,7 @@ li {
 
         #MenuContextual > li > a {
             display: block;
+            position: center;
             color: #000000;
             text-decoration: none;
             box-shadow: 0px 0px 10px inset #000000;
@@ -228,8 +229,9 @@ li {
 
 .Boton {
     display: block;
+    position: center;
     padding: 5px;
-    width: 100%;
+    width: 90%;
     font-size: 20px;
     background: linear-gradient(#00c3ff,#0075b2);
     border: 0;
