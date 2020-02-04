@@ -1,33 +1,117 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Cliente/PaginaMaestraCliente.master" AutoEventWireup="true" CodeBehind="EditarPerfilCliente.aspx.cs" Inherits="CapaPresentacion.Cliente.PerfilCliente" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadCliente" runat="server">
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalCliente" runat="server">
-    <asp:Label ID="lblUsuario" runat="server" Text="Nombre"></asp:Label>
-&nbsp;
-    <asp:TextBox ID="TextBox6" runat="server" Style="text-transform: uppercase"></asp:TextBox>
-&nbsp;<br />
-    <asp:Label ID="Label3" runat="server" Text="Apellido"></asp:Label>
-&nbsp;
-    <asp:TextBox ID="TextBox2" runat="server" Style="text-transform: uppercase"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label4" runat="server" Text="Direccion"></asp:Label>
-&nbsp;
-    <asp:TextBox ID="TextBox3" runat="server" Style="text-transform: uppercase"></asp:TextBox>
-    <br />
-    <asp:Label ID="Label5" runat="server" Text="Telefono"></asp:Label>
-&nbsp;
-    <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Label ID="Label6" runat="server" Text="Ingrese la contraseña para la modificacion de los datos"></asp:Label>
-    <br />
-&nbsp;
-    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-    <br />
-    <br />
-    <asp:Button ID="Button1" runat="server" Text="Guardar cambios" />
+ <h1>Modificacion de datos</h1>
+   <div id="FormClientes" class="Form">
+            <br />
+       <table >
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    DNI:
+                </td>
+                <td class="auto-style2">
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                    <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbDNI" ErrorMessage="Ingrese un DNI" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    NOMBRE:&nbsp;
+                <td class="auto-style2">
+                    <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                    <asp:RegularExpressionValidator ID="rev2" runat="server" ControlToValidate="txbNombre" ErrorMessage="Ingrese un Nombre." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="txbNombre" ErrorMessage="Ingrese un Nombre" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    APELLIDO:
+                </td>
+                <td class="auto-style2">
+                     <asp:TextBox ID="txbApellido" runat="server" placeholder="&#128100;Apellido" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:RegularExpressionValidator ID="rev3" runat="server" ControlToValidate="txbApellido" ErrorMessage="Ingrese un Apellido." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="txbApellido" ErrorMessage="Ingrese un Apellido" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    TELEFONO:
+                </td>
+                <td class="auto-style2">
+                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Phone"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un numero de telefono." ControlToValidate="txbTelefono" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
+                   <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbTelefono" ErrorMessage="Ingrese un Telefono" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    PROVINCIA:
+                </td>
+                <td class="auto-style2">
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style3">
+                    &nbsp;</td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    LOCALIDAD:
+                </td>
+                <td class="auto-style2">
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="ControlesASP">
+                    </asp:DropDownList>
+                </td>
+                <td class="auto-style3">
+                    <%--NADA--%>
+                </td>
+            </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    DIRECCION:
+                </td>
+                <td class="auto-style2">
+                   <asp:TextBox ID="txbDireccion" runat="server" placeholder="&#127968;Direccion" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Ingrese una direccion." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+            </tr>
+             <tr>
+                <td style="text-align:center; " class="auto-style1">
+                </td>
+                <td class="auto-style2">
+            <asp:Label ID="lblEstado" runat="server"></asp:Label>
+                </td>
+                <td class="auto-style3">
+                </td>
+             </tr>
+             <tr>
+                <td style="text-align:center; " class="auto-style1">
+            <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="Boton" OnClick="btnAceptar_Click"/>
+                </td>
+                 <td class="auto-style3">
+            <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="Boton" OnClick="btnCancelar_Click"/>
+                </td>
+             </tr>
+        </table>
+
+    <div id="Administrar" title="Administrar">
+    </div>
+   </div>
+   
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerCliente" runat="server">
 </asp:Content>
