@@ -107,8 +107,12 @@ namespace CapaPresentacion.Empleado
             }
             else //si dt vuelve con algun registro es por que el modelo ingresado ya esta en la base de datos
             {
-                existe = true;
-                lblEstado.Text = "El modelo ingresado ya existe en la base de datos";
+                if (dt.Rows.Count > 0)
+                {
+                    existe = true;
+                    lblEstado.Text = "El modelo ingresado ya existe en la base de datos";
+                
+                }
             }
             return existe;
         }
@@ -166,35 +170,28 @@ namespace CapaPresentacion.Empleado
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            //if (UbicacionImagen.HasFile)
-            //{
-            //txtUbicacion.Text = Convert.ToString(UbicacionImagen.PostedFile.FileName);
             //hacer funcion que guarde el archivo seleccionado en la carpeta del programa y le asigne nueva ubicacion
-            //if (txtCompletos())
-            //    {
-                    NCelular Obj = new NCelular();
-                    if (Obj.Insertar(txtModelo2.Text, ddlMarca2.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
-                    {
-                        lblEstado.Text = "El registro se insertó con exito";
-                    }
-                    else
-                    {
-                        lblEstado.Text = "El registro no se pudo insertar";
-                    }
-                    cargarDgv(new NCelular().Mostrar());
-                    limpiarTxt();
-                //}
-                //else //si los txt no estan completos aviso al usuario
-                //{
-                //    lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
-                //}
-            //}
-            //else
-            //{//no habia imagen cargada o tiene error
-            //lblEstado.Text = "Error con la ubicacion de la imagen cargada";
-            //}
-
+            if (txtCompletos())
+            {
+                NCelular Obj = new NCelular();
+                if (Obj.Insertar(txtModelo2.Text, ddlMarca2.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
+                {
+                    lblEstado.Text = "El registro se insertó con exito";
+                }
+                else
+                {
+                    lblEstado.Text = "El registro no se pudo insertar";
+                }
+                cargarDgv(new NCelular().Mostrar());
+                limpiarTxt();
+            }
+            else //si los txt no estan completos aviso al usuario
+            {
+                lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
+            }
         }
+
+
 
         protected void btnEditar_Click1(object sender, EventArgs e)
         {
@@ -328,8 +325,6 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-       
-
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
             cargarDgv(new NCelular().Mostrar());
@@ -345,15 +340,52 @@ namespace CapaPresentacion.Empleado
 
         protected void btnVerUbicacion_Click(object sender, EventArgs e)
         {
+            string URLdestino = @"~\Imagenes\";
+            //chequeamos que haya un archivo cargado en el control
             if (UbicacionImagen.HasFile)
             {
-                //guardar archivo y cargar la ubicacion en el txt
-                txtUbicacion.Text =Convert.ToString(Path.GetFullPath(UbicacionImagen.PostedFile.FileName));
+                //chequeamos la extension del archivo elegido
+                if (System.IO.Path.GetExtension(UbicacionImagen.FileName) == ".jpg")
+                {
+                    URLdestino += UbicacionImagen.FileName;
+                    txtUbicacion.Text = URLdestino;
+                    //chequeamos si ya existe un archivo con ese nombre en la carpeta de la aplicacion
+                    if (File.Exists(Request.PhysicalApplicationPath + @"Imagenes\" + Server.HtmlEncode(UbicacionImagen.FileName)))
+                    {
+                        txtUbicacion.Text = URLdestino;
+                    }
+                    else
+                    {//si no existe el archivo en la carpeta informamos al usuario
+                        lblEstado.Text = "La imagen seleccionada no esta en la carpeta Imagenes de la aplicacion, debe seleccionar una imagen de dicha carpeta o almacenar la imagen seleccionada en esa carpeta para poder continuar ";
+                        //btnGuardar.Visible = true;
+                        //lblEstado.Text = "La imagen se guardara en: " + Request.PhysicalApplicationPath + @"Imagenes\" + Server.HtmlEncode(UbicacionImagen.FileName);
+                    }
+                }
+                else
+                {
+                    lblEstado.Text = "Error: La imagen ingresada no tiene el formato .jpg ";
+                }
+            }
+            else
+            {
+                lblEstado.Text = "Debe seleccionar una imagen para cargar";
             }
         }
 
+        protected void btnGuardar_Click(object sender, EventArgs e)
 
-
+        {
+            string fullpath = Request.PhysicalApplicationPath + @"Imagenes\" + Server.HtmlEncode(UbicacionImagen.FileName);
+            try
+            {
+                //UbicacionImagen.SaveAs(fullpath);
+                lblEstado.Text = "La imagen se cargo con exito";
+            }
+            catch (Exception ex)
+            {
+                lblEstado.Text = "La imagen no se pudo cargar: " + ex.Message;
+            }
+        }
 
         #endregion
 
