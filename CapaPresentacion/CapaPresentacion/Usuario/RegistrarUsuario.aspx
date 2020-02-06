@@ -21,11 +21,8 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalUsuarios" runat="server">
-     <div id="FormRegistro" class="Form">
-           <p style="text-align:center;">
-        Por favor recuerde completar los datos de registro con valores verdaderos, de otro modo podría resultar inconveniente para nosotros.
-    </p>
-        <h2>Registro</h2>
+     <div id="DatosPersonales" class="Form">
+        <h2>Datos Personales</h2>
          <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">

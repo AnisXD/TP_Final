@@ -89,6 +89,29 @@
                    <asp:RequiredFieldValidator ID="rfv6" runat="server" ControlToValidate="txbDireccion" ErrorMessage="Ingrese una direccion." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
+            <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    CONTRASEÑA:
+                </td>
+                <td class="auto-style2">
+                   <asp:TextBox ID="txbClave" runat="server" placeholder="&#128273;Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:RequiredFieldValidator ID="rfv4" runat="server" ControlToValidate="txbClave" ErrorMessage="Ingrese una Contraseña." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="txbClave" ErrorMessage="Ingrese una Contraseña" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                </td>
+             </tr>
+             <tr>
+                <td style="text-align:center; " class="auto-style1">
+                    REPITA CONTRASEÑA:
+                </td>
+                <td class="auto-style2">
+                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP" Width="160px"></asp:TextBox>
+                </td>
+                <td class="auto-style3">
+                   <asp:CompareValidator ID="cv1" runat="server" ControlToCompare="txbClave" ControlToValidate="txbRepitaClave" ErrorMessage="Las Contraseñas son distintas." SetFocusOnError="True" ValidationGroup="1"></asp:CompareValidator>
+                </td>
+             </tr>
              <tr>
                 <td style="text-align:center; " class="auto-style1">
                 </td>
@@ -101,6 +124,8 @@
              <tr>
                 <td style="text-align:center; " class="auto-style1">
             <asp:Button ID="btnAceptar" runat="server" Text="Aceptar" CssClass="Boton" OnClick="btnAceptar_Click"/>
+                </td>
+                 <td class="auto-style2">
                 </td>
                  <td class="auto-style3">
             <asp:Button ID="btnCancelar" runat="server" Text="Cancelar" CssClass="Boton" OnClick="btnCancelar_Click"/>
