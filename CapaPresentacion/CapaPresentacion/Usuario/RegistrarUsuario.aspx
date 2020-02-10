@@ -9,20 +9,16 @@
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalUsuarios" runat="server">
-     <div id="FormRegistro" class="Form">
-          
-        <h2>Registro</h2>
-          <p>Para registrarse como nuevo usuario debe ingresar los siguientes datos.</p>
+     <div id="DatosPersonales" class="Form">
+        <h2>Datos Personales</h2>
          <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
                     DNI:
                 </td>
-               
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True" MaxLength="9"></asp:TextBox>
                 </td>
-                
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="txbDNI" ErrorMessage="Ingrese un DNI" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
@@ -57,34 +53,36 @@
                     TELEFONO:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Phone"></asp:TextBox>
+                    <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Number"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv2" Runat="server" ErrorMessage="Ingrese un numero de telefono." ControlToValidate="txbTelefono" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
                    <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="txbTelefono" ErrorMessage="Ingrese un Telefono" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
-                </td>
+               
+                    </td>
             </tr>
             <tr>
                 <td style="text-align:center; " class="auto-style1">
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlFProvincia" runat="server" CssClass="ControlesASP"  AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" Width="95%" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlFProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
-                    &nbsp;</td>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="SELECT [cod_provincia], [descripcion_provincia] FROM [PROVINCIAS]"></asp:SqlDataSource>
+                </td>
             </tr>
             <tr>
                 <td style="text-align:center; " class="auto-style1">
                     LOCALIDAD:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlFLocalidad" runat="server" CssClass="ControlesASP" Width="95%">
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="ControlesASP">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
-                   <%--NADA--%>
+                    <%--NADA--%>
                 </td>
             </tr>
             <tr>
@@ -115,7 +113,7 @@
                     REPITA CONTRASEÑA:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP"></asp:TextBox>
+                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP" Width="160px"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv1" runat="server" ControlToCompare="txbClave" ControlToValidate="txbRepitaClave" ErrorMessage="Las Contraseñas son distintas." SetFocusOnError="True" ValidationGroup="1"></asp:CompareValidator>

@@ -9,7 +9,9 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
     <ul>
-        <li> <a href="./InicioCliente.aspx">Celulares</a></li>
+        <li> <a href="./InicioCliente.aspx">
+            <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
+            Celulares</a></li>
         <li> <a href="./CarritoCliente">Carrito</a></li>
         <li> <a href="./MisCompras">Mis Compras</a></li>
     </ul> 
@@ -28,9 +30,12 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
+    <br>
+    <asp:Label ID="lblUsuario" runat="server" Text="Bienvenido"></asp:Label>
+    <br>
+    <br>
     <ul>
-        <li> <a href="./VerPerfilCliente">Mi Perfil</a></li>
-        <li> <a href="./EditarPerfilCliente">Actualizar Datos</a></li>
+        <li> <a href="EditarPerfilCliente.aspx">Mi Perfil</a></li>
         <li> <a href="EditarUsuario.aspx">CambiarClave</a></li>
     </ul>
     

@@ -76,10 +76,8 @@
     <Content Include="Cliente\InicioCliente.aspx" />
     <Content Include="Cliente\MisCompras.aspx" />
     <Content Include="Cliente\EditarPerfilCliente.aspx" />
-    <Content Include="Cliente\VerPerfilCli.aspx" />
     <Content Include="Empleado\Celulares.aspx" />
     <Content Include="Empleado\Clientes.aspx" />
-    <Content Include="Empleado\EditarPerfilEmpleado.aspx" />
     <Content Include="Empleado\InicioEmpleado.aspx" />
     <Content Include="Empleado\Marca.aspx" />
     <Content Include="Empleado\CarritoEmpleado.aspx" />
@@ -154,13 +152,6 @@
     <Compile Include="Cliente\EditarPerfilCliente.aspx.designer.cs">
       <DependentUpon>EditarPerfilCliente.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Cliente\VerPerfilCli.aspx.cs">
-      <DependentUpon>VerPerfilCli.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Cliente\VerPerfilCli.aspx.designer.cs">
-      <DependentUpon>VerPerfilCli.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Empleado\Celulares.aspx.cs">
       <DependentUpon>Celulares.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -173,13 +164,6 @@
     </Compile>
     <Compile Include="Empleado\Clientes.aspx.designer.cs">
       <DependentUpon>Clientes.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Empleado\EditarPerfilEmpleado.aspx.cs">
-      <DependentUpon>EditarPerfilEmpleado.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empleado\EditarPerfilEmpleado.aspx.designer.cs">
-      <DependentUpon>EditarPerfilEmpleado.aspx</DependentUpon>
     </Compile>
     <Compile Include="Empleado\InicioEmpleado.aspx.cs">
       <DependentUpon>InicioEmpleado.aspx</DependentUpon>
