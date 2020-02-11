@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    class DetallesVentas
+    public class DetallesVentas
     {
 
         #region Propiedades
