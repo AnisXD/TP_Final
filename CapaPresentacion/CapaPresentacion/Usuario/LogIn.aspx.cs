@@ -39,20 +39,17 @@ namespace CapaPresentacion.Usuario
                 {
                     case "C":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Cliente/InicioCliente.aspx");
                     break;
                     case "E":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Empleado/InicioEmpleado.aspx");
 
                         break;
                     case "A":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Empleado/InicioEmpleado.aspx");
                         break;
