@@ -220,12 +220,7 @@ li {
     font-size: 20px;
 }
 
-.CarritoControl {
-    padding: 5px;
-    margin: 5px 15px 5px 0;
-    font-size: 20px;
-    display:inline-block;
-}
+
 
 .Boton {
     display: block;
@@ -285,9 +280,32 @@ li {
     padding-top: 5px;
 }
 
+#lblEstado{
+    color:red;
+}
+
 .rule {
     border-top: 1px solid #000000;
     margin: 10px 0px;
+}
+
+.auto-style1 {
+    width: 200px;
+}
+
+.auto-style2 {
+    width: 268px;
+}
+
+.auto-style3 {
+    width: 200px;
+}
+
+.CarritoControl {
+    padding: 5px;
+    margin: 5px 15px 5px 0;
+    font-size: 20px;
+    display: inline-block;
 }
 
 #ColIzCarrito {

@@ -2,18 +2,6 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContenidoHead" runat="server">
 
-    <style type="text/css">
-        .auto-style1 {
-            width: 121px;
-        }
-        .auto-style2 {
-            width: 35px;
-        }
-        .auto-style3 {
-            width: 202px;
-        }
-    </style>
-
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzUsuario" runat="server">

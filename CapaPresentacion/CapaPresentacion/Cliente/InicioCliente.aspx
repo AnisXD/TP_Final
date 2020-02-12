@@ -30,7 +30,7 @@
      <h2>Celulares</h2>
 
        <asp:Label ID="lblTotalRegistros" runat="server" Text="Celulares disponibles: "></asp:Label>
-       <asp:ListView ID="lvwCelulares" runat="server" GroupItemCount="2" style="position:center">
+       <asp:ListView ID="lvwCelulares" runat="server" GroupItemCount="2" >
            <%-- DataKeyNames="Modelo" DataSourceID="SqlDataSource1" --%>
            <EmptyDataTemplate>
                <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
@@ -51,7 +51,7 @@
            </GroupTemplate>
           
            <ItemTemplate>
-               <td runat="server" style="background-color: #E0FFFF;color: #333333; width:50%">
+               <td runat="server" style="background-color: #E0FFFF;color: #333333;">
                    <asp:Label ID="MarcaLabel" runat="server"  Text='<%# Eval("Marca") %>' /><br />
                    <asp:Label ID="ModeloLabel" runat="server" Text='<%# Eval("Modelo") %>'></asp:Label><br />
                    <asp:ImageButton ID="ImgBtnCelular" runat="server"  Height="200px"  ImageUrl='<%# Eval("Imagen") %>' /><br />

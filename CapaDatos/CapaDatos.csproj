@@ -45,7 +45,6 @@
     <Compile Include="DLocalidad.cs" />
     <Compile Include="DProvincia.cs" />
     <Compile Include="DUsuario.cs" />
-    <Compile Include="DDetalleVenta.cs" />
     <Compile Include="DFormaDeEnvio.cs" />
     <Compile Include="DFormaDePago.cs" />
     <Compile Include="DMarca.cs" />
