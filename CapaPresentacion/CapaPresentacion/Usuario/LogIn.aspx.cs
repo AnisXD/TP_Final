@@ -62,17 +62,8 @@ namespace CapaPresentacion.Usuario
             {
                 txtUsuario.Text = ""; txtClave.Text = "";
                 lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta." +
-                    " En caso de no recordar algun dato, por favor pongase en contacto con nuestra area de soporte soporte@movicom.com.ar";
+                    " En caso de no recordar algun dato, por favor pongase en contacto con nuestra area de soporte soporte@movicenter.com.ar";
             }
-
-            /*ORIGINALMENTE ESTABA ESTO SOLO*/
-            //Response.Redirect("/Usuario/InicioUsuario.aspx");
-        }
-
-        protected void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-           
-
         }
     }
 }

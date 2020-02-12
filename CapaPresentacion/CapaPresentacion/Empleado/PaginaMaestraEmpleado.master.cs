@@ -27,6 +27,25 @@ namespace CapaPresentacion.Empleado
                 ApellidoUsuario = dr["Apellido"].ToString();
 
                 lblUsuario.Text = NombreUsuario + " " + ApellidoUsuario;
+
+                string PermisoUsuario;
+
+                    DataTable dtt = ObjNUsuario.RolUsuario(Usuario);
+                    DataRow drr = dtt.Rows[0];
+                    PermisoUsuario = drr["ID_ROL"].ToString();
+
+                    switch (PermisoUsuario)
+                    {
+                            case "E":
+                            Empleados.Visible = false;
+                            Reportes.Visible = false;
+
+                            break;
+                            case "A":
+                            Empleados.Visible = true;
+                            Reportes.Visible = true;
+                            break;
+                    }
             }
 
             LinkButton ctrl = this.Master.FindControl("LiEmpleado") as LinkButton;
@@ -64,7 +83,7 @@ namespace CapaPresentacion.Empleado
 
         protected void Marcas_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Empleado/Marcas.aspx");
+            Response.Redirect("/Empleado/Marca.aspx");
         }
 
         protected void Clientes_Click(object sender, EventArgs e)
@@ -84,7 +103,7 @@ namespace CapaPresentacion.Empleado
 
         protected void Reportes_Click(object sender, EventArgs e)
         {
-            Response.Redirect("/Empleado/Repoerte.aspx");
+            Response.Redirect("/Empleado/Reportes.aspx");
         }
     }
 }
