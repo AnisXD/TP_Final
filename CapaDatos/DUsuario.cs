@@ -242,14 +242,6 @@ namespace CapaDatos
             return TablaResultado;
         }
 
-
-
-
-
-
-
-
-
         private void ParametrosActualizarTEST(ref SqlCommand Comando, Usuario usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
