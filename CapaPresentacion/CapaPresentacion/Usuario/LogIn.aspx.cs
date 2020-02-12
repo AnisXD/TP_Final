@@ -63,7 +63,8 @@ namespace CapaPresentacion.Usuario
             else
             {
                 txtUsuario.Text = ""; txtClave.Text = "";
-                lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta.";
+                lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta." +
+                    " En caso de no recordar algun dato, por favor pongase en contacto con nuestra area de soporte soporte@movicom.com.ar";
             }
 
             /*ORIGINALMENTE ESTABA ESTO SOLO*/

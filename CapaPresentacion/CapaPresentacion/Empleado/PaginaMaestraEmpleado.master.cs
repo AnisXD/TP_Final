@@ -28,6 +28,13 @@ namespace CapaPresentacion.Empleado
 
                 lblUsuario.Text = NombreUsuario + " " + ApellidoUsuario;
             }
+
+            LinkButton ctrl = this.Master.FindControl("LiEmpleado") as LinkButton;
+
+            if (ctrl != null)
+            {
+                ctrl.Enabled = false;
+            }
         }
 
         protected void btCerrarSesion_Click(object sender, EventArgs e)

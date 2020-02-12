@@ -19,7 +19,7 @@
         <asp:TextBox ID="txtPrecio" runat="server" CssClass="ControlesASP" Width="100%"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click"/>
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtro" CssClass="Boton" OnClick="btnQuitarFiltro_Click"/>
-        <asp:Label ID="lblFiltro" runat="server" Text="Estado Filtro"></asp:Label>
+        <asp:Label ID="lblFiltro" runat="server"></asp:Label>
         
     </div>
 </asp:Content>
@@ -27,10 +27,7 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalUsuarios" runat="server">
     
    <div id="InicioUsuario" class="Form">
-       <h2>Inicio</h2>
-
-       <asp:Label ID="lblTotalRegistros" runat="server" Text="Celulares disponibles: "></asp:Label>
-       <asp:ListView ID="lvwCelulares" runat="server" GroupItemCount="2" style=" position:center">
+       <h2>Inicio<asp:ListView ID="lvwCelulares" runat="server" GroupItemCount="2" style=" position:center">
 
            <EmptyDataTemplate>
                <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
@@ -98,6 +95,9 @@
            </SelectedItemTemplate>
 
        </asp:ListView>
+       </h2>
+
+       <asp:Label ID="lblTotalRegistros" runat="server" Text="Celulares disponibles: "></asp:Label>
     </div>
 </asp:Content>
 

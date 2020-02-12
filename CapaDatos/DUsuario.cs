@@ -195,6 +195,17 @@ namespace CapaDatos
             else
                 return false;
         }
+        public bool ActualizarUsuarioC(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosUsuario(ref Comando, usuario);
+            Conexion ad = new Conexion();
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "ModificarUsuario");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public bool EliminarCliente(Usuario usuario)
         {
@@ -202,6 +213,57 @@ namespace CapaDatos
             ParametrosObtenerUsuariosPorDNI(ref Comando, usuario);
             Conexion ad = new Conexion();
             int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "BajaLogicaUsuario");
+            if (FilasInsertadas == 1)
+                return true;
+            else
+                return false;
+        }
+
+        private void ParametrosObtenerDatosUsuario(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.DNI;
+        }
+        public DataTable ObtenerDatosUsuario(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerDatosUsuario(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "ObtenerDatosUsuario");
+            return TablaResultado;
+        }
+        public DataTable ObtenerTEST(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosObtenerDatosUsuario(ref Comando, usuario);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "ObtenerTEST");
+            return TablaResultado;
+        }
+
+
+
+
+
+
+
+
+
+        private void ParametrosActualizarTEST(ref SqlCommand Comando, Usuario usuario)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@DNI", SqlDbType.VarChar, 15);
+            SqlParametros.Value = usuario.DNI;
+            SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar, 30);
+            SqlParametros.Value = usuario.Nombre;
+        }
+        public bool ActualizarTEST(Usuario usuario)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametrosActualizarTEST(ref Comando, usuario);
+            Conexion ad = new Conexion();
+            int FilasInsertadas = ad.EjecutarProcedimientoDeABM(Comando, "ModificarTEST");
             if (FilasInsertadas == 1)
                 return true;
             else

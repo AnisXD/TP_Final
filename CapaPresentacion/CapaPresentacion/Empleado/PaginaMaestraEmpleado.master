@@ -15,10 +15,10 @@
     <li> <a href="./Celulares.aspx">Celulares</a></li>
     <li> <a href="./Marca.aspx">Marca</a></li>
     <li> <a href="./Clientes.aspx">Clientes</a></li>
-    <li> <a href="./Empleados.aspx">Empleados</a></li>
+    <li id="LiEmpleado"> <a href="./Empleados.aspx">Empleados</a></li>
     <li> <a href="./CarritoEmpleado.aspx">Carrito</a></li>    
     <li> <a href="./Reportes.aspx">Reportes</a></li>   
- </ul>
+    </ul>
 
 </asp:Content>
 
