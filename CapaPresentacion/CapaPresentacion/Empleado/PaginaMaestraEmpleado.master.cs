@@ -46,5 +46,45 @@ namespace CapaPresentacion.Empleado
                 Response.Redirect("~/Usuario/InicioUsuario.aspx");
             }
         }
+
+        protected void Inicio_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/InicioEmpleado.aspx");
+        }
+
+        protected void Ventas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Ventas.aspx");
+        }
+
+        protected void Celulares_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Celulares.aspx");
+        }
+
+        protected void Marcas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Marcas.aspx");
+        }
+
+        protected void Clientes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Clientes.aspx");
+        }
+
+        protected void Empleados_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Empleados.aspx");
+        }
+
+        protected void Carrito_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/CarritoEmpleado.aspx");
+        }
+
+        protected void Reportes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Repoerte.aspx");
+        }
     }
 }

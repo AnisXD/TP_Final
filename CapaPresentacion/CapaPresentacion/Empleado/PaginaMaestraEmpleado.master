@@ -9,16 +9,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
  
-    <ul>
-    <li> <a href="./InicioEmpleado.aspx">Inicio</a></li>
-    <li> <a href="./Ventas.aspx">Ventas</a></li>
-    <li> <a href="./Celulares.aspx">Celulares</a></li>
-    <li> <a href="./Marca.aspx">Marca</a></li>
-    <li> <a href="./Clientes.aspx">Clientes</a></li>
-    <li id="LiEmpleado"> <a href="./Empleados.aspx">Empleados</a></li>
-    <li> <a href="./CarritoEmpleado.aspx">Carrito</a></li>    
-    <li> <a href="./Reportes.aspx">Reportes</a></li>   
-    </ul>
+        <asp:Button ID="Inicio" runat="server" Text="Inicio" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Inicio_Click" Width="62px" />
+        <asp:Button ID="Ventas" runat="server" Text="Ventas" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Ventas_Click" Width="69px" />
+        <asp:Button ID="Celulares" runat="server" Text="Celulares" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Celulares_Click" Width="83px" />
+        <asp:Button ID="Marcas" runat="server" Text="Marcas" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Marcas_Click" Width="83px" />
+        <asp:Button ID="Clientes" runat="server" Text="Clientes" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Clientes_Click" Width="81px" />
+        <asp:Button ID="Empleados" runat="server" Text="Empleados" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Empleados_Click" />
+        <asp:Button ID="Carrito" runat="server" Text="Carrito" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Carrito_Click" Width="73px" />
+        <asp:Button ID="Reportes" runat="server" Text="Reportes" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Reportes_Click" Width="102px" />
 
 </asp:Content>
 
@@ -42,7 +40,6 @@
     <div id="MenuContextual">
         <ul>
          <li> <a href="./PerfilEmpleado.aspx">Mi Perfil</a></li>
-         <li> <a href="../Usuario/EditarUsuario.aspx">CambiarClave</a></li>
         </ul>
         <p>
             <br />

@@ -23,16 +23,13 @@ namespace CapaPresentacion.Usuario
 
             bool Ingreso;
             string PermisoUsuario;
-            //bool CuentaActiva = false;
 
             string Usuario = txtUsuario.Text.ToString();
             string Contraseña = txtClave.Text.ToString();
 
             Ingreso = ObjNUsuario.ExisteUsuario(Usuario, Contraseña);
 
-            //CuentaActiva = ObjNUsuario.CuentaActivada(Usuario);
-
-            if (Ingreso == true /*&& CuentaActiva == true*/)
+            if (Ingreso == true)
             {
                 DataTable dt = ObjNUsuario.RolUsuario(Usuario);
                 DataRow dr = dt.Rows[0];
@@ -51,6 +48,7 @@ namespace CapaPresentacion.Usuario
                         //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Empleado/InicioEmpleado.aspx");
+
                         break;
                     case "A":
                         txtUsuario.Text = ""; txtClave.Text = "";

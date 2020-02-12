@@ -19,7 +19,7 @@
         <asp:TextBox ID="txtPrecio" runat="server" CssClass="ControlesASP" Width="100%"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click"/>
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtro" CssClass="Boton" OnClick="btnQuitarFiltro_Click"/>
-        <asp:Label ID="lblFiltro" runat="server" Text="Estado Filtro"></asp:Label>
+        <asp:Label ID="lblFiltro" runat="server"></asp:Label>
             
   </div>
 </asp:Content>
@@ -108,6 +108,6 @@
     </div></asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerCliente" runat="server">
-  <%--  //aca van los datos del usuario registrado--%>
+    <%--  //aca van los datos del usuario registrado--%>
 
 </asp:Content>
