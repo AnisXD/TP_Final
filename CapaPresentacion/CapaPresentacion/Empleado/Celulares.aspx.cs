@@ -277,7 +277,7 @@ namespace CapaPresentacion.Empleado
             NCelular Obj = new NCelular();
             if (CbxModelo.Checked)//si modelo esta seleccionado solo busca por modelo
             {
-                lblFiltro.Text = "Filtrar por Modelo: " + ddlModelo.SelectedItem.Text + " - value: " + ddlModelo.SelectedValue;
+               // lblFiltro.Text = "Filtrar por Modelo: " + ddlModelo.SelectedItem.Text + " - value: " + ddlModelo.SelectedValue;
                 cargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedValue));
             }
             else //si modelo no esta seleccionado se fija si esta seleccionado marca Y precio

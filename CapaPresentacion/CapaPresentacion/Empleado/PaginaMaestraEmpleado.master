@@ -33,10 +33,11 @@
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
-    <h2>Usuario</h2>
+    <h2>Bienvenido </h2>
 <h2><a href="./InicioEmpleado.aspx">
     <asp:Label ID="lblUsuario" runat="server" Text="Bienvenido"></asp:Label>
     </a></h2>
+    <p>&nbsp;</p>
     <div id="MenuContextual">
         <ul>
          <li> <a href="./PerfilEmpleado.aspx">Mi Perfil</a></li>
