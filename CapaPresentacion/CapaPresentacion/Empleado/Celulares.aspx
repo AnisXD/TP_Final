@@ -8,7 +8,7 @@
     
       <h2>Filtrar por:</h2>
     
-        <asp:CheckBox ID="CbxMarca" runat="server" Text="Marca" CssClass="ControlesASP"/>
+        <asp:CheckBox ID="CbxMarca" runat="server" Text="Marca" CssClass="ControlesASP" OnCheckedChanged="CbxMarca_CheckedChanged"/>
         <asp:DropDownList ID="ddlMarca" runat="server"  CssClass="ControlesASP" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True" Width="95%"></asp:DropDownList>
         <asp:CheckBox ID="CbxModelo" runat="server" Text="Modelo" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="CbxModelo_CheckedChanged" />
         <asp:DropDownList ID="ddlModelo" runat="server" CssClass="ControlesASP" Width="95%"></asp:DropDownList>

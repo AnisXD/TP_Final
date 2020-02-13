@@ -12,7 +12,12 @@ namespace CapaDatos
 {
     public class DVenta
     {
-
+        public DataTable MostrarTodos()
+        {
+            Conexion cn = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarVenta");
+        }
 
         private void ParametrosVenta(ref SqlCommand Comando, Venta venta)
         {

@@ -145,7 +145,7 @@ namespace CapaPresentacion.Empleado
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            char IdRol = 'C'; // C = Cliente , A = Administrador, E = Empleado
+            char IdRol = 'C';
             string DNI;
             string APELLIDO;
 
