@@ -224,7 +224,6 @@ li {
 
 .Boton {
     display: block;
-    position: center;
     padding: 5px;
     width: 90%;
     font-size: 20px;
@@ -301,12 +300,42 @@ li {
     width: 200px;
 }
 
-.CarritoControl {
-    padding: 5px;
-    margin: 5px 15px 5px 0;
-    font-size: 20px;
+
+
+.Label {
+    width: 20%;
+    font-size:20px;
+    padding: 3px 10px;
+    margin: 8px 0;
     display: inline-block;
 }
+.LabelNegrita {
+    width: 20%;
+    font-size: 20px;
+    font-weight:bold;
+    padding: 3px 10px;
+    margin: 8px 0;
+    display: inline-block;
+}
+
+.LabelNegritaLarga {
+    width: 50%;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 3px 10px;
+    margin: 8px 0;
+    display: inline-block;
+}
+
+    .DropDownList {
+        width: 20%;
+        padding: 3px 10px;
+        border: 1px solid #0075b2;
+        border-radius: 3px;
+        background-color: #f6f6f6;
+        margin: 8px 0;
+        display: inline-block;
+    }
 
 #ColIzCarrito {
     width: 40%;

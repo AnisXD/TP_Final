@@ -9,7 +9,7 @@ using ENTIDADES;
 
 namespace CapaDatos
 {
-    class DFormaDePago
+    public class DFormaDePago
     {
 
         public DataTable MostrarTodas()

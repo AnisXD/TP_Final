@@ -7,11 +7,13 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Cliente {
-    
-    
-    public partial class CarritoCliente {
-        
+namespace CapaPresentacion.Cliente
+{
+
+
+    public partial class CarritoCliente
+    {
+
         /// <summary>
         /// Control lblIdVenta.
         /// </summary>
@@ -20,7 +22,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIdVenta;
-        
+
         /// <summary>
         /// Control txtIdVenta.
         /// </summary>
@@ -29,7 +31,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtIdVenta;
-        
+
         /// <summary>
         /// Control lblFecha.
         /// </summary>
@@ -38,7 +40,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFecha;
-        
+
         /// <summary>
         /// Control txtFecha.
         /// </summary>
@@ -47,7 +49,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtFecha;
-        
+
         /// <summary>
         /// Control lblLegajo.
         /// </summary>
@@ -56,7 +58,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblLegajo;
-        
+
         /// <summary>
         /// Control txtLegajo.
         /// </summary>
@@ -65,7 +67,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtLegajo;
-        
+
         /// <summary>
         /// Control lblDNICliente.
         /// </summary>
@@ -74,7 +76,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblDNICliente;
-        
+
         /// <summary>
         /// Control txtDNICliente.
         /// </summary>
@@ -83,7 +85,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label txtDNICliente;
-        
+
         /// <summary>
         /// Control lblFormaPago.
         /// </summary>
@@ -92,7 +94,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFormaPago;
-        
+
         /// <summary>
         /// Control ddlFPago.
         /// </summary>
@@ -101,16 +103,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFPago;
-        
-        /// <summary>
-        /// Control FormaPago.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource FormaPago;
-        
+
         /// <summary>
         /// Control lblFormaEnvio.
         /// </summary>
@@ -119,7 +112,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblFormaEnvio;
-        
+
         /// <summary>
         /// Control ddlFEnvio.
         /// </summary>
@@ -128,16 +121,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlFEnvio;
-        
-        /// <summary>
-        /// Control FormaEnvio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource FormaEnvio;
-        
+
         /// <summary>
         /// Control lblImporte.
         /// </summary>
@@ -146,7 +130,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblImporte;
-        
+
         /// <summary>
         /// Control bttnAgregarItem.
         /// </summary>
@@ -155,7 +139,7 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bttnAgregarItem;
-        
+
         /// <summary>
         /// Control bttnFinalizarcompra.
         /// </summary>
@@ -164,23 +148,14 @@ namespace CapaPresentacion.Cliente {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button bttnFinalizarcompra;
-        
+
         /// <summary>
-        /// Control ListView1.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView ListView1;
-        
-        /// <summary>
-        /// Control DetalleVenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource DetalleVenta;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }

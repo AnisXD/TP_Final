@@ -11,9 +11,7 @@ using ENTIDADES;
 namespace CapaDatos
 {
     public class DVenta
-    {
-
-
+    {  
         private void ParametrosVenta(ref SqlCommand Comando, Venta venta)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -85,6 +83,7 @@ namespace CapaDatos
             SqlParametros.Value = Obj.PrecioUnitario;
 
         }
+        
         private void ParametroIdModelo(ref SqlCommand Comando, string IdModelo)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -105,7 +104,7 @@ namespace CapaDatos
             return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarVenta");
         }
 
-        public DataTable MostrarVentasPorVendedor(string IdVendedor)
+        public DataTable MostrarPorVendedor(string IdVendedor)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroDniUsuario(ref Comando, IdVendedor);
@@ -113,7 +112,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarVentasPorVendedor");
             return TablaResultado;
         }
-        public DataTable MostrarVentasPorCliente(string IdCliente)
+        public DataTable MostrarPorCliente(string IdCliente)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroDniUsuario(ref Comando, IdCliente);
@@ -122,7 +121,7 @@ namespace CapaDatos
             return TablaResultado;
         }
 
-        public DataTable MostrarVentaPorId(int IdVenta)
+        public DataTable MostrarPorId(int IdVenta)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroIdVenta(ref Comando, IdVenta);
@@ -131,7 +130,7 @@ namespace CapaDatos
             return TablaResultado;
         }
 
-        public DataTable MostrarVentaPorFormaPago(char IdFormaPago)
+        public DataTable MostrarPorFormaPago(char IdFormaPago)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroIdFormaPago(ref Comando, IdFormaPago);
@@ -139,7 +138,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarVentasPorFormaDePago");
             return TablaResultado;
         }
-        public DataTable MostrarVentaPorFormaEnvio (char IdFormaEnvio)
+        public DataTable MostrarPorFormaEnvio (char IdFormaEnvio)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroIdFormaEnvio(ref Comando, IdFormaEnvio);
@@ -147,7 +146,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarVentasPorFormaDeEnvio");
             return TablaResultado;
         }
-        public DataTable MostrarVentaPorFecha(DateTime Fecha)
+        public DataTable MostrarPorFecha(DateTime Fecha)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroFecha(ref Comando, Fecha);
@@ -155,7 +154,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarVentaPorFecha");
             return TablaResultado;
         }
-        public DataTable MostrarVentaEntreFechas(DateTime FechaInicio, DateTime FechaFin)
+        public DataTable MostrarEntreFechas(DateTime FechaInicio, DateTime FechaFin)
         {
             SqlCommand Comando = new SqlCommand();
             ParametroFechaInicio(ref Comando, FechaInicio);
@@ -191,17 +190,27 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarDetallesPorIdMarca");
             return TablaResultado;
         }
+        public int ObtenerIdVenta()
+        {
+            int IdVenta;
+            Conexion cn = new Conexion();
+            SqlCommand cmd = new SqlCommand();
+            string Consulta = "SELECT MAX(ID_VTA) FROM VENTAS";
+            DataTable Resultado = cn.ObtenerTablaPorConsultaSQL(Consulta);
+            IdVenta = Convert.ToInt32(Resultado.Rows[0].ItemArray[0]);
+            return IdVenta;
+        }
         public bool AgregarVentaConDetalles(Venta Vta, List <DetallesVentas> Detalles)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosVenta(ref Comando, Vta);
             Conexion cn = new Conexion();
             int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaVenta");
+            ParametroIdVenta(ref Comando,ObtenerIdVenta());
             foreach (DetallesVentas Item in Detalles)
             {
-               ParametrosDetalle(ref Comando, Item);
-               FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaDetalleVenta");
-
+                ParametrosDetalle(ref Comando, Item);
+                FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaDetalleVenta");
             }
             if (FilasInsertadas == 1)
                 return true;
