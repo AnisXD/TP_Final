@@ -82,9 +82,7 @@ namespace CapaPresentacion.Empleado
                         tbId.Text = "";
                         tbId.Visible = false;
                         ddlMM.Visible = false;
-
                     }
-
                 }
             }
         }
@@ -110,28 +108,39 @@ namespace CapaPresentacion.Empleado
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
                 }
+                    if (id.Equals("Modelo"))
+                    {
+                        cargarDgv(Obj.BuscarPorModelo(ddlMM.SelectedValue));
+                        CargarDDL_Modelo();
+                    }
+
+                    if (id.Equals("Marca"))
+                    {
+                        cargarDgv(Obj.BuscarPorMarca(ddlMM.SelectedValue));
+                        CargarDDL_Marcas();
+                    }
             }
         }
 
-        protected void ddlMM_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            NVenta Obj = new NVenta();
-            if (cbId.Checked)
-            {
-                string id = ddlId.Text;
-                if (id.Equals("Modelo"))
-                {
-                    cargarDgv(Obj.BuscarPorModelo(ddlMM.SelectedValue));
-                    CargarDDL_Modelo();
-                }
+        //protected void ddlMM_SelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    NVenta Obj = new NVenta();
+        //    if (cbId.Checked)
+        //    {
+        //        string id = ddlId.Text;
+        //        if (id.Equals("Modelo"))
+        //        {
+        //            cargarDgv(Obj.BuscarPorModelo(ddlMM.SelectedValue));
+        //            CargarDDL_Modelo();
+        //        }
 
-                if (id.Equals("Marca"))
-                {
-                    cargarDgv(Obj.BuscarPorMarca(ddlMM.SelectedValue));
-                    CargarDDL_Marcas();
-                }
-            }
-        }
+        //        if (id.Equals("Marca"))
+        //        {
+        //            cargarDgv(Obj.BuscarPorMarca(ddlMM.SelectedValue));
+        //            CargarDDL_Marcas();
+        //        }
+        //    }
+        //}
 
         protected void bttnCancelar_Click(object sender, EventArgs e)
         {

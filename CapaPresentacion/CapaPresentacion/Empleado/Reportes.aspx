@@ -37,7 +37,7 @@
 </asp:DropDownList>
 <asp:TextBox ID="tbId" runat="server" CssClass="ControlesASP" Width="95%"></asp:TextBox>
     <br />
-    <asp:DropDownList ID="ddlMM" runat="server" CssClass="ControlesASP" Height="35px" Width="95%" AutoPostBack="True" OnSelectedIndexChanged="ddlMM_SelectedIndexChanged">
+    <asp:DropDownList ID="ddlMM" runat="server" CssClass="ControlesASP" Height="35px" Width="95%" AutoPostBack="True">
         <asp:ListItem>A determinar</asp:ListItem>
 </asp:DropDownList>
     <br />

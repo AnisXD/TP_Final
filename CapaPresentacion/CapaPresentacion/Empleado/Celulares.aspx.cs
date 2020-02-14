@@ -166,7 +166,6 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             //hacer funcion que guarde el archivo seleccionado en la carpeta del programa y le asigne nueva ubicacion

@@ -1,14 +1,24 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Empleado/PaginaMaestraEmpleado.master" AutoEventWireup="true" CodeBehind="Marca.aspx.cs" Inherits="CapaPresentacion.Empleado.Marca" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
+    <style type="text/css">
+        .auto-style4 {
+            display: block;
+            padding: 5px;
+            margin: 5px 28px 5px 0;
+            font-size: 20px;
+        }
+    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
     <h2>Filtrar por:</h2>
     <div id="Filtros">
     
-        <asp:CheckBox ID="cbMarca" runat="server" AutoPostBack="True" Text="Marca" OnCheckedChanged="cbMarca_CheckedChanged" />
-        <asp:TextBox ID="txtMarca2" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
-        <asp:CheckBox ID="cbIdMarca" runat="server" AutoPostBack="True" Text="Id Marca" OnCheckedChanged="cbIdMarca_CheckedChanged" />
-        <asp:TextBox ID="txtIdMarca2" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
+        <asp:CheckBox ID="cbMarca" runat="server" AutoPostBack="True" Text="Marca" OnCheckedChanged="cbMarca_CheckedChanged" CssClass="ControlesASP" />
+        <asp:DropDownList ID="ddlMarca" runat="server" AutoPostBack="True" CssClass="auto-style4" Width="167px">
+        </asp:DropDownList>
+        <asp:CheckBox ID="cbIdMarca" runat="server" AutoPostBack="True" Text="Id Marca" OnCheckedChanged="cbIdMarca_CheckedChanged" CssClass="ControlesASP" />
+        <asp:DropDownList ID="ddlIdMarca" runat="server" AutoPostBack="True" CssClass="ControlesASP" Width="153px">
+        </asp:DropDownList>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtros" CssClass="Boton" OnClick="btnQuitarFiltro_Click" />
      </div>
