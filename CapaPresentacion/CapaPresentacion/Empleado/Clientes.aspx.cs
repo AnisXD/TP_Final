@@ -119,7 +119,7 @@ namespace CapaPresentacion.Empleado
                     txbClave.Enabled = false;
                     txbRepitaClave.Enabled = false;
 
-                    // lblEstado.Text = "El DNI ingresado ya existe";
+                    lblEstado.Text = "Usuario existente";
                 }
                 else
                 {
@@ -128,7 +128,7 @@ namespace CapaPresentacion.Empleado
                     btnEditar.Enabled = false;
                     txbClave.Enabled = true;
                     txbRepitaClave.Enabled = true;
-                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
+                    lblEstado.Text = "Usuario inexistente";
                 }
             }
         }
@@ -145,7 +145,7 @@ namespace CapaPresentacion.Empleado
 
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
-            char IdRol = 'C'; // C = Cliente , A = Administrador, E = Empleado
+            char IdRol = 'C';
             string DNI;
             string APELLIDO;
 

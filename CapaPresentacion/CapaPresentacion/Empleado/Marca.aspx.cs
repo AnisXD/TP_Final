@@ -82,12 +82,13 @@ namespace CapaPresentacion.Empleado
             if(!IsPostBack)
             {
                 cargarDgv();
+                CargarDDL_Marcas();
+                CargarDDL_IdMarcas();
                 limpiarTxt();
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
             }
-            
         }
 
         protected void txtIdMarca_TextChanged(object sender, EventArgs e)
@@ -205,12 +206,12 @@ namespace CapaPresentacion.Empleado
             if (cbMarca.Checked)
             {
                 cbIdMarca.Visible = false;
-                txtIdMarca2.Visible = false;
+                ddlIdMarca.Visible = false;
             }
             else
             {
                 cbIdMarca.Visible = true;
-                txtIdMarca2.Visible = true;
+                ddlIdMarca.Visible = true;
             }
         }
 
@@ -219,12 +220,12 @@ namespace CapaPresentacion.Empleado
             if (cbIdMarca.Checked)
             {
                 cbMarca.Visible = false;
-                txtMarca2.Visible = false;
+                ddlMarca.Visible = false;
             }
             else
             {
                 cbMarca.Visible = true;
-                txtMarca2.Visible = true;
+                ddlMarca.Visible = true;
             }
         }
 
@@ -233,19 +234,19 @@ namespace CapaPresentacion.Empleado
             string MARCA;
             string IDMARCA;
 
-            if (cbMarca.Checked == true)
+            if (cbMarca.Checked)
             {
-                MARCA = txtMarca2.Text;
+                MARCA = ddlMarca.SelectedItem.Text;
                  
                 NMarca Obj = new NMarca();
                 gdvMarcas.DataSource = Obj.BuscarMarcaPorNombre(MARCA);
                 gdvMarcas.DataBind();
                 lblTotalRegistros.Text = "Registros encontrados: " + gdvMarcas.Rows.Count;
             }
-
-            if (cbIdMarca.Checked == true)
+           
+            if (cbIdMarca.Checked)
             {
-                IDMARCA = txtIdMarca2.Text;
+                IDMARCA = ddlIdMarca.SelectedItem.Text;
 
                 NMarca Obj = new NMarca();
                 gdvMarcas.DataSource = Obj.BuscarMarcaPorId(IDMARCA);
@@ -257,6 +258,24 @@ namespace CapaPresentacion.Empleado
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
            Response.Redirect("/Empleado/Marca.aspx");
+        }
+        private void CargarDDL_Marcas()
+        {
+            NMarca Obj = new NMarca();
+            ddlMarca.Items.Clear();
+            ddlMarca.DataSource = Obj.Mostrar();
+            ddlMarca.DataTextField = "Marca";
+            ddlMarca.DataValueField = "Id";
+            ddlMarca.DataBind();
+        }
+        private void CargarDDL_IdMarcas()
+        {
+            NMarca Obj = new NMarca();
+            ddlIdMarca.Items.Clear();
+            ddlIdMarca.DataSource = Obj.Mostrar();
+            ddlIdMarca.DataTextField = "Id";
+            ddlIdMarca.DataValueField = "Marca";
+            ddlIdMarca.DataBind();
         }
     }
 }

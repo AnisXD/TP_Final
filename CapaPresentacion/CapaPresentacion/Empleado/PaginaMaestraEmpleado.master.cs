@@ -27,6 +27,32 @@ namespace CapaPresentacion.Empleado
                 ApellidoUsuario = dr["Apellido"].ToString();
 
                 lblUsuario.Text = NombreUsuario + " " + ApellidoUsuario;
+
+                string PermisoUsuario;
+
+                    DataTable dtt = ObjNUsuario.RolUsuario(Usuario);
+                    DataRow drr = dtt.Rows[0];
+                    PermisoUsuario = drr["ID_ROL"].ToString();
+
+                    switch (PermisoUsuario)
+                    {
+                            case "E":
+                            Empleados.Visible = false;
+                            Reportes.Visible = false;
+
+                            break;
+                            case "A":
+                            Empleados.Visible = true;
+                            Reportes.Visible = true;
+                            break;
+                    }
+            }
+
+            LinkButton ctrl = this.Master.FindControl("LiEmpleado") as LinkButton;
+
+            if (ctrl != null)
+            {
+                ctrl.Enabled = false;
             }
         }
 
@@ -38,6 +64,46 @@ namespace CapaPresentacion.Empleado
             {
                 Response.Redirect("~/Usuario/InicioUsuario.aspx");
             }
+        }
+
+        protected void Inicio_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/InicioEmpleado.aspx");
+        }
+
+        protected void Ventas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Ventas.aspx");
+        }
+
+        protected void Celulares_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Celulares.aspx");
+        }
+
+        protected void Marcas_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Marca.aspx");
+        }
+
+        protected void Clientes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Clientes.aspx");
+        }
+
+        protected void Empleados_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Empleados.aspx");
+        }
+
+        protected void Carrito_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/CarritoEmpleado.aspx");
+        }
+
+        protected void Reportes_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/Empleado/Reportes.aspx");
         }
     }
 }

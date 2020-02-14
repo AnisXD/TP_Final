@@ -23,16 +23,13 @@ namespace CapaPresentacion.Usuario
 
             bool Ingreso;
             string PermisoUsuario;
-            //bool CuentaActiva = false;
 
             string Usuario = txtUsuario.Text.ToString();
             string Contraseña = txtClave.Text.ToString();
 
             Ingreso = ObjNUsuario.ExisteUsuario(Usuario, Contraseña);
 
-            //CuentaActiva = ObjNUsuario.CuentaActivada(Usuario);
-
-            if (Ingreso == true /*&& CuentaActiva == true*/)
+            if (Ingreso == true)
             {
                 DataTable dt = ObjNUsuario.RolUsuario(Usuario);
                 DataRow dr = dt.Rows[0];
@@ -42,19 +39,17 @@ namespace CapaPresentacion.Usuario
                 {
                     case "C":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Cliente/InicioCliente.aspx");
                     break;
                     case "E":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Empleado/InicioEmpleado.aspx");
+
                         break;
                     case "A":
                         txtUsuario.Text = ""; txtClave.Text = "";
-                        //lblRespuesta.Text = dr["ROL"].ToString();
                         this.Session["Usuario"] = Usuario;
                         Response.Redirect("~/Empleado/InicioEmpleado.aspx");
                         break;
@@ -63,17 +58,9 @@ namespace CapaPresentacion.Usuario
             else
             {
                 txtUsuario.Text = ""; txtClave.Text = "";
-                lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta.";
+                lblRespuesta.Text = "Usuario Inexistente o Contraseña Incorrecta." +
+                    " En caso de no recordar algun dato, por favor pongase en contacto con nuestra area de soporte soporte@movicenter.com.ar";
             }
-
-            /*ORIGINALMENTE ESTABA ESTO SOLO*/
-            //Response.Redirect("/Usuario/InicioUsuario.aspx");
-        }
-
-        protected void txtUsuario_TextChanged(object sender, EventArgs e)
-        {
-           
-
         }
     }
 }

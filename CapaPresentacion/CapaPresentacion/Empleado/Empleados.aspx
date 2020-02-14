@@ -15,7 +15,7 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
- <h1>Administrar Empleados</h1>
+    <h1>Administrar Empleados</h1>
    <div id="FormClientes" class="Form">
 
        <asp:GridView ID="gvwEmpleados" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvwEmpleados_SelectedIndexChanged">
@@ -34,10 +34,10 @@
        <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
-                    DNI:
+                    USUARIO:
                 </td>
                 <td class="auto-style2">
-                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True"></asp:TextBox>
+                  <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;Usuario" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" CausesValidation="True" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:CompareValidator ID="cv3" Runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>

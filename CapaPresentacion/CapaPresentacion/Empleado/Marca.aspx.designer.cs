@@ -24,13 +24,13 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.CheckBox cbMarca;
 
         /// <summary>
-        /// Control txtMarca2.
+        /// Control ddlMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtMarca2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlMarca;
 
         /// <summary>
         /// Control cbIdMarca.
@@ -42,13 +42,13 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.CheckBox cbIdMarca;
 
         /// <summary>
-        /// Control txtIdMarca2.
+        /// Control ddlIdMarca.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtIdMarca2;
+        protected global::System.Web.UI.WebControls.DropDownList ddlIdMarca;
 
         /// <summary>
         /// Control btnFiltrar.

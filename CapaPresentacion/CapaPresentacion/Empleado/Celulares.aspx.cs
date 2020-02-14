@@ -166,7 +166,6 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             //hacer funcion que guarde el archivo seleccionado en la carpeta del programa y le asigne nueva ubicacion
@@ -277,7 +276,6 @@ namespace CapaPresentacion.Empleado
             NCelular Obj = new NCelular();
             if (CbxModelo.Checked)//si modelo esta seleccionado solo busca por modelo
             {
-                lblFiltro.Text = "Filtrar por Modelo: " + ddlModelo.SelectedItem.Text + " - value: " + ddlModelo.SelectedValue;
                 cargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedValue));
             }
             else //si modelo no esta seleccionado se fija si esta seleccionado marca Y precio
@@ -300,7 +298,6 @@ namespace CapaPresentacion.Empleado
                 {
                     if(CbxMarca.Checked)//En este punto solo el Rbtn Marca esta seleccionado
                     {
-                        lblFiltro.Text = "Filtrar por marca: " + ddlMarca.SelectedItem.Text + " - value: " + ddlMarca.SelectedValue ;
                         cargarDgv(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
                     }
                     else 
@@ -356,8 +353,6 @@ namespace CapaPresentacion.Empleado
                     else
                     {//si no existe el archivo en la carpeta informamos al usuario
                         lblEstado.Text = "La imagen seleccionada no esta en la carpeta Imagenes de la aplicacion, debe seleccionar una imagen de dicha carpeta o almacenar la imagen seleccionada en esa carpeta para poder continuar ";
-                        //btnGuardar.Visible = true;
-                        //lblEstado.Text = "La imagen se guardara en: " + Request.PhysicalApplicationPath + @"Imagenes\" + Server.HtmlEncode(UbicacionImagen.FileName);
                     }
                 }
                 else

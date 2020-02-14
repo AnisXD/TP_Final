@@ -8,7 +8,7 @@
     
       <h2>Filtrar por:</h2>
     
-        <asp:CheckBox ID="CbxMarca" runat="server" Text="Marca" CssClass="ControlesASP"/>
+        <asp:CheckBox ID="CbxMarca" runat="server" Text="Marca" CssClass="ControlesASP" OnCheckedChanged="CbxMarca_CheckedChanged"/>
         <asp:DropDownList ID="ddlMarca" runat="server"  CssClass="ControlesASP" OnSelectedIndexChanged="ddlMarca_SelectedIndexChanged" AutoPostBack="True" Width="95%"></asp:DropDownList>
         <asp:CheckBox ID="CbxModelo" runat="server" Text="Modelo" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="CbxModelo_CheckedChanged" />
         <asp:DropDownList ID="ddlModelo" runat="server" CssClass="ControlesASP" Width="95%"></asp:DropDownList>
@@ -17,7 +17,7 @@
         <asp:TextBox ID="txtPrecio" runat="server" CssClass="ControlesASP" Width="95%"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click"/>
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtro" CssClass="Boton" OnClick="btnQuitarFiltro_Click"/>
-        <asp:Label ID="lblFiltro" runat="server" Text="Estado Filtro" CssClass="ControlesASP"></asp:Label>
+        <asp:Label ID="lblFiltro" runat="server" CssClass="ControlesASP"></asp:Label>
     
     </div>
 

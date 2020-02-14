@@ -127,5 +127,54 @@ namespace CapaOperaciones
             DUsuario Obj = new DUsuario();
             return Obj.ActualizarUsuario(ObjUsuario);
         }
+        public bool EditarC(string dni, string nombre, string apellido, string telefono, int provincia, int localidad, string direccion, string clave, char rol)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = dni,
+                Nombre = nombre,
+                Apellido = apellido,
+                Telefono = telefono,
+                IdProvincia = provincia,
+                IdLocalidad = localidad,
+                Calle_y_Altura = direccion,
+                Contraseña = clave,
+                Rol = rol,
+            };
+            DUsuario Obj = new DUsuario();
+            return Obj.ActualizarUsuarioC(ObjUsuario);
+        }
+        public DataTable DatosUsuario(string Usuario)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = Usuario
+            };
+
+            DUsuario ObjDUsuario = new DUsuario();
+            return ObjDUsuario.ObtenerDatosUsuario(ObjUsuario);
+        }
+
+        public DataTable TEST(string Usuario)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = Usuario
+            };
+
+            DUsuario ObjDUsuario = new DUsuario();
+            return ObjDUsuario.ObtenerTEST(ObjUsuario);
+        }
+
+        public bool EditarTEST(string dni, string nombre)
+        {
+            Usuario ObjUsuario = new Usuario
+            {
+                DNI = dni,
+                Nombre = nombre,
+            };
+            DUsuario Obj = new DUsuario();
+            return Obj.ActualizarTEST(ObjUsuario);
+        }
     }
 }
