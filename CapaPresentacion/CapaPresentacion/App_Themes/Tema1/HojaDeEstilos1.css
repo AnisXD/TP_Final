@@ -218,6 +218,7 @@ li {
     padding: 5px;
     margin: 5px 15px 5px 0;
     font-size: 20px;
+    width:100%;
 }
 
 
@@ -225,7 +226,7 @@ li {
 .Boton {
     display: block;
     padding: 5px;
-    width: 90%;
+    width: 100%;
     font-size: 20px;
     background: linear-gradient(#00c3ff,#0075b2);
     border: 0;
@@ -319,7 +320,7 @@ li {
 }
 
 .LabelNegritaLarga {
-    width: 50%;
+    width: 30%;
     font-size: 20px;
     font-weight: bold;
     padding: 3px 10px;
