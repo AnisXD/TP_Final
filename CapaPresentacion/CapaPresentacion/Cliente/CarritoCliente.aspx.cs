@@ -19,7 +19,6 @@ namespace CapaPresentacion.Cliente
                 grdLista.DataSource = null;
                 grdLista.DataBind();
             }
-
             //Asocio el gridview al DataTable
             grdLista.DataSource = (DataTable)this.Session["Carrito"];
             grdLista.DataBind();
@@ -67,9 +66,7 @@ namespace CapaPresentacion.Cliente
 
                 Carrito.Rows.Add(dr);
             }
-            //actuaizar grid
-            grdLista.DataSource = Carrito;
-            grdLista.DataBind();
+            
         }
 
         public void ActualizarTotal()
@@ -142,7 +139,7 @@ namespace CapaPresentacion.Cliente
                     ddlModelo.SelectedIndex = ddlModelo.Items.IndexOf(Item);
             }
         }
-
+        #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (this.Session["Usuario"] == null)
@@ -189,7 +186,7 @@ namespace CapaPresentacion.Cliente
                     ListDetalles.Add(nVenta.CargarDetalle(Modelo, Cantidad, Precio_Unitario));
                 }
 
-                if(nVenta.Confirmar(lblLegajo.Text, lblDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
+                if(nVenta.Confirmar(txtLegajo.Text, txtDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
                 {
                     lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
                     this.Session["Carrito"] = null;
@@ -287,5 +284,6 @@ namespace CapaPresentacion.Cliente
 
             lblImporte.Text = "0,00";
         }
+        #endregion
     }
 }

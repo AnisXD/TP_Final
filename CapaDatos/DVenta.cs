@@ -206,16 +206,26 @@ namespace CapaDatos
             ParametrosVenta(ref Comando, Vta);
             Conexion cn = new Conexion();
             int FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaVenta");
-            ParametroIdVenta(ref Comando,ObtenerIdVenta());
-            foreach (DetallesVentas Item in Detalles)
-            {
-                ParametrosDetalle(ref Comando, Item);
-                FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaDetalleVenta");
-            }
+            //chequeo si se inserto bien la venta
             if (FilasInsertadas == 1)
-                return true;
+            {
+                ParametroIdVenta(ref Comando, ObtenerIdVenta());
+                foreach (DetallesVentas Item in Detalles)
+                {
+                    ParametrosDetalle(ref Comando, Item);
+                    FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaDetalleVenta");
+                    if(FilasInsertadas!=1)
+                    {
+                        return false;//falla en cargar detalle
+                    }
+                }
+                return true;//Carga venta y detalles con exito
+            }   
             else
-                return false;
+            {
+                return false;//fallo en cargar venta
+            }
+                
         }
 
     }

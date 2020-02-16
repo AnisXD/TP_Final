@@ -22,14 +22,17 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColPpal" runat="server">
+    <h1>Cliente</h1>
     <asp:ContentPlaceHolder id="ContenidoColPpalCliente" runat="server">
 
     </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
+    
+    <h2>Bienvenid@</h2>
     <br>
-    <asp:Label ID="lblUsuario" runat="server" Text="Bienvenido" CssClass="Label"></asp:Label>
+    <asp:Label ID="lblUsuario" runat="server" Text=" " CssClass="LabelLarga"></asp:Label>
     <br>
     <asp:Button ID="MiPerfil" runat="server" Text="Mi Perfil" CssClass="Boton" PostBackUrl="~/Cliente/EditarPerfilCliente.aspx" />
     <asp:Button ID="btCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="Boton" OnClick="btCerrarSesion_Click"/>
