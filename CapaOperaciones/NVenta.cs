@@ -56,7 +56,7 @@ namespace CapaOperaciones
         }
         public DataTable MostrarPorCliente(string IdCliente)//muestra las ventas sin detalles por vendedor
         {
-            return new DVenta().MostrarPorVendedor(IdCliente);
+            return new DVenta().MostrarPorCliente(IdCliente);
         }
         public DataTable MostrarDetalle(int IdVenta)//muestra los detalles de una venta
         {
@@ -85,6 +85,10 @@ namespace CapaOperaciones
         public DataTable MostrarPorClienteEntreFechas(string DNI, string fecha_inicio, string fecha_fin)
         {
             return new DVenta().MostrarVentasPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin);
+        }
+        public DataTable MostrarVentasEntreFechas(string fecha_inicio, string fecha_fin)
+        {
+            return new DVenta().MostrarVentasEntreFechas(fecha_inicio, fecha_fin);
         }
     }
 }

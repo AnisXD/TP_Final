@@ -74,8 +74,6 @@ namespace CapaPresentacion.Empleado
         }
 
         #endregion
-
-
         #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -90,7 +88,6 @@ namespace CapaPresentacion.Empleado
                 btnEliminar.Enabled = false;
             }
         }
-
         protected void txtIdMarca_TextChanged(object sender, EventArgs e)
         {
             lblEstado.Text = "txtID se modifico";
@@ -119,7 +116,6 @@ namespace CapaPresentacion.Empleado
                 }
             }
         }
-
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             if (!txtCompletos())
@@ -142,7 +138,6 @@ namespace CapaPresentacion.Empleado
             cargarDgv();
             limpiarTxt();
         }
-
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             if (txtCompletos())
@@ -164,7 +159,6 @@ namespace CapaPresentacion.Empleado
                 lblEstado.Text = "Atencion!! Para editar un registro de la tabla debe completar todos los campos de datos";
             }
         }
-
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             if (txtCompletos())
@@ -185,20 +179,16 @@ namespace CapaPresentacion.Empleado
             {
                 lblEstado.Text = "Atencion!! Para eliminar un registro de la tabla debe completar todos los campos de datos";
             }
-        
-        
         }
          protected void gdvMarcas_SelectedIndexChanged(object sender, EventArgs e)
             {
-                this.txtIdMarca.Text = gdvMarcas.SelectedRow.Cells[1].Text;
-                this.txtNombreMarca.Text = gdvMarcas.SelectedRow.Cells[2].Text;
+            this.txtIdMarca.Text = gdvMarcas.SelectedRow.Cells[1].Text;
+            this.txtNombreMarca.Text = gdvMarcas.SelectedRow.Cells[2].Text;
             btnAgregar.Enabled = false;
             btnEditar.Enabled = true;
             btnEliminar.Enabled = true;
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
-            }
-
-
+         }
         #endregion
 
         protected void cbMarca_CheckedChanged(object sender, EventArgs e)
