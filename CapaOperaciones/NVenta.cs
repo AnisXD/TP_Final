@@ -37,7 +37,7 @@ namespace CapaOperaciones
             };
             return Obj;
         }
-        public int ObtenerIdVenta()//se usa para obtener el id de esta venta
+        public int ObtenerIdVenta()
         {
             return (new DVenta().ObtenerIdVenta() + 1);
         }

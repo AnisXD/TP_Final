@@ -13,7 +13,7 @@ namespace CapaOperaciones
     {
         public bool Insertar(string dni, string nombre, string apellido, string telefono, int provincia, int localidad, string direccion, string clave, char rol)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
                 Nombre = nombre,
@@ -45,7 +45,7 @@ namespace CapaOperaciones
 
         public bool ExisteUsuario(string Usuario, string Contraseña)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = Usuario,
                 Contraseña = Contraseña,
@@ -57,7 +57,7 @@ namespace CapaOperaciones
 
         public DataTable RolUsuario(string Usuario)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = Usuario
             };
@@ -68,7 +68,7 @@ namespace CapaOperaciones
 
         public DataTable NombreUsuario(string Usuario)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = Usuario
             };
@@ -79,7 +79,7 @@ namespace CapaOperaciones
 
         public DataTable BuscarUsuarioPorDNI(string DNI, char ROL)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = DNI,
                 Rol = ROL
@@ -90,7 +90,7 @@ namespace CapaOperaciones
         }
         public DataTable BuscarUsuarioPorApellido(string apellido, char ROL)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 Apellido = apellido,
                 Rol = ROL
@@ -102,7 +102,7 @@ namespace CapaOperaciones
         public bool Eliminar(string dni, char ROL)
         {
             DUsuario Obj = new DUsuario();
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
                 Rol = ROL
@@ -113,7 +113,7 @@ namespace CapaOperaciones
         }
         public bool Editar(string dni, string nombre, string apellido, string telefono, int provincia, int localidad, string direccion, char rol)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
                 Nombre = nombre,
@@ -129,7 +129,7 @@ namespace CapaOperaciones
         }
         public bool EditarC(string dni, string nombre, string apellido, string telefono, int provincia, int localidad, string direccion, string clave, char rol)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
                 Nombre = nombre,
@@ -146,7 +146,7 @@ namespace CapaOperaciones
         }
         public DataTable DatosUsuario(string Usuario)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = Usuario
             };
@@ -157,7 +157,7 @@ namespace CapaOperaciones
 
         public DataTable TEST(string Usuario)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = Usuario
             };
@@ -168,7 +168,7 @@ namespace CapaOperaciones
 
         public bool EditarTEST(string dni, string nombre)
         {
-            Usuarios ObjUsuario = new Usuarios
+            Usuario ObjUsuario = new Usuario
             {
                 DNI = dni,
                 Nombre = nombre,

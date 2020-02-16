@@ -72,15 +72,6 @@ namespace CapaOperaciones
         {
             new DCelular().FiltroAvanzado( NombreCampo,  Operador,  Valor, ref Clausula);
         }
-
-        public int ObtenerStock(string IdModelo)
-        {
-            int stock;
-            DataTable Dt = new DataTable();
-            Dt = new DCelular().MostrarPorModelo(IdModelo);
-            stock = Convert.ToInt32(Dt.Rows[0].ItemArray[3]);
-            return stock;
-        }
     }
 }
 

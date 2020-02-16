@@ -5,13 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using ENTIDADES;
 using CapaOperaciones;
+using ENTIDADES;
 
 namespace CapaPresentacion.Cliente
 {
     public partial class CarritoCliente : System.Web.UI.Page
     {
+<<<<<<< HEAD
         public void ActualizarTabla()
         {
             if (this.Session["Carrito"] == null)
@@ -89,13 +90,15 @@ namespace CapaPresentacion.Cliente
             }
         }
 
+=======
+>>>>>>> parent of 9d64e39... CarritoCliente
         public void CargarLbl()
         {
             txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
-            txtFecha.Text = System.DateTime.Today.ToShortDateString();
-            txtLegajo.Text = "MoviCenter"; // al ser una compra online que hace el cliente no se carga vendedor
-            txtDNICliente.Text = this.Session["Usuario"].ToString();//TENGO QUE BUSCAR EN EL SESSION EL DNI 
-            lblImporte.Text = "0";//BUSCAR SI HAY CELULARES CARGADOS Y CALCULAR TOTAL
+            txtFecha.Text = System.DateTime.Today.ToString();
+            txtLegajo.Text = "MoviCenter";
+            //txtDNICliente.Text = this.Session["Usuario"].ToString();//TENGO QUE BUSCAR EN EL SESSION EL DNI 
+            lblImporte.Text = "Importe a pagar: $" + "0";//BUSCAR SI HAY CELULARES CARGADOS Y CALCULAR TOTAL
         }
         public void CargarDDL_FormaEnvio()
         {
@@ -114,6 +117,7 @@ namespace CapaPresentacion.Cliente
             ddlFPago.DataValueField = "Id";
             ddlFPago.DataBind();
         }
+<<<<<<< HEAD
         public void CargarDDL_Modelo()
         {
             NCelular Obj = new NCelular();
@@ -241,35 +245,24 @@ namespace CapaPresentacion.Cliente
             if (e.CommandName == "Select")
             {
                 DataTable Carrito = (DataTable)this.Session["Carrito"];
+=======
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            CargarDDL_FormaEnvio();
+            CargarDDL_FormaPago();
+            CargarLbl();
+>>>>>>> parent of 9d64e39... CarritoCliente
 
-                int pos = int.Parse(e.CommandArgument.ToString());
-
-                Carrito.Rows.RemoveAt(pos);
-
-                if (Carrito.Rows.Count == 0)
-                    Carrito = null;
-
-                ActualizarTotal();
-
-                ActualizarTabla();
-            }
         }
 
-        protected void grdLista_SelectedIndexChanged(object sender, EventArgs e)
+        protected void bttnAgregarItem_Click(object sender, EventArgs e)
         {
-            //nada
+
         }
 
-        protected void grdLista_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
+        protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
         {
-            //nada
-        }
 
-        protected void grdLista_PageIndexChanging(object sender, GridViewPageEventArgs e)
-        {
-            grdLista.PageIndex = e.NewPageIndex;
-
-            ActualizarTabla();
         }
 
         protected void bttnCancelarCompra_Click(object sender, EventArgs e)

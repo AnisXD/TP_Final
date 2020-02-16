@@ -123,15 +123,6 @@ namespace CapaPresentacion.Cliente
         protected global::System.Web.UI.WebControls.DropDownList ddlFEnvio;
 
         /// <summary>
-        /// Control lblImporte_Total.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblImporte_Total;
-
-        /// <summary>
         /// Control lblImporte.
         /// </summary>
         /// <remarks>
@@ -141,49 +132,13 @@ namespace CapaPresentacion.Cliente
         protected global::System.Web.UI.WebControls.Label lblImporte;
 
         /// <summary>
-        /// Control ddlModelo.
+        /// Control bttnAgregarItem.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
-
-        /// <summary>
-        /// Control lblPrecio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblPrecio;
-
-        /// <summary>
-        /// Control ddlCantidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlCantidad;
-
-        /// <summary>
-        /// Control btnAnadir.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAnadir;
-
-        /// <summary>
-        /// Control grdLista.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdLista;
+        protected global::System.Web.UI.WebControls.Button bttnAgregarItem;
 
         /// <summary>
         /// Control bttnFinalizarcompra.
@@ -195,21 +150,12 @@ namespace CapaPresentacion.Cliente
         protected global::System.Web.UI.WebControls.Button bttnFinalizarcompra;
 
         /// <summary>
-        /// Control bttnCancelarCompra.
+        /// Control GridView1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnCancelarCompra;
-
-        /// <summary>
-        /// Control lblRespuesta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRespuesta;
+        protected global::System.Web.UI.WebControls.GridView GridView1;
     }
 }
