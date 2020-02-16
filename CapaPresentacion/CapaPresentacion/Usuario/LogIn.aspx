@@ -7,7 +7,7 @@
    <div ID="FormLogIn" class="Form">
      <h2>Log In</h2>
         
-     <asp:Label ID="lblusucon" runat="server" Text="Ingrese Usuario y Contraseña" CssClass="LabelLarga"></asp:Label>
+     <asp:Label ID="lblusucon" runat="server" Text="Ingrese Usuario y Contraseña" CssClass="LabelNegritaLargaCenter"></asp:Label>
      <br />
 
      <div style="width:50%;display:inline-grid;">

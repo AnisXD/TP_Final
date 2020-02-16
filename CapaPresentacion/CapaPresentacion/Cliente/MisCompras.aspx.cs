@@ -13,5 +13,10 @@ namespace CapaPresentacion.Cliente
         {
 
         }
+
+        protected void ListView3_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

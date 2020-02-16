@@ -141,6 +141,15 @@ namespace CapaPresentacion.Cliente
         protected global::System.Web.UI.WebControls.Label lblImporte;
 
         /// <summary>
+        /// Control lblModelo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblModelo;
+
+        /// <summary>
         /// Control ddlModelo.
         /// </summary>
         /// <remarks>
@@ -150,6 +159,15 @@ namespace CapaPresentacion.Cliente
         protected global::System.Web.UI.WebControls.DropDownList ddlModelo;
 
         /// <summary>
+        /// Control LblPrecioUnitario.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblPrecioUnitario;
+
+        /// <summary>
         /// Control lblPrecio.
         /// </summary>
         /// <remarks>
@@ -157,6 +175,15 @@ namespace CapaPresentacion.Cliente
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblPrecio;
+
+        /// <summary>
+        /// Control LblCantidad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label LblCantidad;
 
         /// <summary>
         /// Control ddlCantidad.

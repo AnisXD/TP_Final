@@ -19,30 +19,50 @@
         <asp:Label ID="txtLegajo" runat="server" Text="E-99999999"  CssClass="Label" ></asp:Label>       
         <asp:Label ID="lblDNICliente" runat="server" Text="Cliente: "  CssClass="LabelNegrita" ></asp:Label>
         <asp:Label ID="txtDNICliente" runat="server" Text="35767657"  CssClass="Label" ></asp:Label>       
-        <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago: "  CssClass="LabelNegrita" ></asp:Label>
-        <asp:DropDownList ID="ddlFPago" runat="server" CssClass="DropDownList" ></asp:DropDownList>
-        <asp:Label ID="lblFormaEnvio" runat="server" Text="Forma de envio: "  CssClass="LabelNegrita" ></asp:Label>
-        <asp:DropDownList ID="ddlFEnvio" runat="server" CssClass="DropDownList"></asp:DropDownList>
-        <asp:Label ID="lblImporte_Total" runat="server" Text="Importe a pagar: $"  CssClass="LabelNegritaLarga" ></asp:Label>
-        <asp:Label ID="lblImporte" runat="server" Text="0"  CssClass="LabelNegrita" ></asp:Label>
-        
-        <div style="width:100%; height: 190px;"> 
+        <br />
+
+        <div style="width:100%; height: 190px; border-bottom-style:solid; border-bottom-color:black; border-top-style:solid; border-top-color:black;">
+          <table style=" width: 100%; height: 185px; font-size:20px; color:black;">
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:DropDownList ID="ddlFPago" runat="server" CssClass="DropDownListFull" ></asp:DropDownList>
+             </tr>
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblFormaEnvio" runat="server" Text="Forma de envio: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:DropDownList ID="ddlFEnvio" runat="server" CssClass="DropDownListFull"></asp:DropDownList></td>
+            </tr>
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblImporte_Total" runat="server" Text="Importe a pagar: $ "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:Label ID="lblImporte" runat="server" Text="0"  CssClass="LabelNegrita" ></asp:Label></td>
+              </tr>
+          </table>
+        </div>
+        <div style="width:100%; height: 190px; border-bottom-style:solid; border-bottom-color:black;"> 
         
         <table style=" width: 100%; height: 185px; font-size:20px; color:black;">
             <tr>
-                <td style="text-align:center; width: 50%; height: 26px;">Modelo:</td>
+                <td style=" width: 50%; height: 26px;">
+                     <asp:Label ID="lblModelo" runat="server" Text="Modelo: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
                 <td style="text-align:left; height: 26px;">
-                    <asp:DropDownList ID="ddlModelo" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlModelo_SelectedIndexChanged"></asp:DropDownList></td>
+                    <asp:DropDownList ID="ddlModelo" runat="server" AutoPostBack="True" CssClass="DropDownListFull" OnSelectedIndexChanged="ddlModelo_SelectedIndexChanged"></asp:DropDownList></td>
             </tr>
             <tr>
-                <td style="text-align:center; width: 50%; height: 21px;">Precio: $</td>
+                <td style=" width: 50%; height: 21px;">
+                <asp:Label ID="LblPrecioUnitario" runat="server" Text="Precio: $ "  CssClass="LabelNegritaLarga" ></asp:Label></td>
                 <td style="text-align:left; height: 21px;">
-                    <asp:Label ID="lblPrecio" runat="server" Text="000,00"></asp:Label></td>
+                    <asp:Label ID="lblPrecio" runat="server" Text="000,00" CssClass="Label"></asp:Label></td>
             </tr>
             <tr>
-                <td style="text-align:center; width: 50%; height: 26px;">Cantidad:</td>
+                <td style=" width: 50%; height: 26px;">
+                <asp:Label ID="LblCantidad" runat="server" Text="Cantidad: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
                 <td style="text-align:left; height: 26px;">
-                    <asp:DropDownList ID="ddlCantidad" runat="server" AutoPostBack="True" Visible="True">
+                    <asp:DropDownList ID="ddlCantidad" runat="server" AutoPostBack="True" CssClass="DropDownListFull" Visible="True">
                     </asp:DropDownList>
                 </td>
             </tr>

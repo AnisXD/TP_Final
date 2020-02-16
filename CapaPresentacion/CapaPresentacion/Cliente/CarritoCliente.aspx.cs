@@ -144,7 +144,7 @@ namespace CapaPresentacion.Cliente
         {
             if (this.Session["Usuario"] == null)
             {// si no esta registrdo como usuario va al login
-                Response.Redirect("Usuario/LogIn.aspx");
+                Response.Redirect("~/Usuario/LogIn.aspx");
             }
             else
             {
@@ -190,7 +190,9 @@ namespace CapaPresentacion.Cliente
                 {
                     lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
                     this.Session["Carrito"] = null;
-                    CargarLbl();
+                    ActualizarTabla();
+                    ActualizarTotal();
+                    txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
                 }
                 else
                 {
