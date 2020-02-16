@@ -86,5 +86,9 @@ namespace CapaOperaciones
         {
             return new DVenta().MostrarVentasPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin);
         }
+        public DataTable MostrarVentasEntreFechas(string fecha_inicio, string fecha_fin)
+        {
+            return new DVenta().MostrarVentasEntreFechas(fecha_inicio, fecha_fin);
+        }
     }
 }

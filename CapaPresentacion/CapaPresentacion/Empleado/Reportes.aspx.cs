@@ -26,9 +26,10 @@ namespace CapaPresentacion.Empleado
                 cargarDgv(new NVenta().Mostrar());
                 tbId.Visible = false;
                 ddlMM.Visible = false;
+                CargarDDL_Modelo();
+                CargarDDL_Marcas();
             }
         }
-
         private void CargarDDL_Marcas()
         {
             NMarca Obj = new NMarca();
@@ -76,10 +77,8 @@ namespace CapaPresentacion.Empleado
                         CargarDDL_Modelo();
                     }
 
-                    if (id.Equals("Total Venta"))
+                    if (id.Equals("Total Ventas"))
                     {
-                        Response.Redirect("/Empleado/Reportes.aspx");
-                        tbId.Text = "";
                         tbId.Visible = false;
                         ddlMM.Visible = false;
                     }
@@ -115,20 +114,29 @@ namespace CapaPresentacion.Empleado
                 if (id.Equals("Modelo"))
                 {
                     cargarDgv(Obj.MostrarPorModelo(ddlMM.SelectedValue));
-                    CargarDDL_Modelo();
+                    lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    //  CargarDDL_Modelo();
                 }
 
                 if (id.Equals("Marca"))
                 {
                     cargarDgv(Obj.MostrarPorMarca(ddlMM.SelectedValue));
-                    CargarDDL_Marcas();
+                    lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    // CargarDDL_Marcas();
+                }
+
+                if (id.Equals("Total Ventas"))
+                {
+                    cargarDgv(new NVenta().Mostrar());
+                    lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
                 }
             }
             else if (cbId.Checked == false)
             {
-                lblTotalRegistros.Text = "SELECCIONE COMO MINIMO UN FILTRO DE ID.";
+                lblTotalRegistros.Text = "Seleccione como minimo un ID.";
             }
-            else
+
+            if (cbId.Checked == true && cbFecha.Checked == true)
             {
                 string DNI;
                 string id = ddlId.Text;
@@ -149,15 +157,25 @@ namespace CapaPresentacion.Empleado
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
                 }
+
                 if (id.Equals("Modelo"))
                 {
                     cargarDgv(Obj.MostrarPorModeloEntreFechas(ddlMM.SelectedValue, fecha_inicio, fecha_fin));
-                    CargarDDL_Modelo();
+                    lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    //CargarDDL_Modelo();
                 }
+
                 if (id.Equals("Marca"))
                 {
                     cargarDgv(Obj.MostrarPorMarcaEntreFechas(ddlMM.SelectedValue, fecha_inicio, fecha_fin));
-                    CargarDDL_Marcas();
+                    lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                   // CargarDDL_Marcas();
+                }
+
+                if (id.Equals("Total Ventas"))
+                {
+                    cargarDgv(Obj.MostrarVentasEntreFechas(fecha_inicio, fecha_fin));
+                    lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
                 }
             }
         }

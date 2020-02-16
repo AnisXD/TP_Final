@@ -12,271 +12,270 @@ namespace CapaPresentacion.Cliente
 {
     public partial class CarritoCliente : System.Web.UI.Page
     {
-<<<<<<< HEAD
-        public void ActualizarTabla()
-        {
-            if (this.Session["Carrito"] == null)
-            {
-                grdLista.DataSource = null;
-                grdLista.DataBind();
-            }
-            //Asocio el gridview al DataTable
-            grdLista.DataSource = (DataTable)this.Session["Carrito"];
-            grdLista.DataBind();
-        }
+        //<<<<<<< HEAD
+        //        public void ActualizarTabla()
+        //        {
+        //            if (this.Session["Carrito"] == null)
+        //            {
+        //                grdLista.DataSource = null;
+        //                grdLista.DataBind();
+        //            }
+        //            //Asocio el gridview al DataTable
+        //            grdLista.DataSource = (DataTable)this.Session["Carrito"];
+        //            grdLista.DataBind();
+        //        }
 
-        public DataTable crearTabla()
-        {
-            //Creo una tabla que voy a asociar a una variable Session
-            DataTable tabla = new DataTable();
-            DataColumn columna;
+        //        public DataTable crearTabla()
+        //        {
+        //            //Creo una tabla que voy a asociar a una variable Session
+        //            DataTable tabla = new DataTable();
+        //            DataColumn columna;
 
-            columna = new DataColumn("MODELO", System.Type.GetType("System.String"));
-            tabla.Columns.Add(columna);
-            columna = new DataColumn("PRECIO_UNITARIO", System.Type.GetType("System.String"));
-            tabla.Columns.Add(columna);
-            columna = new DataColumn("CANTIDAD", System.Type.GetType("System.String"));
-            tabla.Columns.Add(columna);
+        //            columna = new DataColumn("MODELO", System.Type.GetType("System.String"));
+        //            tabla.Columns.Add(columna);
+        //            columna = new DataColumn("PRECIO_UNITARIO", System.Type.GetType("System.String"));
+        //            tabla.Columns.Add(columna);
+        //            columna = new DataColumn("CANTIDAD", System.Type.GetType("System.String"));
+        //            tabla.Columns.Add(columna);
 
-            return tabla;
-        }
+        //            return tabla;
+        //        }
 
-        public void AgregarFila(DataTable Carrito)
-        {
-            int band = 0;
+        //        public void AgregarFila(DataTable Carrito)
+        //        {
+        //            int band = 0;
 
-            DataRow dr = Carrito.NewRow();
+        //            DataRow dr = Carrito.NewRow();
 
-            String MODELO = ddlModelo.SelectedItem.Text;
-            String PRECIO_UNITARIO = lblPrecio.Text;// el lbl precio se carga a seeccionar un modelo en el ddl
+        //            String MODELO = ddlModelo.SelectedItem.Text;
+        //            String PRECIO_UNITARIO = lblPrecio.Text;// el lbl precio se carga a seeccionar un modelo en el ddl
 
-            foreach (DataRow row in Carrito.Rows)
-            {
-                if (row["MODELO"].ToString() == MODELO)
-                {
-                    row.SetField("CANTIDAD", Convert.ToInt32(row["CANTIDAD"]) + Convert.ToInt32(ddlCantidad.Text));
-                    band = 1;
-                }
-            }
-            //AGREGA FILA
-            if (band == 0)
-            {
-                dr["MODELO"] = MODELO;
-                dr["PRECIO_UNITARIO"] = PRECIO_UNITARIO;
-                dr["CANTIDAD"] = ddlCantidad.Text;
+        //            foreach (DataRow row in Carrito.Rows)
+        //            {
+        //                if (row["MODELO"].ToString() == MODELO)
+        //                {
+        //                    row.SetField("CANTIDAD", Convert.ToInt32(row["CANTIDAD"]) + Convert.ToInt32(ddlCantidad.Text));
+        //                    band = 1;
+        //                }
+        //            }
+        //            //AGREGA FILA
+        //            if (band == 0)
+        //            {
+        //                dr["MODELO"] = MODELO;
+        //                dr["PRECIO_UNITARIO"] = PRECIO_UNITARIO;
+        //                dr["CANTIDAD"] = ddlCantidad.Text;
 
-                Carrito.Rows.Add(dr);
-            }
-            
-        }
+        //                Carrito.Rows.Add(dr);
+        //            }
 
-        public void ActualizarTotal()
-        {
-            if (this.Session["Carrito"] != null)
-            {
-                DataTable Carrito = (DataTable)this.Session["Carrito"];
+        //        }
 
-                float Monto_Total = 0;
+        //        public void ActualizarTotal()
+        //        {
+        //            if (this.Session["Carrito"] != null)
+        //            {
+        //                DataTable Carrito = (DataTable)this.Session["Carrito"];
 
-                foreach (DataRow row in Carrito.Rows)
-                {
-                    int Cantidad = int.Parse(row["CANTIDAD"].ToString());
-                    float Precio_Unitario = float.Parse(row["PRECIO_UNITARIO"].ToString());
+        //                float Monto_Total = 0;
 
-                    Monto_Total += Cantidad * Precio_Unitario;
-                }
+        //                foreach (DataRow row in Carrito.Rows)
+        //                {
+        //                    int Cantidad = int.Parse(row["CANTIDAD"].ToString());
+        //                    float Precio_Unitario = float.Parse(row["PRECIO_UNITARIO"].ToString());
 
-                lblImporte.Text = Monto_Total.ToString();
-            }
-        }
+        //                    Monto_Total += Cantidad * Precio_Unitario;
+        //                }
 
-=======
->>>>>>> parent of 9d64e39... CarritoCliente
-        public void CargarLbl()
-        {
-            txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
-            txtFecha.Text = System.DateTime.Today.ToString();
-            txtLegajo.Text = "MoviCenter";
-            //txtDNICliente.Text = this.Session["Usuario"].ToString();//TENGO QUE BUSCAR EN EL SESSION EL DNI 
-            lblImporte.Text = "Importe a pagar: $" + "0";//BUSCAR SI HAY CELULARES CARGADOS Y CALCULAR TOTAL
-        }
-        public void CargarDDL_FormaEnvio()
-        {
-            NFormaDeEnvio Obj = new NFormaDeEnvio();
-            ddlFEnvio.DataSource = Obj.Mostrar();
-            ddlFEnvio.DataTextField = "FormadePago";//por un error en a base de datos o devueve asi... no cambiar
-            ddlFEnvio.DataValueField = "Id";
-            ddlFEnvio.DataBind();
-        }
+        //                lblImporte.Text = Monto_Total.ToString();
+        //            }
+        //        }
 
-        public void CargarDDL_FormaPago()
-        {
-            NFormaDePago Obj = new NFormaDePago();
-            ddlFPago.DataSource = Obj.Mostrar();
-            ddlFPago.DataTextField = "FormadePago";
-            ddlFPago.DataValueField = "Id";
-            ddlFPago.DataBind();
-        }
-<<<<<<< HEAD
-        public void CargarDDL_Modelo()
-        {
-            NCelular Obj = new NCelular();
-            ddlModelo.DataSource = Obj.Mostrar();
-            ddlModelo.DataTextField = "Modelo";
-            ddlModelo.DataValueField = "Precio";
-            ddlModelo.DataBind();
-        }
-        private void CargarDdlCantidad(int Max)
-        {
-            int i;
-            ddlCantidad.Items.Clear();
-            for(i=1; i<=Max; i++)
-            {
-                ddlCantidad.Items.Add(i.ToString());
-            }
-        }
-        private void BuscarModeloEnDdl(string modelo)
-        {
-            foreach (ListItem Item in ddlModelo.Items)
-            {
-                if (Item.Text == modelo)
-                    ddlModelo.SelectedIndex = ddlModelo.Items.IndexOf(Item);
-            }
-        }
-        #region Eventos
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            if (this.Session["Usuario"] == null)
-            {// si no esta registrdo como usuario va al login
-                Response.Redirect("Usuario/LogIn.aspx");
-            }
-            else
-            {
-                if (!this.IsPostBack)
-                {
-                    CargarDDL_FormaEnvio();
-                    CargarDDL_FormaPago();
-                    CargarDDL_Modelo();
-                    CargarLbl();
-                    if (this.Session["Modelo"] != null)
-                    {
-                        BuscarModeloEnDdl(this.Session["Modelo"].ToString());
-                        lblPrecio.Text = ddlModelo.SelectedItem.Value;
-                        int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
-                        CargarDdlCantidad(stock);
-                    }
-                }
-                ActualizarTotal();
-                ActualizarTabla();
-            }
-            
-        }
+        //=======
+        //>>>>>>> parent of 9d64e39... CarritoCliente
+        //        public void CargarLbl()
+        //        {
+        //            txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
+        //            txtFecha.Text = System.DateTime.Today.ToString();
+        //            txtLegajo.Text = "MoviCenter";
+        //            //txtDNICliente.Text = this.Session["Usuario"].ToString();//TENGO QUE BUSCAR EN EL SESSION EL DNI 
+        //            lblImporte.Text = "Importe a pagar: $" + "0";//BUSCAR SI HAY CELULARES CARGADOS Y CALCULAR TOTAL
+        //        }
+        //        public void CargarDDL_FormaEnvio()
+        //        {
+        //            NFormaDeEnvio Obj = new NFormaDeEnvio();
+        //            ddlFEnvio.DataSource = Obj.Mostrar();
+        //            ddlFEnvio.DataTextField = "FormadePago";//por un error en a base de datos o devueve asi... no cambiar
+        //            ddlFEnvio.DataValueField = "Id";
+        //            ddlFEnvio.DataBind();
+        //        }
 
-        protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
-        {
-            if (this.Session["Carrito"] != null)
-            {
-                NVenta nVenta = new NVenta();
-                
-                List <DetallesVentas> ListDetalles= new List<DetallesVentas>();
+        //        public void CargarDDL_FormaPago()
+        //        {
+        //            NFormaDePago Obj = new NFormaDePago();
+        //            ddlFPago.DataSource = Obj.Mostrar();
+        //            ddlFPago.DataTextField = "FormadePago";
+        //            ddlFPago.DataValueField = "Id";
+        //            ddlFPago.DataBind();
+        //        }
+        //<<<<<<< HEAD
+        //        public void CargarDDL_Modelo()
+        //        {
+        //            NCelular Obj = new NCelular();
+        //            ddlModelo.DataSource = Obj.Mostrar();
+        //            ddlModelo.DataTextField = "Modelo";
+        //            ddlModelo.DataValueField = "Precio";
+        //            ddlModelo.DataBind();
+        //        }
+        //        private void CargarDdlCantidad(int Max)
+        //        {
+        //            int i;
+        //            ddlCantidad.Items.Clear();
+        //            for(i=1; i<=Max; i++)
+        //            {
+        //                ddlCantidad.Items.Add(i.ToString());
+        //            }
+        //        }
+        //        private void BuscarModeloEnDdl(string modelo)
+        //        {
+        //            foreach (ListItem Item in ddlModelo.Items)
+        //            {
+        //                if (Item.Text == modelo)
+        //                    ddlModelo.SelectedIndex = ddlModelo.Items.IndexOf(Item);
+        //            }
+        //        }
+        //        #region Eventos
+        //        protected void Page_Load(object sender, EventArgs e)
+        //        {
+        //            if (this.Session["Usuario"] == null)
+        //            {// si no esta registrdo como usuario va al login
+        //                Response.Redirect("Usuario/LogIn.aspx");
+        //            }
+        //            else
+        //            {
+        //                if (!this.IsPostBack)
+        //                {
+        //                    CargarDDL_FormaEnvio();
+        //                    CargarDDL_FormaPago();
+        //                    CargarDDL_Modelo();
+        //                    CargarLbl();
+        //                    if (this.Session["Modelo"] != null)
+        //                    {
+        //                        BuscarModeloEnDdl(this.Session["Modelo"].ToString());
+        //                        lblPrecio.Text = ddlModelo.SelectedItem.Value;
+        //                        int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
+        //                        CargarDdlCantidad(stock);
+        //                    }
+        //                }
+        //                ActualizarTotal();
+        //                ActualizarTabla();
+        //            }
 
-                DataTable Carrito = (DataTable)this.Session["Carrito"];
+        //        }
 
-                foreach (DataRow row in Carrito.Rows)
-                {
-                    string Modelo = row["MODELO"].ToString();
-                    int Cantidad = int.Parse(row["CANTIDAD"].ToString());
-                    float Precio_Unitario = float.Parse(row["PRECIO_UNITARIO"].ToString());
-                    ListDetalles.Add(nVenta.CargarDetalle(Modelo, Cantidad, Precio_Unitario));
-                }
+        //        protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
+        //        {
+        //            if (this.Session["Carrito"] != null)
+        //            {
+        //                NVenta nVenta = new NVenta();
 
-                if(nVenta.Confirmar(txtLegajo.Text, txtDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
-                {
-                    lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
-                    this.Session["Carrito"] = null;
-                    CargarLbl();
-                }
-                else
-                {
-                    lblRespuesta.Text = "Hubo un error al ingresar la venta";
-                }
-            }
-            else
-            {
-                lblRespuesta.Text = "Debe ingresar Celulares al carrito para confirmar la comppra.";
-            }
-        }
+        //                List <DetallesVentas> ListDetalles= new List<DetallesVentas>();
 
-        protected void btnAnadir_Click(object sender, EventArgs e)
-        {
-            if (this.Session["Carrito"] == null)//chequemos si carrito tiene datos
-            {
-                this.Session["Carrito"] = crearTabla();//Si esta vacio creo una tabla
-            }
-            //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
-            AgregarFila((DataTable)(this.Session["Carrito"]));
-            //actulizo lbl total 
-            ActualizarTotal();
-            //
-            ActualizarTabla();
+        //                DataTable Carrito = (DataTable)this.Session["Carrito"];
 
-            if (this.Session["Modelo"] != null)
-            {
-                this.Session["Modelo"] = null;
-            }
-        }
+        //                foreach (DataRow row in Carrito.Rows)
+        //                {
+        //                    string Modelo = row["MODELO"].ToString();
+        //                    int Cantidad = int.Parse(row["CANTIDAD"].ToString());
+        //                    float Precio_Unitario = float.Parse(row["PRECIO_UNITARIO"].ToString());
+        //                    ListDetalles.Add(nVenta.CargarDetalle(Modelo, Cantidad, Precio_Unitario));
+        //                }
 
-        protected void ddlModelo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Cargar lblPrecio
-            lblPrecio.Text = ddlModelo.SelectedItem.Value;
-            //cargar ddlCantidad
-            int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
-            CargarDdlCantidad(stock);
-        }
+        //                if(nVenta.Confirmar(txtLegajo.Text, txtDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
+        //                {
+        //                    lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
+        //                    this.Session["Carrito"] = null;
+        //                    CargarLbl();
+        //                }
+        //                else
+        //                {
+        //                    lblRespuesta.Text = "Hubo un error al ingresar la venta";
+        //                }
+        //            }
+        //            else
+        //            {
+        //                lblRespuesta.Text = "Debe ingresar Celulares al carrito para confirmar la comppra.";
+        //            }
+        //        }
 
-        protected void grdLista_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            if (this.Session["Carrito"] == null)
-            {
-                this.Session["Carrito"] = crearTabla();
-            }
+        //        protected void btnAnadir_Click(object sender, EventArgs e)
+        //        {
+        //            if (this.Session["Carrito"] == null)//chequemos si carrito tiene datos
+        //            {
+        //                this.Session["Carrito"] = crearTabla();//Si esta vacio creo una tabla
+        //            }
+        //            //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
+        //            AgregarFila((DataTable)(this.Session["Carrito"]));
+        //            //actulizo lbl total 
+        //            ActualizarTotal();
+        //            //
+        //            ActualizarTabla();
 
-            if (e.CommandName == "Select")
-            {
-                DataTable Carrito = (DataTable)this.Session["Carrito"];
-=======
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            CargarDDL_FormaEnvio();
-            CargarDDL_FormaPago();
-            CargarLbl();
->>>>>>> parent of 9d64e39... CarritoCliente
+        //            if (this.Session["Modelo"] != null)
+        //            {
+        //                this.Session["Modelo"] = null;
+        //            }
+        //        }
 
-        }
+        //        protected void ddlModelo_SelectedIndexChanged(object sender, EventArgs e)
+        //        {
+        //            //Cargar lblPrecio
+        //            lblPrecio.Text = ddlModelo.SelectedItem.Value;
+        //            //cargar ddlCantidad
+        //            int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
+        //            CargarDdlCantidad(stock);
+        //        }
 
-        protected void bttnAgregarItem_Click(object sender, EventArgs e)
-        {
+        //        protected void grdLista_RowCommand(object sender, GridViewCommandEventArgs e)
+        //        {
+        //            if (this.Session["Carrito"] == null)
+        //            {
+        //                this.Session["Carrito"] = crearTabla();
+        //            }
 
-        }
+        //            if (e.CommandName == "Select")
+        //            {
+        //                DataTable Carrito = (DataTable)this.Session["Carrito"];
+        //        protected void Page_Load(object sender, EventArgs e)
+        //        {
+        //            CargarDDL_FormaEnvio();
+        //            CargarDDL_FormaPago();
+        //            CargarLbl();
 
-        protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
-        {
+        //        }
 
-        }
+        //        protected void bttnAgregarItem_Click(object sender, EventArgs e)
+        //        {
 
-        protected void bttnCancelarCompra_Click(object sender, EventArgs e)
-        {
-            this.Session["Carrito"] = null;
+        //        }
 
-            ActualizarTotal();
+        //        protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
+        //        {
 
-            ActualizarTabla();
+        //        }
 
-            lblRespuesta.Text = " ";
+        //        protected void bttnCancelarCompra_Click(object sender, EventArgs e)
+        //        {
+        //            this.Session["Carrito"] = null;
 
-            lblImporte.Text = "0,00";
-        }
-        #endregion
+        //            ActualizarTotal();
+
+        //            ActualizarTabla();
+
+        //            lblRespuesta.Text = " ";
+
+        //            lblImporte.Text = "0,00";
+        //        }
+        //        #endregion
+        //    }
     }
 }

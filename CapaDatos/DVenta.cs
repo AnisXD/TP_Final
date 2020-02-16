@@ -96,7 +96,14 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
             SqlParametros.Value = IdMarca;
         }
-
+        private void ParametroVentasEntreFechas(ref SqlCommand Comando, string fecha_inicio, string fecha_fin)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@FECHA_DESDE", SqlDbType.VarChar, 14);
+            SqlParametros.Value = fecha_inicio;
+            SqlParametros = Comando.Parameters.Add("@FECHA_HASTA", SqlDbType.VarChar, 14);
+            SqlParametros.Value = fecha_fin;
+        }
         public DataTable MostrarTodas()
         {
             Conexion cn = new Conexion();
@@ -228,8 +235,6 @@ namespace CapaDatos
                 
         }
 
-        //ACA EMPIEZA LO QUE HIZO LEO
-
         private void ParametroDniUsuarioEntreFechas(ref SqlCommand Comando, string DniUsuario, string fecha_inicio, string fecha_fin)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -290,6 +295,14 @@ namespace CapaDatos
             ParametroIdMarcaEntreFechas(ref Comando, IdMarca, fecha_inicio, fecha_fin);
             Conexion cn = new Conexion();
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "sp_MostrarDetallesPorIdMarcaEntreFechas");
+            return TablaResultado;
+        }
+        public DataTable MostrarVentasEntreFechas(string fecha_inicio, string fecha_fin)
+        {
+            SqlCommand Comando = new SqlCommand();
+            ParametroVentasEntreFechas(ref Comando, fecha_inicio, fecha_fin);
+            Conexion cn = new Conexion();
+            DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarVentasEntreFechas");
             return TablaResultado;
         }
     }
