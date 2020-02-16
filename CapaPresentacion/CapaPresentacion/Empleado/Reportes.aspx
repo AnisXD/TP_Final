@@ -5,7 +5,7 @@
     <h2>Total recaudado por: </h2>
     <br />
 
-        <asp:CheckBox ID="cbFecha" runat="server" Text="Fecha" CssClass="ControlesASP" AutoPostBack="True" />
+        <asp:CheckBox ID="cbFecha" runat="server" Text="Fecha" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="cbFecha_CheckedChanged" />
        
         <asp:Calendar ID="FechaInicio" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="100px" NextPrevFormat="FullMonth" SelectedDate="11/16/2019 12:36:13" Width="200px">
             <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
@@ -25,7 +25,7 @@
         </asp:Calendar>
        
         <br />
-    <asp:CheckBox ID="cbId" runat="server" CssClass="ControlesASP" Text="Id" AutoPostBack="True" Height="22px" />
+    <asp:CheckBox ID="cbId" runat="server" CssClass="ControlesASP" Text="Id" AutoPostBack="True" Height="22px" OnCheckedChanged="cbId_CheckedChanged" />
     <br />
 <asp:DropDownList ID="ddlId" runat="server" AutoPostBack="True" CssClass="ControlesASP" Height="35px" OnSelectedIndexChanged="ddlId_SelectedIndexChanged" Width="95%">
     <asp:ListItem>A determinar</asp:ListItem>
@@ -37,7 +37,7 @@
 </asp:DropDownList>
 <asp:TextBox ID="tbId" runat="server" CssClass="ControlesASP" Width="95%"></asp:TextBox>
     <br />
-    <asp:DropDownList ID="ddlMM" runat="server" CssClass="ControlesASP" Height="35px" Width="95%" AutoPostBack="True">
+    <asp:DropDownList ID="ddlMM" runat="server" CssClass="ControlesASP" Height="35px" Width="95%">
         <asp:ListItem>A determinar</asp:ListItem>
 </asp:DropDownList>
     <br />

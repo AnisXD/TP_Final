@@ -70,6 +70,21 @@ namespace CapaOperaciones
         {
             return new DVenta().MostrarDetallePorIdMarca(IdMarca);//muestra los detalles por marca
         }
-
+        public DataTable MostrarPorModeloEntreFechas(string idmodelo, string fecha_inicio, string fecha_fin)
+        {
+            return new DVenta().MostrarDetallesPorIdModeloEntreFechas(idmodelo, fecha_inicio, fecha_fin);
+        }
+        public DataTable MostrarPorMarcaEntreFechas(string idmarca, string fecha_inicio, string fecha_fin)
+        {
+            return new DVenta().MostrarDetallesPorIdMarcaEntreFechas(idmarca, fecha_inicio, fecha_fin);
+        }
+        public DataTable MostrarPorVendedorEntreFechas(string DNI, string fecha_inicio, string fecha_fin)
+        {
+            return new DVenta().MostrarVentasPorVendedorEntreFechas(DNI, fecha_inicio, fecha_fin);
+        }
+        public DataTable MostrarPorClienteEntreFechas(string DNI, string fecha_inicio, string fecha_fin)
+        {
+            return new DVenta().MostrarVentasPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin);
+        }
     }
 }
