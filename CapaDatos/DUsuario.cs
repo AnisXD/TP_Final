@@ -18,7 +18,7 @@ namespace CapaDatos
             return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarUsuarios");
         }
 
-        private void ParametrosUsuario(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosUsuario(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
@@ -40,7 +40,7 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@ROL", SqlDbType.VarChar, 1);
             SqlParametros.Value = usuario.Rol;
         }
-        public bool AgregarUsuario(Usuario usuario)
+        public bool AgregarUsuario(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosUsuario(ref Comando, usuario);
@@ -81,7 +81,7 @@ namespace CapaDatos
             return cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorRol");
             
         }
-        private void ParametrosValidarExisteUsuario(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosValidarExisteUsuario(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
@@ -90,7 +90,7 @@ namespace CapaDatos
             SqlParametros.Value = usuario.Contraseña;
         }
 
-        public bool ValidarExisteUsuario(Usuario usuario)
+        public bool ValidarExisteUsuario(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosValidarExisteUsuario(ref Comando, usuario);
@@ -103,13 +103,13 @@ namespace CapaDatos
                 return false;
         }
 
-        private void ParametrosObtenerRolUsuario(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosObtenerRolUsuario(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
             SqlParametros.Value = usuario.DNI;
         }
-        public DataTable ObtenerRolUsuario(Usuario usuario)
+        public DataTable ObtenerRolUsuario(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerRolUsuario(ref Comando, usuario);
@@ -118,13 +118,13 @@ namespace CapaDatos
             return TablaResultado;
         }
 
-        private void ParametrosObtenerNombreUsuario(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosObtenerNombreUsuario(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
             SqlParametros.Value = usuario.DNI;
         }
-        public DataTable ObtenerNombreUsuario(Usuario usuario)
+        public DataTable ObtenerNombreUsuario(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerNombreUsuario(ref Comando, usuario);
@@ -132,7 +132,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "ObtenerNombreUsuario");
             return TablaResultado;
         }
-        private void ParametrosObtenerUsuariosPorDNI(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosObtenerUsuariosPorDNI(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
@@ -140,7 +140,7 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@ROLUSU", SqlDbType.VarChar, 1);
             SqlParametros.Value = usuario.Rol;
         }
-        private void ParametrosObtenerUsuariosPorApellido (ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosObtenerUsuariosPorApellido (ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@APELLIDO", SqlDbType.VarChar, 30);
@@ -148,7 +148,7 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@ROLUSU", SqlDbType.VarChar, 1);
             SqlParametros.Value = usuario.Rol;
         }
-        public DataTable ObtenerUsuariosPorDNI(Usuario usuario)
+        public DataTable ObtenerUsuariosPorDNI(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerUsuariosPorDNI(ref Comando, usuario);
@@ -156,7 +156,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorDNIRol");
             return TablaResultado;
         }
-        public DataTable ObtenerUsuariosPorApellido(Usuario usuario)
+        public DataTable ObtenerUsuariosPorApellido(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerUsuariosPorApellido(ref Comando, usuario);
@@ -164,7 +164,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarUsuariosPorApellido");
             return TablaResultado;
         }
-        private void ParametrosActualizarUsuario(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosActualizarUsuario(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
@@ -184,7 +184,7 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@ROL", SqlDbType.VarChar, 1);
             SqlParametros.Value = usuario.Rol;
         }
-        public bool ActualizarUsuario(Usuario usuario)
+        public bool ActualizarUsuario(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosActualizarUsuario(ref Comando, usuario);
@@ -195,7 +195,7 @@ namespace CapaDatos
             else
                 return false;
         }
-        public bool ActualizarUsuarioC(Usuario usuario)
+        public bool ActualizarUsuarioC(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosUsuario(ref Comando, usuario);
@@ -207,7 +207,7 @@ namespace CapaDatos
                 return false;
         }
 
-        public bool EliminarCliente(Usuario usuario)
+        public bool EliminarCliente(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerUsuariosPorDNI(ref Comando, usuario);
@@ -219,13 +219,13 @@ namespace CapaDatos
                 return false;
         }
 
-        private void ParametrosObtenerDatosUsuario(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosObtenerDatosUsuario(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
             SqlParametros.Value = usuario.DNI;
         }
-        public DataTable ObtenerDatosUsuario(Usuario usuario)
+        public DataTable ObtenerDatosUsuario(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerDatosUsuario(ref Comando, usuario);
@@ -233,7 +233,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "ObtenerDatosUsuario");
             return TablaResultado;
         }
-        public DataTable ObtenerTEST(Usuario usuario)
+        public DataTable ObtenerTEST(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosObtenerDatosUsuario(ref Comando, usuario);
@@ -242,7 +242,7 @@ namespace CapaDatos
             return TablaResultado;
         }
 
-        private void ParametrosActualizarTEST(ref SqlCommand Comando, Usuario usuario)
+        private void ParametrosActualizarTEST(ref SqlCommand Comando, Usuarios usuario)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@DNI", SqlDbType.VarChar, 15);
@@ -250,7 +250,7 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@NOMBRE", SqlDbType.VarChar, 30);
             SqlParametros.Value = usuario.Nombre;
         }
-        public bool ActualizarTEST(Usuario usuario)
+        public bool ActualizarTEST(Usuarios usuario)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosActualizarTEST(ref Comando, usuario);

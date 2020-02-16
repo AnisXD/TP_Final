@@ -4,9 +4,9 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">    
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalCliente" runat="server">
-    <h1>Modificacion de datos</h1>
    <div id="FormClientes" class="Form">
-            <br />
+     <h2>Modificacion de datos</h2>
+           <br />
        <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
@@ -60,7 +60,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -106,7 +106,7 @@
                     REPITA CONTRASEÑA:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" CssClass="ControlesASP" Width="160px"></asp:TextBox>
+                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" CssClass="ControlesASP" ></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv1" runat="server" ControlToCompare="txbClave" ControlToValidate="txbRepitaClave" ErrorMessage="Las Contraseñas son distintas." SetFocusOnError="True" ValidationGroup="1"></asp:CompareValidator>

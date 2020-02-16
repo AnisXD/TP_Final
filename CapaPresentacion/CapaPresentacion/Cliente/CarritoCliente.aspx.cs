@@ -5,14 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using CapaOperaciones;
 using ENTIDADES;
+using CapaOperaciones;
 
 namespace CapaPresentacion.Cliente
 {
     public partial class CarritoCliente : System.Web.UI.Page
     {
-<<<<<<< HEAD
         public void ActualizarTabla()
         {
             if (this.Session["Carrito"] == null)
@@ -67,7 +66,7 @@ namespace CapaPresentacion.Cliente
 
                 Carrito.Rows.Add(dr);
             }
-            
+
         }
 
         public void ActualizarTotal()
@@ -90,15 +89,13 @@ namespace CapaPresentacion.Cliente
             }
         }
 
-=======
->>>>>>> parent of 9d64e39... CarritoCliente
         public void CargarLbl()
         {
             txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
-            txtFecha.Text = System.DateTime.Today.ToString();
-            txtLegajo.Text = "MoviCenter";
-            //txtDNICliente.Text = this.Session["Usuario"].ToString();//TENGO QUE BUSCAR EN EL SESSION EL DNI 
-            lblImporte.Text = "Importe a pagar: $" + "0";//BUSCAR SI HAY CELULARES CARGADOS Y CALCULAR TOTAL
+            txtFecha.Text = System.DateTime.Today.ToShortDateString();
+            txtLegajo.Text = "MoviCenter"; // al ser una compra online que hace el cliente no se carga vendedor
+            txtDNICliente.Text = this.Session["Usuario"].ToString();//TENGO QUE BUSCAR EN EL SESSION EL DNI 
+            lblImporte.Text = "0";//BUSCAR SI HAY CELULARES CARGADOS Y CALCULAR TOTAL
         }
         public void CargarDDL_FormaEnvio()
         {
@@ -117,7 +114,6 @@ namespace CapaPresentacion.Cliente
             ddlFPago.DataValueField = "Id";
             ddlFPago.DataBind();
         }
-<<<<<<< HEAD
         public void CargarDDL_Modelo()
         {
             NCelular Obj = new NCelular();
@@ -130,7 +126,7 @@ namespace CapaPresentacion.Cliente
         {
             int i;
             ddlCantidad.Items.Clear();
-            for(i=1; i<=Max; i++)
+            for (i = 1; i <= Max; i++)
             {
                 ddlCantidad.Items.Add(i.ToString());
             }
@@ -148,7 +144,7 @@ namespace CapaPresentacion.Cliente
         {
             if (this.Session["Usuario"] == null)
             {// si no esta registrdo como usuario va al login
-                Response.Redirect("Usuario/LogIn.aspx");
+                Response.Redirect("~/Usuario/LogIn.aspx");
             }
             else
             {
@@ -169,7 +165,7 @@ namespace CapaPresentacion.Cliente
                 ActualizarTotal();
                 ActualizarTabla();
             }
-            
+
         }
 
         protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
@@ -177,8 +173,8 @@ namespace CapaPresentacion.Cliente
             if (this.Session["Carrito"] != null)
             {
                 NVenta nVenta = new NVenta();
-                
-                List <DetallesVentas> ListDetalles= new List<DetallesVentas>();
+
+                List<DetallesVentas> ListDetalles = new List<DetallesVentas>();
 
                 DataTable Carrito = (DataTable)this.Session["Carrito"];
 
@@ -190,11 +186,13 @@ namespace CapaPresentacion.Cliente
                     ListDetalles.Add(nVenta.CargarDetalle(Modelo, Cantidad, Precio_Unitario));
                 }
 
-                if(nVenta.Confirmar(txtLegajo.Text, txtDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
+                if (nVenta.Confirmar(txtLegajo.Text, txtDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
                 {
                     lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
                     this.Session["Carrito"] = null;
-                    CargarLbl();
+                    ActualizarTabla();
+                    ActualizarTotal();
+                    txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
                 }
                 else
                 {
@@ -245,24 +243,35 @@ namespace CapaPresentacion.Cliente
             if (e.CommandName == "Select")
             {
                 DataTable Carrito = (DataTable)this.Session["Carrito"];
-=======
-        protected void Page_Load(object sender, EventArgs e)
-        {
-            CargarDDL_FormaEnvio();
-            CargarDDL_FormaPago();
-            CargarLbl();
->>>>>>> parent of 9d64e39... CarritoCliente
 
+                int pos = int.Parse(e.CommandArgument.ToString());
+
+                Carrito.Rows.RemoveAt(pos);
+
+                if (Carrito.Rows.Count == 0)
+                    Carrito = null;
+
+                ActualizarTotal();
+
+                ActualizarTabla();
+            }
         }
 
-        protected void bttnAgregarItem_Click(object sender, EventArgs e)
+        protected void grdLista_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //nada
         }
 
-        protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
+        protected void grdLista_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
+            //nada
+        }
 
+        protected void grdLista_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            grdLista.PageIndex = e.NewPageIndex;
+
+            ActualizarTabla();
         }
 
         protected void bttnCancelarCompra_Click(object sender, EventArgs e)

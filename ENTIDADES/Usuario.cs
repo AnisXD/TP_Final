@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    public class Usuario
+    public class Usuarios
     {
         #region Propiedades
         private string _DNI;
@@ -22,7 +22,7 @@ namespace ENTIDADES
         #endregion
 
         #region Constructores
-        public Usuario()
+        public Usuarios()
         {
             this.DNI = string.Empty;
             this.Nombre = string.Empty;
@@ -36,7 +36,7 @@ namespace ENTIDADES
             this.Estado = true; 
         }
 
-        public Usuario(string dni, string nombre, string apellido, string telefono, int Id_Provincia, int Id_Localidad, string Calle_y_Altura, string contraseña, char rol, bool estado)
+        public Usuarios(string dni, string nombre, string apellido, string telefono, int Id_Provincia, int Id_Localidad, string Calle_y_Altura, string contraseña, char rol, bool estado)
         {
             this.DNI = dni;
             this.Nombre = nombre;
