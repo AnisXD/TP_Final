@@ -60,7 +60,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="Ddl" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -71,7 +71,7 @@
                     LOCALIDAD:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="ControlesASP">
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="Ddl">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">

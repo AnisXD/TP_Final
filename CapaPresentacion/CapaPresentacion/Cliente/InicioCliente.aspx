@@ -7,7 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzCliente" runat="server">
   
  <div id="Filtros">
-    
+    <p>&nbsp;</p>
     <h2>Filtrar por:</h2>
     
     <asp:CheckBox ID="CbxMarca" runat="server" Text="Marca" CssClass="ControlesASP"/>
@@ -31,7 +31,6 @@
 
        <asp:Label ID="lblTotalRegistros" runat="server" Text="Celulares disponibles: " CssClass="LabelLarga"></asp:Label>
        <asp:ListView ID="lvwCelulares" runat="server" GroupItemCount="2" >
-           <%-- DataKeyNames="Modelo" DataSourceID="SqlDataSource1" --%>
            <EmptyDataTemplate>
                <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
                    <tr>
@@ -99,11 +98,7 @@
 
        </asp:ListView>
 
-       <%--<asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="MostrarCelulares" SelectCommandType="StoredProcedure" UpdateCommand="MostrarCelularesPorIdMarca" UpdateCommandType="StoredProcedure">
-           <UpdateParameters>
-               <asp:Parameter Name="IDMARCA" Type="String" />
-           </UpdateParameters>
-       </asp:SqlDataSource>--%>
+      
 
     </div></asp:Content>
 

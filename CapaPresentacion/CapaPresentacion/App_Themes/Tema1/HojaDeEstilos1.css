@@ -1,10 +1,8 @@
 ﻿* {
+    margin: 0 0 0 0px;
     padding: 0;
     font-family: 'Times New Roman', Times, serif;
     box-sizing: border-box;
-    margin-left: 0px;
-    margin-right: 0;
-    margin-bottom: 0;
 }
 
 
@@ -52,7 +50,7 @@ li {
     padding: 5px;
     cursor: pointer;
     border: 1px outset #030d62;
-    border-radius:5px;
+    border-radius: 5px;
     box-shadow: 0px 0px 2px inset #373737;
     opacity: 0,9;
 }
@@ -105,6 +103,16 @@ li {
         margin: 10px;
     }
 
+#Bajo {
+    width: 1080px;
+    margin: auto;
+    background-color: #ffffff;
+    border-radius: 0px 0px 20px 20px;
+    overflow: auto;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0px 0px 10px rgba(1, 59, 44, 0.85);
+}
 #Bajo {
     width: 1080px;
     margin: auto;
@@ -360,6 +368,14 @@ li {
     padding: 3px 10px;
     margin: 8px 0;
     display: inline-block;
+}
+
+.Ddl {
+    width: 95%;
+    font-size: 20px;
+    padding: 3px 10px;
+    margin: 8px 0;
+    display: block;
 }
 
 .DropDownList {
