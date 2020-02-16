@@ -75,6 +75,8 @@ namespace CapaDatos
         public void ParametrosDetalle(ref SqlCommand Comando, DetallesVentas Obj)
         {
             SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDVENTA", SqlDbType.Int);
+            SqlParametros.Value = ObtenerIdVenta();
             SqlParametros = Comando.Parameters.Add("@IDMODELODV", SqlDbType.VarChar, 15);
             SqlParametros.Value = Obj.IdModelo;
             SqlParametros = Comando.Parameters.Add("@CANTIDADDV", SqlDbType.Int);
@@ -209,11 +211,12 @@ namespace CapaDatos
             //chequeo si se inserto bien la venta
             if (FilasInsertadas == 1)
             {
-                ParametroIdVenta(ref Comando, ObtenerIdVenta());
+                
                 foreach (DetallesVentas Item in Detalles)
                 {
-                    ParametrosDetalle(ref Comando, Item);
-                    FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaDetalleVenta");
+                    SqlCommand ComandoD = new SqlCommand();
+                    ParametrosDetalle(ref ComandoD, Item);
+                    FilasInsertadas = cn.EjecutarProcedimientoDeABM(ComandoD, "AltaDetalleVenta");
                     if(FilasInsertadas!=1)
                     {
                         return false;//falla en cargar detalle
