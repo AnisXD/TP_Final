@@ -29,7 +29,7 @@
     <div id="InicioCliente" class="Form">
      <h2>Celulares</h2>
 
-       <asp:Label ID="lblTotalRegistros" runat="server" Text="Celulares disponibles: "></asp:Label>
+       <asp:Label ID="lblTotalRegistros" runat="server" Text="Celulares disponibles: " CssClass="LabelLarga"></asp:Label>
        <asp:ListView ID="lvwCelulares" runat="server" GroupItemCount="2" >
            <%-- DataKeyNames="Modelo" DataSourceID="SqlDataSource1" --%>
            <EmptyDataTemplate>

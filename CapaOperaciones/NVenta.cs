@@ -15,7 +15,7 @@ namespace CapaOperaciones
         public bool Confirmar(string idvendedor, string idcliente, char idformaenvio, char idformapago, float total, List<DetallesVentas> Detalles)
         {
             Venta ObjVenta = new Venta
-            {
+            {//no cargo id por que se genera automaticamente en BD
                 IdVendedor = idvendedor,
                 IdCliente= idcliente,
                 IdFormaEnvio = idformaenvio,
@@ -37,7 +37,7 @@ namespace CapaOperaciones
             };
             return Obj;
         }
-        public int ObtenerIdVenta()//se usa para obtener el id de esta venta
+        public int ObtenerIdVenta()
         {
             return (new DVenta().ObtenerIdVenta() + 1);
         }

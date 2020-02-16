@@ -26,7 +26,7 @@ namespace CapaPresentacion.Cliente
                 NombreUsuario = dr["Nombre"].ToString();
                 ApellidoUsuario = dr["Apellido"].ToString();
 
-                lblUsuario.Text = "Bienvenido" + " " + NombreUsuario + " " + ApellidoUsuario;
+                lblUsuario.Text =  NombreUsuario + " " + ApellidoUsuario;
             }
             else
             {
