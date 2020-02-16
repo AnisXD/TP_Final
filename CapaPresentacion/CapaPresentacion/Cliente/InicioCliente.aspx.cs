@@ -165,7 +165,8 @@ namespace CapaPresentacion.Cliente
 
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
         {
-            //aca hay que hacer que se guarden los datos del producto en una variable session para recuperarlo al ir al carrito
+            this.Session["Modelo"] = e.CommandArgument;
+            Response.Redirect("./CarritoCliente.aspx");
         }
     }
 }

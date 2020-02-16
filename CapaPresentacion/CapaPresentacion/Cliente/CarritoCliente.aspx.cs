@@ -50,7 +50,6 @@ namespace CapaPresentacion.Cliente
             String MODELO = ddlModelo.SelectedItem.Text;
             String PRECIO_UNITARIO = lblPrecio.Text;// el lbl precio se carga a seeccionar un modelo en el ddl
 
-
             foreach (DataRow row in Carrito.Rows)
             {
                 if (row["MODELO"].ToString() == MODELO)
@@ -59,9 +58,7 @@ namespace CapaPresentacion.Cliente
                     band = 1;
                 }
             }
-
             //AGREGA FILA
-
             if (band == 0)
             {
                 dr["MODELO"] = MODELO;
@@ -70,6 +67,9 @@ namespace CapaPresentacion.Cliente
 
                 Carrito.Rows.Add(dr);
             }
+            //actuaizar grid
+            grdLista.DataSource = Carrito;
+            grdLista.DataBind();
         }
 
         public void ActualizarTotal()
@@ -128,10 +128,18 @@ namespace CapaPresentacion.Cliente
         private void CargarDdlCantidad(int Max)
         {
             int i;
-            
+            ddlCantidad.Items.Clear();
             for(i=1; i<=Max; i++)
             {
                 ddlCantidad.Items.Add(i.ToString());
+            }
+        }
+        private void BuscarModeloEnDdl(string modelo)
+        {
+            foreach (ListItem Item in ddlModelo.Items)
+            {
+                if (Item.Text == modelo)
+                    ddlModelo.SelectedIndex = ddlModelo.Items.IndexOf(Item);
             }
         }
 
@@ -149,12 +157,16 @@ namespace CapaPresentacion.Cliente
                     CargarDDL_FormaPago();
                     CargarDDL_Modelo();
                     CargarLbl();
-                
+                    if (this.Session["Modelo"] != null)
+                    {
+                        BuscarModeloEnDdl(this.Session["Modelo"].ToString());
+                        lblPrecio.Text = ddlModelo.SelectedItem.Value;
+                        int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
+                        CargarDdlCantidad(stock);
+                    }
                 }
-
                 ActualizarTotal();
                 ActualizarTabla();
-           
             }
             
         }
@@ -163,7 +175,6 @@ namespace CapaPresentacion.Cliente
         {
             if (this.Session["Carrito"] != null)
             {
-                
                 NVenta nVenta = new NVenta();
                 
                 List <DetallesVentas> ListDetalles= new List<DetallesVentas>();
@@ -178,8 +189,16 @@ namespace CapaPresentacion.Cliente
                     ListDetalles.Add(nVenta.CargarDetalle(Modelo, Cantidad, Precio_Unitario));
                 }
 
-                nVenta.Confirmar(lblLegajo.Text, lblDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles);
-                lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
+                if(nVenta.Confirmar(lblLegajo.Text, lblDNICliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
+                {
+                    lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
+                    this.Session["Carrito"] = null;
+                    CargarLbl();
+                }
+                else
+                {
+                    lblRespuesta.Text = "Hubo un error al ingresar la venta";
+                }
             }
             else
             {
@@ -189,16 +208,21 @@ namespace CapaPresentacion.Cliente
 
         protected void btnAnadir_Click(object sender, EventArgs e)
         {
-            if (this.Session["Carrito"] == null)
+            if (this.Session["Carrito"] == null)//chequemos si carrito tiene datos
             {
-                this.Session["Carrito"] = crearTabla();
+                this.Session["Carrito"] = crearTabla();//Si esta vacio creo una tabla
             }
-
+            //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
             AgregarFila((DataTable)(this.Session["Carrito"]));
-
+            //actulizo lbl total 
             ActualizarTotal();
-
+            //
             ActualizarTabla();
+
+            if (this.Session["Modelo"] != null)
+            {
+                this.Session["Modelo"] = null;
+            }
         }
 
         protected void ddlModelo_SelectedIndexChanged(object sender, EventArgs e)
@@ -249,6 +273,19 @@ namespace CapaPresentacion.Cliente
             grdLista.PageIndex = e.NewPageIndex;
 
             ActualizarTabla();
+        }
+
+        protected void bttnCancelarCompra_Click(object sender, EventArgs e)
+        {
+            this.Session["Carrito"] = null;
+
+            ActualizarTotal();
+
+            ActualizarTabla();
+
+            lblRespuesta.Text = " ";
+
+            lblImporte.Text = "0,00";
         }
     }
 }

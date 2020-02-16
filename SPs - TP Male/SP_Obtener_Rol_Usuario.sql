@@ -1,6 +1,6 @@
 CREATE PROCEDURE ObtenerRolUsuario
 (
-@DNIUSU varchar(15)
+@DNIUSU varchar(9)
 )
 AS
 SELECT 

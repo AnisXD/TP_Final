@@ -97,26 +97,26 @@ namespace CapaPresentacion.Empleado
                 if (id.Equals("Vendedor"))
                 {
                     DNI = tbId.Text;
-                    gvwReporte.DataSource = Obj.BuscarUsuarioPorDNIV(DNI);
+                    gvwReporte.DataSource = Obj.MostrarPorVendedor(DNI);
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
                 }
                 if (id.Equals("Cliente")) 
                 { 
                     DNI = tbId.Text;
-                    gvwReporte.DataSource = Obj.BuscarUsuarioPorDNIC(DNI);
+                    gvwReporte.DataSource = Obj.MostrarPorCliente(DNI);
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
                 }
                     if (id.Equals("Modelo"))
                     {
-                        cargarDgv(Obj.BuscarPorModelo(ddlMM.SelectedValue));
+                        cargarDgv(Obj.MostrarPorModelo(ddlMM.SelectedValue));
                         CargarDDL_Modelo();
                     }
 
                     if (id.Equals("Marca"))
                     {
-                        cargarDgv(Obj.BuscarPorMarca(ddlMM.SelectedValue));
+                        cargarDgv(Obj.MostrarPorMarca(ddlMM.SelectedValue));
                         CargarDDL_Marcas();
                     }
             }

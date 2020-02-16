@@ -165,8 +165,7 @@ namespace CapaPresentacion.Usuario
         }
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
         {
-            lblFiltro.Text = "Primero debe ingresar como usuario para poder agregar al carrito el celular: " + e.CommandArgument;
-            
+            this.Session["Modelo"] = e.CommandArgument;
             Response.Redirect("/Usuario/LogIn.aspx");
         }
         #endregion

@@ -14,7 +14,14 @@ namespace CapaPresentacion.Usuario
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                if(this.Session["Modelo"]!=null)
+                {
+                    lblRespuesta.Text = "Atencion: Para poder realizar la compra primero debe loguerse con su cuenta o registrarse como usuario.";
+                }
+            }
+            
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
@@ -40,6 +47,10 @@ namespace CapaPresentacion.Usuario
                     case "C":
                         txtUsuario.Text = ""; txtClave.Text = "";
                         this.Session["Usuario"] = Usuario;
+                        if (this.Session["Modelo"] != null)
+                        {
+                            Response.Redirect("~/Cliente/CarritoCliente.aspx");
+                        }
                         Response.Redirect("~/Cliente/InicioCliente.aspx");
                     break;
                     case "E":

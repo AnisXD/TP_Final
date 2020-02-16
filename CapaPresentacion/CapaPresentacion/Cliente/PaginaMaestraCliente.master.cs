@@ -28,6 +28,10 @@ namespace CapaPresentacion.Cliente
 
                 lblUsuario.Text = "Bienvenido" + " " + NombreUsuario + " " + ApellidoUsuario;
             }
+            else
+            {
+                Response.Redirect("~/Usuario/LogIn.aspx");
+            }
         }
 
         protected void btCerrarSesion_Click(object sender, EventArgs e)
