@@ -14,15 +14,20 @@ namespace CapaPresentacion.Empleado
     {
         private void cargarDgv(DataTable Ventas)
         {
+            lblTotal.Visible = true;
             gvwReporte.DataSource = Ventas;
             gvwReporte.DataBind();
             lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+            float sumatoria = Sumatotal(Ventas, "Total");
+            lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
+
         }
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
+                lblTotal.Visible = true;
                 cargarDgv(new NVenta().Mostrar());
                 tbId.Visible = false;
                 ddlMM.Visible = false;
@@ -86,11 +91,15 @@ namespace CapaPresentacion.Empleado
             }
         }
 
+
         protected void bttnAceptar_Click(object sender, EventArgs e)
         {
             NVenta Obj = new NVenta();
 
             lblTotalRegistros.Text = "";
+            float sumatoria;
+            lblTotal.Visible = true;
+            lblTotal.Text = "";
 
             if (cbId.Checked == true && cbFecha.Checked == false)
             {
@@ -103,18 +112,25 @@ namespace CapaPresentacion.Empleado
                     gvwReporte.DataSource = Obj.MostrarPorVendedor(DNI);
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorCliente(DNI), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                 }
+
                 if (id.Equals("Cliente")) 
                 { 
                     DNI = tbId.Text;
                     gvwReporte.DataSource = Obj.MostrarPorCliente(DNI);
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorCliente(DNI), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                 }
                 if (id.Equals("Modelo"))
                 {
                     cargarDgv(Obj.MostrarPorModelo(ddlMM.SelectedValue));
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorModelo(ddlMM.SelectedValue), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                     //  CargarDDL_Modelo();
                 }
 
@@ -122,18 +138,23 @@ namespace CapaPresentacion.Empleado
                 {
                     cargarDgv(Obj.MostrarPorMarca(ddlMM.SelectedValue));
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorMarca(ddlMM.SelectedValue), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                     // CargarDDL_Marcas();
                 }
 
                 if (id.Equals("Total Ventas"))
                 {
-                    cargarDgv(new NVenta().Mostrar());
+                    cargarDgv(Obj.Mostrar());
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.Mostrar(), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                 }
             }
             else if (cbId.Checked == false)
             {
                 lblTotalRegistros.Text = "Seleccione como minimo un ID.";
+                lblTotal.Visible = false;
             }
 
             if (cbId.Checked == true && cbFecha.Checked == true)
@@ -149,6 +170,8 @@ namespace CapaPresentacion.Empleado
                     gvwReporte.DataSource = Obj.MostrarPorVendedorEntreFechas(DNI, fecha_inicio, fecha_fin);
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorVendedorEntreFechas(DNI, fecha_inicio, fecha_fin), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                 }
                 if (id.Equals("Cliente"))
                 {
@@ -156,12 +179,16 @@ namespace CapaPresentacion.Empleado
                     gvwReporte.DataSource = Obj.MostrarPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin);
                     gvwReporte.DataBind();
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                 }
 
                 if (id.Equals("Modelo"))
                 {
                     cargarDgv(Obj.MostrarPorModeloEntreFechas(ddlMM.SelectedValue, fecha_inicio, fecha_fin));
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.MostrarPorModeloEntreFechas(ddlMM.SelectedValue, fecha_inicio, fecha_fin), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                     //CargarDDL_Modelo();
                 }
 
@@ -169,15 +196,29 @@ namespace CapaPresentacion.Empleado
                 {
                     cargarDgv(Obj.MostrarPorMarcaEntreFechas(ddlMM.SelectedValue, fecha_inicio, fecha_fin));
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
-                   // CargarDDL_Marcas();
+                    sumatoria = Sumatotal(Obj.MostrarPorMarcaEntreFechas(ddlMM.SelectedValue, fecha_inicio, fecha_fin), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
+                    // CargarDDL_Marcas();
                 }
 
                 if (id.Equals("Total Ventas"))
                 {
                     cargarDgv(Obj.MostrarVentasEntreFechas(fecha_inicio, fecha_fin));
                     lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                    sumatoria = Sumatotal(Obj.Mostrar(), "Total");
+                    lblTotal.Text = "Total Recaudado: " + Convert.ToString(sumatoria);
                 }
             }
+        }
+        private float Sumatotal(DataTable table, string NombreColumna)
+        {
+            float sumatoria = 0;
+
+            foreach (DataRow row in table.Rows)
+            {
+                sumatoria += float.Parse(row[NombreColumna].ToString());
+            }
+            return sumatoria;
         }
 
         protected void bttnCancelar_Click(object sender, EventArgs e)

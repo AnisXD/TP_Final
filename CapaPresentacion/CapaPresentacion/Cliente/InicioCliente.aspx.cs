@@ -102,15 +102,14 @@ namespace CapaPresentacion.Cliente
         {
             string Filtro = "";
             NCelular Obj = new NCelular();
-            if (CbxModelo.Checked)//si modelo esta seleccionado solo busca por modelo
+            if (CbxModelo.Checked)
             {
-                lblFiltro.Text = "Filtrar por Modelo: " + ddlModelo.SelectedItem.Text + " - value: " + ddlModelo.SelectedValue;
                 cargarListView(Obj.BuscarPorModelo(ddlModelo.SelectedValue));
             }
-            else //si modelo no esta seleccionado se fija si esta seleccionado marca Y precio
+            else 
             {
                 if (CbxMarca.Checked && CbxPrecio.Checked)
-                {//como marca Y precio estan seleccionados arma un filtro
+                {
                     Obj.AgregarFiltro("ID_MARCA_CEL",
                                       "Es igual a:",
                                       ddlMarca.SelectedItem.Value,
@@ -119,30 +118,28 @@ namespace CapaPresentacion.Cliente
                                       ddlPrecio.SelectedItem.Text,
                                       txtPrecio.Text,
                                       ref Filtro);
-                    lblFiltro.Text = "Filtrar por marca: " + ddlMarca.SelectedItem.Text + " - value: " + ddlMarca.SelectedValue + " y por Precio: " + ddlPrecio.SelectedItem.Text + txtPrecio.Text;
-                    //Ahora carga el gridview segun el filtro armado
                     cargarListView(Obj.BuscarPorFiltro(Filtro));
                 }
-                else// Ahora tengo que buscar si marca O precio estan seleccionados
+                else
                 {
-                    if (CbxMarca.Checked)//En este punto solo el Rbtn Marca esta seleccionado
+                    if (CbxMarca.Checked)
                     {
                         lblFiltro.Text = "Filtrar por marca: " + ddlMarca.SelectedItem.Text + " - value: " + ddlMarca.SelectedValue;
                         cargarListView(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
                     }
                     else
                     {
-                        if (CbxPrecio.Checked)//En este punto solo el Rbtn Precio esta seleccionado
+                        if (CbxPrecio.Checked)
                         {
                             Obj.AgregarFiltro("PRECIO_UNITARIO_CEL",
                                       ddlPrecio.SelectedItem.Text,
                                       txtPrecio.Text,
                                       ref Filtro);
                             lblFiltro.Text = "Filtrar por Precio: " + ddlPrecio.SelectedItem.Text + txtPrecio.Text;
-                            //Ahora carga el gridview segun el filtro armado
+
                             cargarListView(Obj.BuscarPorFiltro(Filtro));
                         }
-                        else//si llega hasta aca ninguno de los Rbtn esta seleccionado
+                        else
                         {
                             lblFiltro.Text = "Para filtrar los celulares debe seleccionar algun criterio";
                         }

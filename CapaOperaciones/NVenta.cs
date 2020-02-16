@@ -56,7 +56,7 @@ namespace CapaOperaciones
         }
         public DataTable MostrarPorCliente(string IdCliente)//muestra las ventas sin detalles por vendedor
         {
-            return new DVenta().MostrarPorVendedor(IdCliente);
+            return new DVenta().MostrarPorCliente(IdCliente);
         }
         public DataTable MostrarDetalle(int IdVenta)//muestra los detalles de una venta
         {
