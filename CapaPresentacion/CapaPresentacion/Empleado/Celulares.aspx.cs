@@ -378,5 +378,9 @@ namespace CapaPresentacion.Empleado
 
         #endregion
 
+        protected void CbxMarca_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

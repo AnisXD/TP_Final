@@ -47,6 +47,10 @@ namespace CapaPresentacion.Empleado
                             break;
                     }
             }
+            //else
+            //{
+            //    Response.Redirect("~/Usuario/LogIn.aspx");
+            //}
 
             LinkButton ctrl = this.Master.FindControl("LiEmpleado") as LinkButton;
 
