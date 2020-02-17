@@ -101,6 +101,7 @@ namespace CapaPresentacion.Cliente
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string Filtro = "";
+            lblFiltro.Text = "";
             NCelular Obj = new NCelular();
             if (CbxModelo.Checked)
             {
@@ -110,33 +111,43 @@ namespace CapaPresentacion.Cliente
             {
                 if (CbxMarca.Checked && CbxPrecio.Checked)
                 {
-                    Obj.AgregarFiltro("ID_MARCA_CEL",
-                                      "Es igual a:",
-                                      ddlMarca.SelectedItem.Value,
-                                      ref Filtro);
-                    Obj.AgregarFiltro("PRECIO_UNITARIO_CEL",
-                                      ddlPrecio.SelectedItem.Text,
-                                      txtPrecio.Text,
-                                      ref Filtro);
-                    cargarListView(Obj.BuscarPorFiltro(Filtro));
+                    if (txtPrecio.Text == string.Empty)
+                    {
+                        lblFiltro.Text = "Ponga un precio";
+                    }
+                    else 
+                    {
+                        Obj.AgregarFiltro("ID_MARCA_CEL",
+                                          "Es igual a:",
+                                          ddlMarca.SelectedItem.Value,
+                                          ref Filtro);
+                        Obj.AgregarFiltro("PRECIO_UNITARIO_CEL",
+                                          ddlPrecio.SelectedItem.Text,
+                                          txtPrecio.Text,
+                                          ref Filtro);
+                        cargarListView(Obj.BuscarPorFiltro(Filtro));
+                    }
                 }
                 else
                 {
                     if (CbxMarca.Checked)
-                    {
-                        lblFiltro.Text = "Filtrar por marca: " + ddlMarca.SelectedItem.Text + " - value: " + ddlMarca.SelectedValue;
+                    { 
                         cargarListView(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
                     }
                     else
                     {
                         if (CbxPrecio.Checked)
                         {
+                            if (txtPrecio.Text == string.Empty)
+                            {
+                                lblFiltro.Text = "Ponga un precio";
+                            }
+                            else { 
                             Obj.AgregarFiltro("PRECIO_UNITARIO_CEL",
                                       ddlPrecio.SelectedItem.Text,
                                       txtPrecio.Text,
                                       ref Filtro);
-                            lblFiltro.Text = "Filtrar por Precio: " + ddlPrecio.SelectedItem.Text + txtPrecio.Text;
-
+                            }
                             cargarListView(Obj.BuscarPorFiltro(Filtro));
                         }
                         else
@@ -158,6 +169,7 @@ namespace CapaPresentacion.Cliente
             CbxModelo.Checked = false;
             CbxPrecio.Checked = false;
             limpiarTxt();
+            lblFiltro.Text = "";
         }
 
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)

@@ -103,6 +103,7 @@ namespace CapaPresentacion.Usuario
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string Filtro = "";
+            lblFiltro.Text = "";
             NCelular Obj = new NCelular();
             if (CbxModelo.Checked)
             { 
@@ -164,6 +165,7 @@ namespace CapaPresentacion.Usuario
             CbxModelo.Checked = false;
             CbxPrecio.Checked = false;
             limpiarTxt();
+            lblFiltro.Text = "";
 
         }
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
