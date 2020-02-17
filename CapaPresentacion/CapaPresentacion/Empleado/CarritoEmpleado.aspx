@@ -4,167 +4,137 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-    <h1>Carrito</h1>
-    <div id="CarritoEmpleado" class="Form">
+    
+    <div id="Carrito" class="Form">
+        <h2>Carrito</h2>
+       
+        <asp:Label ID="lblIdVenta" runat="server" Text="Venta N°: " CssClass="LabelNegrita" ></asp:Label>
+        <asp:Label ID="txtIdVenta" runat="server" Text="xxx-0001" CssClass="Label" ></asp:Label>
+        <asp:Label ID="lblFecha" runat="server" Text="Fecha: "  CssClass="LabelNegrita" ></asp:Label>
+        <asp:Label ID="txtFecha" runat="server" Text="04/11/2019"  CssClass="Label" ></asp:Label>
+        <asp:Label ID="lblLegajo" runat="server" Text="Vendedor: "  CssClass="LabelNegrita" ></asp:Label>
+        <asp:Label ID="txtLegajo" runat="server" Text="E-99999999"  CssClass="Label" ></asp:Label>       
         
-        <asp:Label ID="lblIdVenta" runat="server" Text="Venta N°: " CssClass="ControlesASP"></asp:Label>
-        <asp:Label ID="txtIdVenta" runat="server" Text="xxx-0001" CssClass="ControlesASP"></asp:Label>
-        <asp:Label ID="lblFecha" runat="server" Text="Fecha: " CssClass="ControlesASP"></asp:Label>
-        <asp:Label ID="txtFecha" runat="server" Text="" CssClass="ControlesASP"></asp:Label>
-        <asp:Label ID="lblDNI" runat="server" Text="DNI: " CssClass="ControlesASP"></asp:Label>
-        <asp:TextBox ID="txtDNI" runat="server" CssClass="ControlesASP"></asp:TextBox>
-        <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago: " CssClass="ControlesASP"></asp:Label>
-        <asp:DropDownList ID="ddlFPago" runat="server" CssClass="ControlesASP" DataSourceID="DS_FORMAPAGO" DataTextField="ID_FORMAPAGO_FP" DataValueField="ID_FORMAPAGO_FP"></asp:DropDownList>
-        <asp:SqlDataSource ID="DS_FORMAPAGO" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="SELECT [ID_FORMAPAGO_FP], [FORMAPAGO_FP] FROM [FORMA_PAGO]"></asp:SqlDataSource>
-        <asp:Label ID="lblFormaEnvio" runat="server" Text="Forma de envio: " CssClass="ControlesASP"></asp:Label>
-        <asp:DropDownList ID="ddlFEnvio" runat="server"  CssClass="ControlesASP" DataSourceID="DS_FORMAENVIO" DataTextField="FORMAENVIO_FE" DataValueField="ID_FORMAENVIO_FE"></asp:DropDownList>
-        <asp:SqlDataSource ID="DS_FORMAENVIO" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="SELECT [ID_FORMAENVIO_FE], [FORMAENVIO_FE] FROM [FORMA_ENVIO]"></asp:SqlDataSource>
-        <asp:Label ID="lblImporte" runat="server" Text="Importe: " CssClass="ControlesASP"></asp:Label>
-        <asp:Label ID="txtImporte" runat="server" Text="$0,00" CssClass="ControlesASP"></asp:Label>
-        <asp:Button ID="btnAgregarItem" runat="server" Text="Agregar item" CssClass="Boton" />
-        <asp:Button ID="btnConfirmarCompra" runat="server" Text="Confirmar compra" CssClass="Boton" />
-        <asp:ListView ID="ListView1" runat="server" DataKeyNames="ID_DV,ID_VTA_DV" DataSourceID="DS_DETALLE_VENTA">
-            <AlternatingItemTemplate>
-                <tr style="background-color: #FFFFFF;color: #284775;">
-                    <td>
-                        <asp:Label ID="ID_DVLabel" runat="server" Text='<%# Eval("ID_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_MODELO_DVLabel" runat="server" Text='<%# Eval("ID_MODELO_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="CANTIDAD_DVLabel" runat="server" Text='<%# Eval("CANTIDAD_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="PU_DVLabel" runat="server" Text='<%# Eval("PU_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_VTA_DVLabel" runat="server" Text='<%# Eval("ID_VTA_DV") %>' />
-                    </td>
-                </tr>
-            </AlternatingItemTemplate>
-            <EditItemTemplate>
-                <tr style="background-color: #999999;">
-                    <td>
-                        <asp:Button ID="UpdateButton" runat="server" CommandName="Update" Text="Actualizar" />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_DVLabel1" runat="server" Text='<%# Eval("ID_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:TextBox ID="ID_MODELO_DVTextBox" runat="server" Text='<%# Bind("ID_MODELO_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:TextBox ID="CANTIDAD_DVTextBox" runat="server" Text='<%# Bind("CANTIDAD_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:TextBox ID="PU_DVTextBox" runat="server" Text='<%# Bind("PU_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_VTA_DVLabel1" runat="server" Text='<%# Eval("ID_VTA_DV") %>' />
-                    </td>
-                </tr>
-            </EditItemTemplate>
-            <EmptyDataTemplate>
-                <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                    <tr>
-                        <td>No se han devuelto datos.</td>
-                    </tr>
-                </table>
-            </EmptyDataTemplate>
-            <InsertItemTemplate>
-                <tr style="">
-                    <td>
-                        <asp:Button ID="InsertButton" runat="server" CommandName="Insert" Text="Insertar" />
-                        <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Borrar" />
-                    </td>
-                    <td>&nbsp;</td>
-                    <td>
-                        <asp:TextBox ID="ID_MODELO_DVTextBox" runat="server" Text='<%# Bind("ID_MODELO_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:TextBox ID="CANTIDAD_DVTextBox" runat="server" Text='<%# Bind("CANTIDAD_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:TextBox ID="PU_DVTextBox" runat="server" Text='<%# Bind("PU_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:TextBox ID="ID_VTA_DVTextBox" runat="server" Text='<%# Bind("ID_VTA_DV") %>' />
-                    </td>
-                </tr>
-            </InsertItemTemplate>
-            <ItemTemplate>
-                <tr style="background-color: #E0FFFF;color: #333333;">
-                    <td>
-                        <asp:Label ID="ID_DVLabel" runat="server" Text='<%# Eval("ID_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_MODELO_DVLabel" runat="server" Text='<%# Eval("ID_MODELO_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="CANTIDAD_DVLabel" runat="server" Text='<%# Eval("CANTIDAD_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="PU_DVLabel" runat="server" Text='<%# Eval("PU_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_VTA_DVLabel" runat="server" Text='<%# Eval("ID_VTA_DV") %>' />
-                    </td>
-                </tr>
-            </ItemTemplate>
-            <LayoutTemplate>
-                <table runat="server">
-                    <tr runat="server">
-                        <td runat="server">
-                            <table id="itemPlaceholderContainer" runat="server" border="1" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;font-family: Verdana, Arial, Helvetica, sans-serif;">
-                                <tr runat="server" style="background-color: #E0FFFF;color: #333333;">
-                                    <th runat="server">ID_DV</th>
-                                    <th runat="server">ID_MODELO_DV</th>
-                                    <th runat="server">CANTIDAD_DV</th>
-                                    <th runat="server">PU_DV</th>
-                                    <th runat="server">ID_VTA_DV</th>
-                                </tr>
-                                <tr id="itemPlaceholder" runat="server">
-                                </tr>
-                            </table>
-                        </td>
-                    </tr>
-                    <tr runat="server">
-                        <td runat="server" style="text-align: center;background-color: #5D7B9D;font-family: Verdana, Arial, Helvetica, sans-serif;color: #FFFFFF">
-                            <asp:DataPager ID="DataPager1" runat="server">
-                                <Fields>
-                                    <asp:NextPreviousPagerField ButtonType="Button" ShowFirstPageButton="True" ShowLastPageButton="True" />
-                                </Fields>
-                            </asp:DataPager>
-                        </td>
-                    </tr>
-                </table>
-            </LayoutTemplate>
-            <SelectedItemTemplate>
-                <tr style="background-color: #E2DED6;font-weight: bold;color: #333333;">
-                    <td>
-                        <asp:Label ID="ID_DVLabel" runat="server" Text='<%# Eval("ID_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_MODELO_DVLabel" runat="server" Text='<%# Eval("ID_MODELO_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="CANTIDAD_DVLabel" runat="server" Text='<%# Eval("CANTIDAD_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="PU_DVLabel" runat="server" Text='<%# Eval("PU_DV") %>' />
-                    </td>
-                    <td>
-                        <asp:Label ID="ID_VTA_DVLabel" runat="server" Text='<%# Eval("ID_VTA_DV") %>' />
-                    </td>
-                </tr>
-            </SelectedItemTemplate>
-        </asp:ListView>
-       
-        <asp:SqlDataSource ID="DS_DETALLE_VENTA" runat="server" ConnectionString="<%$ ConnectionStrings:FINALPROG_ConnectionString %>" SelectCommand="SELECT [ID_DV], [ID_MODELO_DV], [CANTIDAD_DV], [PU_DV], [ID_VTA_DV] FROM [DETALLES_VENTA]"></asp:SqlDataSource>
-       
-   </div>
+        <div ID="Datos Clientes" style="width:100%; height: 190px;  border-top-style:solid; border-top-color:black;">
+         
+            <table style=" width:100%; height: 185px; font-size:20px; color:black;">
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblDniCliente" runat="server" Text="Dni Cliente: "  CssClass="LabelNegritaLarga" ></asp:Label>
+                </td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:TextBox ID="txtDniCliente" runat="server" CssClass="LabelLarga" OnTextChanged="txtDniCliente_TextChanged" >
+                    </asp:TextBox>
+                    <asp:Button ID="btnAgregarCliente" runat="server" Text="+" Width="40px"   BorderStyle="Groove" ClientIDMode="AutoID" CommandArgument="txtDniCliente.Text" OnClick="btnAgregarCliente_Click" PostBackUrl="~/Empleado/Clientes.aspx" />
+                </td>
+             </tr>
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblNombre" runat="server" Text="Nombre: "  CssClass="LabelNegritaLarga" ></asp:Label>
+                </td>
+                <td style="text-align:left; height: 26px;">
+                   <asp:Label ID="txtNombre" runat="server" Text="Juan"  CssClass="LabelNegrita" ></asp:Label>
+                </td>
+            </tr>
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblApellido" runat="server" Text="Apellido: "  CssClass="LabelNegritaLarga" ></asp:Label>
+                </td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:Label ID="txtApellido" runat="server" Text="Perez"  CssClass="LabelNegrita" ></asp:Label>
+               </td>
+            </tr>
+          </table>
+        </div>
+
+        <div ID="Datos Venta" style="width:100%; height: 190px; border-bottom-style:solid; border-bottom-color:black; border-top-style:solid; border-top-color:black;">
+          
+            <table style=" width: 100%; height: 185px; font-size:20px; color:black;">
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblFormaPago" runat="server" Text="Forma de pago: "  CssClass="LabelNegritaLarga" ></asp:Label>
+                </td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:DropDownList ID="ddlFPago" runat="server" CssClass="DropDownListFull" ></asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblFormaEnvio" runat="server" Text="Forma de envio: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                
+                <td style="text-align:left; height: 26px;">
+                    <asp:DropDownList ID="ddlFEnvio" runat="server" CssClass="DropDownListFull"></asp:DropDownList></td>
+            </tr>
+            <tr>
+                <td style=" width: 50%; height: 26px;">
+                    <asp:Label ID="lblImporte_Total" runat="server" Text="Importe a pagar: $ "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:Label ID="lblImporte" runat="server" Text="0"  CssClass="LabelNegrita" ></asp:Label></td>
+              </tr>
+          </table>
+        </div>
+
+        <div ID="Datos Celular"style="width:100%; height: 190px; border-bottom-style:solid; border-bottom-color:black;"> 
+
+        <table style=" width: 100%; height: 185px; font-size:20px; color:black;">
+            <tr>
+               <td style=" width: 50%; height: 26px;">
+                     <asp:Label ID="lblModelo" runat="server" Text="Modelo: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:DropDownList ID="ddlModelo" runat="server" AutoPostBack="True" CssClass="DropDownListFull" OnSelectedIndexChanged="ddlModelo_SelectedIndexChanged"></asp:DropDownList></td>
+            </tr>
+            <tr>
+                 <td style=" width: 50%; height: 21px;">
+                <asp:Label ID="LblPrecioUnitario" runat="server" Text="Precio: $ "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 21px;">
+                    <asp:Label ID="lblPrecio" runat="server" Text="000,00" CssClass="Label"></asp:Label></td>
+             </tr>
+            <tr>
+                 <td style=" width: 50%; height: 26px;">
+                <asp:Label ID="LblCantidad" runat="server" Text="Cantidad: "  CssClass="LabelNegritaLarga" ></asp:Label></td>
+                <td style="text-align:left; height: 26px;">
+                    <asp:DropDownList ID="ddlCantidad" runat="server" AutoPostBack="True" CssClass="DropDownListFull" Visible="True">
+                    </asp:DropDownList>
+                </td>
+            </tr>
+            <tr>
+                 <td style="text-align:left; width: 50%;"></td>
+                 <td style="text-align:center; height: 25px;">
+                    <asp:Button ID="btnAnadir" runat="server" Text="Añadir" CssClass="Boton" OnClick="btnAnadir_Click" />
+                </td>
+            </tr>
+            </table>
+            <br />
+        </div>
+
+         <asp:GridView ID="grdLista" runat="server" AllowPaging="True" AutoGenerateDeleteButton="True" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" HorizontalAlign="Center" OnPageIndexChanging="grdLista_PageIndexChanging" OnRowCommand="grdLista_RowCommand" OnSelectedIndexChanged="grdLista_SelectedIndexChanged" OnSelectedIndexChanging="grdLista_SelectedIndexChanging" Width="100%" OnRowDeleted="grdLista_RowDeleted" OnRowDeleting="grdLista_RowDeleting">
+            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
+            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
+            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
+            <RowStyle BackColor="White" ForeColor="#003399" />
+            <SelectedRowStyle BackColor="#009999" Font-Bold="True" ForeColor="#CCFF99" />
+            <SortedAscendingCellStyle BackColor="#EDF6F6" />
+            <SortedAscendingHeaderStyle BackColor="#0D4AC4" />
+            <SortedDescendingCellStyle BackColor="#D6DFDF" />
+            <SortedDescendingHeaderStyle BackColor="#002876" />
+        </asp:GridView>
+        <table style=" width: 100%; font-size:20px">
+            <tr>
+                <td style="text-align:center; width: 40%; height: 26px;">
+                    <asp:Button ID="bttnFinalizarcompra" runat="server" Text="Confirmar compra" CssClass="Boton" OnClick="bttnFinalizarcompra_Click" />
+                </td>
+
+                <td style="text-align:center; width: 40%; height: 26px;">
+                    <asp:Button ID="bttnCancelarCompra" runat="server" Text="Cancelar compra" CssClass="Boton" OnClick="bttnCancelarCompra_Click" />
+                </td>
+                
+            </tr>
+
+           </table>
+        <asp:Label ID="lblRespuesta" runat="server" Text=""></asp:Label>
+
+   
+    </div>
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>

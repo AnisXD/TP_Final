@@ -9,14 +9,14 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
  
-        <asp:Button ID="Inicio" runat="server" Text="Inicio" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Inicio_Click" Width="62px" />
-        <asp:Button ID="Ventas" runat="server" Text="Ventas" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Ventas_Click" Width="69px" />
-        <asp:Button ID="Celulares" runat="server" Text="Celulares" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Celulares_Click" Width="83px" />
-        <asp:Button ID="Marcas" runat="server" Text="Marcas" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Marcas_Click" Width="83px" />
-        <asp:Button ID="Clientes" runat="server" Text="Clientes" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Clientes_Click" Width="81px" />
-        <asp:Button ID="Empleados" runat="server" Text="Empleados" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Empleados_Click" />
-        <asp:Button ID="Carrito" runat="server" Text="Carrito" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Carrito_Click" Width="73px" />
-        <asp:Button ID="Reportes" runat="server" Text="Reportes" BackColor="#0075B2" BorderColor="#0075B2" BorderStyle="Groove" Font-Bold="True" Font-Size="Large" ForeColor="White" OnClick="Reportes_Click" Width="102px" />
+        <asp:Button ID="Inicio"     runat="server" Text="Inicio"    CssClass="BotonBH" OnClick="Inicio_Click" />
+        <asp:Button ID="Ventas"     runat="server" Text="Ventas"    CssClass="BotonBH" OnClick="Ventas_Click" />
+        <asp:Button ID="Celulares"  runat="server" Text="Celulares" CssClass="BotonBH" OnClick="Celulares_Click"  />
+        <asp:Button ID="Marcas"     runat="server" Text="Marcas"    CssClass="BotonBH" OnClick="Marcas_Click"  />
+        <asp:Button ID="Clientes"   runat="server" Text="Clientes"  CssClass="BotonBH" OnClick="Clientes_Click"/>
+        <asp:Button ID="Empleados"  runat="server" Text="Empleados" CssClass="BotonBH" OnClick="Empleados_Click" />
+        <asp:Button ID="Carrito"    runat="server" Text="Carrito"   CssClass="BotonBH" OnClick="Carrito_Click" />
+        <asp:Button ID="Reportes"   runat="server" Text="Reportes"  CssClass="BotonBH" OnClick="Reportes_Click" />
 
 </asp:Content>
 
@@ -27,28 +27,25 @@
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColPpal" runat="server">
+    <h1>Empleado</h1>
     <asp:ContentPlaceHolder ID="ContenidoColPpalEmpleado" runat="server">
       
     </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
-    <h2>Bienvenido </h2>
-<h2><a href="./InicioEmpleado.aspx">
-    <asp:Label ID="lblUsuario" runat="server" Text="Bienvenido"></asp:Label>
-    </a></h2>
+    
     <p>&nbsp;</p>
-    <div id="MenuContextual">
-        <ul>
-         <li> <a href="./PerfilEmpleado.aspx">Mi Perfil</a></li>
-        </ul>
-        <p>
-            <br />
+    <h2>Bienvenid@</h2>
+    <br>
+    <asp:Label ID="lblUsuario" runat="server" Text=" " CssClass="LabelBlanca"></asp:Label>
+    <br>
+    <asp:Button ID="MiPerfil" runat="server" Text="Mi Perfil" CssClass="Boton" PostBackUrl="~/Cliente/EditarPerfilCliente.aspx" />
     <asp:Button ID="btCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="Boton" OnClick="btCerrarSesion_Click"/>
-    <br />
-        </p>
-    </div>
-    <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">
+    <br /> 
 
-    </asp:ContentPlaceHolder>
+   <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">
+       
+   </asp:ContentPlaceHolder>
+
 </asp:Content>

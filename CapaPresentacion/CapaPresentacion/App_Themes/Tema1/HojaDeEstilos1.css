@@ -262,6 +262,33 @@ li {
         background: linear-gradient(#00c3ff,#0075b2);
     }
 
+.BotonBH {
+    background: none;
+    border-color: #0075B2;
+    border-radius: 3px 3px 3px 3px;
+    border-style:groove;
+    box-shadow: 0px 0px 10px #002d9b inset;
+    color:white;
+    cursor: pointer;
+    display: inline-block;
+    font-weight:bold;
+    font-size:20px;
+    height: 40px;
+    margin: 3px, 3px, 0, 0;
+    padding: 1px;
+    opacity: 0.9;
+    text-align: center;
+    width: 10%;
+    
+}
+
+    .BotonBH:hover {
+        opacity: 1;
+    }
+
+    .BotonBH:active {
+        transform: scale(0.95);
+    }
 
 #Productos {
     margin: auto;
@@ -394,18 +421,29 @@ li {
     display: inline-block;
 }
 
-#ColIzCarrito {
-    width: 40%;
-    text-align: left;
-    margin-top: 0;
-    float:left;
-    display:inline;
+#DivCarritoTop {
+    width: 100%;
+    height: 190px;
+    border-top-style: solid;
+    border-top-color: black;
 }
 
-#ColDerCarrito {
-    width: 40%;
+#DivCarritoTopBottom {
+    width: 100%;
+    height: 190px;
+    border-top-style: solid;
+    border-top-color: black;
+    border-bottom-style: solid;
+    border-bottom-color: black;
+}
+
+
+.ColIzCarrito {
+    width: 50%;
+    height: 26px;
+}
+
+.ColDerCarrito {
     text-align: left;
-    margin-top: 0;
-    float:right;
-    display:inline;
+    height: 26px;
 }
