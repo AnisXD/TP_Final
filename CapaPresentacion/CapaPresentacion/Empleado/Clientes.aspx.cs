@@ -26,17 +26,17 @@ namespace CapaPresentacion.Empleado
             bool existe = false;
             DataTable dt = new DataTable();
             NUsuario obj = new NUsuario();
-            dt = obj.BuscarPorDNI(dni);
+            dt = obj.BuscarUsuarioPorDNI(dni,'C');
             if (dt == null)
             {
-                lblEstado.Text = "El DNI ingresado no esta en la base de datos";
+                lblEstado.Text = "El DNI ingresado no esta registrado como cliente";
             }
             else
             {
                 if (dt.Rows.Count == 1 && dni.Length > 0)
                 {
                     existe = true;
-                    lblEstado.Text = "El DNI ingresado ya esta en la base de datos";
+                    lblEstado.Text = "El DNI ingresado ya es cliente";
                 }
             }
 

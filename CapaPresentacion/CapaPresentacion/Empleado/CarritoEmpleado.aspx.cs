@@ -146,19 +146,17 @@ namespace CapaPresentacion.Empleado
             bool existe = false;
             DataTable dt = new DataTable();
             NUsuario obj = new NUsuario();
-            dt = obj.BuscarPorDNI(dni);
+            dt = obj.BuscarUsuarioPorDNI(dni, 'C');
             if (dt == null)
             {
-                btnAgregarCliente.Visible = true;
-                lblRespuesta.Text = "El DNI ingresado no esta en la base de datos";
+                lblRespuesta.Text = "El DNI ingresado no esta registrado como cliente";
             }
             else
             {
                 if (dt.Rows.Count == 1 && dni.Length > 0)
                 {
                     existe = true;
-                    btnAgregarCliente.Visible = false;
-                    lblRespuesta.Text = "El DNI ingresado ya esta en la base de datos";
+                    lblRespuesta.Text = "El DNI ingresado ya es cliente";
                 }
             }
 
@@ -171,12 +169,42 @@ namespace CapaPresentacion.Empleado
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (this.Session["Usuario"] == null)
+            {// si no esta registrdo como usuario va al login
+                Response.Redirect("~/Usuario/LogIn.aspx");
+            }
+            else
+            {
+                if (!this.IsPostBack)
+                {
+                    CargarDDL_FormaEnvio();
+                    CargarDDL_FormaPago();
+                    CargarDDL_Modelo();
+                    CargarLbl();
+                    if (this.Session["Modelo"] != null)
+                    {
+                        BuscarModeloEnDdl(this.Session["Modelo"].ToString());
+                        lblPrecio.Text = ddlModelo.SelectedItem.Value;
+                        int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
+                        CargarDdlCantidad(stock);
+                    }
+                }
+
+                ActualizarTotal();
+                ActualizarTabla();
+            }
 
         }
 
         protected void txtDniCliente_TextChanged(object sender, EventArgs e)
         {
+            NUsuario Obj = new NUsuario();
+            DataTable table = Obj.BuscarPorDNI(txtDniCliente.Text);
+            
+            if(ExisteDNI(txtDniCliente.Text))
+            {
 
+            }
         }
 
         protected void btnAgregarCliente_Click(object sender, EventArgs e)

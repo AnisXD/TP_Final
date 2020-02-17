@@ -166,6 +166,7 @@ namespace CapaPresentacion.Cliente
                         CargarDdlCantidad(stock);
                     }
                 }
+
                 ActualizarTotal();
                 ActualizarTabla();
             }
