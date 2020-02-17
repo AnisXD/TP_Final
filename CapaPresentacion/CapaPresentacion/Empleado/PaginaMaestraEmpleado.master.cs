@@ -39,11 +39,13 @@ namespace CapaPresentacion.Empleado
                             case "E":
                             Empleados.Visible = false;
                             Reportes.Visible = false;
+                            Ventas.Visible = false;
 
                             break;
                             case "A":
                             Empleados.Visible = true;
                             Reportes.Visible = true;
+                            Ventas.Visible = true;
                             break;
                     }
             }
