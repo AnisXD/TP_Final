@@ -23,8 +23,7 @@
                     <asp:Label ID="lblDniCliente" runat="server" Text="Dni Cliente: "  CssClass="LabelNegritaLarga" ></asp:Label>
                 </td>
                 <td style="text-align:left; height: 26px;">
-                    <asp:TextBox ID="txtDniCliente" runat="server" CssClass="LabelLarga" OnTextChanged="txtDniCliente_TextChanged" >
-                    </asp:TextBox>
+                    <asp:TextBox ID="txtDniCliente" runat="server" CssClass="LabelLarga" OnTextChanged="txtDniCliente_TextChanged" AutoPostBack="True" ></asp:TextBox>
                     <asp:Button ID="btnAgregarCliente" runat="server" Text="+" Width="40px"   BorderStyle="Groove" ClientIDMode="AutoID" CommandArgument="txtDniCliente.Text" OnClick="btnAgregarCliente_Click" PostBackUrl="~/Empleado/Clientes.aspx" />
                 </td>
              </tr>

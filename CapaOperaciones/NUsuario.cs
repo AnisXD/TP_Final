@@ -36,7 +36,9 @@ namespace CapaOperaciones
 
         public DataTable BuscarPorDNI(string id)
         {
-            return new DUsuario().MostrarPorId(id);
+            DUsuario ObjDUsuario = new DUsuario();
+            return ObjDUsuario.MostrarPorId(id);
+            //return new DUsuario().MostrarPorId(id);
         }
         public DataTable BuscarPorRol(string rol)
         {

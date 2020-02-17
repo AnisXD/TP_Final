@@ -380,7 +380,7 @@ namespace CapaPresentacion.Empleado
 
         protected void CbxMarca_CheckedChanged(object sender, EventArgs e)
         {
-
+            //
         }
     }
 }

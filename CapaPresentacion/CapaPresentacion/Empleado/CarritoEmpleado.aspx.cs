@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Data;
-using ENTIDADES;
 using CapaOperaciones;
+using ENTIDADES;
 
 namespace CapaPresentacion.Empleado
 {
@@ -231,11 +231,11 @@ namespace CapaPresentacion.Empleado
         protected void txtDniCliente_TextChanged(object sender, EventArgs e)
         {
             NUsuario Obj = new NUsuario();
-            
-            if(ExisteDNI(txtDniCliente.Text))
+
+            if (ExisteDNI(txtDniCliente.Text.ToString()))
             {
                 DataTable table = Obj.BuscarPorDNI(txtDniCliente.Text);
-                if(table!=null)
+                if (table != null)
                 {
                     txtNombre.Text = table.Rows[0].ItemArray[1].ToString();
                     txtApellido.Text = table.Rows[0].ItemArray[2].ToString();
@@ -244,7 +244,7 @@ namespace CapaPresentacion.Empleado
                 {
                     txtNombre.Text = "Hubo un error al buscar nombre y apellido.";
                 }
-                
+
             }
             else
             {
@@ -354,6 +354,7 @@ namespace CapaPresentacion.Empleado
         protected void bttnCancelarCompra_Click(object sender, EventArgs e)
         {
             this.Session["Carrito"] = null;
+            Response.Redirect("~/Empleado/CarritoEmpleado.aspx");
 
             ActualizarTotal();
 
