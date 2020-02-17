@@ -163,6 +163,38 @@ namespace CapaPresentacion.Empleado
             return existe;
         }
 
+        public void LimpiarTxtyLbl()
+        {
+            txtDniCliente.Text =string.Empty ;
+            txtNombre.Text = string.Empty;
+            txtApellido.Text = string.Empty;
+            lblImporte.Text = "0";
+            lblPrecio.Text = "0";
+            ddlCantidad.Items.Clear();
+
+        }
+
+        public void ActualizarDdlCantidad()
+        {
+            string MODELO = ddlModelo.SelectedItem.Text;
+            int stock = new NCelular().ObtenerStock(MODELO);
+            //chequeo si hay un carrito
+            if(this.Session["Carrito"]!=null)
+            {
+                DataTable Carrito = (DataTable)Session["Carrito"];
+
+                foreach (DataRow row in Carrito.Rows)
+                {   //si hay carrito debo buscar si ya hay un celular del mismo modelo cargado
+                    if (row["MODELO"].ToString() == MODELO)
+                    {//si hay un celular cargado debo restar al stock la cantidad de carrito
+                        stock -= Convert.ToInt32(row["CANTIDAD"]);
+                    }
+                }
+            }
+            //ahora que tengo el stock actualizado puedo actualizar el ddl
+            CargarDdlCantidad(stock);
+        }
+
         #endregion
 
         #region Eventos
@@ -181,12 +213,12 @@ namespace CapaPresentacion.Empleado
                     CargarDDL_FormaPago();
                     CargarDDL_Modelo();
                     CargarLbl();
+                    LimpiarTxtyLbl();
                     if (this.Session["Modelo"] != null)
                     {
                         BuscarModeloEnDdl(this.Session["Modelo"].ToString());
                         lblPrecio.Text = ddlModelo.SelectedItem.Value;
-                        int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
-                        CargarDdlCantidad(stock);
+                        ActualizarDdlCantidad();
                     }
                 }
 
@@ -199,67 +231,178 @@ namespace CapaPresentacion.Empleado
         protected void txtDniCliente_TextChanged(object sender, EventArgs e)
         {
             NUsuario Obj = new NUsuario();
-            DataTable table = Obj.BuscarPorDNI(txtDniCliente.Text);
             
             if(ExisteDNI(txtDniCliente.Text))
             {
-
+                DataTable table = Obj.BuscarPorDNI(txtDniCliente.Text);
+                if(table!=null)
+                {
+                    txtNombre.Text = table.Rows[0].ItemArray[1].ToString();
+                    txtApellido.Text = table.Rows[0].ItemArray[2].ToString();
+                }
+                else
+                {
+                    txtNombre.Text = "Hubo un error al buscar nombre y apellido.";
+                }
+                
+            }
+            else
+            {
+                txtNombre.Text = "El usuario ingresado no esta registrado como cliente.";
             }
         }
 
         protected void btnAgregarCliente_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("~/Empleado/Clientes.aspx");
         }
 
         protected void ddlModelo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //Cargar lblPrecio
+            lblPrecio.Text = ddlModelo.SelectedItem.Value;
+            //cargar ddlCantidad
+            int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
+            ActualizarDdlCantidad();
         }
 
         protected void btnAnadir_Click(object sender, EventArgs e)
         {
-
+            if (this.Session["Carrito"] == null)//chequemos si carrito tiene datos
+            {
+                this.Session["Carrito"] = crearTabla();//Si esta vacio creo una tabla
+            }
+            //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
+            AgregarFila((DataTable)(this.Session["Carrito"]));
+            //ACTUAILIZAR lbl total 
+            ActualizarTotal();
+            //ACTUAILIZAR GRID LISTA CON LO QUE CARGUE AL CARRITO
+            ActualizarTabla();
+            //ACTUAILIZAR DDL CANTIDAD
+            ActualizarDdlCantidad();
+            //ahora borra el modelo guardado en la session
+            if (this.Session["Modelo"] != null)
+            {
+                this.Session["Modelo"] = null;
+            }
         }
 
         protected void grdLista_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
+            DataTable Carrito = (DataTable)this.Session["Carrito"];
 
+            int pos = int.Parse(e.RowIndex.ToString());
+
+            Carrito.Rows.RemoveAt(pos);
+
+            if (Carrito.Rows.Count == 0)
+            {
+                this.Session["Carrito"] = null;
+            }
+            ActualizarTotal();
+
+            ActualizarTabla();
+           
         }
 
         protected void grdLista_RowDeleted(object sender, GridViewDeletedEventArgs e)
         {
+            ActualizarTotal();
+
+            ActualizarTabla();
 
         }
 
         protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
         {
+            if (this.Session["Carrito"] != null)
+            {
+                NVenta nVenta = new NVenta();
 
+                List<DetallesVenta> ListDetalles = new List<DetallesVenta>();
+
+                DataTable Carrito = (DataTable)this.Session["Carrito"];
+
+                foreach (DataRow row in Carrito.Rows)
+                {
+                    string Modelo = row["MODELO"].ToString();
+                    int Cantidad = int.Parse(row["CANTIDAD"].ToString());
+                    float Precio_Unitario = float.Parse(row["PRECIO_UNITARIO"].ToString());
+                    ListDetalles.Add(nVenta.CargarDetalle(Modelo, Cantidad, Precio_Unitario));
+                }
+
+                if (nVenta.Confirmar(txtLegajo.Text, txtDniCliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
+                {
+                    lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
+                    this.Session["Carrito"] = null;
+                    ActualizarTabla();
+                    ActualizarTotal();
+                    LimpiarTxtyLbl();
+                    txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
+                }
+                else
+                {
+                    lblRespuesta.Text = "Hubo un error al ingresar la venta";
+                }
+            }
+            else
+            {
+                lblRespuesta.Text = "Debe ingresar Celulares al carrito para confirmar la comppra.";
+            }
         }
 
         protected void bttnCancelarCompra_Click(object sender, EventArgs e)
         {
+            this.Session["Carrito"] = null;
 
+            ActualizarTotal();
+
+            ActualizarTabla();
+
+            lblRespuesta.Text = " ";
+
+            lblImporte.Text = "0";
         }
 
         protected void grdLista_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
+            grdLista.PageIndex = e.NewPageIndex;
 
+            ActualizarTabla();
         }
 
         protected void grdLista_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            if (this.Session["Carrito"] == null)
+            {
+                this.Session["Carrito"] = crearTabla();
+            }
 
+            if (e.CommandName == "Select")
+            {
+                DataTable Carrito = (DataTable)this.Session["Carrito"];
+
+                int pos = int.Parse(e.CommandArgument.ToString());
+
+                Carrito.Rows.RemoveAt(pos);
+
+                if (Carrito.Rows.Count == 0)
+                    Carrito = null;
+
+                ActualizarTotal();
+
+                ActualizarTabla();
+            }
         }
 
         protected void grdLista_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            //nada
         }
 
         protected void grdLista_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
         {
-
+            //nada
         }
 
 

@@ -141,6 +141,34 @@ namespace CapaPresentacion.Cliente
             }
         }
 
+        public void LimpiarTxtyLbl()
+        {
+            lblImporte.Text = "0";
+            lblPrecio.Text = "0";
+            ddlCantidad.Items.Clear();
+        }
+
+        public void ActualizarDdlCantidad()
+        {
+            string MODELO = ddlModelo.SelectedItem.Text;
+            int stock = new NCelular().ObtenerStock(MODELO);
+            //chequeo si hay un carrito
+            if (this.Session["Carrito"] != null)
+            {
+                DataTable Carrito = (DataTable)Session["Carrito"];
+
+                foreach (DataRow row in Carrito.Rows)
+                {   //si hay carrito debo buscar si ya hay un celular del mismo modelo cargado
+                    if (row["MODELO"].ToString() == MODELO)
+                    {//si hay un celular cargado debo restar al stock la cantidad de carrito
+                        stock -= Convert.ToInt32(row["CANTIDAD"]);
+                    }
+                }
+            }
+            //ahora que tengo el stock actualizado puedo actualizar el ddl
+            CargarDdlCantidad(stock);
+        }
+
         #endregion
 
         #region Eventos
@@ -179,7 +207,7 @@ namespace CapaPresentacion.Cliente
             {
                 NVenta nVenta = new NVenta();
 
-                List<DetallesVentas> ListDetalles = new List<DetallesVentas>();
+                List<DetallesVenta> ListDetalles = new List<DetallesVenta>();
 
                 DataTable Carrito = (DataTable)this.Session["Carrito"];
 
@@ -197,6 +225,7 @@ namespace CapaPresentacion.Cliente
                     this.Session["Carrito"] = null;
                     ActualizarTabla();
                     ActualizarTotal();
+                    LimpiarTxtyLbl();
                     txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
                 }
                 else
@@ -218,11 +247,13 @@ namespace CapaPresentacion.Cliente
             }
             //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
             AgregarFila((DataTable)(this.Session["Carrito"]));
-            //actulizo lbl total 
+            //ACTUAILIZAR lbl total 
             ActualizarTotal();
-            //
+            //ACTUAILIZAR GRID LISTA CON LO QUE CARGUE AL CARRITO
             ActualizarTabla();
-
+            //ACTUAILIZAR DDL CANTIDAD
+            ActualizarDdlCantidad();
+            //ahora borra el modelo guardado en la session
             if (this.Session["Modelo"] != null)
             {
                 this.Session["Modelo"] = null;
@@ -235,7 +266,7 @@ namespace CapaPresentacion.Cliente
             lblPrecio.Text = ddlModelo.SelectedItem.Value;
             //cargar ddlCantidad
             int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
-            CargarDdlCantidad(stock);
+            ActualizarDdlCantidad();
         }
 
         protected void grdLista_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -289,8 +320,33 @@ namespace CapaPresentacion.Cliente
 
             lblRespuesta.Text = " ";
 
-            lblImporte.Text = "0,00";
+            lblImporte.Text = "0";
         }
         #endregion
+
+        protected void grdLista_RowDeleted(object sender, GridViewDeletedEventArgs e)
+        {
+            ActualizarTotal();
+
+            ActualizarTabla();
+
+        }
+
+        protected void grdLista_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            DataTable Carrito = (DataTable)this.Session["Carrito"];
+
+            int pos = int.Parse(e.RowIndex.ToString());
+
+            Carrito.Rows.RemoveAt(pos);
+
+            if (Carrito.Rows.Count == 0)
+            {
+                this.Session["Carrito"] = null;
+            }
+            ActualizarTotal();
+
+            ActualizarTabla();
+        }
     }
 }

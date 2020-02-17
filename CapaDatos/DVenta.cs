@@ -72,7 +72,7 @@ namespace CapaDatos
             SqlParametros = Comando.Parameters.Add("@DNIUSU", SqlDbType.VarChar, 15);
             SqlParametros.Value = DniUsuario;
         }
-        public void ParametrosDetalle(ref SqlCommand Comando, DetallesVentas Obj)
+        public void ParametrosDetalle(ref SqlCommand Comando, DetallesVenta Obj)
         {
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = Comando.Parameters.Add("@IDVENTA", SqlDbType.Int);
@@ -217,7 +217,7 @@ namespace CapaDatos
             }
             return IdVenta;
         }
-        public bool AgregarVentaConDetalles(Venta Vta, List <DetallesVentas> Detalles)
+        public bool AgregarVentaConDetalles(Venta Vta, List <DetallesVenta> Detalles)
         {
             SqlCommand Comando = new SqlCommand();
             ParametrosVenta(ref Comando, Vta);
@@ -226,7 +226,7 @@ namespace CapaDatos
             //chequeo si se inserto bien la venta
             if (FilasInsertadas == 1)
             {
-                foreach (DetallesVentas Item in Detalles)
+                foreach (DetallesVenta Item in Detalles)
                 {
                     SqlCommand ComandoD = new SqlCommand();
                     ParametrosDetalle(ref ComandoD, Item);

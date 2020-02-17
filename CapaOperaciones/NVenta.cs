@@ -12,7 +12,7 @@ namespace CapaOperaciones
     public class NVenta
     {
         // funcion que carga la venta con sus respectivos detalles a la base de datos
-        public bool Confirmar(string idvendedor, string idcliente, char idformaenvio, char idformapago, float total, List<DetallesVentas> Detalles)
+        public bool Confirmar(string idvendedor, string idcliente, char idformaenvio, char idformapago, float total, List<DetallesVenta> Detalles)
         {
             Venta ObjVenta = new Venta
             {//no cargo id por que se genera automaticamente en BD
@@ -27,9 +27,9 @@ namespace CapaOperaciones
             return Obj.AgregarVentaConDetalles(ObjVenta, Detalles);
         }
       //funcion para agregar los detalles a la list de detalles de la  session 
-        public DetallesVentas CargarDetalle(string IDMODELO, int CANTIDAD, float PRECIOUNITARIO)
+        public DetallesVenta CargarDetalle(string IDMODELO, int CANTIDAD, float PRECIOUNITARIO)
         {
-            DetallesVentas Obj = new DetallesVentas
+            DetallesVenta Obj = new DetallesVenta
             {
                 IdModelo = IDMODELO,
                 Cantidad = CANTIDAD,

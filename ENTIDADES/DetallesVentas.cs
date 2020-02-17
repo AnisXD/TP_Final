@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENTIDADES
 {
-    public class DetallesVentas
+    public class DetallesVenta
     {
 
         #region Propiedades
@@ -19,7 +19,7 @@ namespace ENTIDADES
         #endregion
 
         #region Constructores
-        public DetallesVentas()
+        public DetallesVenta()
         {
             IdVenta = string.Empty;
             IdDetalle = string.Empty;
@@ -27,7 +27,7 @@ namespace ENTIDADES
             Cantidad = 0;
             PrecioUnitario = 0;
         }
-        public DetallesVentas(string IDVENTA, string IDDETALLE, string IDMODELO, int CANTIDAD, float PRECIOUNITARIO)
+        public DetallesVenta(string IDVENTA, string IDDETALLE, string IDMODELO, int CANTIDAD, float PRECIOUNITARIO)
         {
 
             IdVenta = IDVENTA;
