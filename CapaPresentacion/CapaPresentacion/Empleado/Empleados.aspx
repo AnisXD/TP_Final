@@ -5,7 +5,7 @@
     <h2>Filtrar por:</h2>
     <div id="Filtros">
     
-        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="DNI" OnCheckedChanged="cbDNI_CheckedChanged" />
+        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="LEGAJO" OnCheckedChanged="cbDNI_CheckedChanged" />
         <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP"></asp:TextBox>
         <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" OnCheckedChanged="CheckBox1_CheckedChanged" />
         <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
@@ -34,7 +34,7 @@
        <table >
             <tr>
                 <td style="text-align:center; " class="auto-style1">
-                    USUARIO:
+                    LEGAJO:
                 </td>
                 <td class="auto-style2">
                   <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;Usuario" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" CausesValidation="True" Style="text-transform: uppercase"></asp:TextBox>
