@@ -232,19 +232,15 @@ namespace CapaPresentacion.Empleado
         {
             NUsuario Obj = new NUsuario();
             
-            if(ExisteDNI(txtDniCliente.Text))
+            if(ExisteDNI(txtDniCliente.Text.ToString()))
             {
-                DataTable table = Obj.BuscarPorDNI(txtDniCliente.Text);
-                if(table!=null)
-                {
-                    txtNombre.Text = table.Rows[0].ItemArray[1].ToString();
-                    txtApellido.Text = table.Rows[0].ItemArray[2].ToString();
-                }
-                else
-                {
-                    txtNombre.Text = "Hubo un error al buscar nombre y apellido.";
-                }
+                NUsuario ObjNUsuario = new NUsuario();
                 
+                DataTable dt = ObjNUsuario.NombreUsuario(txtDniCliente.Text);
+                DataRow dr = dt.Rows[0];
+                txtNombre.Text = dr["Nombre"].ToString();
+                txtApellido.Text = dr["Apellido"].ToString();
+
             }
             else
             {

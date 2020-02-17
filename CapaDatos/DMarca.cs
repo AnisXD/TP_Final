@@ -42,7 +42,14 @@ namespace CapaDatos
             ParametroIdMarca(ref cmd, obj);
             return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarMarcaPorNombre"); ;
         }
-
+        private void ParametrosMarcas(ref SqlCommand Comando, Marca ObjMarca)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
+            SqlParametros.Value = ObjMarca.idmarca;
+            SqlParametros = Comando.Parameters.Add("@NOMBREMARCA", SqlDbType.VarChar, 20);
+            SqlParametros.Value = ObjMarca.nombremarca;
+        }
         private void ParametroIdMarca(ref SqlCommand Comando, Marca ObjMarca)
         {
             SqlParameter SqlParametros = new SqlParameter();
@@ -78,14 +85,7 @@ namespace CapaDatos
             DataTable TablaResultado = cn.ObtenerTablaPorProcedimiento(ref Comando, "MostrarMarcasPorId");
             return TablaResultado;
         }
-        private void ParametrosMarcas(ref SqlCommand Comando, Marca ObjMarca)
-        {
-            SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = Comando.Parameters.Add("@IDMARCA", SqlDbType.VarChar, 15);
-            SqlParametros.Value = ObjMarca.idmarca;
-            SqlParametros = Comando.Parameters.Add("@NOMBREMARCA", SqlDbType.VarChar, 20);
-            SqlParametros.Value = ObjMarca.nombremarca;
-        }
+       
 
         public bool AgregarMarca(Marca marca)
         {
