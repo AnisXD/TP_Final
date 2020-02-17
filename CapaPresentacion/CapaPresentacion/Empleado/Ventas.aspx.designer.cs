@@ -7,135 +7,110 @@
 // </generado automáticamente>
 //------------------------------------------------------------------------------
 
-namespace CapaPresentacion.Empleado {
-    
-    
-    public partial class Ventas {
-        
+namespace CapaPresentacion.Empleado
+{
+
+
+    public partial class Ventas
+    {
+
         /// <summary>
-        /// Control lblFiltrar.
+        /// Control cbFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblFiltrar;
-        
+        protected global::System.Web.UI.WebControls.CheckBox cbFecha;
+
         /// <summary>
-        /// Control lblVendedor.
+        /// Control FechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblVendedor;
-        
+        protected global::System.Web.UI.WebControls.Calendar FechaInicio;
+
         /// <summary>
-        /// Control TextBox1.
+        /// Control FechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox1;
-        
+        protected global::System.Web.UI.WebControls.Calendar FechaFin;
+
         /// <summary>
-        /// Control lblCliente.
+        /// Control cbId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCliente;
-        
+        protected global::System.Web.UI.WebControls.CheckBox cbId;
+
         /// <summary>
-        /// Control TextBox2.
+        /// Control ddlId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextBox2;
-        
+        protected global::System.Web.UI.WebControls.DropDownList ddlId;
+
         /// <summary>
-        /// Control lblAño.
+        /// Control tbId.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblAño;
-        
+        protected global::System.Web.UI.WebControls.TextBox tbId;
+
         /// <summary>
-        /// Control txtAño.
+        /// Control bttnAceptar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAño;
-        
+        protected global::System.Web.UI.WebControls.Button bttnAceptar;
+
         /// <summary>
-        /// Control lblMes.
+        /// Control bttnCancelar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMes;
-        
+        protected global::System.Web.UI.WebControls.Button bttnCancelar;
+
         /// <summary>
-        /// Control ddlMes.
+        /// Control gvwReporte.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlMes;
-        
+        protected global::System.Web.UI.WebControls.GridView gvwReporte;
+
         /// <summary>
-        /// Control bttnFiltrar.
+        /// Control lblTotalRegistros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnFiltrar;
-        
+        protected global::System.Web.UI.WebControls.Label lblTotalRegistros;
+
         /// <summary>
-        /// Control bttnQuitarFiltro.
+        /// Control lblTotal.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnQuitarFiltro;
-        
-        /// <summary>
-        /// Control GridView1.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GridView1;
-        
-        /// <summary>
-        /// Control venta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource venta;
-        
-        /// <summary>
-        /// Control bttnNuevaVenta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button bttnNuevaVenta;
+        protected global::System.Web.UI.WebControls.Label lblTotal;
     }
 }

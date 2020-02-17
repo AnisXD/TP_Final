@@ -2,48 +2,65 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
-    <asp:Label ID="lblFiltrar" runat="server" Text="Filtrar por: " CssClass="ControlesASP"></asp:Label>
-    <asp:Label ID="lblVendedor" runat="server" Text="Vendedor: " CssClass="ControlesASP"></asp:Label>
-    <asp:TextBox ID="TextBox1" runat="server" CssClass="ControlesASP"></asp:TextBox>
-    <asp:Label ID="lblCliente" runat="server" Text="Cliente: " CssClass="ControlesASP"></asp:Label>
-    <asp:TextBox ID="TextBox2" runat="server" CssClass="ControlesASP"></asp:TextBox>
-    <asp:Label ID="lblAño" runat="server" Text="Año: " CssClass="ControlesASP"></asp:Label>
-    <asp:TextBox ID="txtAño" runat="server" CssClass="ControlesASP"></asp:TextBox>
-    <asp:Label ID="lblMes" runat="server" Text="Mes: " CssClass="ControlesASP"></asp:Label>
-    <asp:DropDownList ID="ddlMes" runat="server" CssClass="ControlesASP">
-        <asp:ListItem>Enero</asp:ListItem>
-        <asp:ListItem>Febrero</asp:ListItem>
-        <asp:ListItem>Marzo</asp:ListItem>
-        <asp:ListItem>Abril</asp:ListItem>
-        <asp:ListItem>Mayo</asp:ListItem>
-        <asp:ListItem>Junio</asp:ListItem>
-        <asp:ListItem>Julio</asp:ListItem>
-        <asp:ListItem>Agosto</asp:ListItem>
-        <asp:ListItem>Septiembre</asp:ListItem>
-        <asp:ListItem>Octubre</asp:ListItem>
-        <asp:ListItem>Noviembre</asp:ListItem>
-        <asp:ListItem>Diciembre</asp:ListItem>
-    </asp:DropDownList>
-    <asp:Button ID="bttnFiltrar" runat="server" Text="Filtrar" CssClass="Boton"/>
-    <asp:Button ID="bttnQuitarFiltro" runat="server" Text="Quitar filtro" CssClass="Boton"/>
-    
+    <h2>Total recaudado por: </h2>
+    <br />
+
+        <asp:CheckBox ID="cbFecha" runat="server" Text="Fecha" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="cbFecha_CheckedChanged" />
+       
+        <asp:Calendar ID="FechaInicio" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="100px" NextPrevFormat="FullMonth" SelectedDate="11/16/2019 12:36:13" Width="200px">
+            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+            <OtherMonthDayStyle ForeColor="#999999" />
+            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+            <TodayDayStyle BackColor="#CCCCCC" />
+        </asp:Calendar>
+        <asp:Calendar ID="FechaFin" runat="server" BackColor="White" BorderColor="White" BorderWidth="1px" Font-Names="Verdana" Font-Size="9pt" ForeColor="Black" Height="100px" NextPrevFormat="FullMonth" SelectedDate="11/16/2019 12:36:06" Width="200px">
+            <DayHeaderStyle Font-Bold="True" Font-Size="8pt" />
+            <NextPrevStyle Font-Bold="True" Font-Size="8pt" ForeColor="#333333" VerticalAlign="Bottom" />
+            <OtherMonthDayStyle ForeColor="#999999" />
+            <SelectedDayStyle BackColor="#333399" ForeColor="White" />
+            <TitleStyle BackColor="White" BorderColor="Black" BorderWidth="4px" Font-Bold="True" Font-Size="12pt" ForeColor="#333399" />
+            <TodayDayStyle BackColor="#CCCCCC" />
+        </asp:Calendar>
+       
+        <br />
+    <asp:CheckBox ID="cbId" runat="server" CssClass="ControlesASP" Text="Id" AutoPostBack="True" Height="22px" OnCheckedChanged="cbId_CheckedChanged" />
+    <br />
+<asp:DropDownList ID="ddlId" runat="server" AutoPostBack="True" CssClass="ControlesASP" Height="35px" OnSelectedIndexChanged="ddlId_SelectedIndexChanged" Width="95%">
+    <asp:ListItem>A determinar</asp:ListItem>
+    <asp:ListItem>Cliente</asp:ListItem>
+    <asp:ListItem>Vendedor</asp:ListItem>
+    <asp:ListItem>Total Ventas</asp:ListItem>
+</asp:DropDownList>
+<asp:TextBox ID="tbId" runat="server" CssClass="ControlesASP" Width="95%"></asp:TextBox>
+    <br />
+    <asp:Button ID="bttnAceptar" runat="server" CssClass="Boton" Text="Aceptar" OnClick="bttnAceptar_Click" />
+    <asp:Button ID="bttnCancelar" runat="server" CssClass="Boton" Text="Cancelar" OnClick="bttnCancelar_Click" />
+
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-   
+    <h2>Reportes: </h2>
+<div id="FormReportes" class="Form">
 
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="ID_VTA" DataSourceID="venta">
-        <Columns>
-            <asp:BoundField DataField="ID_VTA" HeaderText="ID" ReadOnly="True" SortExpression="ID_VTA" />
-            <asp:BoundField DataField="ID_CLI_VTA" HeaderText="CLIENTE" SortExpression="ID_CLI_VTA" />
-            <asp:BoundField DataField="ID_EMPLE_VTA" HeaderText="EMPLEADO" SortExpression="ID_EMPLE_VTA" />
-            <asp:BoundField DataField="FECHA_VTA" HeaderText="FECHA" SortExpression="FECHA_VTA" />
-            <asp:BoundField DataField="ID_FORMAENVIO_VTA" HeaderText="FORMA ENVIO" SortExpression="ID_FORMAENVIO_VTA" />
-            <asp:BoundField DataField="ID_FORMAPAGO_VTA" HeaderText="FORMA PAGO" SortExpression="ID_FORMAPAGO_VTA" />
-            <asp:BoundField DataField="IMPORTE" HeaderText="IMPORTE" SortExpression="IMPORTE" />
-        </Columns>
-    </asp:GridView>
-    <asp:SqlDataSource ID="venta" runat="server" ConnectionString="<%$ ConnectionStrings:FINAL_LABConnectionString %>" SelectCommand="SELECT [ID_VTA], [ID_CLI_VTA], [ID_EMPLE_VTA], [FECHA_VTA], [ID_FORMAENVIO_VTA], [ID_FORMAPAGO_VTA], [IMPORTE] FROM [VENTAS]"></asp:SqlDataSource>
-    <asp:Button ID="bttnNuevaVenta" runat="server" Text="Nueva Venta" CssClass="Boton" />
+        <br />
+        <asp:GridView ID="gvwReporte" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical">
+            <AlternatingRowStyle BackColor="#DCDCDC" />
+            <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
+            <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
+            <PagerStyle BackColor="#999999" ForeColor="Black" HorizontalAlign="Center" />
+            <RowStyle BackColor="#EEEEEE" ForeColor="Black" />
+            <SelectedRowStyle BackColor="#008A8C" Font-Bold="True" ForeColor="White" />
+            <SortedAscendingCellStyle BackColor="#F1F1F1" />
+            <SortedAscendingHeaderStyle BackColor="#0000A9" />
+            <SortedDescendingCellStyle BackColor="#CAC9C9" />
+            <SortedDescendingHeaderStyle BackColor="#000065" />
+        </asp:GridView>
+        <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
+        <br />
+        <asp:Label ID="lblTotal" runat="server" Text="Total Recaudado: "></asp:Label>
+    </div>
+    
 </asp:Content>
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColDerEmpleado" runat="server">
 </asp:Content>
