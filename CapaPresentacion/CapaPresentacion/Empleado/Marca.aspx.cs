@@ -131,7 +131,7 @@ namespace CapaPresentacion.Empleado
                 }
                 else
                 {
-                    lblEstado.Text = "El registro no se pudo insertar";
+                    lblEstado.Text = "El registro no se pudo insertar, pruebe usando un Id diferente.";
                 }
                 
             }

@@ -3,11 +3,11 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
     <h2>Filtrar por:</h2>
-    <div id="Filtros">
+    <div id="Filtros" style="text-align:left;">
     
-        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="DNI" OnCheckedChanged="cbDNI_CheckedChanged" />
+        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" CssClass="ControlesASP" Text="DNI" OnCheckedChanged="cbDNI_CheckedChanged" />
         <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP"></asp:TextBox>
-        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" OnCheckedChanged="CheckBox1_CheckedChanged" />
+        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" CssClass="ControlesASP" Text="Apellido" OnCheckedChanged="CheckBox1_CheckedChanged" />
         <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
         <asp:Button ID="btnQuitarFiltro" runat="server" Text="Quitar Filtros" CssClass="Boton" OnClick="btnQuitarFiltro_Click" />
@@ -15,10 +15,10 @@
     </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
-    <h1>Administrar Clientes</h1>
+    
    <div id="FormClientes" class="Form">
-
-       <asp:GridView ID="gvwClientes" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvwClientes_SelectedIndexChanged">
+       <h2>Administrar Clientes</h2>
+       <asp:GridView ID="gvwClientes" runat="server" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvwClientes_SelectedIndexChanged" Width="100%" HorizontalAlign="Center" Font-Size="Small" RowStyle-Height="40px">
            <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
            <HeaderStyle BackColor="#003399" Font-Bold="True" ForeColor="#CCCCFF" />
            <PagerStyle BackColor="#99CCCC" ForeColor="#003399" HorizontalAlign="Left" />
@@ -84,7 +84,7 @@
                     PROVINCIA:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="ControlesASP" Width="150px" AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
+                    <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="Ddl"  AutoPostBack="True" OnSelectedIndexChanged="ddlProvincia_SelectedIndexChanged" >
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -95,7 +95,7 @@
                     LOCALIDAD:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="ControlesASP">
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="Ddl">
                     </asp:DropDownList>
                 </td>
                 <td class="auto-style3">
@@ -130,7 +130,7 @@
                     REPITA CONTRASEÑA:
                 </td>
                 <td class="auto-style2">
-                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP" Width="160px"></asp:TextBox>
+                   <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="8" TextMode="Password" CssClass="ControlesASP" ></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                    <asp:CompareValidator ID="cv1" runat="server" ControlToCompare="txbClave" ControlToValidate="txbRepitaClave" ErrorMessage="Las Contraseñas son distintas." SetFocusOnError="True" ValidationGroup="1"></asp:CompareValidator>

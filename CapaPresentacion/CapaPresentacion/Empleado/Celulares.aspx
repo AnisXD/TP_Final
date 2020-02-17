@@ -27,7 +27,7 @@
     
     <div id="FormCelulares" class="Form">
         
-        <h2>Celulares</h2>
+        <h2>Administrar Celulares</h2>
 
         <asp:GridView ID="gvwCelulares" runat="server" AllowPaging="True" AllowSorting="True" HorizontalAlign="Center" BackColor="White" BorderColor="#3366CC" BorderStyle="None" BorderWidth="1px" CellPadding="4" OnSelectedIndexChanged="gvwCelulares_SelectedIndexChanged" AutoGenerateSelectButton="True" Font-Size="Small">
             <FooterStyle BackColor="#99CCCC" ForeColor="#003399" />
