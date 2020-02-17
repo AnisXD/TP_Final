@@ -40,7 +40,6 @@
     <br>
     <asp:Label ID="lblUsuario" runat="server" Text=" " CssClass="LabelBlanca"></asp:Label>
     <br>
-    <asp:Button ID="MiPerfil" runat="server" Text="Mi Perfil" CssClass="Boton" PostBackUrl="~/Cliente/EditarPerfilCliente.aspx" />
     <asp:Button ID="btCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="Boton" OnClick="btCerrarSesion_Click"/>
     <br /> 
 

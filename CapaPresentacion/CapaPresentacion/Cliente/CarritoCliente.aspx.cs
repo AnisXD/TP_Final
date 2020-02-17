@@ -12,6 +12,7 @@ namespace CapaPresentacion.Cliente
 {
     public partial class CarritoCliente : System.Web.UI.Page
     {
+        #region Funciones
         public void ActualizarTabla()
         {
             if (this.Session["Carrito"] == null)
@@ -139,6 +140,9 @@ namespace CapaPresentacion.Cliente
                     ddlModelo.SelectedIndex = ddlModelo.Items.IndexOf(Item);
             }
         }
+
+        #endregion
+
         #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {

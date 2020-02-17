@@ -206,7 +206,15 @@ namespace CapaDatos
             SqlCommand cmd = new SqlCommand();
             string Consulta = "SELECT MAX(ID_VTA) FROM VENTAS";
             DataTable Resultado = cn.ObtenerTablaPorConsultaSQL(Consulta);
-            IdVenta = Convert.ToInt32(Resultado.Rows[0].ItemArray[0]);
+            if(Resultado==null)
+            {
+                IdVenta = 0;
+            }
+            else
+            {
+                IdVenta = Convert.ToInt32(Resultado.Rows[0].ItemArray[0]);
+
+            }
             return IdVenta;
         }
         public bool AgregarVentaConDetalles(Venta Vta, List <DetallesVentas> Detalles)
@@ -221,8 +229,8 @@ namespace CapaDatos
                 foreach (DetallesVentas Item in Detalles)
                 {
                     SqlCommand ComandoD = new SqlCommand();
-                    ParametrosDetalle(ref Comando, Item);
-                    FilasInsertadas = cn.EjecutarProcedimientoDeABM(Comando, "AltaDetalleVenta");
+                    ParametrosDetalle(ref ComandoD, Item);
+                    FilasInsertadas = cn.EjecutarProcedimientoDeABM(ComandoD, "AltaDetalleVenta");
                     if(FilasInsertadas!=1)
                     {
                         return false;//falla en cargar detalle
