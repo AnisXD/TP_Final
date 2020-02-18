@@ -13,7 +13,6 @@ namespace CapaPresentacion.Cliente
 {
     public partial class InicioCliente : System.Web.UI.Page
     {
-
         #region Funciones auxiliares
         private void limpiarTxt()
         {
@@ -27,6 +26,7 @@ namespace CapaPresentacion.Cliente
             lvwCelulares.DataBind();
             lblTotalRegistros.Text = "Celulares disponibles: " + lvwCelulares.Items.Count;
         }
+
         private void CargarDDL_Marcas()
         {
             NMarca Obj = new NMarca();
@@ -46,6 +46,7 @@ namespace CapaPresentacion.Cliente
             ddlModelo.DataValueField = "Modelo";
             ddlModelo.DataBind();
         }
+
         private void CargarDDL_ModeloPorMarca()
         {
             NCelular Obj = new NCelular();
@@ -55,6 +56,7 @@ namespace CapaPresentacion.Cliente
             ddlModelo.DataValueField = "Modelo";
             ddlModelo.DataBind();
         }
+
         private void CargarComboNumerico(ref DropDownList NombreCombo)
         {
             NombreCombo.Items.Add("Igual a:");
@@ -62,8 +64,28 @@ namespace CapaPresentacion.Cliente
             NombreCombo.Items.Add("Menor a:");
         }
 
-        #endregion
+        private void MostrarCbxPrecio()
+        {
+            CbxPrecio.Visible = true;
+            ddlPrecio.Visible = true;
+            txtPrecio.Visible = true;
+            
+            CbxPrecio.Checked = false;
+            txtPrecio.Text = string.Empty;
+        }
 
+        private void OcultarCbxPrecio()
+        {
+            CbxPrecio.Visible = false;
+            ddlPrecio.Visible = false;
+            txtPrecio.Visible = false;
+            
+            CbxPrecio.Checked = false;
+            txtPrecio.Text = string.Empty;
+        }
+        #endregion
+        
+        #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -71,8 +93,9 @@ namespace CapaPresentacion.Cliente
                 cargarListView(new NCelular().Mostrar());
                 CargarDDL_Marcas();
                 CargarDDL_Modelo();
-                limpiarTxt();
                 CargarComboNumerico(ref ddlPrecio);
+                MostrarCbxPrecio();
+                limpiarTxt();
             }
         }
 
@@ -85,16 +108,11 @@ namespace CapaPresentacion.Cliente
         {
             if (CbxModelo.Checked)
             {
-                CbxPrecio.Visible = false;
-                ddlPrecio.Visible = false;
-                txtPrecio.Visible = false;
-                CbxPrecio.Checked = false;
+                OcultarCbxPrecio();
             }
             else
             {
-                CbxPrecio.Visible = true;
-                ddlPrecio.Visible = true;
-                txtPrecio.Visible = true;
+                MostrarCbxPrecio();
             }
         }
 
@@ -161,15 +179,8 @@ namespace CapaPresentacion.Cliente
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
-            cargarListView(new NCelular().Mostrar());
-            CargarDDL_Marcas();
-            CargarDDL_Modelo();
-            txtPrecio.Text = string.Empty;
-            CbxMarca.Checked = false;
-            CbxModelo.Checked = false;
-            CbxPrecio.Checked = false;
-            limpiarTxt();
-            lblFiltro.Text = "";
+            MostrarCbxPrecio();
+            Response.Redirect("~/Usuario/InicioCliente.aspx");
         }
 
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
@@ -177,5 +188,6 @@ namespace CapaPresentacion.Cliente
             this.Session["Modelo"] = e.CommandArgument;
             Response.Redirect("./CarritoCliente.aspx");
         }
+        #endregion
     }
 }

@@ -76,8 +76,9 @@ namespace CapaPresentacion.Empleado
             ddlMarca2.DataValueField = "Id";
             ddlMarca2.DataBind();
         }
-        private void CargarComboNumerico(ref DropDownList NombreCombo)
+        public void CargarComboNumerico(ref DropDownList NombreCombo)
         {
+            NombreCombo.Items.Clear();
             NombreCombo.Items.Add("Igual a:");
             NombreCombo.Items.Add("Mayor a:");
             NombreCombo.Items.Add("Menor a:");
@@ -116,9 +117,29 @@ namespace CapaPresentacion.Empleado
             return existe;
         }
 
+        private void MostrarCbxPrecio()
+        {
+            CbxPrecio.Visible = true;
+            ddlPrecio.Visible = true;
+            txtPrecio.Visible = true;
+
+            CbxPrecio.Checked = false;
+            txtPrecio.Text = string.Empty;
+        }
+
+        private void OcultarCbxPrecio()
+        {
+            CbxPrecio.Visible = false;
+            ddlPrecio.Visible = false;
+            txtPrecio.Visible = false;
+
+            CbxPrecio.Checked = false;
+            txtPrecio.Text = string.Empty;
+        }
+
         #endregion
 
-     #region Eventos
+        #region Eventos
         protected void Page_Load(object sender, EventArgs e)
         {
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
@@ -187,7 +208,7 @@ namespace CapaPresentacion.Empleado
                 lblEstado.Text = "Atencion! Para agregar un registro debe completar todos los campos";
             }
         }
-
+        // revisar
         protected void btnEditar_Click1(object sender, EventArgs e)
         {
             if (txtCompletos())
@@ -255,16 +276,11 @@ namespace CapaPresentacion.Empleado
         {
             if (CbxModelo.Checked)
             {
-                CbxPrecio.Visible = false;
-                ddlPrecio.Visible = false;
-                txtPrecio.Visible = false;
-                CbxPrecio.Checked = false;
+                OcultarCbxPrecio();
             }
             else
             {
-                CbxPrecio.Visible = true;
-                ddlPrecio.Visible = true;
-                txtPrecio.Visible = true;
+                MostrarCbxPrecio();
             }         
         }
         protected void btnFiltrar_Click(object sender, EventArgs e)
@@ -318,15 +334,8 @@ namespace CapaPresentacion.Empleado
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
-            cargarDgv(new NCelular().Mostrar());
-            CargarDDL_Marcas();
-            CargarDDL_Modelo();
-            txtPrecio.Text = string.Empty;
-            CbxMarca.Checked = false;
-            CbxModelo.Checked = false;
-            CbxPrecio.Checked = false;
-            limpiarTxt();
-
+            MostrarCbxPrecio();
+            Response.Redirect("~/Empleado/Celulares.aspx");
         }
 
         protected void btnVerUbicacion_Click(object sender, EventArgs e)
@@ -378,9 +387,6 @@ namespace CapaPresentacion.Empleado
 
         #endregion
 
-        protected void CbxMarca_CheckedChanged(object sender, EventArgs e)
-        {
-            //
-        }
+        
     }
 }

@@ -13,7 +13,7 @@ namespace CapaPresentacion.Usuario
 {
     public partial class InicioUsuario : System.Web.UI.Page
     {
-        #region Funciones auxiliares
+        #region Funciones
         private void limpiarTxt()
         {
             this.txtPrecio.Text = string.Empty;
@@ -26,6 +26,7 @@ namespace CapaPresentacion.Usuario
             lvwCelulares.DataBind();
             lblTotalRegistros.Text = "Celulares disponibles: " + lvwCelulares.Items.Count;
         }
+
         private void CargarDDL_Marcas()
         {
             NMarca Obj = new NMarca();
@@ -45,6 +46,7 @@ namespace CapaPresentacion.Usuario
             ddlModelo.DataValueField = "Modelo";
             ddlModelo.DataBind();
         }
+
         private void CargarDDL_ModeloPorMarca()
         {
             NCelular Obj = new NCelular();
@@ -54,11 +56,32 @@ namespace CapaPresentacion.Usuario
             ddlModelo.DataValueField = "Modelo";
             ddlModelo.DataBind();
         }
+
         private void CargarComboNumerico(ref DropDownList NombreCombo)
         {
             NombreCombo.Items.Add("Igual a:");
             NombreCombo.Items.Add("Mayor a:");
             NombreCombo.Items.Add("Menor a:");
+        }
+
+        private void MostrarCbxPrecio()
+        {
+            CbxPrecio.Visible = true;
+            ddlPrecio.Visible = true;
+            txtPrecio.Visible = true;
+
+            CbxPrecio.Checked = false;
+            txtPrecio.Text = string.Empty;
+        }
+
+        private void OcultarCbxPrecio()
+        {
+            CbxPrecio.Visible = false;
+            ddlPrecio.Visible = false;
+            txtPrecio.Visible = false;
+
+            CbxPrecio.Checked = false;
+            txtPrecio.Text = string.Empty;
         }
         #endregion
 
@@ -70,11 +93,10 @@ namespace CapaPresentacion.Usuario
                 cargarListView(new NCelular().Mostrar());
                 CargarDDL_Marcas();
                 CargarDDL_Modelo();
-                limpiarTxt();
                 CargarComboNumerico(ref ddlPrecio);
+                MostrarCbxPrecio();
+                limpiarTxt();
             }
-
-            
         }
 
         protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,20 +108,14 @@ namespace CapaPresentacion.Usuario
         {
             if (CbxModelo.Checked)
             {
-                CbxPrecio.Visible = false;
-                ddlPrecio.Visible = false;
-                txtPrecio.Visible = false;
-                txtPrecio.Text = "";
-                CbxPrecio.Checked = false;
+                OcultarCbxPrecio();
             }
             else
             {
-                CbxPrecio.Visible = true;
-                txtPrecio.Text = "";
-                ddlPrecio.Visible = true;
-                txtPrecio.Visible = true;
+                MostrarCbxPrecio();
             }
         }
+
         protected void btnFiltrar_Click(object sender, EventArgs e)
         {
             string Filtro = "";
@@ -157,17 +173,10 @@ namespace CapaPresentacion.Usuario
 
         protected void btnQuitarFiltro_Click(object sender, EventArgs e)
         {
-            cargarListView(new NCelular().Mostrar());
-            CargarDDL_Marcas();
-            CargarDDL_Modelo();
-            txtPrecio.Text = string.Empty;
-            CbxMarca.Checked = false;
-            CbxModelo.Checked = false;
-            CbxPrecio.Checked = false;
-            limpiarTxt();
-            lblFiltro.Text = "";
-
+            MostrarCbxPrecio();
+            Response.Redirect("~/Usuario/InicioUsuario.aspx");
         }
+
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
         {
             this.Session["Modelo"] = e.CommandArgument;
