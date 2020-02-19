@@ -14,19 +14,38 @@ namespace CapaPresentacion.Empleado
     {
         #region Funciones
 
+        public void ActivarBtn_Confirmar_Cancelar()
+        {
+            bttnFinalizarcompra.Enabled = true;
+            bttnCancelarCompra.Enabled = true;
+        }
+        public void DesactivarBtn_Confirmar_Cancelar()
+        {
+            bttnFinalizarcompra.Enabled = false;
+            bttnCancelarCompra.Enabled = false;
+        }
+
         public void ActualizarTabla()
         {
             if (this.Session["Carrito"] == null)
             {
                 grdLista.DataSource = null;
                 grdLista.DataBind();
+                ActualizarTotal();
+                DesactivarBtn_Confirmar_Cancelar();
             }
-            //Asocio el gridview al DataTable
-            grdLista.DataSource = (DataTable)this.Session["Carrito"];
-            grdLista.DataBind();
+            else
+            {
+                //Asocio el gridview al DataTable
+                grdLista.DataSource = (DataTable)this.Session["Carrito"];
+                grdLista.DataBind();
+                ActualizarTotal();
+                ActivarBtn_Confirmar_Cancelar();
+            }
+            
         }
 
-        public DataTable crearTabla()
+        public DataTable CrearTabla()
         {
             //Creo una tabla que voy a asociar a una variable Session
             DataTable tabla = new DataTable();
@@ -88,6 +107,10 @@ namespace CapaPresentacion.Empleado
                 }
 
                 lblImporte.Text = Monto_Total.ToString();
+            }
+            else 
+            {
+                lblImporte.Text = "0";
             }
         }
 
@@ -221,11 +244,8 @@ namespace CapaPresentacion.Empleado
                         ActualizarDdlCantidad();
                     }
                 }
-
-                ActualizarTotal();
                 ActualizarTabla();
             }
-
         }
 
         protected void txtDniCliente_TextChanged(object sender, EventArgs e)
@@ -270,12 +290,10 @@ namespace CapaPresentacion.Empleado
         {
             if (this.Session["Carrito"] == null)//chequemos si carrito tiene datos
             {
-                this.Session["Carrito"] = crearTabla();//Si esta vacio creo una tabla
+                this.Session["Carrito"] = CrearTabla();//Si esta vacio creo una tabla
             }
             //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
             AgregarFila((DataTable)(this.Session["Carrito"]));
-            //ACTUAILIZAR lbl total 
-            ActualizarTotal();
             //ACTUAILIZAR GRID LISTA CON LO QUE CARGUE AL CARRITO
             ActualizarTabla();
             //ACTUAILIZAR DDL CANTIDAD
@@ -299,18 +317,13 @@ namespace CapaPresentacion.Empleado
             {
                 this.Session["Carrito"] = null;
             }
-            ActualizarTotal();
-
             ActualizarTabla();
            
         }
 
         protected void grdLista_RowDeleted(object sender, GridViewDeletedEventArgs e)
         {
-            ActualizarTotal();
-
-            ActualizarTabla();
-
+           ActualizarTabla();
         }
 
         protected void bttnFinalizarcompra_Click(object sender, EventArgs e)
@@ -336,7 +349,6 @@ namespace CapaPresentacion.Empleado
                     lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
                     this.Session["Carrito"] = null;
                     ActualizarTabla();
-                    ActualizarTotal();
                     LimpiarTxtyLbl();
                     txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
                 }
@@ -355,20 +367,11 @@ namespace CapaPresentacion.Empleado
         {
             this.Session["Carrito"] = null;
             Response.Redirect("~/Empleado/CarritoEmpleado.aspx");
-
-            ActualizarTotal();
-
-            ActualizarTabla();
-
-            lblRespuesta.Text = " ";
-
-            lblImporte.Text = "0";
         }
 
         protected void grdLista_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdLista.PageIndex = e.NewPageIndex;
-
             ActualizarTabla();
         }
 
@@ -376,7 +379,7 @@ namespace CapaPresentacion.Empleado
         {
             if (this.Session["Carrito"] == null)
             {
-                this.Session["Carrito"] = crearTabla();
+                this.Session["Carrito"] = CrearTabla();
             }
 
             if (e.CommandName == "Select")
@@ -389,8 +392,6 @@ namespace CapaPresentacion.Empleado
 
                 if (Carrito.Rows.Count == 0)
                     Carrito = null;
-
-                ActualizarTotal();
 
                 ActualizarTabla();
             }

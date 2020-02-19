@@ -15,7 +15,7 @@ namespace CapaPresentacion.Empleado
     {
 
         #region Funciones
-        private void limpiarTxt()
+        private void LimpiarTxt()
         {
             this.txtModelo2.Text = string.Empty;
             this.txtDescripcion.Text = string.Empty;
@@ -24,7 +24,7 @@ namespace CapaPresentacion.Empleado
             this.txtUbicacion.Text = string.Empty;
         }
 
-        private void cargarDgv(DataTable Celulares)
+        private void CargarDgv(DataTable Celulares)
         {
             gvwCelulares.DataSource = Celulares;
             gvwCelulares.DataBind();
@@ -83,7 +83,7 @@ namespace CapaPresentacion.Empleado
             NombreCombo.Items.Add("Mayor a:");
             NombreCombo.Items.Add("Menor a:");
         }
-        public bool txtCompletos()
+        public bool TxtCompletos()
         {
             if ((txtModelo2.Text == string.Empty) || (txtDescripcion.Text == string.Empty) || (txtPrecio2.Text == string.Empty) || (txtStock.Text == string.Empty)||(txtUbicacion.Text==string.Empty))
             {
@@ -145,11 +145,11 @@ namespace CapaPresentacion.Empleado
             Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
             if (!IsPostBack)
             {
-                cargarDgv(new NCelular().Mostrar());
+                CargarDgv(new NCelular().Mostrar());
                 CargarDDL_Marcas();
                 CargarDDL_Modelo();
                 CargarDDL_Marcas2();
-                limpiarTxt();
+                LimpiarTxt();
                 CargarComboNumerico(ref ddlPrecio);
                 btnAgregar.Enabled = true;
                 btnEditar.Enabled = false;
@@ -157,7 +157,7 @@ namespace CapaPresentacion.Empleado
             }
 
         }
-        protected void txtModelo2_TextChanged(object sender, EventArgs e)
+        protected void TxtModelo2_TextChanged(object sender, EventArgs e)
         {
             lblEstado.Text = "txtID se modifico";
             if (txtModelo2.Text.Trim().Length == 0)
@@ -186,10 +186,10 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void btnAgregar_Click(object sender, EventArgs e)
+        protected void BtnAgregar_Click(object sender, EventArgs e)
         {
             //hacer funcion que guarde el archivo seleccionado en la carpeta del programa y le asigne nueva ubicacion
-            if (txtCompletos())
+            if (TxtCompletos())
             {
                 NCelular Obj = new NCelular();
                 if (Obj.Insertar(txtModelo2.Text, ddlMarca2.SelectedValue, Convert.ToInt32(txtPrecio2.Text), Convert.ToInt32(txtStock.Text), txtDescripcion.Text, txtUbicacion.Text))
@@ -200,8 +200,8 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "El registro no se pudo insertar";
                 }
-                cargarDgv(new NCelular().Mostrar());
-                limpiarTxt();
+                CargarDgv(new NCelular().Mostrar());
+                LimpiarTxt();
             }
             else //si los txt no estan completos aviso al usuario
             {
@@ -209,9 +209,9 @@ namespace CapaPresentacion.Empleado
             }
         }
         // revisar
-        protected void btnEditar_Click1(object sender, EventArgs e)
+        protected void BtnEditar_Click1(object sender, EventArgs e)
         {
-            if (txtCompletos())
+            if (TxtCompletos())
             {
                 NCelular obj = new NCelular();
                 
@@ -223,8 +223,8 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "El registro no se pudo editar";
                 }
-                cargarDgv(new NCelular().Mostrar());
-                limpiarTxt();
+                CargarDgv(new NCelular().Mostrar());
+                LimpiarTxt();
             }
             else
             {
@@ -232,7 +232,7 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void btnEliminar_Click1(object sender, EventArgs e)
+        protected void BtnEliminar_Click1(object sender, EventArgs e)
         {
             if (txtModelo2.Text!=string.Empty)
             {
@@ -245,8 +245,8 @@ namespace CapaPresentacion.Empleado
                 {
                     lblEstado.Text = "El registro no se pudo eliminar";
                 }
-                cargarDgv(new NCelular().Mostrar());
-                limpiarTxt();
+                CargarDgv(new NCelular().Mostrar());
+                LimpiarTxt();
             }
             else
             {
@@ -254,7 +254,7 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void gvwCelulares_SelectedIndexChanged(object sender, EventArgs e)
+        protected void GvwCelulares_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtModelo2.Text = gvwCelulares.SelectedRow.Cells[1].Text;
             BuscarMarcaEnDdl(gvwCelulares.SelectedRow.Cells[2].Text);
@@ -267,7 +267,7 @@ namespace CapaPresentacion.Empleado
             btnEliminar.Enabled = true;
             lblEstado.Text = "Puede editar o eliminar el registro seleccionado";
         }
-        protected void ddlMarca_SelectedIndexChanged(object sender, EventArgs e)
+        protected void DdlMarca_SelectedIndexChanged(object sender, EventArgs e)
         {
             CargarDDL_ModeloPorMarca();
         }
@@ -283,13 +283,13 @@ namespace CapaPresentacion.Empleado
                 MostrarCbxPrecio();
             }         
         }
-        protected void btnFiltrar_Click(object sender, EventArgs e)
+        protected void BtnFiltrar_Click(object sender, EventArgs e)
         {
             string Filtro = "";
             NCelular Obj = new NCelular();
             if (CbxModelo.Checked)
             {
-                cargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedValue));
+                CargarDgv(Obj.BuscarPorModelo(ddlModelo.SelectedValue));
             }
             else 
             {
@@ -303,13 +303,13 @@ namespace CapaPresentacion.Empleado
                                       ddlPrecio.SelectedItem.Text,
                                       txtPrecio.Text,
                                       ref Filtro);
-                    cargarDgv(Obj.BuscarPorFiltro(Filtro));
+                    CargarDgv(Obj.BuscarPorFiltro(Filtro));
                 }
                 else
                 {
                     if(CbxMarca.Checked)
                     {
-                        cargarDgv(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
+                        CargarDgv(Obj.BuscarPorMarca(ddlMarca.SelectedItem.Value));
                     }
                     else 
                     {
@@ -321,7 +321,7 @@ namespace CapaPresentacion.Empleado
                                       ref Filtro);
                             lblFiltro.Text = "Filtrar por Precio: " + ddlPrecio.SelectedItem.Text + txtPrecio.Text;
                             
-                            cargarDgv(Obj.BuscarPorFiltro(Filtro));
+                            CargarDgv(Obj.BuscarPorFiltro(Filtro));
                         }
                         else
                         {
@@ -332,13 +332,13 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void btnQuitarFiltro_Click(object sender, EventArgs e)
+        protected void BtnQuitarFiltro_Click(object sender, EventArgs e)
         {
             MostrarCbxPrecio();
             Response.Redirect("~/Empleado/Celulares.aspx");
         }
 
-        protected void btnVerUbicacion_Click(object sender, EventArgs e)
+        protected void BtnVerUbicacion_Click(object sender, EventArgs e)
         {
             string URLdestino = @"~\Imagenes\";
             //chequeamos que haya un archivo cargado en el control
@@ -370,7 +370,7 @@ namespace CapaPresentacion.Empleado
             }
         }
 
-        protected void btnGuardar_Click(object sender, EventArgs e)
+        protected void BtnGuardar_Click(object sender, EventArgs e)
 
         {
             string fullpath = Request.PhysicalApplicationPath + @"Imagenes\" + Server.HtmlEncode(UbicacionImagen.FileName);

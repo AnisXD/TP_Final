@@ -3,10 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
-
+    <p>&nbsp;</p>
     <h2>Total recaudado por: </h2>
-    <br />
-
+   
     <div id="Filtro" style="text-align: left;">
 
         <asp:CheckBox ID="cbFecha" runat="server" Text="Fecha" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="cbFecha_CheckedChanged" />
@@ -78,7 +77,7 @@
             <SortedDescendingHeaderStyle BackColor="#000065" />
         </asp:GridView>
 
-        <asp:Label ID="lblTotalRegistros" runat="server" CssClass="LabelNegritaLargaCenter"></asp:Label>
+        <asp:Label ID="lblTotalRegistros" runat="server" CssClass="LabelLarga"></asp:Label>
         <br />
 
         <asp:Label ID="lblTotal" runat="server" Text="Total Recaudado: " CssClass="LabelNegritaLargaCenter"></asp:Label>

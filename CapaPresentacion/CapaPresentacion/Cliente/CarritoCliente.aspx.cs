@@ -88,6 +88,10 @@ namespace CapaPresentacion.Cliente
 
                 lblImporte.Text = Monto_Total.ToString();
             }
+            else
+            {
+                lblImporte.Text = "0";
+            }
         }
 
         public void CargarLbl()
