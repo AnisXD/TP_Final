@@ -172,6 +172,7 @@ namespace CapaPresentacion.Usuario
                 CargarDDL_Localidad();
                 limpiarTxt();
                 OcultarLbls();
+                btnAceptar.Enabled = true;
             }
             if(RegistroCompleto())
             {
@@ -211,16 +212,16 @@ namespace CapaPresentacion.Usuario
         {
             if (txbDNI.Text.Trim().Length == 0)
             {
-                btnAceptar.Enabled = false;
-                btnCancelar.Enabled = false;
+                btnAceptar.Enabled = true;
+                btnCancelar.Enabled = true;
                 lblEstado2.Text = "txtID esta vacio";
             }
             else
             {
                 if (ExisteDNI(txbDNI.Text.ToString()))
                 {
-                    btnAceptar.Enabled = false;
-                    btnCancelar.Enabled = false;
+                    btnAceptar.Enabled = true;
+                    btnCancelar.Enabled = true;
                     lblEstado2.Text = "El DNI ingresado ya se encuentra registrado";
                 }
                 else

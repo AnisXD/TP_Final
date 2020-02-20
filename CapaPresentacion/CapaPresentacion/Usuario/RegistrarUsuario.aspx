@@ -32,7 +32,7 @@
                 <td style="text-align: center;" class="auto-style1">DNI:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" AutoPostBack="True" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True" MaxLength="9"></asp:TextBox>
+                    <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True" MaxLength="9"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
                     <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbDNI" ErrorMessage="DNI tiene que tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
@@ -91,8 +91,9 @@
                 <td style="text-align: center;" class="auto-style1">LOCALIDAD:
                 </td>
                 <td class="auto-style2">
-                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="Ddl" ValidateRequestMode="Enabled">
-                    </asp:DropDownList></td>
+                    <asp:DropDownList ID="ddlLocalidad" runat="server" CssClass="Ddl" ValidateRequestMode="Enabled" AutoPostBack="True"></asp:DropDownList>
+
+                </td>
                 <td class="auto-style3">
                     <asp:Label ID="lblLocalidad" runat="server" Text="Debe seleccionar una Localidad" Visible="False"></asp:Label>
                 </td>
