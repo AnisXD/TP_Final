@@ -21,22 +21,22 @@ namespace CapaPresentacion.Usuario
             this.txbNombre.Text = string.Empty;
             this.txbDireccion.Text = string.Empty;
             this.txbTelefono.Text = string.Empty;
-            this.lblEstado.Text = string.Empty;
+            this.lblEstado2.Text = string.Empty;
         }
 
         private void OcultarLbls()
         {
-            lblApellido.Visible=false;
-            lblContraseñaCorta.Visible = false;
+            //lblApellido.Visible=false;
+            //lblContraseñaCorta.Visible = false;
             lblContraseñaSegura.Visible = false;
-            lblDireccion.Visible = false;
-            lblDNI.Visible = false;
-            lblEstado.Visible = false;
+            //lblDireccion.Visible = false;
+            //lblDNI.Visible = false;
+            lblEstado2.Visible = false;
             lblLocalidad.Visible = false;
-            lblNombre.Visible = false;
+            //lblNombre.Visible = false;
             lblProvincia.Visible = false;
-            lblRepetirClaveCorta.Visible = false;
-            lblTelefono.Visible = false;
+            //lblRepetirClaveCorta.Visible = false;
+            //lblTelefono.Visible = false;
         }
 
         private int DdlCompleto(DropDownList Ddl, ref Label LblMensaje)
@@ -107,13 +107,13 @@ namespace CapaPresentacion.Usuario
             int Cant=0;
             Cant += DdlCompleto(ddlProvincia, ref lblProvincia);
             Cant += DdlCompleto(ddlLocalidad, ref lblLocalidad);
-            Cant += TxtCompleto(txbDNI.Text, ref lblDNI, 8);
-            Cant += TxtCompleto(txbNombre.Text, ref lblNombre, 2);
-            Cant += TxtCompleto(txbApellido.Text, ref lblApellido, 2);
-            Cant += TxtCompleto(txbTelefono.Text, ref lblTelefono, 10);
-            Cant += TxtCompleto(txbDireccion.Text, ref lblDireccion, 8);
-            Cant += TxtCompleto(txbClave.Text, ref lblContraseñaCorta, 8);
-            Cant += TxtCompleto(txbRepitaClave.Text, ref lblRepetirClaveCorta, 8);
+            //Cant += TxtCompleto(txbDNI.Text, ref lblDNI, 8);
+            //Cant += TxtCompleto(txbNombre.Text, ref lblNombre, 2);
+            //Cant += TxtCompleto(txbApellido.Text, ref lblApellido, 2);
+            //Cant += TxtCompleto(txbTelefono.Text, ref lblTelefono, 10);
+            //Cant += TxtCompleto(txbDireccion.Text, ref lblDireccion, 8);
+            //Cant += TxtCompleto(txbClave.Text, ref lblContraseñaCorta, 8);
+            //Cant += TxtCompleto(txbRepitaClave.Text, ref lblRepetirClaveCorta, 8);
             Cant += ClaveSegura(txbClave.Text, ref lblContraseñaSegura);
             if (Cant==10)
             {
@@ -130,14 +130,14 @@ namespace CapaPresentacion.Usuario
             dt = obj.BuscarPorDNI(dni);
             if(dt == null)
             {
-                lblEstado.Text = "El DNI ingresado no esta en la base de datos.";
+                lblEstado2.Text = "El DNI ingresado no esta en la base de datos.";
             }
             else
             {
                 if (dt.Rows.Count == 1 && dni.Length > 0)
                 {
                     existe = true;
-                    lblEstado.Text = "El DNI ingresado ya esta registrado.";
+                    lblEstado2.Text = "El DNI ingresado ya esta registrado.";
                 }
             }
            
@@ -193,28 +193,27 @@ namespace CapaPresentacion.Usuario
                 if (Obj.Insertar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, txbClave.Text, 'C'))
                 {
                     limpiarTxt();
-                    lblEstado.Text = "El registro se insertó con exito";
+                    lblEstado2.Text = "El registro se insertó con exito";
                     Response.Redirect("/Usuario/LogIn.aspx");
                 }
                 else
                 {
-                    lblEstado.Text = "El registro no se pudo insertar";
+                    lblEstado2.Text = "El registro no se pudo insertar";
                 }
             }
             else
             {
-                lblEstado.Text = "Datos invalidos, revise los requisitos para cada campo.";
+                lblEstado2.Text = "Datos invalidos, revise los requisitos para cada campo.";
             }
 
         }
         protected void txbDNI_TextChanged(object sender, EventArgs e)
         {
-            lblEstado.Text = "txtDNI se modifico";
             if (txbDNI.Text.Trim().Length == 0)
             {
                 btnAceptar.Enabled = false;
                 btnCancelar.Enabled = false;
-                lblEstado.Text = "txtID esta vacio";
+                lblEstado2.Text = "txtID esta vacio";
             }
             else
             {
@@ -222,13 +221,13 @@ namespace CapaPresentacion.Usuario
                 {
                     btnAceptar.Enabled = false;
                     btnCancelar.Enabled = false;
-                    //lblEstado.Text = "El DNI ingresado ya fue registrado";
+                    lblEstado2.Text = "El DNI ingresado ya se encuentra registrado";
                 }
                 else
                 {
                     btnAceptar.Enabled = true;
                     btnCancelar.Enabled = true;
-                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario";
+                    lblEstado2.Text = "El DNI ingresado no esta registrado como usuario";
                 }
             }
         }

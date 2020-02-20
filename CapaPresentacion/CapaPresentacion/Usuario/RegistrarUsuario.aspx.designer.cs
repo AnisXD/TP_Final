@@ -24,13 +24,13 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.TextBox txbDNI;
 
         /// <summary>
-        /// Control lblDNI.
+        /// Control RegularExpressionValidator1.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDNI;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator1;
 
         /// <summary>
         /// Control cvDni.
@@ -60,15 +60,6 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.TextBox txbNombre;
 
         /// <summary>
-        /// Control lblNombre.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblNombre;
-
-        /// <summary>
         /// Control revNombre.
         /// </summary>
         /// <remarks>
@@ -94,15 +85,6 @@ namespace CapaPresentacion.Usuario
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txbApellido;
-
-        /// <summary>
-        /// Control lblApellido.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblApellido;
 
         /// <summary>
         /// Control revApellido.
@@ -132,13 +114,13 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.TextBox txbTelefono;
 
         /// <summary>
-        /// Control lblTelefono.
+        /// Control RegularExpressionValidator2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblTelefono;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator2;
 
         /// <summary>
         /// Control cvTelefono.
@@ -204,13 +186,13 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.TextBox txbDireccion;
 
         /// <summary>
-        /// Control lblDireccion.
+        /// Control RegularExpressionValidator3.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblDireccion;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator3;
 
         /// <summary>
         /// Control rfvDireccion.
@@ -231,13 +213,13 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.TextBox txbClave;
 
         /// <summary>
-        /// Control lblContraseñaCorta.
+        /// Control RegularExpressionValidator4.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblContraseñaCorta;
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegularExpressionValidator4;
 
         /// <summary>
         /// Control lblContraseñaSegura.
@@ -267,15 +249,6 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.TextBox txbRepitaClave;
 
         /// <summary>
-        /// Control lblRepetirClaveCorta.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblRepetirClaveCorta;
-
-        /// <summary>
         /// Control cvRepitaClave.
         /// </summary>
         /// <remarks>
@@ -294,13 +267,13 @@ namespace CapaPresentacion.Usuario
         protected global::System.Web.UI.WebControls.RequiredFieldValidator rfvRepitaClave;
 
         /// <summary>
-        /// Control lblEstado.
+        /// Control lblEstado2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEstado;
+        protected global::System.Web.UI.WebControls.Label lblEstado2;
 
         /// <summary>
         /// Control btnAceptar.
