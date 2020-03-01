@@ -21,7 +21,7 @@ namespace CapaPresentacion.Usuario
             this.txbNombre.Text = string.Empty;
             this.txbDireccion.Text = string.Empty;
             this.txbTelefono.Text = string.Empty;
-            this.lblEstado2.Text = string.Empty;
+            this.lblEstado.Text = string.Empty;
         }
 
         private void OcultarLbls()
@@ -31,7 +31,7 @@ namespace CapaPresentacion.Usuario
             lblContraseñaSegura.Visible = false;
             //lblDireccion.Visible = false;
             //lblDNI.Visible = false;
-            lblEstado2.Visible = false;
+            lblEstado.Visible = false;
             lblLocalidad.Visible = false;
             //lblNombre.Visible = false;
             lblProvincia.Visible = false;
@@ -54,18 +54,14 @@ namespace CapaPresentacion.Usuario
             return Completo;
         }
 
-        private int TxtCompleto(string txt, ref Label lblMensaje, int MinChar)
+        private int TxtCompleto(string txt, int MinChar)
         {
             int completo = 1;
             if(txt.Length < MinChar)
             {
-                lblMensaje.Visible = true;
                 completo = 0;
             }
-            else
-            {
-                lblMensaje.Visible = false;
-            }
+            
             return completo;
         }
 
@@ -78,6 +74,7 @@ namespace CapaPresentacion.Usuario
             //cualquier caracter del conjunto
             Regex caracEsp = new Regex("[!\"#\\$%&'()*+,-./:;=?@\\[\\]^_`{|}~]");
             lblMensaje.Text = "La contraseña debe contener: letras, números y carácteres especiales";
+            lblMensaje.Visible = true;
             //si no contiene las letras, regresa false
             if (!letras.IsMatch(contraseñaSinVerificar))
             {
@@ -107,13 +104,13 @@ namespace CapaPresentacion.Usuario
             int Cant=0;
             Cant += DdlCompleto(ddlProvincia, ref lblProvincia);
             Cant += DdlCompleto(ddlLocalidad, ref lblLocalidad);
-            //Cant += TxtCompleto(txbDNI.Text, ref lblDNI, 8);
-            //Cant += TxtCompleto(txbNombre.Text, ref lblNombre, 2);
-            //Cant += TxtCompleto(txbApellido.Text, ref lblApellido, 2);
-            //Cant += TxtCompleto(txbTelefono.Text, ref lblTelefono, 10);
-            //Cant += TxtCompleto(txbDireccion.Text, ref lblDireccion, 8);
-            //Cant += TxtCompleto(txbClave.Text, ref lblContraseñaCorta, 8);
-            //Cant += TxtCompleto(txbRepitaClave.Text, ref lblRepetirClaveCorta, 8);
+            Cant += TxtCompleto(txbDNI.Text, 8);
+            Cant += TxtCompleto(txbNombre.Text, 2);
+            Cant += TxtCompleto(txbApellido.Text, 2);
+            Cant += TxtCompleto(txbTelefono.Text, 10);
+            Cant += TxtCompleto(txbDireccion.Text, 8);
+            Cant += TxtCompleto(txbClave.Text, 8);
+            Cant += TxtCompleto(txbRepitaClave.Text, 8);
             Cant += ClaveSegura(txbClave.Text, ref lblContraseñaSegura);
             if (Cant==10)
             {
@@ -130,17 +127,17 @@ namespace CapaPresentacion.Usuario
             dt = obj.BuscarPorDNI(dni);
             if(dt == null)
             {
-                lblEstado2.Text = "El DNI ingresado no esta en la base de datos.";
+                lblEstado.Text = "El DNI ingresado no esta en la base de datos.";
             }
             else
             {
                 if (dt.Rows.Count == 1 && dni.Length > 0)
                 {
                     existe = true;
-                    lblEstado2.Text = "El DNI ingresado ya esta registrado.";
+                    lblEstado.Text = "El DNI ingresado ya esta registrado.";
                 }
             }
-           
+            lblEstado.Visible = true;
             return existe;
         }
         public void CargarDDL_Localidad()
@@ -172,12 +169,9 @@ namespace CapaPresentacion.Usuario
                 CargarDDL_Localidad();
                 limpiarTxt();
                 OcultarLbls();
-                btnAceptar.Enabled = true;
+                btnAceptar.Enabled = false;
             }
-            if(RegistroCompleto())
-            {
-                btnAceptar.Enabled = true;
-            }
+            
         }
 
         protected void btnCancelar_Click(object sender, EventArgs e)
@@ -194,17 +188,20 @@ namespace CapaPresentacion.Usuario
                 if (Obj.Insertar(txbDNI.Text, txbNombre.Text, txbApellido.Text, txbTelefono.Text, Convert.ToInt32(ddlProvincia.SelectedItem.Value), Convert.ToInt32(ddlLocalidad.SelectedItem.Value), txbDireccion.Text, txbClave.Text, 'C'))
                 {
                     limpiarTxt();
-                    lblEstado2.Text = "El registro se insertó con exito";
+                    lblEstado.Text = "El registro se insertó con exito";
+                    lblEstado.Visible = true;
                     Response.Redirect("/Usuario/LogIn.aspx");
                 }
                 else
                 {
-                    lblEstado2.Text = "El registro no se pudo insertar";
+                    lblEstado.Text = "El registro no se pudo insertar";
+                    lblEstado.Visible = true;
                 }
             }
             else
             {
-                lblEstado2.Text = "Datos invalidos, revise los requisitos para cada campo.";
+                lblEstado.Text = "Datos invalidos, revise los requisitos para cada campo.";
+                lblEstado.Visible = true;
             }
 
         }
@@ -212,23 +209,26 @@ namespace CapaPresentacion.Usuario
         {
             if (txbDNI.Text.Trim().Length == 0)
             {
-                btnAceptar.Enabled = true;
-                btnCancelar.Enabled = true;
-                lblEstado2.Text = "txtID esta vacio";
+                btnAceptar.Enabled = false;
+                btnCancelar.Enabled = false;
+                lblEstado.Text = "txtID esta vacio";
+                lblEstado.Visible = true;
             }
             else
             {
                 if (ExisteDNI(txbDNI.Text.ToString()))
                 {
-                    btnAceptar.Enabled = true;
-                    btnCancelar.Enabled = true;
-                    lblEstado2.Text = "El DNI ingresado ya se encuentra registrado";
+                    btnAceptar.Enabled = false;
+                    btnCancelar.Enabled = false;
+                    lblEstado.Text = "El DNI ingresado ya se encuentra registrado";
+                    lblEstado.Visible = true;
                 }
                 else
                 {
-                    btnAceptar.Enabled = true;
+                    btnAceptar.Enabled = true;//solo aparece el boton aceptar o cancelar si se ingresa un dni que no este registrado
                     btnCancelar.Enabled = true;
-                    lblEstado2.Text = "El DNI ingresado no esta registrado como usuario";
+                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario, puede coninuar cargando datos";
+                    lblEstado.Visible = true;
                 }
             }
         }

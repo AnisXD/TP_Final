@@ -24,15 +24,6 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.CheckBox cbFecha;
 
         /// <summary>
-        /// Control FechaInicio.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar FechaInicio;
-
-        /// <summary>
         /// Control TxtFechaInicio.
         /// </summary>
         /// <remarks>
@@ -42,13 +33,13 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.TextBox TxtFechaInicio;
 
         /// <summary>
-        /// Control FechaFin.
+        /// Control TxtFechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar FechaFin;
+        protected global::System.Web.UI.WebControls.TextBox TxtFechaFin;
 
         /// <summary>
         /// Control cbId.

@@ -6,14 +6,17 @@
             width: 200px;
             height: 53px;
         }
+
         .auto-style5 {
             width: 268px;
             height: 53px;
         }
+
         .auto-style6 {
             width: 200px;
             height: 36px;
         }
+
         .auto-style7 {
             width: 268px;
             height: 36px;
@@ -69,8 +72,7 @@
                     <asp:TextBox ID="txbTelefono" runat="server" placeholder="&#128241;Telefono" CssClass="ControlesASP" TextMode="Number"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTelefono" ErrorMessage="El telefono tiene que tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
-                    <%--<asp:Label ID="lblTelefono" runat="server" Text="El Telefono debe tener al menos 10 caracteres." Visible="False"></asp:Label>--%>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ControlToValidate="txbTelefono" ErrorMessage="El telefono tiene que tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <asp:CompareValidator ID="cvTelefono" runat="server" ErrorMessage="Ingrese un numero de telefono." ControlToValidate="txbTelefono" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="rfvTelefono" runat="server" ControlToValidate="txbTelefono" ErrorMessage="Ingrese un Telefono" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
 
@@ -116,7 +118,7 @@
                     <asp:TextBox ID="txbClave" runat="server" placeholder="&#128273;Clave" MaxLength="15" TextMode="Password" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                   <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbClave" ErrorMessage="La clave tiene que tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server" ControlToValidate="txbClave" ErrorMessage="La clave tiene que tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <asp:Label ID="lblContraseñaSegura" runat="server" Text=" " Visible="False"></asp:Label>
                     <asp:RequiredFieldValidator ID="rfvClave" runat="server" ControlToValidate="txbClave" ErrorMessage="Ingrese una Contraseña." SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
@@ -127,7 +129,7 @@
                 <td class="auto-style2">
                     <asp:TextBox ID="txbRepitaClave" runat="server" placeholder="&#128273;Repita la Clave" MaxLength="15" TextMode="Password" CssClass="ControlesASP"></asp:TextBox>
                 </td>
-                <td class="auto-style3">                
+                <td class="auto-style3">
                     <asp:CompareValidator ID="cvRepitaClave" runat="server" ControlToCompare="txbClave" ControlToValidate="txbRepitaClave" ErrorMessage="Las Contraseñas son distintas." SetFocusOnError="True" ValidationGroup="1"></asp:CompareValidator>
                     <asp:RequiredFieldValidator ID="rfvRepitaClave" runat="server" ControlToValidate="txbRepitaClave" ErrorMessage="Ingrese una Contraseña" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
@@ -135,7 +137,7 @@
             <tr>
                 <td style="text-align: center;" class="auto-style6"></td>
                 <td class="auto-style7">
-                    <asp:Label ID="lblEstado2" runat="server"></asp:Label>
+                    <asp:Label ID="lblEstado" runat="server"></asp:Label>
                 </td>
                 <td class="auto-style6"></td>
             </tr>
