@@ -186,7 +186,7 @@ namespace CapaPresentacion.Cliente
         protected void BtnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
         {
             this.Session["Modelo"] = e.CommandArgument;
-            Response.Redirect("./CarritoCliente.aspx");
+            Response.Redirect("~/Cliente/InicioCliente.aspx");
         }
         #endregion
     }

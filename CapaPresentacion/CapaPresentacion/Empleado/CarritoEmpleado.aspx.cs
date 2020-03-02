@@ -172,7 +172,7 @@ namespace CapaPresentacion.Empleado
             dt = obj.BuscarUsuarioPorDNI(dni, 'C');
             if (dt == null)
             {
-                lblRespuesta.Text = "El DNI ingresado no esta registrado como cliente";
+                lblRespuesta.Text = "El DNI ingresado no es cliente";
             }
             else
             {
@@ -243,6 +243,10 @@ namespace CapaPresentacion.Empleado
                         lblPrecio.Text = ddlModelo.SelectedItem.Value;
                         ActualizarDdlCantidad();
                     }
+                    else
+                    {
+                        btnAnadir.Enabled = false;
+                    }
                 }
                 ActualizarTabla();
             }
@@ -284,6 +288,7 @@ namespace CapaPresentacion.Empleado
             //cargar ddlCantidad
             int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
             ActualizarDdlCantidad();
+            btnAnadir.Enabled = true;
         }
 
         protected void btnAnadir_Click(object sender, EventArgs e)
@@ -302,6 +307,7 @@ namespace CapaPresentacion.Empleado
             if (this.Session["Modelo"] != null)
             {
                 this.Session["Modelo"] = null;
+                btnAnadir.Enabled = false;
             }
         }
 

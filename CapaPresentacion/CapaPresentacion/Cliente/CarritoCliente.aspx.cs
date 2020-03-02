@@ -13,16 +13,35 @@ namespace CapaPresentacion.Cliente
     public partial class CarritoCliente : System.Web.UI.Page
     {
         #region Funciones
+
+        public void ActivarBtn_Confirmar_Cancelar()
+        {
+            bttnFinalizarcompra.Enabled = true;
+            bttnCancelarCompra.Enabled = true;
+        }
+        public void DesactivarBtn_Confirmar_Cancelar()
+        {
+            bttnFinalizarcompra.Enabled = false;
+            bttnCancelarCompra.Enabled = false;
+        }
+
         public void ActualizarTabla()
         {
             if (this.Session["Carrito"] == null)
             {
                 grdLista.DataSource = null;
                 grdLista.DataBind();
+                ActualizarTotal();
+                DesactivarBtn_Confirmar_Cancelar();
             }
-            //Asocio el gridview al DataTable
-            grdLista.DataSource = (DataTable)this.Session["Carrito"];
-            grdLista.DataBind();
+            else
+            {
+                //Asocio el gridview al DataTable
+                grdLista.DataSource = (DataTable)this.Session["Carrito"];
+                grdLista.DataBind();
+                ActualizarTotal();
+                ActivarBtn_Confirmar_Cancelar();
+            }
         }
 
         public DataTable crearTabla()
@@ -80,7 +99,7 @@ namespace CapaPresentacion.Cliente
 
                 foreach (DataRow row in Carrito.Rows)
                 {
-                    int Cantidad = int.Parse(row["CANTIDAD"].ToString());
+                    int Cantidad = Convert.ToInt32(row["CANTIDAD"].ToString());
                     float Precio_Unitario = float.Parse(row["PRECIO_UNITARIO"].ToString());
 
                     Monto_Total += Cantidad * Precio_Unitario;
@@ -190,16 +209,18 @@ namespace CapaPresentacion.Cliente
                     CargarDDL_FormaPago();
                     CargarDDL_Modelo();
                     CargarLbl();
+                    LimpiarTxtyLbl();
                     if (this.Session["Modelo"] != null)
                     {
                         BuscarModeloEnDdl(this.Session["Modelo"].ToString());
                         lblPrecio.Text = ddlModelo.SelectedItem.Value;
-                        int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
-                        CargarDdlCantidad(stock);
+                        ActualizarDdlCantidad();
+                    }
+                    else
+                    {
+                        btnAnadir.Enabled = false;
                     }
                 }
-
-                ActualizarTotal();
                 ActualizarTabla();
             }
 
@@ -228,7 +249,6 @@ namespace CapaPresentacion.Cliente
                     lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
                     this.Session["Carrito"] = null;
                     ActualizarTabla();
-                    ActualizarTotal();
                     LimpiarTxtyLbl();
                     txtIdVenta.Text = new NVenta().ObtenerIdVenta().ToString();
                 }
@@ -251,8 +271,6 @@ namespace CapaPresentacion.Cliente
             }
             //si carrito ya tiene la tabla le agrego modelo, cantidad y precio
             AgregarFila((DataTable)(this.Session["Carrito"]));
-            //ACTUAILIZAR lbl total 
-            ActualizarTotal();
             //ACTUAILIZAR GRID LISTA CON LO QUE CARGUE AL CARRITO
             ActualizarTabla();
             //ACTUAILIZAR DDL CANTIDAD
@@ -261,6 +279,7 @@ namespace CapaPresentacion.Cliente
             if (this.Session["Modelo"] != null)
             {
                 this.Session["Modelo"] = null;
+                btnAnadir.Enabled = false;
             }
         }
 
@@ -271,6 +290,7 @@ namespace CapaPresentacion.Cliente
             //cargar ddlCantidad
             int stock = new NCelular().ObtenerStock(ddlModelo.SelectedItem.Text);
             ActualizarDdlCantidad();
+            btnAnadir.Enabled = true;
         }
 
         protected void grdLista_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -290,8 +310,6 @@ namespace CapaPresentacion.Cliente
 
                 if (Carrito.Rows.Count == 0)
                     Carrito = null;
-
-                ActualizarTotal();
 
                 ActualizarTabla();
             }
@@ -317,21 +335,12 @@ namespace CapaPresentacion.Cliente
         protected void bttnCancelarCompra_Click(object sender, EventArgs e)
         {
             this.Session["Carrito"] = null;
-
-            ActualizarTotal();
-
-            ActualizarTabla();
-
-            lblRespuesta.Text = " ";
-
-            lblImporte.Text = "0";
+            Response.Redirect("~/Cliente/CarritoCliente.aspx");
         }
         #endregion
 
         protected void grdLista_RowDeleted(object sender, GridViewDeletedEventArgs e)
         {
-            ActualizarTotal();
-
             ActualizarTabla();
 
         }
@@ -347,9 +356,8 @@ namespace CapaPresentacion.Cliente
             if (Carrito.Rows.Count == 0)
             {
                 this.Session["Carrito"] = null;
+                
             }
-            ActualizarTotal();
-
             ActualizarTabla();
         }
     }
