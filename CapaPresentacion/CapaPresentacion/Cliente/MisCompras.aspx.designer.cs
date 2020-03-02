@@ -15,21 +15,39 @@ namespace CapaPresentacion.Cliente
     {
 
         /// <summary>
-        /// Control LvwCompras.
+        /// Control gvwCompra.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView LvwCompras;
+        protected global::System.Web.UI.WebControls.GridView gvwCompra;
 
         /// <summary>
-        /// Control SqlDataSource1.
+        /// Control lblTotalRegistros.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
+        protected global::System.Web.UI.WebControls.Label lblTotalRegistros;
+
+        /// <summary>
+        /// Control lblDetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblDetalle;
+
+        /// <summary>
+        /// Control gvwDetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvwDetalle;
     }
 }

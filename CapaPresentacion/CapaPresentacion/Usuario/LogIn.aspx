@@ -11,8 +11,8 @@
      <br />
 
      <div style="width:50%;display:inline-grid;">
-        <asp:TextBox ID="txtUsuario" runat="server" placeholder="&#128100;Usuario" MaxLength="8" CssClass="ControlesASP" AutoCompleteType="Search"></asp:TextBox>
-        <asp:TextBox ID="txtClave" runat="server" placeholder="&#128273;Clave" TextMode="Password" MaxLength="8" CssClass="ControlesASP"></asp:TextBox>
+        <asp:TextBox ID="txtUsuario" runat="server" placeholder="&#128100;Usuario" MaxLength="15" CssClass="ControlesASP" AutoCompleteType="Search"></asp:TextBox>
+        <asp:TextBox ID="txtClave" runat="server" placeholder="&#128273;Clave" TextMode="Password" MaxLength="15" CssClass="ControlesASP"></asp:TextBox>
         <asp:Label ID="lblRespuesta" runat="server"></asp:Label>
         <br />
         <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" CssClass="Boton" OnClick="btnIngresar_Click"  />

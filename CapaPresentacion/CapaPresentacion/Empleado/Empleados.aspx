@@ -7,10 +7,10 @@
     <h2>Filtrar por:</h2>
     <div id="Filtros" style="text-align: left;">
 
-        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="Legajo" OnCheckedChanged="cbDNI_CheckedChanged" />
+        <asp:CheckBox ID="cbDNI" runat="server" AutoPostBack="True" Text="Legajo" CssClass="ControlesASP" OnCheckedChanged="cbDNI_CheckedChanged" />
         <asp:TextBox ID="txtDNIF" runat="server" CssClass="ControlesASP"></asp:TextBox>
 
-        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" OnCheckedChanged="CheckBox1_CheckedChanged" />
+        <asp:CheckBox ID="CheckBox1" runat="server" AutoPostBack="True" Text="Apellido" CssClass="ControlesASP" OnCheckedChanged="CheckBox1_CheckedChanged" />
         <asp:TextBox ID="txtApellidos" runat="server" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
 
         <asp:Button ID="btnFiltrar" runat="server" Text="Filtrar" CssClass="Boton" OnClick="btnFiltrar_Click" />
