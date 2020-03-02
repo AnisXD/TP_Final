@@ -40,12 +40,13 @@ namespace CapaPresentacion.Empleado
                             Empleados.Visible = false;
                             Reportes.Visible = false;
                             Ventas.Visible = false;
-
+                            LblRol.Text = "Empleado";
                             break;
                             case "A":
                             Empleados.Visible = true;
                             Reportes.Visible = true;
                             Ventas.Visible = true;
+                            LblRol.Text = "Administrador";
                             break;
                     }
             }

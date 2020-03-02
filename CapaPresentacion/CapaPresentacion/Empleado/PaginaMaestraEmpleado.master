@@ -37,6 +37,8 @@
     <p>&nbsp;</p>
     <asp:Label ID="lblUsuario" runat="server" Text=" " CssClass="LabelBlanca"></asp:Label>
     <p>&nbsp;</p>
+    <asp:Label ID="LblRol" runat="server" Text=" " CssClass="LabelBlanca"></asp:Label>
+    <p>&nbsp;</p>
     <asp:Button ID="btCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="Boton" OnClick="btCerrarSesion_Click" />
     
     <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">

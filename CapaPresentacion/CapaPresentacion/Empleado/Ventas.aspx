@@ -22,6 +22,8 @@
         <asp:DropDownList ID="ddlId" runat="server" AutoPostBack="True" CssClass="ControlesASP" Height="35px" OnSelectedIndexChanged="ddlId_SelectedIndexChanged" Width="95%">
             <asp:ListItem>A determinar</asp:ListItem>
             <asp:ListItem>Cliente</asp:ListItem>
+            <asp:ListItem>Vendedor</asp:ListItem>
+            <asp:ListItem>Mis Ventas</asp:ListItem>
             <asp:ListItem>Todas</asp:ListItem>
         </asp:DropDownList>
 
@@ -37,7 +39,7 @@
 
     <div id="FormReportes" class="Form">
 
-        <h2>Mis Ventas: </h2>
+        <h2>Ventas: </h2>
 
         <asp:GridView ID="gvwVenta" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Width="100%" Font-Size="Small" RowStyle-Height="40px" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvwVenta_SelectedIndexChanged">
             <AlternatingRowStyle BackColor="#DCDCDC" />
@@ -55,7 +57,7 @@
         <asp:Label ID="lblTotalRegistros" runat="server" CssClass="LabelLarga"></asp:Label>
         <br />
 
-        <asp:Label ID="lblTotal" runat="server" Text="Total Recaudado: " CssClass="LabelNegritaLargaCenter"></asp:Label>
+        <asp:Label ID="lblTotal" runat="server" Text="Seleccione una venta para ver su Detalle " CssClass="LabelNegritaLargaCenter"></asp:Label>
 
         <asp:GridView ID="gvwDetalle" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" Width="100%" Font-Size="Small" RowStyle-Height="40px">
             <AlternatingRowStyle BackColor="#DCDCDC" />

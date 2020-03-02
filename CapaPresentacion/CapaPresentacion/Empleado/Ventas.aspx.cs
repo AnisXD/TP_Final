@@ -51,7 +51,7 @@ namespace CapaPresentacion.Empleado
                             tbId.Visible = true;
                         }
 
-                        if (id.Equals("Total Ventas"))
+                        if (id.Equals("Todas"))
                         {
                             tbId.Visible = false;
                         }
@@ -65,6 +65,8 @@ namespace CapaPresentacion.Empleado
                 NVenta Obj = new NVenta();
 
                 lblTotalRegistros.Text = "";
+                lblTotal.Text = "Seleccione una venta para ver su Detalle ";
+                cargarGvwDetalle(null);
 
                 if (cbId.Checked == true && cbFecha.Checked == false)
                 {
@@ -76,10 +78,18 @@ namespace CapaPresentacion.Empleado
                         DNI = tbId.Text;
                         cargarDgv(Obj.MostrarPorCliente(DNI));
                     }
-
-                    if (id.Equals("Total Ventas"))
+                    if (id.Equals("Vendedor"))
+                    {
+                        DNI = tbId.Text;
+                        cargarDgv(Obj.MostrarPorVendedor(DNI));
+                    }
+                    if (id.Equals("Mis Ventas"))
                     {
                          cargarDgv(Obj.MostrarPorVendedor(this.Session["Usuario"].ToString()));
+                    }
+                    if (id.Equals("Todas"))
+                    {
+                        cargarDgv(Obj.Mostrar());
                     }
                 }
                 else if (cbId.Checked == false)
@@ -95,18 +105,24 @@ namespace CapaPresentacion.Empleado
                     string fecha_inicio = TxtFechaInicio.Text;
                     string fecha_fin = TxtFechaFin.Text;
 
-                   
+                    if (id.Equals("Vendedor"))
+                    {
+                        DNI = tbId.Text;
+                        cargarDgv(Obj.MostrarPorVendedorEntreFechas(DNI, fecha_inicio, fecha_fin));
+                        
+                    }
                     if (id.Equals("Cliente"))
                     {
                         DNI = tbId.Text;
-                        cargarDgv(Obj.MostrarPorCliente(DNI));
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwVenta.Rows.Count;
+                        cargarDgv(Obj.MostrarPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin));
                     }
-
-                    if (id.Equals("Total Ventas"))
+                    if (id.Equals("Mis Ventas"))
+                    {
+                        cargarDgv(Obj.MostrarPorVendedorEntreFechas(this.Session["Usuario"].ToString(), fecha_inicio, fecha_fin));
+                    }
+                    if (id.Equals("Todas"))
                     {
                         cargarDgv(Obj.MostrarVentasEntreFechas(fecha_inicio, fecha_fin));
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwVenta.Rows.Count;
                     }
                 }
             }
