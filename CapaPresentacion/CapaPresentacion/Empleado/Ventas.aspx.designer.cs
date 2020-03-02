@@ -24,22 +24,22 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.CheckBox cbFecha;
 
         /// <summary>
-        /// Control FechaInicio.
+        /// Control TxtFechaInicio.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar FechaInicio;
+        protected global::System.Web.UI.WebControls.TextBox TxtFechaInicio;
 
         /// <summary>
-        /// Control FechaFin.
+        /// Control TxtFechaFin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar FechaFin;
+        protected global::System.Web.UI.WebControls.TextBox TxtFechaFin;
 
         /// <summary>
         /// Control cbId.
@@ -87,13 +87,13 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.Button bttnCancelar;
 
         /// <summary>
-        /// Control gvwReporte.
+        /// Control gvwVenta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvwReporte;
+        protected global::System.Web.UI.WebControls.GridView gvwVenta;
 
         /// <summary>
         /// Control lblTotalRegistros.
@@ -112,5 +112,14 @@ namespace CapaPresentacion.Empleado
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblTotal;
+
+        /// <summary>
+        /// Control gvwDetalle.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView gvwDetalle;
     }
 }

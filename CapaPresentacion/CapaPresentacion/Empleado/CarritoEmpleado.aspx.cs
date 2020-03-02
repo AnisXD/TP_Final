@@ -179,7 +179,7 @@ namespace CapaPresentacion.Empleado
                 if (dt.Rows.Count == 1 && dni.Length > 0)
                 {
                     existe = true;
-                    lblRespuesta.Text = "El DNI ingresado ya es cliente";
+                    //lblRespuesta.Text = "El DNI ingresado ya es cliente";
                 }
             }
 
@@ -268,7 +268,7 @@ namespace CapaPresentacion.Empleado
             }
             else
             {
-                txtNombre.Text = "El usuario ingresado no esta registrado como cliente.";
+                txtNombre.Text = "El dni no es cliente";
             }
         }
 
@@ -346,7 +346,7 @@ namespace CapaPresentacion.Empleado
 
                 if (nVenta.Confirmar(txtLegajo.Text, txtDniCliente.Text, char.Parse(ddlFEnvio.SelectedItem.Value), char.Parse(ddlFPago.SelectedItem.Value), float.Parse(lblImporte.Text), ListDetalles))
                 {
-                    lblRespuesta.Text = "Su compra fue confirmada, puede ver el Detalle de su compra en la seccion 'MIS COMPRAS'.";
+                    lblRespuesta.Text = "Su venta fue confirmada, puede ver el Detalle en la seccion 'VENTAS'.";
                     this.Session["Carrito"] = null;
                     ActualizarTabla();
                     LimpiarTxtyLbl();

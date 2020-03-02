@@ -3,6 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadEmpleado" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
+    <p>&nbsp;</p>
     <h2>Filtrar por:</h2>
     <div id="Filtros" style="text-align: left;">
 
@@ -30,7 +31,7 @@
             <SortedDescendingCellStyle BackColor="#D6DFDF" />
             <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
-        <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
+        <asp:Label ID="lblTotalRegistros" runat="server" CssClass="LabelLarga"></asp:Label>
         <br />
         <table>
             <tr>

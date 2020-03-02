@@ -17,12 +17,19 @@ namespace CapaPresentacion.Empleado
             private void cargarDgv(DataTable Ventas)
             {
                 lblTotal.Visible = true;
-                gvwReporte.DataSource = Ventas;
-                gvwReporte.DataBind();
-                lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                gvwVenta.DataSource = Ventas;
+                gvwVenta.DataBind();
+                lblTotalRegistros.Text = "Registros encontrados: " + gvwVenta.Rows.Count;
 
             }
-            protected void Page_Load(object sender, EventArgs e)
+
+            private void cargarGvwDetalle(DataTable Detalle)
+            {
+                lblTotal.Visible = true;
+                gvwDetalle.DataSource = Detalle;
+                gvwDetalle.DataBind();
+            }
+        protected void Page_Load(object sender, EventArgs e)
             {
                 Page.UnobtrusiveValidationMode = System.Web.UI.UnobtrusiveValidationMode.None;
                 if (!IsPostBack)
@@ -64,26 +71,15 @@ namespace CapaPresentacion.Empleado
                     string DNI;
                     string id = ddlId.Text;
 
-                    if (id.Equals("Vendedor"))
-                    {
-                        DNI = tbId.Text;
-                        gvwReporte.DataSource = Obj.MostrarPorVendedor(DNI);
-                        gvwReporte.DataBind();
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
-                    }
-
                     if (id.Equals("Cliente"))
                     {
                         DNI = tbId.Text;
-                        gvwReporte.DataSource = Obj.MostrarPorCliente(DNI);
-                        gvwReporte.DataBind();
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                        cargarDgv(Obj.MostrarPorCliente(DNI));
                     }
 
                     if (id.Equals("Total Ventas"))
                     {
-                        cargarDgv(Obj.Mostrar());
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                         cargarDgv(Obj.MostrarPorVendedor(this.Session["Usuario"].ToString()));
                     }
                 }
                 else if (cbId.Checked == false)
@@ -96,28 +92,21 @@ namespace CapaPresentacion.Empleado
                 {
                     string DNI;
                     string id = ddlId.Text;
-                    string fecha_inicio = FechaInicio.SelectedDate.ToString("yyyy-MM-dd");
-                    string fecha_fin = FechaFin.SelectedDate.ToString("yyyy-MM-dd");
+                    string fecha_inicio = TxtFechaInicio.Text;
+                    string fecha_fin = TxtFechaFin.Text;
 
-                    if (id.Equals("Vendedor"))
-                    {
-                        DNI = tbId.Text;
-                        gvwReporte.DataSource = Obj.MostrarPorVendedorEntreFechas(DNI, fecha_inicio, fecha_fin);
-                        gvwReporte.DataBind();
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
-                    }
+                   
                     if (id.Equals("Cliente"))
                     {
                         DNI = tbId.Text;
-                        gvwReporte.DataSource = Obj.MostrarPorClienteEntreFechas(DNI, fecha_inicio, fecha_fin);
-                        gvwReporte.DataBind();
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                        cargarDgv(Obj.MostrarPorCliente(DNI));
+                        lblTotalRegistros.Text = "Registros encontrados: " + gvwVenta.Rows.Count;
                     }
 
                     if (id.Equals("Total Ventas"))
                     {
                         cargarDgv(Obj.MostrarVentasEntreFechas(fecha_inicio, fecha_fin));
-                        lblTotalRegistros.Text = "Registros encontrados: " + gvwReporte.Rows.Count;
+                        lblTotalRegistros.Text = "Registros encontrados: " + gvwVenta.Rows.Count;
                     }
                 }
             }
@@ -158,6 +147,14 @@ namespace CapaPresentacion.Empleado
                     cbFecha.Checked = false;
                 }
             }
-        
+
+        protected void gvwVenta_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            NVenta Obj = new NVenta();
+            string id= gvwVenta.SelectedRow.Cells[1].Text;
+            lblTotal.Text = "Detalle de venta: " + id;
+            int idvta = Convert.ToInt32(id);
+            cargarGvwDetalle(Obj.MostrarDetalle(idvta));
+        }
     }
 }

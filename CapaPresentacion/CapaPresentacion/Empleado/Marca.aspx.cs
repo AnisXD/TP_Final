@@ -48,13 +48,18 @@ namespace CapaPresentacion.Empleado
            
             if (dt == null)
             {
-                //lblEstado.Text = "La marca ingresada no esta en la base de datos";
+               // lblEstado.Text = "error con procedimiento";
             }
             else
             {
                 if (dt.Rows.Count == 1 && id.Length > 0)
                 {
                     existe = true;
+                    this.txtNombreMarca.Text = dt.Rows[0].ItemArray[1].ToString();
+                }
+                else
+                {
+                    lblEstado.Text = "el ID es nuevo";
                 }
             }
 
@@ -96,7 +101,7 @@ namespace CapaPresentacion.Empleado
                 btnAgregar.Enabled = false;
                 btnEditar.Enabled = false;
                 btnEliminar.Enabled = false;
-                lblEstado.Text = "txtID esta vacio";
+                //txt vacio
             }
             else
             {
@@ -112,7 +117,6 @@ namespace CapaPresentacion.Empleado
                     btnAgregar.Enabled = true;
                     btnEditar.Enabled = false;
                     btnEliminar.Enabled = false;
-                    lblEstado.Text = "El id ingresado es nuevo";
                 }
             }
         }

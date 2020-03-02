@@ -33,6 +33,15 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.Button Inicio;
 
         /// <summary>
+        /// Control Carrito.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Carrito;
+
+        /// <summary>
         /// Control Ventas.
         /// </summary>
         /// <remarks>
@@ -42,13 +51,13 @@ namespace CapaPresentacion.Empleado
         protected global::System.Web.UI.WebControls.Button Ventas;
 
         /// <summary>
-        /// Control Celulares.
+        /// Control Reportes.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Celulares;
+        protected global::System.Web.UI.WebControls.Button Reportes;
 
         /// <summary>
         /// Control Marcas.
@@ -58,6 +67,15 @@ namespace CapaPresentacion.Empleado
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Marcas;
+
+        /// <summary>
+        /// Control Celulares.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button Celulares;
 
         /// <summary>
         /// Control Clientes.
@@ -76,24 +94,6 @@ namespace CapaPresentacion.Empleado
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button Empleados;
-
-        /// <summary>
-        /// Control Carrito.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Carrito;
-
-        /// <summary>
-        /// Control Reportes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Reportes;
 
         /// <summary>
         /// Control ContenidoColIzEmpleado.

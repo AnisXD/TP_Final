@@ -41,7 +41,7 @@
             <SortedDescendingHeaderStyle BackColor="#002876" />
         </asp:GridView>
 
-        <asp:Label ID="lblTotalRegistros" runat="server"></asp:Label>
+        <asp:Label ID="lblTotalRegistros" runat="server" CssClass="LabelLarga"></asp:Label>
 
         <table>
             <tr>

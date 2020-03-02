@@ -28,7 +28,7 @@ namespace CapaDatos
                 idmarca = id
             };
             ParametroIdMarca(ref cmd, obj);
-            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarMarcaPorId"); ;
+            return cn.ObtenerTablaPorProcedimiento(ref cmd, "MostrarMarcasPorId"); ;
         }
 
         public DataTable MostrarPorNombre(string nombre)

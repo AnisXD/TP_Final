@@ -3,48 +3,43 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <title>-Empleados</title>
     <asp:ContentPlaceHolder ID="HeadEmpleado" runat="server">
-
     </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoBarraHorizontal" runat="server">
- 
-        <asp:Button ID="Inicio"     runat="server" Text="Inicio"    CssClass="BotonBH" OnClick="Inicio_Click" />
-        <asp:Button ID="Ventas"     runat="server" Text="Ventas"    CssClass="BotonBH" OnClick="Ventas_Click" />
-        <asp:Button ID="Celulares"  runat="server" Text="Celulares" CssClass="BotonBH" OnClick="Celulares_Click"  />
-        <asp:Button ID="Marcas"     runat="server" Text="Marcas"    CssClass="BotonBH" OnClick="Marcas_Click"  />
-        <asp:Button ID="Clientes"   runat="server" Text="Clientes"  CssClass="BotonBH" OnClick="Clientes_Click"/>
-        <asp:Button ID="Empleados"  runat="server" Text="Empleados" CssClass="BotonBH" OnClick="Empleados_Click" />
-        <asp:Button ID="Carrito"    runat="server" Text="Carrito"   CssClass="BotonBH" OnClick="Carrito_Click" />
-        <asp:Button ID="Reportes"   runat="server" Text="Reportes"  CssClass="BotonBH" OnClick="Reportes_Click" />
+
+    <asp:Button ID="Inicio" runat="server" Text="Inicio" CssClass="BotonBH" OnClick="Inicio_Click" />
+    <asp:Button ID="Carrito" runat="server" Text="Carrito" CssClass="BotonBH" OnClick="Carrito_Click" />
+    <asp:Button ID="Ventas" runat="server" Text="Ventas" CssClass="BotonBH" OnClick="Ventas_Click" />
+    <asp:Button ID="Reportes" runat="server" Text="Reportes" CssClass="BotonBH" OnClick="Reportes_Click" />
+    <asp:Button ID="Marcas" runat="server" Text="Marcas" CssClass="BotonBH" OnClick="Marcas_Click" />
+    <asp:Button ID="Celulares" runat="server" Text="Celulares" CssClass="BotonBH" OnClick="Celulares_Click" />
+    <asp:Button ID="Clientes" runat="server" Text="Clientes" CssClass="BotonBH" OnClick="Clientes_Click" />
+    <asp:Button ID="Empleados" runat="server" Text="Empleados" CssClass="BotonBH" OnClick="Empleados_Click" />
 
 </asp:Content>
 
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColIz" runat="server">
     <asp:ContentPlaceHolder ID="ContenidoColIzEmpleado" runat="server">
-
     </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="Content4" ContentPlaceHolderID="ContenidoColPpal" runat="server">
     <h1>Empleado</h1>
     <asp:ContentPlaceHolder ID="ContenidoColPpalEmpleado" runat="server">
-      
     </asp:ContentPlaceHolder>
 </asp:Content>
 
 <asp:Content ID="Content5" ContentPlaceHolderID="ContenidoColDer" runat="server">
-    
+
     <p>&nbsp;</p>
     <h2>Bienvenid@</h2>
-    <br>
+    <p>&nbsp;</p>
     <asp:Label ID="lblUsuario" runat="server" Text=" " CssClass="LabelBlanca"></asp:Label>
-    <br>
-    <asp:Button ID="btCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="Boton" OnClick="btCerrarSesion_Click"/>
-    <br /> 
-
-   <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">
-       
-   </asp:ContentPlaceHolder>
+    <p>&nbsp;</p>
+    <asp:Button ID="btCerrarSesion" runat="server" Text="Cerrar Sesion" CssClass="Boton" OnClick="btCerrarSesion_Click" />
+    
+    <asp:ContentPlaceHolder ID="ContenidoColDerEmpleado" runat="server">
+    </asp:ContentPlaceHolder>
 
 </asp:Content>

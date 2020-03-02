@@ -35,12 +35,12 @@
                 <td style="text-align: center;" class="auto-style1">DNI:
                 </td>
                 <td class="auto-style2">
-                    <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True" MaxLength="9"></asp:TextBox>
+                    <asp:TextBox ID="txbDNI" runat="server" placeholder="&#127915;DNI" CssClass="ControlesASP" OnTextChanged="txbDNI_TextChanged" TextMode="Number" CausesValidation="True" MaxLength="9" AutoPostBack="True"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
-                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbDNI" ErrorMessage="DNI tiene que tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
-                    <asp:CompareValidator ID="cvDni" runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
-                    <asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txbDNI" ErrorMessage="Ingrese un numero de Documento" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ControlToValidate="txbDNI" ErrorMessage="DNI debe tener minimo 8 caracteres" ValidationExpression=".{8}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
+                    <br /><asp:CompareValidator ID="cvDni" runat="server" ErrorMessage="Ingrese un numero de Documento." ControlToValidate="txbDNI" Operator="DataTypeCheck" Type="Integer" ValidationGroup="1"></asp:CompareValidator>
+                    <br /><asp:RequiredFieldValidator ID="rfvDni" runat="server" ControlToValidate="txbDNI" ErrorMessage="Ingrese un numero de Documento" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
             </tr>
             <tr>
@@ -50,6 +50,7 @@
                     <asp:TextBox ID="txbNombre" runat="server" placeholder="&#128100;Nombre" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server" ControlToValidate="txbNombre" ErrorMessage="Nombre debe tener minimo 3 caracteres" ValidationExpression=".{3}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <asp:RegularExpressionValidator ID="revNombre" runat="server" ControlToValidate="txbNombre" ErrorMessage="Ingrese un Nombre." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="rfvNombre" runat="server" ControlToValidate="txbNombre" ErrorMessage="Ingrese un Nombre" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>
@@ -61,6 +62,7 @@
                     <asp:TextBox ID="txbApellido" runat="server" placeholder="&#128100;Apellido" CssClass="ControlesASP" Style="text-transform: uppercase"></asp:TextBox>
                 </td>
                 <td class="auto-style3">
+                    <asp:RegularExpressionValidator ID="RegularExpressionValidator6" runat="server" ControlToValidate="txbApellido" ErrorMessage="Apellido debe tener minimo 3 caracteres" ValidationExpression=".{3}.*" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <asp:RegularExpressionValidator ID="revApellido" runat="server" ControlToValidate="txbApellido" ErrorMessage="Ingrese un Apellido." ValidationExpression="^[a-zA-Z ]*$" ValidationGroup="1"></asp:RegularExpressionValidator>
                     <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txbApellido" ErrorMessage="Ingrese un Apellido" SetFocusOnError="true" ValidationGroup="1"></asp:RequiredFieldValidator>
                 </td>

@@ -227,7 +227,7 @@ namespace CapaPresentacion.Usuario
                 {
                     btnAceptar.Enabled = true;//solo aparece el boton aceptar o cancelar si se ingresa un dni que no este registrado
                     btnCancelar.Enabled = true;
-                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario, puede coninuar cargando datos";
+                    lblEstado.Text = "El DNI ingresado no esta registrado como usuario, puede continuar cargando datos";
                     lblEstado.Visible = true;
                 }
             }

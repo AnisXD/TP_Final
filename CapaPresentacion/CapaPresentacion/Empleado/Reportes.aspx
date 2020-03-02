@@ -5,16 +5,17 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContenidoColIzEmpleado" runat="server">
     <p>&nbsp;</p>
     <h2>Total recaudado por: </h2>
-   
+
     <div id="Filtro" style="text-align: left;">
 
         <asp:CheckBox ID="cbFecha" runat="server" Text="Fecha" CssClass="ControlesASP" AutoPostBack="True" OnCheckedChanged="cbFecha_CheckedChanged" />
 
-        
         Desde:<asp:TextBox ID="TxtFechaInicio" runat="server" TextMode="Date"></asp:TextBox>
         <br />
         <br />
-        Hasta: <asp:TextBox ID="TxtFechaFin" runat="server" TextMode="Date"></asp:TextBox>
+
+        Hasta:
+        <asp:TextBox ID="TxtFechaFin" runat="server" TextMode="Date"></asp:TextBox>
         <br />
 
         <asp:CheckBox ID="cbId" runat="server" CssClass="ControlesASP" Text="Id" AutoPostBack="True" Height="22px" OnCheckedChanged="cbId_CheckedChanged" />
@@ -30,12 +31,10 @@
         </asp:DropDownList>
 
         <asp:TextBox ID="tbId" runat="server" CssClass="ControlesASP" Width="95%"></asp:TextBox>
-        <br />
-
+        
         <asp:DropDownList ID="ddlMM" runat="server" CssClass="ControlesASP" Height="35px" Width="95%">
             <asp:ListItem>A determinar</asp:ListItem>
         </asp:DropDownList>
-        <br />
 
         <asp:Button ID="bttnAceptar" runat="server" CssClass="Boton" Text="Aceptar" OnClick="bttnAceptar_Click" />
         <asp:Button ID="bttnCancelar" runat="server" CssClass="Boton" Text="Cancelar" OnClick="bttnCancelar_Click" />
@@ -46,11 +45,10 @@
 <asp:Content ID="Content3" ContentPlaceHolderID="ContenidoColPpalEmpleado" runat="server">
 
     <div id="FormReportes" class="Form">
-         
+
         <h2>Reportes: </h2>
-        
-        <br />
-        <asp:GridView ID="gvwReporte" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" HorizontalAlign="Center" Width="100%" Font-Size="Small">
+
+        <asp:GridView ID="gvwReporte" runat="server" BackColor="White" BorderColor="#999999" BorderStyle="None" BorderWidth="1px" CellPadding="3" GridLines="Vertical" HorizontalAlign="Center" Width="100%" Font-Size="Small" RowStyle-Height="40px">
             <AlternatingRowStyle BackColor="#DCDCDC" />
             <FooterStyle BackColor="#CCCCCC" ForeColor="Black" />
             <HeaderStyle BackColor="#000084" Font-Bold="True" ForeColor="White" />
